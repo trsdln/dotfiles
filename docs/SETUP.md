@@ -1,25 +1,23 @@
 ## Setup
 
-1. Clone this repo
-2. Link configs (if you already have configs, do unlink operation first)
+1. Clone this repo into `~/.dotfiles`
+2. Link configs
 3. Specify iTerm2 configuration path manually in preferences
-
-Note: Don't move config repo. If you moved it then do steps 2 and 3 again.
 
 ### Linking
 
-Links configs to `~` directory
+Links all dot files to home directory
 
 ```
-./link.sh
+./configs-link
 ```
 
 ### Unlinking
 
-Removes configs from `~` directory
+Removes all dot files links
 
 ```
-./link.sh unlink
+./configs-link unlink
 ```
 
 ## Zsh/VIM/TMUX setup
