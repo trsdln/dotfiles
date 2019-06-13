@@ -470,13 +470,13 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>1642 145 606 469 1280 0 1920 1080 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>1988 519 937 514 1280 0 1920 1080 </string>
+	<string>1988 499 796 486 1280 0 1920 1057 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>1435 473 592 584 1280 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1804 418 810 502 1280 0 1920 1080 </string>
+	<string>1623 374 810 502 1280 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>1547 192 810 502 1280 0 1920 1080 </string>
+	<string>131 152 810 502 0 0 1280 800 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>-1672 142 665 502 -1920 0 1920 1057 </string>
 	<key>NeverWarnAboutShortLivedSessions_A36C60A1-F9CA-496A-BE59-6F4B930737D5</key>
@@ -2829,7 +2829,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/taras/.configs/</string>
+	<string>/Users/taras/.dotfiles/</string>
 	<key>Print In Black And White</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -2851,7 +2851,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-05-21T16:24:26Z</date>
+	<date>2019-06-13T17:38:21Z</date>
 	<key>SUSkippedVersion</key>
 	<string>3.0.4</string>
 	<key>SavePasteHistory</key>
