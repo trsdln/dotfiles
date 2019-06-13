@@ -47,6 +47,7 @@ function _main {
 
   # doesn't seem like ctags works with links
   mkdir -p .ctags.d/
+  mkdir -p .vim/
 
   echo "Processing links at '$(echo ~)' ..."
 
