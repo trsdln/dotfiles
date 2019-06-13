@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Keep this file as minimal as possible,
+# so we ran latest versions
+# of scripts after upgrade
+
+CONFIGS_BIN_DIR=$(dirname "$0")
+
+source ${CONFIGS_BIN_DIR}/common/dev-env-open-base.sh
+
+# Update only on first run
+if [ "${VIM_SESSION_EXISTS}" -eq 1 ]; then
+  ${CONFIGS_BIN_DIR}/configs-update
+fi
+
+dev_env_open_base

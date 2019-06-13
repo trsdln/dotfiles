@@ -1,0 +1,72 @@
+#!/bin/bash
+
+# Figure out where configs are located
+CONFIGS_ROOT_DIR=$(cd $(dirname "$0")/.. && pwd)
+
+# format: "link_name:path_to_original"
+LINK_MAP=(
+  ".configs:${CONFIGS_ROOT_DIR}"
+
+  # Zprezto
+  ".zshrc:./.configs/zsh/zpreztorc.zsh"
+
+  # Vim Configs
+  ".vimrc:./.configs/vim/vimrc.vim"
+  ".vim/plugin:../.configs/vim/plugin"
+  ".vim/after:../.configs/vim/after"
+  ".vim/syntax:../.configs/vim/syntax"
+  ".vim/ftdetect:../.configs/vim/ftdetect"
+
+  # Misc
+  ".tmux.conf:./.configs/tmux.conf"
+  ".gitconfig:./.configs/.gitconfig"
+  ".rgignore:./.configs/.rgignore"
+  ".ctags.d/javascript.ctags:../.configs/ctags.d/javascript.ctags"
+  ".ctags.d/exclusion.ctags:../.configs/ctags.d/exclusion.ctags"
+  ".terminfo:./.configs/terminfo"
+)
+
+function _create_link {
+  if [ -e "$2" ]; then
+    echo "Already exists"
+  else
+    [[ "${CONFIGS_DEBUG}" != "true" ]] && ln -s "$1" $2
+    echo "Success"
+  fi
+}
+
+function _remove_link {
+  [[ "${CONFIGS_DEBUG}" != "true" ]] && rm $1
+  echo "Removed"
+}
+
+function _main {
+  cd ~
+
+  # doesn't seem like ctags works with links
+  mkdir -p .ctags.d/
+
+  echo "Processing links at '$(echo ~)' ..."
+
+  if [ "${CONFIGS_DEBUG}" == "true" ]; then
+    echo "WARNING: Dry run enabled!"
+  fi
+
+  local unlink_param=$1
+
+  for link_entry in "${LINK_MAP[@]}" ; do
+    local link_name="${link_entry%%:*}"
+    local link_path="${link_entry##*:}"
+    printf "%s > %s : " "${link_name}" "${link_path}"
+
+    if [ "${unlink_param}" == "unlink" ]; then
+      _remove_link ${link_name}
+    else
+      _create_link "${link_path}" ${link_name}
+    fi
+  done
+
+  echo "Done!"
+}
+
+_main $@

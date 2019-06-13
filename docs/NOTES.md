@@ -1,0 +1,250 @@
+# Misc Notes
+
+Small cheat sheet for various plugins and standard features.
+
+## Tmux
+
+* `C-b <space>`  - change layout
+* `C-b ~`        - show previous messages from Tmux
+
+### Text Selection
+
+* `C-b [`    - selection/view mode
+
+Then in selection mode:
+
+* `<space>`  - start/reset selection
+* `C-v`      - toggle between block/line selection modes
+
+Note: most of vim's monitions work as well obviously
+
+## Vanilla Vim
+
+### Window Shortcuts
+
+* `C-W r`       - "rotate" split
+* `C-W o`       - maximize window i.e. `:only`
+* `C-W T`       - move window to new tab
+
+### Buffer Navigation
+
+* `C-o`  - move to previous position at jump list
+* `C-i`  - move to next position at jump list
+* `gn`   - select current/next search match visually
+* `gi`   - go to last change from insert mode and switch into it
+* `g;`   - go previous item at change list
+* `g,`   - go next item at change list
+* `n`    - next search match
+* `N`    - previous search match
+
+### Misc
+
+* `C-a`         - increase number under cursor
+* `C-x`         - decrease number under cursor
+* `z=`          - spell suggestion
+* `zi`          - toggle fold (enable/disable)
+* `zo`          - open fold
+* `zc`          - close fold
+* `zf{motion}`  - create a fold
+* `gv`          - restore last visual mode selection
+* `=`           - fix indentation
+* `&`           - repeat last substitute command
+* `g&`          - repeat last substitute with `%` range
+* `@@`          - repeat last macros
+* `@:`          - repeat last Ex command
+* `q:`          - Ex command history
+* `q/`/`q?`     - search history
+
+### Motions
+
+* `g0`, `g$` - wrap wise versions of 0 and $
+* `L`        - move cursor low relative to screen
+* `H`        - move cursor high relative to screen
+* `M`        - move cursor middle relative to screen
+* `/`        - search; can be used with any operator!
+* `` ` ` ``  - position before last jump
+* `` `. ``   - position of last change
+* `ge`/`gE`  - end of previous word/WORD
+* `gn`       - next search match
+
+### Insert/Command Mode Shortcuts
+
+* `C-H`            - delete last character
+* `C-W`            - delete word
+* `C-R{register}`  - paste value from specified register
+* `C-[`            - leave Insert mode
+* `C-O`            - leave Insert mode for single key input and go back
+
+### Visual Mode Shortcuts
+
+* `o` - go to other end of selection
+
+### Command Mode
+
+* `:tabm #`       - move tab to #th position (starts from 0). If # is omitted tab is moved to last position by default.
+* `:t {address}`  - move line to {address}
+* `:c {address}`  - copy line to {address}
+* `<C-R><C-W>`    - copy current word to command line
+* `:norm!@a`      - when you need to apply a macro to many lines at once select
+  lines with V and type to apply the macro to each selected line.
+
+### Registers
+
+* `"`      - default register
+* `_`      - "black-hole"
+* `0`      - last yanked text
+* `a`-`z`  - general purpose registers
+* `/`      - last search pattern (useful for reusing with `:substitute` command)
+* `.`      - last inserted text
+* `:`      - last Ex command
+* `%`/`#`  - current/alternative file name
+* `+`      - system clipboard
+* `=`      - VimScript expression register
+
+#### Range addresses
+
+* `.`            - current line
+* `$`            - last line
+* `1`            - first line
+* `0`            - "virtual" line before first
+* `%`            - whole file e.g. alias to `1,$`
+* `addr1;addr2`  - addr2 is relative to addr1
+
+#### Replace commands
+
+* `:{range}s/{exp}/{str}/{flags}`  - make substitution
+* `:{range}~{flags}` / `:{range}&r{flags}`    - repeat with last search pattern
+* `:{range}&&{flags}`                         - repeat with new range and same flags
+
+#### Replace Command Flags
+
+* `&`  - flags from previous substitute (always goes first)
+* `g`  - all matches at the line (without only first is replaced)
+* `i`  - case insensitive
+* `c`  - confirmation for each replacement
+* `e`  - move cursor to the end of match
+* `n`  - do not perform substitution just count matches
+
+### Using column mode (like multi-cursor)
+
+* Ctrl + V to go into column mode
+* Select the columns and rows where you want to enter your text
+* Shift + i to go into insert mode in column mode
+* Type in the text you want to enter. Don't be discouraged by the fact that
+  only the first row is changed.
+* Esc to apply your change (or alternately Ctrl+c - to partially cancel changes)
+
+### Quickfix/Location list
+
+* `:cnext`/`:cprevious`  - switch to next previous file list
+* `:cnfile`/`:cpfile`    - switch to next previous file list
+* `:cc N`/`:ll N`        - go to Nth match
+* `:cdo {cmd}`           - execute Ex command for each match
+* `:cfdo {cmd}`          - execute Ex command for each file
+* `:cwindow`             - open window
+* `:colder`/`:cnewer`    - switch to older/newer Quickfix list
+* `<CR>`                 - open current file from list at previous window
+
+### Commands for viewing Vim's state
+
+* `:ls`         - list of buffers
+* `:args`       - list of arguments
+* `:jumps`      - jump history
+* `:changes`    - list of made changes
+* `:marks`      - list of marks
+* `:registers`  - list registers' contents
+
+### Autocompletion shortcuts
+
+* `C-y`     - accept current option
+* `C-e`     - revert to initial text
+* `C-l`     - add one character from current match
+* `C-h`     - remove one character from current match
+* `C-xC-o`  - omni-completion (context aware; available for JS/CSS/HTML)
+* `C-nC-p`  - back to original with ability to filter options
+* `C-xC-n`  - can by used to copy sequence of text somewhere at document if
+  used sequentially multiple times
+
+## VIM Plugins
+
+### Fugitive
+
+:Gread               - checkout file version from HEAD
+:Gdiff               - 2 or 3way diff, depending on context
+:diffget //2 or //3  - apply theirs/ours (at working copy buffer - middle one)
+
+### GV
+
+Git log extension for vim-fugitive:
+
+* `GV`  - open commit history (support `git log` options)
+* `GV!` - open commit history for current file
+
+### Gutentags
+
+:GutentagsUpdate! - Rebuild tags for whole project
+
+### Ack
+
+Syntax:
+
+`Ack [options] {pattern} [directory]`
+
+Options:
+
+* `-s`            - case sensitive;
+* `-i`            - case insensitive;
+* `-S`            - smart case by default;
+* `-G {pattern}`  - filter filenames by pattern.
+
+Hack: close unclosed empty buffer `:bw`
+
+#### Find and replace at multiple files
+
+* using Ag [from](https://stackoverflow.com/a/37731274/4046380):
+
+```sh
+ag -l "search string" | xargs sed -i '' -e 's/from/to/g'
+```
+
+* at all files from QuickFix list:
+
+```vim
+cdo %s/<search term>/<replace term>/cg
+```
+
+### Commentary
+
+Commands:
+
+* `gc{motion}`  - comment
+* `gcc`         - uncomment
+
+### Expand Region
+
+Use `+` / `-` to expand/shrink visual selection
+
+### System Copy
+
+* cp{motion} - copy
+* cv - paste at next line
+* cP - copy whole line
+
+### Spelunker
+
+* Zl - fix word under cursor
+* ZL - fix all misspelling at file
+
+### Abolish coercion
+
+* `crc` - to `camelCase`
+* `crm` - to `MixedCase`
+* `cru` - to `CONSTANT_CASE`
+* `crs` - to `snake_case`
+
+### JS Auto Import
+
+* `<leader>ig` - go to definition
+* `<leader>is` - sort imports
+* `<leader>ic` - clean imports
+* `<leader>if` - clean imports

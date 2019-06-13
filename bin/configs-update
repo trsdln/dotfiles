@@ -1,0 +1,21 @@
+#!/bin/bash
+
+CONFIGS_BIN_DIR=$(dirname "$0")
+
+echo " = Updating configs = "
+pushd ${CONFIGS_BIN_DIR}
+
+echo "Unlink old configs"
+[[ "${CONFIGS_DEBUG}" != "true" ]] && ./configs-link unlink
+
+echo "Updating configs repo"
+if [ "${CONFIGS_DEBUG}" != "true" ]; then
+  git fetch --prune
+  git pull
+fi
+
+echo "Link new configs"
+[[ "${CONFIGS_DEBUG}" != "true" ]] && ./configs-link
+
+echo " = Update finished! = "
+popd

@@ -1,0 +1,5 @@
+.git/
+.db/
+.dump/
+node_modules/
+.meteor/local/

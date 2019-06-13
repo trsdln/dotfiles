@@ -1,0 +1,67 @@
+# Reduce delay for vi mode at zsh
+export KEYTIMEOUT=1
+
+export EDITOR='vim'
+
+# Load machine specific configs
+[ -f ~/.zsh_specific ] && source ~/.zsh_specific
+
+function android-screenshot {
+  local file_name=~/Desktop/__android_screenshot.png
+  rm -f ${file_name}
+  adb shell screencap -p > ${file_name}
+}
+
+# Commit with random funny message
+alias yolo='git commit --no-verify -m "$(curl -s https://whatthecommit.com/index.txt)"'
+
+# Easy re-sourcing of config
+alias reload='source ~/.zshrc'
+
+# Ensure apps installed by brew are resolved first
+# (before system default) e.g. vim
+export PATH="$(echo ~/.configs/bin):/usr/local/bin:$PATH"
+
+
+# Setup fzf
+# ---------
+if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
+  export PATH="$PATH:/usr/local/opt/fzf/bin"
+fi
+
+# Auto-completion
+[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
+
+# Key bindings
+source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+
+export FZF_DEFAULT_COMMAND='rg --files --hidden'
+export FZF_CTRL_T_COMMAND=${FZF_DEFAULT_COMMAND}
+
+_gen_fzf_default_opts() {
+  local base03="234"
+  local base02="235"
+  local base01="240"
+  local base00="241"
+  local base0="244"
+  local base1="245"
+  local base2="254"
+  local base3="230"
+  local yellow="136"
+  local orange="166"
+  local red="160"
+  local magenta="125"
+  local violet="61"
+  local blue="33"
+  local cyan="37"
+  local green="64"
+
+  # Solarized Dark color scheme for fzf
+  export FZF_DEFAULT_OPTS="
+    --color fg:-1,bg:-1,hl:$blue,fg+:$base2,bg+:$base02,hl+:$blue
+    --color info:$yellow,prompt:$yellow,pointer:$base3,marker:$base3,spinner:$yellow
+  "
+}
+_gen_fzf_default_opts
+
+export FZF_CTRL_R_OPTS='--sort'

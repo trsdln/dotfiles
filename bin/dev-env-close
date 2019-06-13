@@ -1,0 +1,11 @@
+#!/bin/bash
+
+. $(dirname "$0")/common/dev-env-vars.sh
+
+tmux ls
+echo "================================"
+tmux kill-session -t ${VIM_SESSION}
+tmux kill-session -t ${SERVERS_SESSION}
+tmux ls
+echo "================================"
+echo "Done!"
