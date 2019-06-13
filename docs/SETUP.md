@@ -30,11 +30,11 @@ Removes configs from `~` directory
 git clone --recursive git@github.com:trsdln/prezto.git "${HOME}/.zprezto"
 ```
 
-1. Install Universal Ctags, Silver Searcher and Vim with python3 support
+1. Install Universal Ctags, Ripgrep and Vim with python3 support
 
 ```
 brew install --HEAD universal-ctags/universal-ctags/universal-ctags
-brew install vim the_silver_searcher fzf
+brew install vim ripgrep fzf
 brew install tmux reattach-to-user-namespace tmux-mem-cpu-load
 ```
 
