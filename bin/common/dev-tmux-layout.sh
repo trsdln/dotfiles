@@ -73,8 +73,8 @@ function configure_vim_session {
   tmux rename-window "apps-vim"
 
   # Open wim with my configs at second window
-  tmux new-window -t ${session_name}:2 -n 'configs-vim'
-  tmux send-keys "cd ~/.configs && vi ." ${EXEC_KEY}
+  tmux new-window -t ${session_name}:2 -n 'dotfiles-vim'
+  tmux send-keys "cd ${DOTFILES_PATH} && vi ." ${EXEC_KEY}
 
   # Finally go back to project Vim
   tmux select-window -t ${session_name}:1

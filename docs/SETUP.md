@@ -42,7 +42,7 @@ brew install tmux reattach-to-user-namespace tmux-mem-cpu-load
 
 ```
 # .zsh_specific
-PATH="$(echo ~/.configs/bin):/usr/local/bin:$PATH"
+PATH="/usr/local/bin:$PATH"
 ```
 
 4. Start vim and install plugins itself

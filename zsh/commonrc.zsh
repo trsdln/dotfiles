@@ -20,7 +20,7 @@ alias reload='source ~/.zshrc'
 
 # Ensure apps installed by brew are resolved first
 # (before system default) e.g. vim
-export PATH="$(echo ~/.configs/bin):/usr/local/bin:$PATH"
+export PATH="${DOTFILES_PATH}/bin:/usr/local/bin:$PATH"
 
 
 # Setup fzf
