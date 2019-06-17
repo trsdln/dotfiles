@@ -3,3 +3,6 @@
 .dump/
 node_modules/
 .meteor/local/
+build/
+.tags
+.tags.*
