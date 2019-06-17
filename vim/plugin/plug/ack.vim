@@ -3,7 +3,7 @@
 " Use ripgrep if available
 if executable('rg')
   " I want to search hidden files (excluding .git of course)
-  let g:ackprg = 'rg --sort path --vimgrep --hidden'
+  let g:ackprg = 'rg --sort path --vimgrep --hidden --no-ignore-vcs'
 else
   echoerr "ripgrep executable not found!"
 endif
