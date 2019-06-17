@@ -192,10 +192,10 @@ Syntax:
 
 Options:
 
-* `-s`            - case sensitive;
-* `-i`            - case insensitive;
-* `-S`            - smart case by default;
-* `-G {pattern}`  - filter filenames by pattern.
+* `-s`         - case sensitive;
+* `-i`         - case insensitive;
+* `-S`         - smart case by default;
+* `-g {glob}`  - filter filenames by pattern.
 
 Hack: close unclosed empty buffer `:bw`
 
