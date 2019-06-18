@@ -166,7 +166,9 @@ set showmatch
 set noerrorbells
 set novisualbell
 set t_vb=
-set tm=500
+
+" Eliminate delay after <esc>
+set timeoutlen=500 ttimeoutlen=0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
