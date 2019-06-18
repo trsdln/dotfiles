@@ -1,19 +1,6 @@
-nnoremap <leader>ac :CleanEmptyBuffers<cr>
 nnoremap <leader>cc :CleanHiddenBuffers<cr>
 
-command CleanEmptyBuffers call s:CleanEmptyBuffers()
-
-" Similar to CleanEmptyBuffers. May end up leaving only this one
 command CleanHiddenBuffers call s:CleanHiddenBuffers()
-
-function! s:CleanEmptyBuffers()
-    let bufs=filter(range(1, bufnr('$')), 'bufexists(v:val) && '.
-                                          \'empty(getbufvar(v:val, "&buftype")) && '.
-                                          \'!filereadable(bufname(v:val))')
-    if !empty(bufs)
-        execute 'bwipeout' join(bufs)
-    endif
-endfunction
 
 function! s:CleanHiddenBuffers()
     let tpbl=[]
