@@ -1,10 +1,10 @@
 ack.vim//36e40f9ec91bdbf6f1adf408522a73a6925c3042
-ale//6e28eec243c4df3cf3b67bac9f87fdd30c846cbd
+ale//1c71da5624fc46107cda4852add08fe34385dfd9
 delimitMate//728b57a6564c1d2bdfb9b9e0f2f8c5ba3d7e0c5c
 fzf.vim//91ed5f4b39b6e4a2ca50be1c8cec7e1148145fab
 gv.vim//3296bbf58d2ca38f12595cbfefd4816dd19f3fb5
 lightline.vim//80c242c3c5394fd5143b5d7e2741989ba04ae46a
-spelunker.vim//f7a2ec5bb00661ce002b7d29e2ce00b0fe2b34c7
+spelunker.vim//de128ddf2f7fe6c3342f5c84cba6f5e8ed8f2113
 tabular//339091ac4dd1f17e225fe7d57b48aff55f99b23a
 vim-abolish//b95463a1cffd8fc9aff2a1ff0ae9327944948699
 vim-commentary//141d9d32a9fb58fe474fcc89cd7221eb2dd57b3a
