@@ -196,6 +196,7 @@ Options:
 * `-i`         - case insensitive;
 * `-S`         - smart case by default;
 * `-g {glob}`  - filter filenames by pattern.
+* `-w`         - match words i.e. '\b{pattern}\b'
 
 Hack: close unclosed empty buffer `:bw`
 

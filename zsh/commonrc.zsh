@@ -22,6 +22,8 @@ alias reload='source ~/.zshrc'
 # (before system default) e.g. vim
 export PATH="${DOTFILES_PATH}/bin:/usr/local/bin:$PATH"
 
+# Setup ripgrep
+export RIPGREP_CONFIG_PATH="${DOTFILES_PATH}/.ripgreprc"
 
 # Setup fzf
 # ---------
@@ -35,7 +37,7 @@ fi
 # Key bindings
 source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 
-export FZF_DEFAULT_COMMAND='rg --files --hidden --no-ignore-vcs'
+export FZF_DEFAULT_COMMAND='rg --files'
 export FZF_CTRL_T_COMMAND=${FZF_DEFAULT_COMMAND}
 
 _gen_fzf_default_opts() {

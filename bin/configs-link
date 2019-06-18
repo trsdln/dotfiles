@@ -22,7 +22,6 @@ LINK_MAP=(
   # Misc
   ".tmux.conf:./${DOTFILES_DIR_NAME}/tmux.conf"
   ".gitconfig:./${DOTFILES_DIR_NAME}/.gitconfig"
-  ".rgignore:./${DOTFILES_DIR_NAME}/.rgignore"
   ".ctags.d/javascript.ctags:../${DOTFILES_DIR_NAME}/ctags.d/javascript.ctags"
   ".ctags.d/exclusion.ctags:../${DOTFILES_DIR_NAME}/ctags.d/exclusion.ctags"
   ".terminfo:./${DOTFILES_DIR_NAME}/terminfo"

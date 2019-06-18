@@ -1,7 +1,0 @@
-.git/
-.db/
-.dump/
-node_modules/
-build/
-.tags
-.tags.*

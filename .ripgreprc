@@ -1,0 +1,15 @@
+# Search at hidden files
+--hidden
+
+# Ignore .gitignore
+--no-ignore-vcs
+
+# Exclude some common stuff
+--glob=!**/.git/**
+--glob=!**/node_modules/**
+--glob=!**/.meteor/local/**
+--glob=!**/build/**
+--glob=!.db/**
+--glob=!.dump/*/**
+--glob=!.tags
+--glob=!.tags.*
