@@ -1,3 +1,6 @@
+" Get rid of habit of invoking this one
+nnoremap <leader>ac :echo 'This mapping is removed!'<cr>
+
 nnoremap <leader>cc :CleanHiddenBuffers<cr>
 
 command CleanHiddenBuffers call s:CleanHiddenBuffers()
