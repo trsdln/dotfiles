@@ -6,8 +6,8 @@ command StartJest call s:StartJestWithFlags('')
 command StartJestNoVerbose call s:StartJestWithFlags('--verbose false')
 
 function! s:StartJestWithFlags(flags)
-  " Save file before starting tests
-  write
+  " Save file if it isn't saved yet
+  update
 
   let l:testPath = expand('%')
 
