@@ -229,6 +229,9 @@ nnoremap tj  :tabprevious<CR>
 nnoremap tl  :tablast<CR>
 nnoremap td  :tabclose<CR>
 nnoremap tn  :tabnew<CR>
+" Move tabs (naive implementation: no edge case support)
+nnoremap tJ  :execute 'tabm ' . (tabpagenr() - 2)<CR>
+nnoremap tK  :execute 'tabm ' . (tabpagenr() + 1)<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
