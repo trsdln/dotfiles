@@ -28,6 +28,7 @@ Plug 'lifepillar/vim-solarized8'
 
 " Best Git plugin for VIM
 Plug 'tpope/vim-fugitive'
+Plug 'shumphrey/fugitive-gitlab.vim'
 " Git log add-on for fugitive
 Plug 'junegunn/gv.vim'
 
