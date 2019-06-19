@@ -229,9 +229,22 @@ nnoremap tj  :tabprevious<CR>
 nnoremap tl  :tablast<CR>
 nnoremap td  :tabclose<CR>
 nnoremap tn  :tabnew<CR>
-" Move tabs (naive implementation: no edge case support)
-nnoremap tJ  :execute 'tabmove ' . (tabpagenr() - 2)<CR>
-nnoremap tK  :execute 'tabmove ' . (tabpagenr() + 1)<CR>
+nnoremap tJ  :TabMoveLeft<CR>
+nnoremap tK  :TabMoveRight<CR>
+
+command TabMoveLeft call s:tabMoveBy(-2)
+command TabMoveRight call s:tabMoveBy(1)
+
+function! s:tabMoveBy(indexDiff)
+  let nextTabIndex = tabpagenr() + a:indexDiff
+  let lastTabIndex = tabpagenr('$')
+  if nextTabIndex > lastTabIndex
+    let nextTabIndex = 0
+  elseif nextTabIndex < 0
+    let nextTabIndex = lastTabIndex
+  endif
+  execute 'tabmove ' . nextTabIndex
+endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
