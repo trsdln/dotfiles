@@ -1,6 +1,7 @@
 ack.vim//36e40f9ec91bdbf6f1adf408522a73a6925c3042
-ale//1c71da5624fc46107cda4852add08fe34385dfd9
+ale//9ad8fd6a1bdff5f0c80cf921df5628d1d322cf82
 delimitMate//728b57a6564c1d2bdfb9b9e0f2f8c5ba3d7e0c5c
+fugitive-gitlab.vim//43a13dbbc9aae85338877329ed28c9e4d8488db1
 fzf.vim//91ed5f4b39b6e4a2ca50be1c8cec7e1148145fab
 gv.vim//3296bbf58d2ca38f12595cbfefd4816dd19f3fb5
 lightline.vim//80c242c3c5394fd5143b5d7e2741989ba04ae46a
@@ -22,6 +23,7 @@ vim-jsx//ffc0bfd9da15d0fce02d117b843f718160f7ad27
 vim-pasta//cb4501a123d74fc7d66ac9f10b80c9d393746c66
 vim-prettier//70ece1feb023a8d2e7e08183b533e4b75df2707c
 vim-repeat//0b9b5e742f67bc81ae4a1f79318549d3afc90b13
+vim-rhubarb//70713ca031f882bd13ac7ffb163fb7e7a0a52b0c
 vim-solarized8//b36b068a5694fa3f2d80286e18534106c13c51b6
 vim-styled-components//99f4b27d66b0ddcdbcad0423a730d33e0d9599c3
 vim-surround//ca58a2d886cc18734c90c9665da4775d444b0c04
