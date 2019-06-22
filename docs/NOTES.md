@@ -112,9 +112,9 @@ Note: most of vim's monitions work as well obviously
 
 #### Replace commands
 
-* `:{range}s/{exp}/{str}/{flags}`  - make substitution
-* `:{range}~{flags}` / `:{range}&r{flags}`    - repeat with last search pattern
-* `:{range}&&{flags}`                         - repeat with new range and same flags
+* `:{range}s/{exp}/{str}/{flags}`           - make substitution
+* `:{range}~{flags}` / `:{range}&r{flags}`  - repeat with last search pattern
+* `:{range}&&{flags}`                       - repeat with new range and same flags
 
 #### Replace Command Flags
 
@@ -202,16 +202,10 @@ Hack: close unclosed empty buffer `:bw`
 
 #### Find and replace at multiple files
 
-* using Ag [from](https://stackoverflow.com/a/37731274/4046380):
+After filling in Quickfix list with target files execute command:
 
-```sh
-ag -l "search string" | xargs sed -i '' -e 's/from/to/g'
 ```
-
-* at all files from QuickFix list:
-
-```vim
-cdo %s/<search term>/<replace term>/cg
+cfdo %s/<search term>/<replace term>/cg
 ```
 
 ### Commentary
