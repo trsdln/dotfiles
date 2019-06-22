@@ -215,16 +215,6 @@ Commands:
 * `gc{motion}`  - comment
 * `gcc`         - uncomment
 
-### Expand Region
-
-Use `+` / `-` to expand/shrink visual selection
-
-### System Copy
-
-* cp{motion} - copy
-* cv - paste at next line
-* cP - copy whole line
-
 ### Spelunker
 
 * Zl - fix word under cursor
