@@ -86,7 +86,9 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'ap/vim-css-color'
 Plug 'styled-components/vim-styled-components', {'branch': 'main'}
 Plug 'trsdln/vim-js-file-import', {'do': 'npm install'}
-Plug 'heavenshell/vim-prettier'
+
+" todo: remove it if ale's fixer will work properly
+" Plug 'heavenshell/vim-prettier'
 
 " Multi-line like table text alignment
 " (Note: should go after JS specific plugins otherwise breaks vim-prettier)

@@ -50,9 +50,20 @@ augroup END
 
 
 " Setup ale
-let b:ale_linters = ['eslint']
+let b:ale_linters = {
+      \ 'javascript': ['eslint'],
+      \ 'sh': ['shell']
+      \}
+
+let g:ale_fixers = {
+      \   'javascript': ['prettier_eslint'],
+      \   'json': ['prettier_eslint'],
+      \}
+
+let g:ale_fix_on_save = 1
 let g:ale_sign_error = " ◉"
 let g:ale_sign_warning = " ◉"
+
 highlight ALEErrorSign ctermfg=red ctermbg=black guifg=#D34A25 guibg=#003641
 highlight ALEWarningSign ctermfg=magenta ctermbg=black guifg=#6971C1 guibg=#003641
 highlight SignColumn ctermbg=black guibg=#003641
@@ -60,9 +71,9 @@ highlight SignColumn ctermbg=black guibg=#003641
 nmap <silent> <C-m> <Plug>(ale_previous_wrap)
 nmap <silent> <C-n> <Plug>(ale_next_wrap)
 
-
+" todo: remove it if ale's fixer will work properly
 " Setup vim-prettier
-autocmd BufWritePost *.js,*.jsx,*.json call prettier#run(1)
+" autocmd BufWritePost *.js,*.jsx,*.json call prettier#run(1)
 
 
 " Configure spelunker.vim
