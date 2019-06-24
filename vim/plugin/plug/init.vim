@@ -68,8 +68,6 @@ highlight ALEErrorSign ctermfg=red ctermbg=black guifg=#D34A25 guibg=#003641
 highlight ALEWarningSign ctermfg=magenta ctermbg=black guifg=#6971C1 guibg=#003641
 highlight SignColumn ctermbg=black guibg=#003641
 
-nmap <silent> <C-m> <Plug>(ale_previous_wrap)
-nmap <silent> <C-n> <Plug>(ale_next_wrap)
 
 " todo: remove it if ale's fixer will work properly
 " Setup vim-prettier
