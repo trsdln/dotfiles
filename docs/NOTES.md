@@ -6,6 +6,8 @@ Small cheat sheet for various plugins and standard features.
 
 * `C-b <space>`  - change layout
 * `C-b ~`        - show previous messages from Tmux
+* `C-b {`        - Swap the current pane with the previous pane.
+* `C-b }`        - Swap the current pane with the next pane.
 
 ### Text Selection
 
