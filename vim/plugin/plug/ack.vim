@@ -38,19 +38,19 @@ function! s:AckOperator(type)
     return
   endif
 
-  execute "Ack! " . shellescape(@@)
+  execute "Ack! " . shellescape(fnameescape(@@))
 
   let @@ = reg_save
 endfunction
 
 function! s:AckWord()
   let target = expand('<cword>')
-  execute "Ack! '\\b" . shellescape(target) . "\\b'"
+  execute "Ack! '\\b" . shellescape(fnameescape(target)) . "\\b'"
 endfunction
 
 function! s:AckJsDefinition()
   let target = expand('<cword>')
-  let escaped_target = shellescape(target)
+  let escaped_target = shellescape(fnameescape(target))
 
   let js_def_exp ='\bconst\s' . escaped_target . '\b\s?=\s?'
   let js_destruct_def_exp ='\bconst\s\{.+\b' . escaped_target . '\b.+\}\s?=\s?'
