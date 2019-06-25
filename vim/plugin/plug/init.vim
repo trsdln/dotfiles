@@ -60,7 +60,8 @@ let g:ale_fixers = {
       \   'json': ['prettier_eslint'],
       \}
 
-let g:ale_fix_on_save = 1
+" Breaks AutoImport's 'go back usage feature'
+" let g:ale_fix_on_save = 1
 let g:ale_sign_error = " ◉"
 let g:ale_sign_warning = " ◉"
 
