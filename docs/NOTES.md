@@ -235,3 +235,8 @@ Commands:
 * `<leader>is` - sort imports
 * `<leader>ic` - clean imports
 * `<leader>if` - clean imports
+
+### FZF
+* `C-x` - open at horizontal split
+* `C-v` - open at vertical split
+* `C-t` - open at new tab
