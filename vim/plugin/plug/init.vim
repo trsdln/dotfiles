@@ -20,7 +20,7 @@ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 set background=dark
-colorscheme solarized8
+silent! colorscheme solarized8
 
 
 " Setup vim-javascript
@@ -81,7 +81,7 @@ let g:spelunker_white_list_for_user = [
       \ 'lerna', 'eslint', 'ctags',
       \ 'tmux', 'graphql', 'monorepo',
       \ 'timesheet', 'timesheets', 'dropdown',
-      \ 'juxt', 'dissoc', 'args' ]
+      \ 'juxt', 'dissoc', 'args', 'minpack' ]
 
 let g:spelunker_max_hi_words_each_buf = 50
 let g:spelunker_disable_auto_group = 1

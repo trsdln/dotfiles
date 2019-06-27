@@ -1,103 +1,104 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugin Manager
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Automatically install vim-plug
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+" Automatically install minpac
+let s:minpac_install_dir = '~/.vim/pack/minpac/opt/minpac'
+" check any file at plugin dir
+if empty(glob(s:minpac_install_dir . '/.gitignore'))
+  silent execute '!git clone https://github.com/k-takata/minpac.git' s:minpac_install_dir
 endif
-
-" Let vim-plug  manage plugins
-call plug#begin('~/.vim/bundle')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Load plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Better alternative to netrw/NERDTree
-Plug 'justinmk/vim-dirvish'
+function! PackInit() abort
+  packadd minpac
 
-" Faster CtrlP alternative
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
+  call minpac#init()
+  call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-" Nice status bar at the bottom
-Plug 'itchyny/lightline.vim'
-" My favorite color scheme
-Plug 'lifepillar/vim-solarized8'
+  " Better alternative to netrw/NERDTree
+  call minpac#add('justinmk/vim-dirvish')
 
-" Best Git plugin for VIM
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-Plug 'shumphrey/fugitive-gitlab.vim'
-" Git log add-on for fugitive
-Plug 'junegunn/gv.vim'
+  " Faster CtrlP alternative
+  call minpac#add('junegunn/fzf')
+  call minpac#add('junegunn/fzf.vim')
 
-" Easy surround anything
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-" Better dot action support for surround and others
-Plug 'tpope/vim-repeat'
-" Shell commands shortcuts for Vim
-Plug 'tpope/vim-eunuch'
-" Linguistically correct substitution
-Plug 'tpope/vim-abolish'
+  " Nice status bar at the bottom
+  call minpac#add('itchyny/lightline.vim')
 
-" Automatic ctags generation
-Plug 'ludovicchabant/vim-gutentags'
-" Easy code navigation
-Plug 'easymotion/vim-easymotion'
+  " My favorite color scheme
+  call minpac#add('lifepillar/vim-solarized8')
 
-" System Clipboard Support
-if has('clipboard')
-  nnoremap cp "+y
-  vnoremap cp "+y
-  nnoremap cP "+yy
-  nnoremap cv "+p
-  nnoremap cV "+P
-else
-  Plug 'christoomey/vim-system-copy'
-endif
+  " Best Git plugin for VIM
+  call minpac#add('tpope/vim-fugitive')
+  call minpac#add('tpope/vim-rhubarb')
+  call minpac#add('shumphrey/fugitive-gitlab.vim')
 
-" Global search using Silver Searcher
-Plug 'mileszs/ack.vim'
+  " Git log add-on for fugitive
+  call minpac#add('junegunn/gv.vim')
 
-" Linting, especially by ESLint
-Plug 'w0rp/ale'
+  " Easy surround anything
+  call minpac#add('tpope/vim-surround')
+  call minpac#add('tpope/vim-commentary')
+  " Better dot action support for surround and others
+  call minpac#add('tpope/vim-repeat')
+  " Shell commands shortcuts for Vim
+  call minpac#add('tpope/vim-eunuch')
+  " Linguistically correct substitution
+  call minpac#add('tpope/vim-abolish')
 
-" Workflowy analog for VIM
-Plug 'vim-scripts/workflowish'
+  " Automatic ctags generation
+  call minpac#add('ludovicchabant/vim-gutentags')
+  " Easy code navigation
+  call minpac#add('easymotion/vim-easymotion')
 
-" Indentation aware pasting
-Plug 'sickill/vim-pasta'
+  if !has('clipboard')
+    call minpac#add('christoomey/vim-system-copy')
+  endif
 
-" Insert mode auto-completion for quotes, parens, brackets, etc.
-Plug 'Raimondi/delimitMate'
+  " Global search using Silver Searcher
+  call minpac#add('mileszs/ack.vim')
 
-" Highlight trailing whitespace
-Plug 'bronson/vim-trailing-whitespace'
+  " Linting, especially by ESLint
+  call minpac#add('w0rp/ale')
+
+  " Workflowy analog for VIM
+  call minpac#add('vim-scripts/workflowish')
+
+  " Indentation aware pasting
+  call minpac#add('sickill/vim-pasta')
+
+  " Insert mode auto-completion for quotes, parens, brackets, etc.
+  call minpac#add('Raimondi/delimitMate')
+
+  " Highlight trailing whitespace
+  call minpac#add('bronson/vim-trailing-whitespace')
 
 
-" JS Specific plugins
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'jparise/vim-graphql'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'ap/vim-css-color'
-Plug 'styled-components/vim-styled-components', {'branch': 'main'}
-Plug 'trsdln/vim-js-file-import', {'do': 'npm install'}
+  " JS Specific plugins
+  call minpac#add('pangloss/vim-javascript')
+  call minpac#add('mxw/vim-jsx')
+  call minpac#add('jparise/vim-graphql')
+  call minpac#add('hail2u/vim-css3-syntax')
+  call minpac#add('ap/vim-css-color')
+  call minpac#add('styled-components/vim-styled-components', {'branch': 'main'})
+  call minpac#add('trsdln/vim-js-file-import', {'do': 'npm install'})
 
-" todo: remove it if ale's fixer will work properly
-" Plug 'heavenshell/vim-prettier'
+  " todo: remove it if ale's fixer will work properly
+  call minpac#add('heavenshell/vim-prettier')
 
-" Multi-line like table text alignment
-" (Note: should go after JS specific plugins otherwise breaks vim-prettier)
-Plug 'godlygeek/tabular'
+  " Multi-line like table text alignment
+  " (Note: should go after JS specific plugins otherwise breaks vim-prettier)
+  call minpac#add('godlygeek/tabular')
 
-" Improved spell check for source code
-Plug 'kamykn/spelunker.vim'
+  " Improved spell check for source code
+  call minpac#add('kamykn/spelunker.vim')
+endfunction
 
-call plug#end()
+command! PackUpdate call PackInit() | call minpac#update('', {'do': 'call minpac#status()'})
+command! PackClean  call PackInit() | call minpac#clean()
+command! PackStatus call PackInit() | call minpac#status()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
@@ -236,8 +237,8 @@ nnoremap tn  :tabnew<CR>
 nnoremap tJ  :TabMoveLeft<CR>
 nnoremap tK  :TabMoveRight<CR>
 
-command TabMoveLeft call s:tabMoveBy(-2)
-command TabMoveRight call s:tabMoveBy(1)
+command! TabMoveLeft call s:tabMoveBy(-2)
+command! TabMoveRight call s:tabMoveBy(1)
 
 function! s:tabMoveBy(indexDiff)
   let nextTabIndex = tabpagenr() + a:indexDiff
@@ -337,6 +338,13 @@ inoremap <C-U> <Esc>viwUea
 " Capitalize Word with Ctrl-K
 inoremap <C-K> <Esc>b~ea
 
+if has('clipboard')
+  nnoremap cp "+y
+  vnoremap cp "+y
+  nnoremap cP "+yy
+  nnoremap cv "+p
+  nnoremap cV "+P
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Utility functions
