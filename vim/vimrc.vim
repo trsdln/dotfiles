@@ -2,7 +2,7 @@
 " => Plugin Manager
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Automatically install minpac
-let s:minpac_install_dir = '~/.vim/pack/minpac/opt/minpac'
+let s:minpac_install_dir = '~/.dotfiles/vim/pack/minpac/opt/minpac'
 " check any file at plugin dir
 if empty(glob(s:minpac_install_dir . '/.gitignore'))
   silent execute '!git clone https://github.com/k-takata/minpac.git' s:minpac_install_dir
