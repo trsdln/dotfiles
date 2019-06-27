@@ -18,6 +18,7 @@ LINK_MAP=(
   ".vim/after:../${DOTFILES_DIR_NAME}/vim/after"
   ".vim/syntax:../${DOTFILES_DIR_NAME}/vim/syntax"
   ".vim/ftdetect:../${DOTFILES_DIR_NAME}/vim/ftdetect"
+  ".vim/pack:../${DOTFILES_DIR_NAME}/vim/pack"
 
   # Misc
   ".tmux.conf:./${DOTFILES_DIR_NAME}/tmux.conf"
