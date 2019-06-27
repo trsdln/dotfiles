@@ -48,11 +48,3 @@ PATH="/usr/local/bin:$PATH"
 ```
 :PlugInstall
 ```
-
-5. Install prettier-eslint-cli globally to get vim-prettier working
-
-```
-yarn global add  prettier-eslint-cli
-```
-
-(ensure react ESlint correct version is installed `"eslint-plugin-react": "^7.12.3"` to prevent errors at stdout)
