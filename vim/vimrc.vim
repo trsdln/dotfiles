@@ -103,6 +103,8 @@ command! PackStatus call PackInit() | call minpac#status()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+filetype plugin on
+
 " Sets how many lines of history VIM has to remember
 set history=500
 
