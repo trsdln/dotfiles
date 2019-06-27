@@ -118,6 +118,16 @@ Note: most of vim's monitions work as well obviously
 * `:{range}~{flags}` / `:{range}&r{flags}`  - repeat with last search pattern
 * `:{range}&&{flags}`                       - repeat with new range and same flags
 
+#### Global commands
+
+* `:{range}global/{exp}/{command}` - apply command to each line that matches
+  pattern
+* `:{range}vglobal/{exp}/{command}` - apply command to each line that does
+  not matches pattern
+
+If command is complicated then `:g/{exp}/norm! @q` with prerecorded macros
+will do the trick.
+
 #### Replace Command Flags
 
 * `&`  - flags from previous substitute (always goes first)
