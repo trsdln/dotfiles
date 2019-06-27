@@ -14,11 +14,7 @@ LINK_MAP=(
 
   # Vim Configs
   ".vimrc:./${DOTFILES_DIR_NAME}/vim/vimrc.vim"
-  ".vim/plugin:../${DOTFILES_DIR_NAME}/vim/plugin"
-  ".vim/after:../${DOTFILES_DIR_NAME}/vim/after"
-  ".vim/syntax:../${DOTFILES_DIR_NAME}/vim/syntax"
-  ".vim/ftdetect:../${DOTFILES_DIR_NAME}/vim/ftdetect"
-  ".vim/pack:../${DOTFILES_DIR_NAME}/vim/pack"
+  ".vim:./${DOTFILES_DIR_NAME}/vim"
 
   # Misc
   ".tmux.conf:./${DOTFILES_DIR_NAME}/tmux.conf"
@@ -47,7 +43,7 @@ function _main {
 
   # doesn't seem like ctags works with links
   mkdir -p .ctags.d/
-  mkdir -p .vim/
+  # mkdir -p .vim/
 
   echo "Processing links at '$(echo ~)' ..."
 
