@@ -77,7 +77,7 @@ let g:spelunker_white_list_for_user = [
       \ 'lerna', 'eslint', 'ctags',
       \ 'tmux', 'graphql', 'monorepo',
       \ 'timesheet', 'timesheets', 'dropdown',
-      \ 'juxt', 'dissoc', 'args', 'minpack' ]
+      \ 'juxt', 'dissoc', 'args', 'minpack', 'plugin' ]
 
 let g:spelunker_max_hi_words_each_buf = 50
 let g:spelunker_disable_auto_group = 1
