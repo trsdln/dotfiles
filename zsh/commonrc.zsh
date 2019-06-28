@@ -1,7 +1,8 @@
 # Reduce delay for vi mode at zsh
 export KEYTIMEOUT=1
 
-export EDITOR='vim'
+export EDITOR='nvim'
+export VISUAL='nvim'
 
 # Load machine specific configs
 [ -f ~/.zsh_specific ] && source ~/.zsh_specific

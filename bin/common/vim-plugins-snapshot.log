@@ -15,14 +15,13 @@ vim-css3-syntax//dc7b427e5b822f0d8ecc051bc31c1079e6540862
 vim-dirvish//5a51bf3d52054990beef3221ec3a03d4ea9188e3
 vim-easymotion//85e90c9759e14633d878ed534ef313876ab96555
 vim-eunuch//e066a0999e442d9d96f24ad9d203b1bd030ef72e
-vim-fugitive//0f20c35b626b0b5e80428099a3a4cd9469683f86
+vim-fugitive//198e9c412823dae4389d58c3a37b43394257eda5
 vim-graphql//792c7bcb138c1e787a7527f16ce63e8cf53df6ba
 vim-gutentags//eecb136fae97e30d5f01e71f0d3b775c8b017385
 vim-javascript//8a599c5e84bb064e2345867332ecbcc252e3b04a
 vim-js-file-import//e6740a66fee51331300eddfa13616a0dac741489
 vim-jsx//ffc0bfd9da15d0fce02d117b843f718160f7ad27
 vim-pasta//cb4501a123d74fc7d66ac9f10b80c9d393746c66
-vim-prettier//70ece1feb023a8d2e7e08183b533e4b75df2707c
 vim-repeat//0b9b5e742f67bc81ae4a1f79318549d3afc90b13
 vim-rhubarb//c509c7eedeea641f5b0bdae708581ff610fbff5b
 vim-solarized8//7b0cda1da3db6368918eb6d3db67ff38a7640ec0

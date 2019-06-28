@@ -69,12 +69,12 @@ function configure_vim_session {
   local session_name=$1
 
   # Open Vim with project at first window
-  tmux send-keys "vi ." ${EXEC_KEY}
+  tmux send-keys "${EDITOR} ." ${EXEC_KEY}
   tmux rename-window "apps-vim"
 
   # Open wim with my configs at second window
   tmux new-window -t ${session_name}:2 -n 'dotfiles-vim'
-  tmux send-keys "cd ${DOTFILES_PATH} && vi ." ${EXEC_KEY}
+  tmux send-keys "cd ${DOTFILES_PATH} && ${EDITOR} ." ${EXEC_KEY}
 
   # Finally go back to project Vim
   tmux select-window -t ${session_name}:1
