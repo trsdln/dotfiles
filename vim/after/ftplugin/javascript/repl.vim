@@ -1,6 +1,6 @@
 vnoremap <leader>je :<c-u>JSRepl<cr>
 
-command JSRepl call s:JSRepl()
+command! JSRepl call s:JSRepl()
 
 let s:js_repl_src_prefix = 'function maybeRequire (moduleName) { try { return require(moduleName); } catch(err) { console.error(moduleName,err.code); return null; } }'
   \ . 'const R = maybeRequire("ramda");'

@@ -2,8 +2,8 @@
 nnoremap <buffer> <Leader>jv :StartJest<CR>
 nnoremap <buffer> <Leader>jn :StartJestNoVerbose<CR>
 
-command StartJest call s:StartJestWithFlags('')
-command StartJestNoVerbose call s:StartJestWithFlags('--verbose false')
+command! StartJest call s:StartJestWithFlags('')
+command! StartJestNoVerbose call s:StartJestWithFlags('--verbose false')
 
 function! s:StartJestWithFlags(flags)
   " Save file if it isn't saved yet
@@ -28,7 +28,7 @@ nnoremap <buffer> [t ?\v(\s\|^)\zs(it)(\.only){0,1}\(["']?g<cr>:noh<cr>
 " Toggle test case focus
 nnoremap <buffer> <leader>to :<c-u>ToggleTestCaseFocus<cr>
 
-command ToggleTestCaseFocus call s:ToggleTestCaseFocus()
+command! ToggleTestCaseFocus call s:ToggleTestCaseFocus()
 
 function! s:ToggleTestCaseFocus()
   try

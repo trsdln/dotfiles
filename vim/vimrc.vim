@@ -85,9 +85,6 @@ function! PackInit() abort
   call minpac#add('styled-components/vim-styled-components', {'branch': 'main'})
   call minpac#add('trsdln/vim-js-file-import', {'do': 'npm install'})
 
-  " todo: remove it if ale's fixer will work properly
-  call minpac#add('heavenshell/vim-prettier')
-
   " Multi-line like table text alignment
   " (Note: should go after JS specific plugins otherwise breaks vim-prettier)
   call minpac#add('godlygeek/tabular')
