@@ -5,6 +5,7 @@
 " Setup Dirvish
 " Sort folders at the top
 let g:dirvish_mode = ':sort ,^.*[\/],'
+let g:loaded_netrwPlugin = 1
 " Keep legacy mappings in place
 nnoremap <leader>t :vsplit \| edit .<cr>
 nnoremap <leader>r :vsplit \| Dirvish %<cr>
