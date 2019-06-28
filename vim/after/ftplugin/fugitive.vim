@@ -11,7 +11,7 @@ nnoremap <buffer> gs :call <SID>FugitiveOpenCurrentFileVSplit(1)<cr>
 " Fixes not fully working Fugitive's `X` mapping at status window
 nnoremap <buffer> rm :call <SID>FugitiveDeleteCurrentFile()<cr>
 
-function s:FugitiveOpenCurrentFileVSplit(isPreview)
+function! s:FugitiveOpenCurrentFileVSplit(isPreview)
   let target = s:FugitiveStatusGetCurrentFile()
   if len(target) > 0
     " Create vertical split
@@ -35,7 +35,7 @@ function s:FugitiveOpenCurrentFileVSplit(isPreview)
   endif
 endfunction
 
-function s:FugitiveDeleteCurrentFile()
+function! s:FugitiveDeleteCurrentFile()
   let target = s:FugitiveStatusGetCurrentFile()
   if len(target) > 0
     " Remove file
@@ -54,7 +54,7 @@ function s:FugitiveDeleteCurrentFile()
   endif
 endfunction
 
-function s:FugitiveStatusGetCurrentFile()
+function! s:FugitiveStatusGetCurrentFile()
   let curr_line = getline('.')
   let tokens = split(curr_line, ' ')
   if len(tokens) == 2

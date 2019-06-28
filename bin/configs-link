@@ -15,7 +15,7 @@ LINK_MAP=(
   # Vim Configs
   ".vimrc:./${DOTFILES_DIR_NAME}/vim/vimrc.vim"
   ".vim:./${DOTFILES_DIR_NAME}/vim"
-  ".config/nvim:./${DOTFILES_DIR_NAME}/nvim"
+  ".config/nvim:../${DOTFILES_DIR_NAME}/nvim"
 
   # Misc
   ".tmux.conf:./${DOTFILES_DIR_NAME}/tmux.conf"
