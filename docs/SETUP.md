@@ -48,3 +48,11 @@ PATH="/usr/local/bin:$PATH"
 ```
 :PlugInstall
 ```
+
+## Neovim
+
+1. Python3 support:
+
+```
+pip3 install --user --upgrade pynvim
+```
