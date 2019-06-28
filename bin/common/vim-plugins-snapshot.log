@@ -15,7 +15,7 @@ vim-css3-syntax//dc7b427e5b822f0d8ecc051bc31c1079e6540862
 vim-dirvish//5a51bf3d52054990beef3221ec3a03d4ea9188e3
 vim-easymotion//85e90c9759e14633d878ed534ef313876ab96555
 vim-eunuch//e066a0999e442d9d96f24ad9d203b1bd030ef72e
-vim-fugitive//198e9c412823dae4389d58c3a37b43394257eda5
+vim-fugitive//9c195de61bac489dfd88a55eb457113a07a21729
 vim-graphql//792c7bcb138c1e787a7527f16ce63e8cf53df6ba
 vim-gutentags//eecb136fae97e30d5f01e71f0d3b775c8b017385
 vim-javascript//8a599c5e84bb064e2345867332ecbcc252e3b04a
@@ -28,4 +28,5 @@ vim-solarized8//7b0cda1da3db6368918eb6d3db67ff38a7640ec0
 vim-styled-components//99f4b27d66b0ddcdbcad0423a730d33e0d9599c3
 vim-surround//ca58a2d886cc18734c90c9665da4775d444b0c04
 vim-trailing-whitespace//4c596548216b7c19971f8fc94e38ef1a2b55fee6
+vim-visual-star-search//37259722f45996733fd309add61385a4ad88bdb9
 workflowish//0cab131c89311ab14642c2f43a40fb81c03bd9b8

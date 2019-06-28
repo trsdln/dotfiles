@@ -74,7 +74,13 @@ function! PackInit() abort
 
   " Highlight trailing whitespace
   call minpac#add('bronson/vim-trailing-whitespace')
+  call minpac#add('nelstrom/vim-visual-star-search')
 
+  " Multi-line like table text alignment
+  call minpac#add('godlygeek/tabular')
+
+  " Improved spell check for source code
+  call minpac#add('kamykn/spelunker.vim')
 
   " JS Specific plugins
   call minpac#add('pangloss/vim-javascript')
@@ -84,13 +90,6 @@ function! PackInit() abort
   call minpac#add('ap/vim-css-color')
   call minpac#add('styled-components/vim-styled-components', {'branch': 'main'})
   call minpac#add('trsdln/vim-js-file-import', {'do': 'npm install'})
-
-  " Multi-line like table text alignment
-  " (Note: should go after JS specific plugins otherwise breaks vim-prettier)
-  call minpac#add('godlygeek/tabular')
-
-  " Improved spell check for source code
-  call minpac#add('kamykn/spelunker.vim')
 endfunction
 
 command! PackUpdate call PackInit() | call minpac#update('', {
