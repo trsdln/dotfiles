@@ -18,6 +18,7 @@ alias yolo='git commit --no-verify -m "$(curl -s https://whatthecommit.com/index
 
 # Easy re-sourcing of config
 alias reload='source ~/.zshrc'
+alias vi='nvim'
 
 # Ensure apps installed by brew are resolved first
 # (before system default) e.g. vim

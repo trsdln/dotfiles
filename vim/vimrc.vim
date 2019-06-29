@@ -57,8 +57,8 @@ function! PackInit() abort
     call minpac#add('christoomey/vim-system-copy')
   endif
 
-  " Global search using Silver Searcher
-  call minpac#add('mileszs/ack.vim')
+  " Global search using Ripgrep
+  call minpac#add('mhinz/vim-grepper')
 
   " Linting, especially by ESLint
   call minpac#add('w0rp/ale')

@@ -1,4 +1,3 @@
-ack.vim//36e40f9ec91bdbf6f1adf408522a73a6925c3042
 ale//65ba4b85ec3011cccb9ea7135183e7fc8d7a0d69
 delimitMate//728b57a6564c1d2bdfb9b9e0f2f8c5ba3d7e0c5c
 fugitive-gitlab.vim//43a13dbbc9aae85338877329ed28c9e4d8488db1
@@ -11,12 +10,13 @@ tabular//339091ac4dd1f17e225fe7d57b48aff55f99b23a
 vim-abolish//b95463a1cffd8fc9aff2a1ff0ae9327944948699
 vim-commentary//141d9d32a9fb58fe474fcc89cd7221eb2dd57b3a
 vim-css-color//5a31c72cc51cb11118e44fb50ff77fc596348f77
-vim-css3-syntax//dc7b427e5b822f0d8ecc051bc31c1079e6540862
+vim-css3-syntax//a0d55ac3aac9b48acda71c617e8dedb3bbfea31f
 vim-dirvish//5a51bf3d52054990beef3221ec3a03d4ea9188e3
 vim-easymotion//85e90c9759e14633d878ed534ef313876ab96555
 vim-eunuch//e066a0999e442d9d96f24ad9d203b1bd030ef72e
 vim-fugitive//9c195de61bac489dfd88a55eb457113a07a21729
 vim-graphql//792c7bcb138c1e787a7527f16ce63e8cf53df6ba
+vim-grepper//a73a9dc920bd0b3ba8b298c258bd4d4814d9a162
 vim-gutentags//eecb136fae97e30d5f01e71f0d3b775c8b017385
 vim-javascript//8a599c5e84bb064e2345867332ecbcc252e3b04a
 vim-js-file-import//e6740a66fee51331300eddfa13616a0dac741489
@@ -24,7 +24,7 @@ vim-jsx//ffc0bfd9da15d0fce02d117b843f718160f7ad27
 vim-pasta//cb4501a123d74fc7d66ac9f10b80c9d393746c66
 vim-repeat//0b9b5e742f67bc81ae4a1f79318549d3afc90b13
 vim-rhubarb//c509c7eedeea641f5b0bdae708581ff610fbff5b
-vim-solarized8//7b0cda1da3db6368918eb6d3db67ff38a7640ec0
+vim-solarized8//cbd8c11011d8c9e4125aa8b7d595b36787d22d77
 vim-styled-components//99f4b27d66b0ddcdbcad0423a730d33e0d9599c3
 vim-surround//ca58a2d886cc18734c90c9665da4775d444b0c04
 vim-trailing-whitespace//4c596548216b7c19971f8fc94e38ef1a2b55fee6
