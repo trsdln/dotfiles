@@ -346,6 +346,11 @@ if has('clipboard')
   nnoremap cV "+P
 endif
 
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
+  tnoremap <C-v><Esc> <Esc>
+endif
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Utility functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
