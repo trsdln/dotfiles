@@ -196,21 +196,19 @@ Git log extension for vim-fugitive:
 
 :GutentagsUpdate! - Rebuild tags for whole project
 
-### Ack
+### Grepper
 
 Syntax:
 
-`Ack [options] {pattern} [directory]`
+`Grepper -query [[{any RG args}...] --] {search pattern}`
 
-Options:
+Rg options:
 
 * `-s`         - case sensitive;
 * `-i`         - case insensitive;
 * `-S`         - smart case by default;
 * `-g {glob}`  - filter filenames by pattern.
 * `-w`         - match words i.e. '\b{pattern}\b'
-
-Hack: close unclosed empty buffer `:bw`
 
 #### Find and replace at multiple files
 

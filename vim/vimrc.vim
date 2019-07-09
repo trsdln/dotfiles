@@ -225,6 +225,9 @@ set autoindent  " Auto indent
 set si          " Smart indent
 set wrap        " Wrap lines
 
+" Scan current file for completion options
+set complete+=i
+
 " Hide annoying tabline if tabs aren't used
 set showtabline=1
 " Tabs mappings
