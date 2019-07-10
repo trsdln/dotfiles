@@ -89,7 +89,9 @@ let g:spelunker_max_hi_words_each_buf = 50
 let g:spelunker_disable_auto_group = 1
 augroup spelunker
   autocmd!
-  autocmd BufWinEnter,BufWritePost *.vim,*.js,*.jsx,*.json,*.sh,*.md,COMMIT_EDITMSG call spelunker#check()
+  autocmd BufWinEnter,BufWritePost
+        \ *.vim,*.js,*.jsx,*.json,*.sh,*.md,COMMIT_EDITMSG
+        \ call spelunker#check()
 augroup END
 
 
