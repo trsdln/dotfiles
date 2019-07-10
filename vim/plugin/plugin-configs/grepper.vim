@@ -5,7 +5,7 @@ endif
 runtime plugin/grepper.vim  " initialize g:grepper with default values
 let g:grepper.tools = ['rg']
 " Group matches by file/path
-let g:grepper.rg.grepprg .= ' --sort path'
+let g:grepper.rg.grepprg .= ' --sort path -S'
 
 call g:SetupCommandAlias("G", "Grepper")
 
@@ -25,5 +25,8 @@ function! s:GrepJsDefinition()
   let js_destruct_def_exp ='\bconst\s\{.+\b' . escaped_target . '\b.+\}\s?=\s?'
   let gql_def_exp = '\b(input|type|enum|fragment|query)\s' . escaped_target . '\s?\{'
 
-  execute "silent Grepper -noprompt -query '(" . js_def_exp . "|" . gql_def_exp . "|" . js_destruct_def_exp . ")'"
+  execute "silent Grepper -noprompt -query -s -- '("
+        \ . js_def_exp . "|"
+        \ . gql_def_exp . "|"
+        \ . js_destruct_def_exp . ")'"
 endfunction
