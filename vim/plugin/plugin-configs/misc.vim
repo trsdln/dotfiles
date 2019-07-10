@@ -91,3 +91,11 @@ augroup spelunker
   autocmd!
   autocmd BufWinEnter,BufWritePost *.vim,*.js,*.jsx,*.json,*.sh,*.md,COMMIT_EDITMSG call spelunker#check()
 augroup END
+
+
+" Configure easymotion
+let g:EasyMotion_smartcase = 1
+
+nmap <Leader><Leader>m <Plug>(easymotion-overwin-f2)
+xmap <Leader><Leader>m <Plug>(easymotion-bd-f2)
+omap <Leader><Leader>m <Plug>(easymotion-bd-f2)
