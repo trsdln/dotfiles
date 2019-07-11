@@ -57,6 +57,14 @@ Note: most of vim's monitions work as well obviously
 * `q:`          - Ex command history
 * `q/`/`q?`     - search history
 
+### Switching into insert mode
+
+Except common ones (`i/s/a/A/o/O`) there are couple more:
+
+* `I` - insert at the start of line e.g. `0i`
+* `S` - replace whole line e.g. `0Di`
+* `C` - change to the end of line e.g. `Di`
+
 ### Motions
 
 * `g0`, `g$` - wrap wise versions of 0 and $
@@ -71,11 +79,12 @@ Note: most of vim's monitions work as well obviously
 
 ### Insert/Command Mode Shortcuts
 
-* `C-H`            - delete last character
-* `C-W`            - delete word
-* `C-R{register}`  - paste value from specified register
-* `C-[`            - leave Insert mode
-* `C-O`            - leave Insert mode for single key input and go back
+* `<C-H>`                 - delete last character
+* `<C-W>`                 - delete word
+* `<C-R>{register}`       - paste value from specified register characterwise
+* `<C-R><C-P>{register}`  - paste value from specified register literally (no indentation)
+* `<C-[>`                 - leave Insert mode
+* `<C-O>`                 - leave Insert mode for single key input and go back
 
 ### Visual Mode Shortcuts
 
