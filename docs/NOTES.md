@@ -24,9 +24,16 @@ Note: most of vim's monitions work as well obviously
 
 ### Window Shortcuts
 
-* `C-W r`       - "rotate" split
-* `C-W o`       - maximize window i.e. `:only`
-* `C-W T`       - move window to new tab
+* `C-W r`  - "rotate" split
+* `C-W o`  - keep only current window at tab i.e. `:only`
+* `C-W T`  - move window to new tab
+* `C-W v`  - create vertical split
+* `C-W s`  - create horizontal split
+* `C-W c`  - close current window
+* `C-W _`  - maximaze height
+* `C-W |`  - maximaze width
+* `C-W =`  - equalize widths and heights
+
 
 ### Buffer Navigation
 
