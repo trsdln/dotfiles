@@ -82,6 +82,8 @@ function! PackInit() abort
   " Improved spell check for source code
   call minpac#add('kamykn/spelunker.vim')
 
+  call minpac#add('machakann/vim-highlightedyank')
+
   " JS Specific plugins
   call minpac#add('pangloss/vim-javascript')
   call minpac#add('mxw/vim-jsx')
