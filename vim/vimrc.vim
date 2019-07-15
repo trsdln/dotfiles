@@ -2,7 +2,7 @@
 " => Plugin Manager
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Automatically install minpac
-let s:minpac_install_dir = '~/.dotfiles/vim/pack/minpac/opt/minpac'
+let s:minpac_install_dir = $DOTFILES_PATH . '/vim/pack/minpac/opt/minpac'
 " check any file at plugin dir
 if empty(glob(s:minpac_install_dir . '/.gitignore'))
   silent execute '!git clone https://github.com/k-takata/minpac.git' s:minpac_install_dir
@@ -95,7 +95,8 @@ function! PackInit() abort
 endfunction
 
 command! PackUpdate call PackInit() | call minpac#update('', {
-      \ 'do': 'call minpac#status() | !bash ~/.dotfiles/bin/common/vim-plugins-snapshot.sh'
+      \ 'do': 'call minpac#status() | '
+      \ . '!bash ' . $DOTFILES_PATH . 'bin/common/vim-plugins-snapshot.sh'
       \ })
 command! PackClean  call PackInit() | call minpac#clean()
 command! PackStatus call PackInit() | call minpac#status()
