@@ -101,3 +101,7 @@ let g:EasyMotion_smartcase = 1
 nmap <Leader><Leader>m <Plug>(easymotion-overwin-f2)
 xmap <Leader><Leader>m <Plug>(easymotion-bd-f2)
 omap <Leader><Leader>m <Plug>(easymotion-bd-f2)
+
+
+" Configure highlightedyank
+let g:highlightedyank_highlight_duration = 300
