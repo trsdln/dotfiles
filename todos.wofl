@@ -1,3 +1,4 @@
+* Fix manual session picker for neovim (FZF bug)
 - Archived [DONE]
   - Gbrowse support for github
   - try Gbrowse plugin for gitlab
