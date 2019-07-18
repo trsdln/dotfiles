@@ -10,20 +10,20 @@ nnoremap <leader>sco :SessionOpenCustom<CR>
 nnoremap <leader>scs :SessionSaveCustom<CR>
 nnoremap <leader>scd :SessionDelete<CR>
 
-command SessionSave call s:SessionUpdateDefault()
-command SessionSaveCustom call s:SessionUpdateCustom()
-command SessionOpenDefault call s:SessionRestoreDefault()
-command SessionOpenCustom call s:SessionRestoreCustom()
-command SessionDelete call s:SessionDelete()
+command! SessionSave call s:SessionUpdateDefault()
+command! SessionSaveCustom call s:SessionUpdateCustom()
+command! SessionOpenDefault call s:SessionRestoreDefault()
+command! SessionOpenCustom call s:SessionRestoreCustom()
+command! SessionDelete call s:SessionDelete()
 
 
 function! s:SessionRestoreCustom()
-  let selected_items_list = s:PickSessionNameWithFZF('Session', '')
+  call s:PickSessionNameWithFZF('Session', '', function('s:SessionRestoreByOption'))
+endfunction
 
-  if len(selected_items_list) > 0
-    let file_name = selected_items_list[0]
-    call s:SessionRestoreByName(file_name)
-  endif
+function! s:SessionRestoreByOption(option)
+  let file_name = s:GetSessionNameByListItem(a:option)
+  call s:SessionRestoreByName(file_name)
 endfunction
 
 function! s:SessionUpdateCustom()
@@ -43,17 +43,18 @@ function! s:SessionUpdateDefault()
 endfunction
 
 function! s:SessionDelete()
-  let items_to_delete = s:PickSessionNameWithFZF('Delete Session', '--multi')
+  call s:PickSessionNameWithFZF(
+        \ 'Delete Session',
+        \ '--multi',
+        \ function('s:SessionDeleteByOption'))
+endfunction
 
-  let items_to_delete_count = len(items_to_delete)
-  if items_to_delete_count > 0
-    let escaped_file_names = join(map(items_to_delete,'shellescape(v:val)'), ' ')
-    let delete_command = 'cd ' . g:session_store_dir . ' && rm -f ' . escaped_file_names
-    call system(delete_command)
-    echo "Deleted " . items_to_delete_count . " session items"
-  else
-    echo "Select at least one session."
-  endif
+function! s:SessionDeleteByOption(option)
+  let file_name = s:GetSessionNameByListItem(a:option)
+  let escaped_file_name = shellescape(file_name)
+  let delete_command = 'cd ' . g:session_store_dir . ' && rm -f ' . escaped_file_name
+  call system(delete_command)
+  echom "Deleted session " . file_name
 endfunction
 
 
@@ -75,7 +76,7 @@ endfunction
 
 " UI / FZF Picker
 
-function! s:PickSessionNameWithFZF(prompt,flags)
+function! s:PickSessionNameWithFZF(prompt, flags, on_option_select)
   let raw_names_list = system('ls -l1 ' . g:session_store_dir)
 
   let names_list = map(
@@ -83,13 +84,11 @@ function! s:PickSessionNameWithFZF(prompt,flags)
         \ 's:GetListItemBySessionName(v:val)')
 
   " fzf#wrap applies user settings defined at vim/plugins/fzf.vim
-  let picked_items = fzf#run(fzf#wrap({
+  call fzf#run(fzf#wrap({
    \ 'down': '~40%',
    \ 'options': '--prompt "' . a:prompt . '> " ' . a:flags,
-   \ 'sink': function('s:NoOp'),
+   \ 'sink': a:on_option_select,
    \ 'source': names_list }))
-
-  return map(picked_items, 's:GetSessionNameByListItem(v:val)')
 endfunction
 
 function! s:GetListItemBySessionName(session_name)
