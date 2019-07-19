@@ -63,12 +63,14 @@ let g:ale_fixers = {
 
 " Randomly breaks auto-import's 'go back to usage feature'
 let g:ale_fix_on_save = 1
-let g:ale_sign_error = " ◉"
-let g:ale_sign_warning = " ◉"
+let g:ale_sign_error = "◉"
+let g:ale_sign_warning = "◉"
 
-highlight ALEErrorSign ctermfg=red ctermbg=black guifg=#D34A25 guibg=#003641
-highlight ALEWarningSign ctermfg=magenta ctermbg=black guifg=#6971C1 guibg=#003641
-highlight SignColumn ctermbg=black guibg=#003641
+highlight ALEErrorSign ctermfg=red ctermbg=black guifg=#D34A25 
+" guibg=#003641
+highlight ALEWarningSign ctermfg=magenta ctermbg=black guifg=#6971C1
+" guibg=#003641
+" highlight SignColumn ctermbg=black guibg=#003641
 
 " Configure Ale errors navigation
 nmap <silent> [e <Plug>(ale_previous)

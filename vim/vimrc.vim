@@ -134,11 +134,11 @@ set wildignore=*.o,*~,*.pyc
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 set wildignore+=*/tmp/*,*/node_modules/*,*/.meteor/local/*,*.so,*.swp,*.zip,*.png,*.ico,*.woff
 
-" Show line number
-set number
+" Do not show line number
+set nonumber
 
-" Always show current position
-set ruler
+" Do not show current position
+set noruler
 
 " Height of the command bar
 set cmdheight=1
