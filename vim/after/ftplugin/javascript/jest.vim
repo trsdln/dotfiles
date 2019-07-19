@@ -22,8 +22,8 @@ endfunction
 
 
 " Navigating between test cases
-nnoremap <buffer> ]t /\v(\s\|^)\zs(it)(\.only)?\(["']/g<cr>:noh<cr>
-nnoremap <buffer> [t ?\v(\s\|^)\zs(it)(\.only){0,1}\(["']?g<cr>:noh<cr>
+nnoremap <buffer> ]t /\v(\s\|^)\zs(it)(\.(only\|skip))?\(["']/g<cr>:noh<cr>
+nnoremap <buffer> [t ?\v(\s\|^)\zs(it)(\.(only\|skip)){0,1}\(["']?g<cr>:noh<cr>
 
 " Toggle test case focus
 nnoremap <buffer> <leader>to :<c-u>ToggleTestCaseFocus<cr>
