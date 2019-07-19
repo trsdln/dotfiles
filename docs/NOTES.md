@@ -39,6 +39,7 @@ Note: most of vim's monitions work as well obviously
 
 * `C-o`  - move to previous position at jump list
 * `C-i`  - move to next position at jump list
+* `C-t`  - go to previous tag
 * `gn`   - select current/next search match visually
 * `gi`   - go to last change from insert mode and switch into it
 * `g;`   - go previous item at change list
