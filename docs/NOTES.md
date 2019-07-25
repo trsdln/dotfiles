@@ -75,15 +75,15 @@ Except common ones (`i/s/a/A/o/O`) there are couple more:
 
 ### Motions
 
-* `g0`, `g$` - wrap wise versions of 0 and $
-* `L`        - move cursor low relative to screen
-* `H`        - move cursor high relative to screen
-* `M`        - move cursor middle relative to screen
-* `/`        - search; can be used with any operator!
-* `` ` ` ``  - position before last jump
-* `` `. ``   - position of last change
-* `ge`/`gE`  - end of previous word/WORD
-* `gn`       - next search match
+* `g0`, `g$`  - wrap wise versions of 0 and $
+* `L`         - move cursor low relative to screen
+* `H`         - move cursor high relative to screen
+* `M`         - move cursor middle relative to screen
+* `/`, `?`    - search; can be used with any operator!
+* `` ` ` ``   - position before last jump
+* `` `. ``    - position of last change
+* `ge`, `gE`  - end of previous word/WORD
+* `gn`        - next search match
 
 ### Insert/Command Mode Shortcuts
 
@@ -91,7 +91,7 @@ Except common ones (`i/s/a/A/o/O`) there are couple more:
 * `<C-W>`                 - delete word
 * `<C-R>{register}`       - paste value from specified register characterwise
 * `<C-R><C-P>{register}`  - paste value from specified register literally (no indentation)
-* `<C-[>`                 - leave Insert mode
+* `<C-[>`                 - leave Insert mode e.g. `<Esc>`
 * `<C-O>`                 - leave Insert mode for single key input and go back
 
 ### Visual Mode Shortcuts
@@ -109,16 +109,16 @@ Except common ones (`i/s/a/A/o/O`) there are couple more:
 
 ### Registers
 
-* `"`      - default register
-* `_`      - "black-hole"
-* `0`      - last yanked text
-* `a`-`z`  - general purpose registers
-* `/`      - last search pattern (useful for reusing with `:substitute` command)
-* `.`      - last inserted text
-* `:`      - last Ex command
-* `%`/`#`  - current/alternative file name
-* `+`      - system clipboard
-* `=`      - VimScript expression register
+* `"`       - default register
+* `_`       - "black-hole"
+* `0`       - last yanked text
+* `a`-`z`   - general purpose registers
+* `/`       - last search pattern (useful for reusing with `:substitute` command)
+* `.`       - last inserted text
+* `:`       - last Ex command
+* `%`, `#`  - current/alternative file name
+* `+`       - system clipboard
+* `=`       - VimScript expression register
 
 #### Range addresses
 
