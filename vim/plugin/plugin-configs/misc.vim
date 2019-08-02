@@ -79,14 +79,14 @@ nmap <silent> [E <Plug>(ale_first)
 nmap <silent> ]E <Plug>(ale_last)
 
 
-" Configure spelunker.vim
-let g:spelunker_white_list_for_user = [
-      \ 'mongo', 'ramda', 'fluture',
-      \ 'lerna', 'eslint', 'ctags',
-      \ 'tmux', 'graphql', 'monorepo',
-      \ 'timesheet', 'timesheets', 'dropdown',
-      \ 'juxt', 'dissoc', 'args', 'minpack',
-      \ 'plugin', 'screenshots', 'screenshot', 'admin' ]
+" " Configure spelunker.vim
+" let g:spelunker_white_list_for_user = [
+"       \ 'mongo', 'ramda', 'fluture',
+"       \ 'lerna', 'eslint', 'ctags',
+"       \ 'tmux', 'graphql', 'monorepo',
+"       \ 'timesheet', 'timesheets', 'dropdown',
+"       \ 'juxt', 'dissoc', 'args', 'minpack',
+"       \ 'plugin', 'screenshots', 'screenshot', 'admin' ]
 
 let g:spelunker_max_hi_words_each_buf = 50
 let g:spelunker_disable_auto_group = 1
