@@ -229,34 +229,11 @@ set autoindent  " Auto indent
 set si          " Smart indent
 set wrap        " Wrap lines
 
-" Scan current file for completion options
-set complete+=i
 
-" Hide annoying tabline if tabs aren't used
-set showtabline=1
-" Tabs mappings
-nnoremap th  :tabfirst<CR>
-nnoremap tk  :tabnext<CR>
-nnoremap tj  :tabprevious<CR>
-nnoremap tl  :tablast<CR>
-nnoremap td  :tabclose<CR>
-nnoremap tn  :tabnew<CR>
-nnoremap tJ  :TabMoveLeft<CR>
-nnoremap tK  :TabMoveRight<CR>
-
-command! TabMoveLeft call s:tabMoveBy(-2)
-command! TabMoveRight call s:tabMoveBy(1)
-
-function! s:tabMoveBy(indexDiff)
-  let nextTabIndex = tabpagenr() + a:indexDiff
-  let lastTabIndex = tabpagenr('$')
-  if nextTabIndex > lastTabIndex
-    let nextTabIndex = 0
-  elseif nextTabIndex < 0
-    let nextTabIndex = lastTabIndex
-  endif
-  execute 'tabmove ' . nextTabIndex
-endfunction
+" Shortcut to rapidly toggle `set list`
+nnoremap <leader>tl :set list!<CR>
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,trail:▢,eol:¬
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
@@ -300,6 +277,53 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " Remap first non-blank character
 noremap 0 ^
 
+" Scan current file for completion options
+set complete+=i
+
+" Hide annoying tabline if tabs aren't used
+set showtabline=1
+" Tabs mappings
+nnoremap th  :tabfirst<CR>
+nnoremap tk  :tabnext<CR>
+nnoremap tj  :tabprevious<CR>
+nnoremap tl  :tablast<CR>
+nnoremap td  :tabclose<CR>
+nnoremap tn  :tabnew<CR>
+nnoremap tJ  :TabMoveLeft<CR>
+nnoremap tK  :TabMoveRight<CR>
+
+command! TabMoveLeft call s:tabMoveBy(-2)
+command! TabMoveRight call s:tabMoveBy(1)
+
+function! s:tabMoveBy(indexDiff)
+  let nextTabIndex = tabpagenr() + a:indexDiff
+  let lastTabIndex = tabpagenr('$')
+  if nextTabIndex > lastTabIndex
+    let nextTabIndex = 0
+  elseif nextTabIndex < 0
+    let nextTabIndex = lastTabIndex
+  endif
+  execute 'tabmove ' . nextTabIndex
+endfunction
+
+" Quicklist file entries navigation
+nnoremap <silent> [q :cpfile
+nnoremap <silent> ]q :cnfile
+
+" Better window resizing
+nnoremap <Leader>hi :resize +5<CR>
+nnoremap <Leader>hd :resize -5<CR>
+nnoremap <Leader>vi :vertical resize +10<CR>
+nnoremap <Leader>vd :vertical resize -10<CR>
+
+" Open last file at vsplit
+nnoremap <leader>vt :execute "rightbelow vsplit " . bufname("#")<CR>
+" Open last file at split
+nnoremap <leader>hz :execute "rightbelow split " . bufname("#")<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Search
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use sane regexes
 nnoremap / /\v
 vnoremap / /\v
@@ -317,33 +341,20 @@ noremap <leader>n :<c-u>nohlsearch<cr><C-l>
 noremap n nzz
 noremap N Nzz
 
-" Fast saving
-nnoremap <leader>w :w!<cr>
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Text Editing
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Add new line without entering insert mode
 nnoremap oo o<Esc>k
 nnoremap OO O<Esc>j
-
-" Better window resizing
-nnoremap <Leader>hi :resize +5<CR>
-nnoremap <Leader>hd :resize -5<CR>
-nnoremap <Leader>vi :vertical resize +10<CR>
-nnoremap <Leader>vd :vertical resize -10<CR>
-
-" Open last file at vsplit
-nnoremap <leader>vt :execute "rightbelow vsplit " . bufname("#")<CR>
-" Open last file at split
-nnoremap <leader>hz :execute "rightbelow split " . bufname("#")<CR>
-
-" Shortcut to rapidly toggle `set list`
-nnoremap <leader>tl :set list!<CR>
-" Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,trail:▢,eol:¬
 
 " UPPPERCASE_CONSTANTS_EASILY with Ctrl-U
 inoremap <C-U> <Esc>viwUea
 " Capitalize Word with Ctrl-K
 inoremap <C-K> <Esc>b~ea
+
+" Fast saving
+nnoremap <leader>w :w!<cr>
 
 if has('clipboard')
   nnoremap cp "+y
