@@ -10,11 +10,11 @@ tabular//339091ac4dd1f17e225fe7d57b48aff55f99b23a
 vim-abolish//b95463a1cffd8fc9aff2a1ff0ae9327944948699
 vim-commentary//141d9d32a9fb58fe474fcc89cd7221eb2dd57b3a
 vim-css-color//5a31c72cc51cb11118e44fb50ff77fc596348f77
-vim-css3-syntax//566c51cc9e07ec180ab148d1215c7fb93e8a4cbb
-vim-dirvish//eba64ed111a3aab8121a0e5b6df62c6f19e05322
+vim-css3-syntax//c67661a5df5b5fb5edc61e959bfd1f15ba8a1318
+vim-dirvish//3020cce00581054e9177297ee5461737a35de7de
 vim-easymotion//85e90c9759e14633d878ed534ef313876ab96555
 vim-eunuch//e066a0999e442d9d96f24ad9d203b1bd030ef72e
-vim-fugitive//928e1e71e7776594b22b1f9fb1f1426dc8c3ae12
+vim-fugitive//c4d4986f1e4184bd1c3daa539f7ccddec50595fa
 vim-graphql//c0ad78e95d3acc39c0b34aa0c7dc61221805a246
 vim-grepper//a73a9dc920bd0b3ba8b298c258bd4d4814d9a162
 vim-gutentags//eecb136fae97e30d5f01e71f0d3b775c8b017385
