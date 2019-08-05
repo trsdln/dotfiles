@@ -307,8 +307,8 @@ function! s:tabMoveBy(indexDiff)
 endfunction
 
 " Quicklist file entries navigation
-nnoremap <silent> [q :cpfile
-nnoremap <silent> ]q :cnfile
+nnoremap <silent> [q :cpfile<cr>
+nnoremap <silent> ]q :cnfile<cr>
 
 " Better window resizing
 nnoremap <Leader>hi :resize +5<CR>
