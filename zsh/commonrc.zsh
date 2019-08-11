@@ -83,3 +83,20 @@ _gen_fzf_default_opts() {
 _gen_fzf_default_opts
 
 export FZF_CTRL_R_OPTS='--sort'
+
+# SSH Agent management
+# source https://blog.tinned-software.net/manage-ssh-keys-with-the-ssh-agent/
+# Check if the ssh-agent is already running
+if [ "$OSTYPE" = "linux-gnu" ]; then
+  if [ "$(ps -u $USER | grep ssh-agent | wc -l)" -lt "1" ]; then
+    # Start the ssh-agent and redirect the environment variables into a file
+    ssh-agent -s >~/.ssh/ssh-agent
+    # Load the environment variables from the file
+    . ~/.ssh/ssh-agent >/dev/null
+    # Add the default key to the ssh-agent
+    ssh-add ~/.ssh/id_rsa
+  else
+    # Source existing agent env variables
+    . ~/.ssh/ssh-agent >/dev/null
+  fi
+fi
