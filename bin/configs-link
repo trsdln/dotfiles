@@ -23,6 +23,9 @@ LINK_MAP=(
   ".ctags.d/javascript.ctags:../${DOTFILES_DIR_NAME}/ctags.d/javascript.ctags"
   ".ctags.d/exclusion.ctags:../${DOTFILES_DIR_NAME}/ctags.d/exclusion.ctags"
   ".terminfo:./${DOTFILES_DIR_NAME}/terminfo"
+
+  # X env
+  ".xinitrc:./${DOTFILES_DIR_NAME}/linux/.xinitrc"
 )
 
 function _create_link {

@@ -84,10 +84,10 @@ _gen_fzf_default_opts
 
 export FZF_CTRL_R_OPTS='--sort'
 
-# SSH Agent management
-# source https://blog.tinned-software.net/manage-ssh-keys-with-the-ssh-agent/
-# Check if the ssh-agent is already running
 if [ "$OSTYPE" = "linux-gnu" ]; then
+  # SSH Agent management
+  # source https://blog.tinned-software.net/manage-ssh-keys-with-the-ssh-agent/
+  # Check if the ssh-agent is already running
   if [ "$(ps -u $USER | grep ssh-agent | wc -l)" -lt "1" ]; then
     # Start the ssh-agent and redirect the environment variables into a file
     rm -f ~/.ssh/ssh-agent > /dev/null
@@ -95,4 +95,7 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
   fi
   # Source existing agent env variables
   . ~/.ssh/ssh-agent >/dev/null
+
+  # Do not keep logged in session
+  alias startx='startx; exit'
 fi

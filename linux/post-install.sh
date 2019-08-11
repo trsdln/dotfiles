@@ -38,6 +38,12 @@ xbps-install -S NetworkManager iwd htop
 # dev env
 xbps-install -S git
 
+# desktop env
+xbps-install -S xorg-minimal xorg-fonts xf86-video-intel
+# for building dwm
+xbps-install -S gcc make libX11-devel libXft-devel libXinerama-devel
+
+
 # misc notes
 
 # runit usage:
@@ -54,6 +60,7 @@ xbps-install -S git
 # xbps-install -Su
 # remove with deps:
 # xbps-remove -R <pack-name>
+# xbps-query -Rs <search-exp>
 
 # turn off
 # sudo shutdown -h now
