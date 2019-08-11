@@ -1,10 +1,5 @@
 #/bin/sh
 
-# enable to run basic commands for user
-# sudo visudo
-# append this
-# taras ALL=NOPASSWD:/usr/bin/zzz,/usr/bin/ZZZ,/usr/bin/shutdown
-
 # enable DHCP
 ln -s /etc/sv/dhcpcd /var/service/
 # check network interfaces
@@ -14,6 +9,11 @@ ln -s /etc/sv/dhcpcd /var/service/
 # allow wheel to run sudo commands:
 visudo
 # then uncomment "%wheel ALL=(ALL) ALL"
+
+# enable to run basic commands for user
+# sudo visudo
+# append this
+# taras ALL=NOPASSWD:/usr/bin/zzz,/usr/bin/ZZZ,/usr/bin/shutdown
 
 # Add main user
 useradd taras
