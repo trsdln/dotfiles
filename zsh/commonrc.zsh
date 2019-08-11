@@ -22,22 +22,36 @@ alias vi='nvim'
 
 # Ensure apps installed by brew are resolved first
 # (before system default) e.g. vim
-export PATH="${DOTFILES_PATH}/bin:/usr/local/bin:$PATH"
+if [[ "$OSTYPE" == "darvin"* ]]; then
+  export PATH="${DOTFILES_PATH}/bin:/usr/local/bin:$PATH"
+fi
 
 # Setup ripgrep
 export RIPGREP_CONFIG_PATH="${DOTFILES_PATH}/.ripgreprc"
 
 # Setup fzf
 # ---------
-if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
-  export PATH="$PATH:/usr/local/opt/fzf/bin"
+if [[ "$OSTYPE" == "darvin"* ]]; then
+  if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
+    export PATH="$PATH:/usr/local/opt/fzf/bin"
+  fi
 fi
 
 # Auto-completion
-[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
+if [[ $- == *i* ]]; then
+  if [[ "$OSTYPE" == "darvin"* ]]; then
+    source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
+  else
+    source "/usr/share/doc/fzf/completion.zsh" 2> /dev/null
+  fi
+fi
 
 # Key bindings
-source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+if [[ "$OSTYPE" == "darvin"* ]]; then
+  source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+else
+  source "/usr/share/doc/fzf/key-bindings.zsh"
+fi
 
 export FZF_DEFAULT_COMMAND='rg --files'
 export FZF_CTRL_T_COMMAND=${FZF_DEFAULT_COMMAND}
