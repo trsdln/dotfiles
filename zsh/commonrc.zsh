@@ -91,12 +91,7 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
   if [ "$(ps -u $USER | grep ssh-agent | wc -l)" -lt "1" ]; then
     # Start the ssh-agent and redirect the environment variables into a file
     ssh-agent -s >~/.ssh/ssh-agent
-    # Load the environment variables from the file
-    . ~/.ssh/ssh-agent >/dev/null
-    # Add the default key to the ssh-agent
-    ssh-add ~/.ssh/id_rsa
-  else
-    # Source existing agent env variables
-    . ~/.ssh/ssh-agent >/dev/null
   fi
+  # Source existing agent env variables
+  . ~/.ssh/ssh-agent >/dev/null
 fi
