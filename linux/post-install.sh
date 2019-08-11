@@ -17,7 +17,7 @@ visudo
 
 # Add main user
 useradd taras
-usermod -aG wheel taras
+usermod -aG wheel,users,audio,video,cdrom,input taras
 # and set password
 passwd taras
 
@@ -25,21 +25,35 @@ passwd taras
 # achieve the fastest possible boot:
 # hide grub menu at /etc/default/grub (grub timeout to 0)
 
-
 # base setup
 xbps-install -S tlp
 ln -s /etc/sv/tlp /var/service/
+
+# date/time sync
+xbps-install -S ntp
+ln -s /etc/sv/ntpd /var/service/
 
 xbps-install -S NetworkManager iwd htop
 
 # dev env
 xbps-install -S git
 
-# runit:
+# misc notes
+
+# runit usage:
 # sv up service_name
 # sv down service_name
 # sv restart service_name
 # sv status service_name
+
+# Check battery level
+# sudo tlp-stat -b
+
+# xbps
+# update all:
+# xbps-install -Su
+# remove with deps:
+# xbps-remove -R <pack-name>
 
 # turn off
 # sudo shutdown -h now
