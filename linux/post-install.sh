@@ -23,14 +23,14 @@ passwd taras
 
 # Grub
 # achieve the fastest possible boot:
-echo 'GRUB_FORCE_HIDDEN_MENU="true"' >> /etc/default/grub
+# hide grub menu at /etc/default/grub (grub timeout to 0)
 
 
 # base setup
 xbps-install -S tlp
 ln -s /etc/sv/tlp /var/service/
 
-xbps-install -S NetworkManager iwd
+xbps-install -S NetworkManager iwd htop
 
 # dev env
 xbps-install -S git

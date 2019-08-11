@@ -90,6 +90,7 @@ export FZF_CTRL_R_OPTS='--sort'
 if [ "$OSTYPE" = "linux-gnu" ]; then
   if [ "$(ps -u $USER | grep ssh-agent | wc -l)" -lt "1" ]; then
     # Start the ssh-agent and redirect the environment variables into a file
+    rm -f ~/.ssh/ssh-agent > /dev/null
     ssh-agent -s >~/.ssh/ssh-agent
   fi
   # Source existing agent env variables
