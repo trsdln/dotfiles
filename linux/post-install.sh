@@ -30,6 +30,8 @@ echo 'GRUB_FORCE_HIDDEN_MENU="true"' >> /etc/default/grub
 xbps-install -S tlp
 ln -s /etc/sv/tlp /var/service/
 
+xbps-install -S NetworkManager iwd
+
 # dev env
 xbps-install -S git
 
