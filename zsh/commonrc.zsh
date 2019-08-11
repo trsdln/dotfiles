@@ -22,7 +22,7 @@ alias vi='nvim'
 
 # Ensure apps installed by brew are resolved first
 # (before system default) e.g. vim
-if [[ "$OSTYPE" == "darvin"* ]]; then
+if [[ "$OSTYPE" == "darwin"* ]]; then
   export PATH="${DOTFILES_PATH}/bin:/usr/local/bin:$PATH"
 fi
 
@@ -31,7 +31,7 @@ export RIPGREP_CONFIG_PATH="${DOTFILES_PATH}/.ripgreprc"
 
 # Setup fzf
 # ---------
-if [[ "$OSTYPE" == "darvin"* ]]; then
+if [[ "$OSTYPE" == "darwin"* ]]; then
   if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
     export PATH="$PATH:/usr/local/opt/fzf/bin"
   fi
@@ -39,7 +39,7 @@ fi
 
 # Auto-completion
 if [[ $- == *i* ]]; then
-  if [[ "$OSTYPE" == "darvin"* ]]; then
+  if [[ "$OSTYPE" == "darwin"* ]]; then
     source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
   else
     source "/usr/share/doc/fzf/completion.zsh" 2> /dev/null
@@ -47,7 +47,7 @@ if [[ $- == *i* ]]; then
 fi
 
 # Key bindings
-if [[ "$OSTYPE" == "darvin"* ]]; then
+if [[ "$OSTYPE" == "darwin"* ]]; then
   source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 else
   source "/usr/share/doc/fzf/key-bindings.zsh"
