@@ -43,7 +43,7 @@ ln -s /etc/sv/ntpd /var/service/
 xbps-install -S NetworkManager iwd htop
 
 # dev env
-xbps-install -S git
+xbps-install -S git chromium
 
 # desktop env
 xbps-install -S xorg-minimal xorg-fonts xf86-video-intel
