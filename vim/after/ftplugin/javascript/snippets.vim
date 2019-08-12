@@ -33,19 +33,22 @@ inoreabbrev <buffer> fdebugm
       \<C-R>=g:Eatchar('\s')<CR>
 
 " Import snippets
-
 inoreabbrev <buffer> imprf
       \ import R from 'ramda';
       \<CR>import F from 'fluture';
       \<CR><esc><bs>
 
+" Snippets guides. source:
+" https://github.com/LukeSmithxyz/voidrice/blob/archi3/.config/nvim/init.vim#L111
+inoremap <buffer> <C-]> <Esc>/<++><Enter>"_c4l
+
 inoreabbrev <buffer> impc
-      \ import {  } from '';
+      \ import {  } from '<++>';
       \<esc>F{la
       \<C-R>=g:Eatchar('\s')<CR>
 
 inoreabbrev <buffer> impd
-      \ import  from '';
+      \ import  from '<++>';
       \<esc>Ftla
       \<C-R>=g:Eatchar('\s')<CR>
 
