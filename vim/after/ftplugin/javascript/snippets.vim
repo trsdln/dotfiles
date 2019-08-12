@@ -38,10 +38,6 @@ inoreabbrev <buffer> imprf
       \<CR>import F from 'fluture';
       \<CR><esc><bs>
 
-" Snippets guides. source:
-" https://github.com/LukeSmithxyz/voidrice/blob/archi3/.config/nvim/init.vim#L111
-inoremap <buffer> <C-]> <Esc>/<++><Enter>"_c4l
-
 inoreabbrev <buffer> impc
       \ import {  } from '<++>';
       \<esc>F{la
