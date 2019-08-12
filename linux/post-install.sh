@@ -1,5 +1,12 @@
 #/bin/sh
 
+# Grub
+# achieve the fastest possible boot:
+# hide grub menu and fix kernel errors at /etc/default/grub
+# GRUB_TIMEOUT=0
+# GRUB_CMDLINE_LINUX_DEFAULT="loglevel=4 slub_debug=P page_poison=1 intel_iommu=off"
+# and then: sudo grub-mkconfig -o /boot/grub/grub.cfg
+
 # set bigger font at /etc/rc.conf
 #FONT="latarcyrheb-sun32"
 
@@ -24,10 +31,6 @@ usermod -aG wheel,users,audio,video,cdrom,input taras
 # and set password
 passwd taras
 chown -R taras:wheel /usr/local
-
-# Grub
-# achieve the fastest possible boot:
-# hide grub menu at /etc/default/grub (grub timeout to 0)
 
 # base setup
 xbps-install -S tlp
