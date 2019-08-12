@@ -1,5 +1,8 @@
 #/bin/sh
 
+# set bigger font at /etc/rc.conf
+#FONT="latarcyrheb-sun32"
+
 # enable DHCP
 ln -s /etc/sv/dhcpcd /var/service/
 # check network interfaces
