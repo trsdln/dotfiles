@@ -48,7 +48,7 @@ xbps-install -S git
 # desktop env
 xbps-install -S xorg-minimal xorg-fonts xf86-video-intel
 # for building dwm
-xbps-install -S gcc make libX11-devel libXft-devel libXinerama-devel
+xbps-install -S gcc make pkg-config libX11-devel libXft-devel libXinerama-devel
 
 
 # misc notes

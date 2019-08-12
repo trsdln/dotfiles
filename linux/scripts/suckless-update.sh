@@ -9,13 +9,14 @@ SUCKLESS_APPS=( \
   )
 
 if [ -d "$SUCKLESS_DIR" ]; then
-  cd $SUCKLESS_DIR
+  cd "${SUCKLESS_DIR}"
 else
-  mkdir -p $SUCKLESS_DIR
-  cd $SUCKLESS_DIR
+  mkdir -p "${SUCKLESS_DIR}"
+  cd "${SUCKLESS_DIR}"
   echo "Clonning apps..."
   for app_name in "${SUCKLESS_APPS[@]}"; do
     git clone git@github.com:trsdln/${app_name}.git
+    git remote add src https://git.suckless.rog/${app_name}
   done
 fi
 
