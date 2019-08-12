@@ -23,6 +23,7 @@ useradd taras
 usermod -aG wheel,users,audio,video,cdrom,input taras
 # and set password
 passwd taras
+chown -R taras:wheel /usr/local
 
 # Grub
 # achieve the fastest possible boot:

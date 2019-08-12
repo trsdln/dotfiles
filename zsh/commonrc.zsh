@@ -20,10 +20,18 @@ alias yolo='git commit --no-verify -m "$(curl -s https://whatthecommit.com/index
 alias reload='source ~/.zshrc'
 alias vi='nvim'
 
+# Add common scripts
+export PATH="${DOTFILES_PATH}/bin:$PATH"
+
 # Ensure apps installed by brew are resolved first
 # (before system default) e.g. vim
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  export PATH="${DOTFILES_PATH}/bin:/usr/local/bin:$PATH"
+  export PATH="usr/local/bin:$PATH"
+fi
+
+# Add linux specific scripts and apps
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  export PATH="${DOTFILES_PATH}/linux/scripts:$PATH"
 fi
 
 # Setup ripgrep
