@@ -372,6 +372,8 @@ endif
 " Snippets guides. source:
 " https://github.com/LukeSmithxyz/voidrice/blob/archi3/.config/nvim/init.vim#L111
 inoremap <C-]> <Esc>/<++><Enter>"_c4l
+vnoremap <C-]> <Esc>/<++><Enter>"_c4l
+nnoremap <C-]> <Esc>/<++><Enter>"_c4l
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Utility functions
