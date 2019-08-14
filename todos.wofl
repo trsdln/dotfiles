@@ -1,3 +1,6 @@
+* Vim Ideas
+  * enhance GQL coding experience via `schema.json` at project root + automatic generation
+    \ ALE/Eslint already support it
 - Archived [DONE]
   - Gbrowse support for github
   - try Gbrowse plugin for gitlab
