@@ -42,6 +42,12 @@ ln -s /etc/sv/ntpd /var/service/
 
 xbps-install -S NetworkManager iwd htop
 
+# better font
+xbps-install -S dejavu-fonts-ttf
+
+# clipboard support at neovim
+xbps-install -S xsel
+
 # dev env
 xbps-install -S git chromium
 
