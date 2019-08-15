@@ -48,3 +48,8 @@ inoreabbrev <buffer> impd
       \<esc>Ftla
       \<C-R>=g:Eatchar('\s')<CR>
 
+inoreabbrev <buffer> jsd
+      \ /**<CR> <CR><C-h><C-h>/
+      \<esc>kA<C-h>
+      \<C-R>=g:Eatchar('\s')<CR>
+
