@@ -10,11 +10,16 @@
 # set bigger font at /etc/rc.conf
 #FONT="latarcyrheb-sun32"
 
-# enable DHCP
-ln -s /etc/sv/dhcpcd /var/service/
+# enable DHCP (do not enable if network manager is used!)
+# ln -s /etc/sv/dhcpcd /var/service/
 # check network interfaces
 # ip link
 # ip link set <interface_name> up
+
+# Connection using NetworkManager
+xbps-install -S dbus NetworkManager
+ln -s /etc/sv/dbus /var/service/
+ln -s /etc/sv/NetworkManager /var/service/
 
 # allow wheel to run sudo commands:
 visudo
@@ -40,19 +45,14 @@ ln -s /etc/sv/tlp /var/service/
 xbps-install -S ntp
 ln -s /etc/sv/ntpd /var/service/
 
-xbps-install -S NetworkManager iwd htop
-
 # better font
 xbps-install -S dejavu-fonts-ttf
 
-# clipboard support at neovim
-xbps-install -S xsel
-
 # dev env
-xbps-install -S git chromium
+xbps-install -S git chromium xsel ripgrep tmux neovim htop
 
 # desktop env
-xbps-install -S xorg-minimal xorg-fonts xf86-video-intel
+xbps-install -S xorg-minimal xorg-fonts xf86-video-intel feh
 # for building dwm
 xbps-install -S gcc make pkg-config libX11-devel libXft-devel libXinerama-devel
 
@@ -74,6 +74,9 @@ xbps-install -S gcc make pkg-config libX11-devel libXft-devel libXinerama-devel
 # remove with deps:
 # xbps-remove -R <pack-name>
 # xbps-query -Rs <search-exp>
+
+# set wallpaper
+# feh --bg-scale image-name.jpg
 
 # turn off
 # sudo shutdown -h now
