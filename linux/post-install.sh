@@ -28,7 +28,7 @@ visudo
 # enable to run basic commands for user
 # sudo visudo
 # append this
-# taras ALL=NOPASSWD:/usr/bin/zzz,/usr/bin/ZZZ,/usr/bin/shutdown,/bin/nmcli
+# taras ALL=NOPASSWD:/usr/bin/zzz,/usr/bin/ZZZ,/usr/bin/shutdown,/bin/nmcli,/bin/tlp-stat
 
 # Add main user
 useradd taras
@@ -51,8 +51,11 @@ xbps-install -S dejavu-fonts-ttf
 # dev env
 xbps-install -S git chromium xsel ripgrep tmux neovim htop
 
+# drivers
+xbps-install -S xf86-video-intel tpacpi-bat
+
 # desktop env
-xbps-install -S xorg-minimal xorg-fonts xf86-video-intel feh
+xbps-install -S xorg-minimal xorg-fonts feh xsetroot
 # for building dwm
 xbps-install -S gcc make pkg-config libX11-devel libXft-devel libXinerama-devel
 
@@ -74,6 +77,8 @@ xbps-install -S gcc make pkg-config libX11-devel libXft-devel libXinerama-devel
 # remove with deps:
 # xbps-remove -R <pack-name>
 # xbps-query -Rs <search-exp>
+# list manually instaled packages:
+x xbps-query -lm
 
 # set wallpaper
 # feh --bg-scale image-name.jpg
