@@ -46,7 +46,7 @@ xbps-install -S ntp
 ln -s /etc/sv/ntpd /var/service/
 
 # better font
-xbps-install -S dejavu-fonts-ttf
+xbps-install -S dejavu-fonts-ttf noto-fonts-emoji
 
 # dev env
 xbps-install -S git chromium xsel ripgrep tmux neovim htop
