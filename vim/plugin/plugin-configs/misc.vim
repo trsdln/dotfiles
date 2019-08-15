@@ -108,3 +108,7 @@ omap <Leader><Leader>m <Plug>(easymotion-bd-f2)
 
 " Configure highlightedyank
 let g:highlightedyank_highlight_duration = 300
+
+" suda.vim configuration
+command! SudoWrite write suda://%
+command! -nargs=1 SudoEdit  edit  suda://<args>

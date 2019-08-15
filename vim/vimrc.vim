@@ -49,14 +49,16 @@ function! PackInit() abort
   " Linguistically correct substitution
   call minpac#add('tpope/vim-abolish')
 
+  call minpac#add('lambdalisue/suda.vim')
+
   " Automatic ctags generation
   call minpac#add('ludovicchabant/vim-gutentags')
   " Easy code navigation
   call minpac#add('easymotion/vim-easymotion')
 
-  if !has('clipboard')
-    call minpac#add('christoomey/vim-system-copy')
-  endif
+  " if !has('clipboard')
+  "   call minpac#add('christoomey/vim-system-copy')
+  " endif
 
   " Global search using Ripgrep
   call minpac#add('mhinz/vim-grepper')

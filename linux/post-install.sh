@@ -28,7 +28,7 @@ visudo
 # enable to run basic commands for user
 # sudo visudo
 # append this
-# taras ALL=NOPASSWD:/usr/bin/zzz,/usr/bin/ZZZ,/usr/bin/shutdown
+# taras ALL=NOPASSWD:/usr/bin/zzz,/usr/bin/ZZZ,/usr/bin/shutdown,/bin/nmcli
 
 # Add main user
 useradd taras
@@ -77,6 +77,12 @@ xbps-install -S gcc make pkg-config libX11-devel libXft-devel libXinerama-devel
 
 # set wallpaper
 # feh --bg-scale image-name.jpg
+
+# nmcli:
+# sudo nmcli r wifi on
+# sudo nmcli r wifi off
+# sudo nmcli d wifi list
+# sudo nmcli d wifi connect "point_name" password "password_val"
 
 # turn off
 # sudo shutdown -h now
