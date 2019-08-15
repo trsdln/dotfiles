@@ -52,7 +52,8 @@ xbps-install -S dejavu-fonts-ttf
 xbps-install -S git chromium xsel ripgrep tmux neovim htop
 
 # drivers
-xbps-install -S xf86-video-intel tpacpi-bat
+xbps-install -S xf86-video-intel tpacpi-bat alsa-utils
+sudo ln -s /etc/sv/alsa /var/service
 
 # desktop env
 xbps-install -S xorg-minimal xorg-fonts feh xsetroot
