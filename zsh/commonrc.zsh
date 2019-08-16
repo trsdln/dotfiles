@@ -106,4 +106,10 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
 
   # Do not keep logged in session
   alias startx='startx; exit'
+
+  # xbps shortcuts
+  alias xbi='sudo xbps-install -S'
+  alias xbr='sudo xbps-remove -R'
+  alias xbq='xbps-query -R'
+  alias xbqs='xbps-query -Rs'
 fi
