@@ -38,11 +38,8 @@ passwd taras
 chown -R taras:wheel /usr/local
 
 # base setup
-xbps-install -S tlp
+xbps-install -S tlp ntp setxkbmap
 ln -s /etc/sv/tlp /var/service/
-
-# date/time sync
-xbps-install -S ntp
 ln -s /etc/sv/ntpd /var/service/
 
 # better font

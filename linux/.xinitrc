@@ -2,7 +2,6 @@
 
 # Set keyboard layouts
 setxkbmap -model thinkpad -layout us,ua -option grp:win_space_toggle
-# grp:alt_shift_toggle
 
 # xset -b # disable bell
 
