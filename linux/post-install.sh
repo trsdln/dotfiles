@@ -49,7 +49,7 @@ ln -s /etc/sv/ntpd /var/service/
 xbps-install -S dejavu-fonts-ttf noto-fonts-emoji
 
 # dev env
-xbps-install -S git chromium xsel ripgrep tmux neovim htop
+xbps-install -S git chromium xsel ripgrep tmux neovim htop gnome-ssh-askpass
 
 # drivers
 xbps-install -S xf86-video-intel tpacpi-bat alsa-utils
