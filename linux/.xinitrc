@@ -10,7 +10,7 @@ do
 	LOCALTIME=$(date +%H:%M)
 
   TLP_RES_MIN=$(sudo tlp-stat -b | cut -d"=" -f2 | tail -n 11 | head -n 6)
-  BAT_STATUS_FLAG=$([ $(echo $TLP_RES_MIN | awk '{print $1}') = $BAT_DISCH_STATUS ] && echo '-' || echo '+')
+  BAT_STATUS_FLAG=$([ $(echo $TLP_RES_MIN | awk '{print $1}') = $BAT_DISCH_STATUS ] && echo '' || echo '+')
   BAT=$(echo $TLP_RES_MIN | awk '{print $6 "%"}')
 
   xsetroot -name "| $BAT_STATUS_FLAG $BAT | $LOCALTIME |"
