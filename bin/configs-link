@@ -18,7 +18,7 @@ LINK_MAP=(
   ".config/nvim:../${DOTFILES_DIR_NAME}/nvim"
 
   # Misc
-  ".tmux.conf:./${DOTFILES_DIR_NAME}/tmux/$([ "$OSTYPE" == "linux-gnu" ] && echo "tmux.conf" || echo "darwin.conf")"
+  ".tmux.conf:./${DOTFILES_DIR_NAME}/tmux/$([ "$OSTYPE" == "linux-gnu" ] && echo "linux-gnu.conf" || echo "darwin.conf")"
   ".gitconfig:./${DOTFILES_DIR_NAME}/.gitconfig"
   ".ctags.d/javascript.ctags:../${DOTFILES_DIR_NAME}/ctags.d/javascript.ctags"
   ".ctags.d/exclusion.ctags:../${DOTFILES_DIR_NAME}/ctags.d/exclusion.ctags"
