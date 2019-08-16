@@ -9,11 +9,11 @@ do
 	# VOL=$(amixer get Master | tail -1 | sed 's/.*\[\([0-9]*%\)\].*/\1/')
 	LOCALTIME=$(date +%H:%M)
 
-  BAT_STATUS=$(sudo tlp-stat -b | tail -n 11 | head -n 1 | awk '{print $3}')
-  BAT_STATUS_FLAG=$([ $BAT_STATUS = $BAT_DISCH_STATUS ] && echo '' || echo '+')
-  BAT=$(sudo tlp-stat -b | tail -n 6 | head -n 1 | awk '{print $3 "%"}')
+  TLP_RES_MIN=$(sudo tlp-stat -b | cut -d"=" -f2 | tail -n 11 | head -n 6)
+  BAT_STATUS_FLAG=$([ $(echo $TLP_RES_MIN | awk '{print $1}') = $BAT_DISCH_STATUS ] && echo '-' || echo '+')
+  BAT=$(echo $TLP_RES_MIN | awk '{print $6 "%"}')
 
-  xsetroot -name "| $BAT_STATUS_FLAG $BAT | $LOCALTIME"
+  xsetroot -name "| $BAT_STATUS_FLAG $BAT | $LOCALTIME |"
 	sleep 20s
 done &
 
