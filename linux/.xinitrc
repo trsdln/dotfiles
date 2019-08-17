@@ -3,6 +3,9 @@
 # Set keyboard layouts
 setxkbmap -model thinkpad -layout us,ua -option grp:win_space_toggle
 
+# Set wallpaper
+feh --bg-scale Pictures/wallpaper.jpg
+
 # xset -b # disable bell
 
 BAT_DISCH_STATUS="Discharging"
