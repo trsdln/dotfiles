@@ -16,23 +16,19 @@ function prompt_confirmation {
 }
 
 function do_shutdown {
-  # sudo shutdown -h now
-  echo "shutting down"
+  sudo shutdown -h now
 }
 
 function do_reboot {
-  # sudo shutdown -r now
-  echo "rebooting..."
+  sudo shutdown -r now
 }
 
 if [ "$SELECTED_OPTION" = 'Sleep' ]; then
-  echo "Sleeping..."
-  # sudo zzz
+  sudo zzz
 fi
 
 if [ "$SELECTED_OPTION" = 'Hibernate' ]; then
-  echo "hibernating..."
-  # sudo ZZZ
+  sudo ZZZ
 fi
 
 if [ "$SELECTED_OPTION" = 'Shutdown' ]; then
