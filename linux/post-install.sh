@@ -54,7 +54,7 @@ xbps-install -S xf86-video-intel tpacpi-bat alsa-utils
 sudo ln -s /etc/sv/alsa /var/service
 
 # desktop env
-xbps-install -S xorg-minimal xorg-fonts feh xsetroot
+xbps-install -S xorg-minimal xorg-fonts feh xsetroot xrandr
 # for building dwm
 xbps-install -S gcc make pkg-config libX11-devel libXft-devel libXinerama-devel
 
