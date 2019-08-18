@@ -90,3 +90,7 @@ x xbps-query -lm
 # sudo nmcli r wifi off
 # sudo nmcli d wifi list
 # sudo nmcli d wifi connect "point_name" password "password_val"
+
+# sound control:
+# alsamixer - TUI
+# amixer - CLI
