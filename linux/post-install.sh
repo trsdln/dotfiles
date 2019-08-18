@@ -94,3 +94,6 @@ x xbps-query -lm
 # sound control:
 # alsamixer - TUI
 # amixer - CLI
+
+# change monitor brightness
+# xbacklight -set 50
