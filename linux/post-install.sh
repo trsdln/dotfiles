@@ -63,6 +63,7 @@ xbps-install -S gcc make pkg-config libX11-devel libXft-devel libXinerama-devel
 # > nodejs@8 yarn python3 universal-ctags docker mongodb
 # > jdk elasticsearch slack robo3t compass keybase
 # > gimp "screenshot app: area + whole screen"
+# * exfat filesystem support
 # * install neovim-python3 integration:
 # pip3 install --user --upgrade pynvim
 # set close lid action: sleep
