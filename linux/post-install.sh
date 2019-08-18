@@ -21,21 +21,20 @@ xbps-install -S dbus NetworkManager
 ln -s /etc/sv/dbus /var/service/
 ln -s /etc/sv/NetworkManager /var/service/
 
-# allow wheel to run sudo commands:
-visudo
-# then uncomment "%wheel ALL=(ALL) ALL"
-
-# enable to run basic commands for user
-# sudo visudo
-# append this
-# taras ALL=NOPASSWD:/usr/bin/zzz,/usr/bin/ZZZ,/usr/bin/shutdown,/bin/nmcli,/bin/tlp-stat
-
 # Add main user
 useradd taras
 usermod -aG wheel,users,audio,video,cdrom,input taras
 # and set password
 passwd taras
+# allow make instal without sudo
 chown -R taras:wheel /usr/local
+
+# allow wheel to run sudo commands:
+sudo visudo
+# then uncomment:
+# %wheel ALL=(ALL) ALL
+# to enable to run basic commands for user append this:
+# taras ALL=NOPASSWD:/usr/bin/zzz,/usr/bin/ZZZ,/usr/bin/shutdown,/bin/nmcli,/bin/tlp-stat
 
 # base setup
 xbps-install -S tlp ntp setxkbmap
@@ -46,7 +45,7 @@ ln -s /etc/sv/ntpd /var/service/
 xbps-install -S dejavu-fonts-ttf noto-fonts-emoji
 
 # dev env
-xbps-install -S git chromium xsel ripgrep tmux neovim htop gnome-ssh-askpass
+xbps-install -S zsh git chromium xsel ripgrep tmux neovim htop gnome-ssh-askpass
 
 # drivers
 xbps-install -S xf86-video-intel tpacpi-bat alsa-utils
@@ -57,7 +56,6 @@ xbps-install -S xorg-minimal xorg-fonts feh xsetroot
 # for building dwm
 xbps-install -S gcc make pkg-config libX11-devel libXft-devel libXinerama-devel
 
-
 # misc notes
 
 # runit usage:
@@ -65,9 +63,6 @@ xbps-install -S gcc make pkg-config libX11-devel libXft-devel libXinerama-devel
 # sv down service_name
 # sv restart service_name
 # sv status service_name
-
-# Check battery level
-# sudo tlp-stat -b
 
 # xbps
 # update all:
@@ -78,20 +73,8 @@ xbps-install -S gcc make pkg-config libX11-devel libXft-devel libXinerama-devel
 # list manually instaled packages:
 x xbps-query -lm
 
-# set wallpaper
-# feh --bg-scale image-name.jpg
-
 # nmcli:
 # sudo nmcli r wifi on
 # sudo nmcli r wifi off
 # sudo nmcli d wifi list
 # sudo nmcli d wifi connect "point_name" password "password_val"
-
-# turn off
-# sudo shutdown -h now
-# resart
-# sudo shutdown -r now
-# hibernation
-# ZZZ
-# sleep
-# zzz
