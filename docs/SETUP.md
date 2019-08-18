@@ -46,7 +46,7 @@ PATH="/usr/local/bin:$PATH"
 4. Start vim and install plugins itself
 
 ```
-:PlugInstall
+:PackUpdate
 ```
 
 ## Neovim

@@ -45,7 +45,9 @@ ln -s /etc/sv/ntpd /var/service/
 xbps-install -S dejavu-fonts-ttf noto-fonts-emoji
 
 # dev env
-xbps-install -S zsh git chromium xsel ripgrep tmux neovim htop gnome-ssh-askpass
+xbps-install -S zsh git chromium xsel ripgrep tmux neovim htop gnome-ssh-askpass curl
+
+# At this point dotfiles can be cloned
 
 # drivers
 xbps-install -S xf86-video-intel tpacpi-bat alsa-utils
@@ -55,6 +57,15 @@ sudo ln -s /etc/sv/alsa /var/service
 xbps-install -S xorg-minimal xorg-fonts feh xsetroot
 # for building dwm
 xbps-install -S gcc make pkg-config libX11-devel libXft-devel libXinerama-devel
+
+# todo:
+# * install:
+# > nodejs@8 yarn python3 universal-ctags docker mongodb
+# > jdk elasticsearch slack robo3t compass keybase
+# > gimp "screenshot app: area + whole screen"
+# * install neovim-python3 integration:
+# pip3 install --user --upgrade pynvim
+# set close lid action: sleep
 
 # misc notes
 
