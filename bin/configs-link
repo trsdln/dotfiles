@@ -6,9 +6,8 @@ DOTFILES_DIR_NAME=".dotfiles"
 # Figure out where this repo is located
 CONFIGS_ROOT_DIR=$(cd $(dirname "$0")/.. && pwd)
 
-
 # format: "link_name:path_to_original"
-LINK_MAP=(
+LINK_MAP_COMMON=(
   # Zprezto
   ".zshrc:./${DOTFILES_DIR_NAME}/zsh/zpreztorc.zsh"
 
@@ -23,9 +22,13 @@ LINK_MAP=(
   ".ctags.d/javascript.ctags:../${DOTFILES_DIR_NAME}/ctags.d/javascript.ctags"
   ".ctags.d/exclusion.ctags:../${DOTFILES_DIR_NAME}/ctags.d/exclusion.ctags"
   ".terminfo:./${DOTFILES_DIR_NAME}/terminfo"
+)
 
+LINK_MAP_LINUX=(
   # X env
   ".xinitrc:./${DOTFILES_DIR_NAME}/linux/.xinitrc"
+  # Alsa config
+  ".asoundrc:./${DOTFILES_DIR_NAME}/linux/asound.conf"
 )
 
 function _create_link {
@@ -42,6 +45,21 @@ function _remove_link {
   echo "Removed"
 }
 
+function _handle_link_entry {
+  local link_entry=$1
+  local unlink_param=$2
+
+  local link_name="${link_entry%%:*}"
+  local link_path="${link_entry##*:}"
+  printf "%s > %s : " "${link_name}" "${link_path}"
+
+  if [ "${unlink_param}" == "unlink" ]; then
+    _remove_link ${link_name}
+  else
+    _create_link "${link_path}" ${link_name}
+  fi
+}
+
 function _main {
   cd ~
 
@@ -50,23 +68,23 @@ function _main {
 
   echo "Processing links at '$(echo ~)' ..."
 
-  if [ "${CONFIGS_DEBUG}" == "true" ]; then
+  if [ "${CONFIGS_DEBUG}" = "true" ]; then
     echo "WARNING: Dry run enabled!"
   fi
 
   local unlink_param=$1
 
-  for link_entry in "${LINK_MAP[@]}" ; do
-    local link_name="${link_entry%%:*}"
-    local link_path="${link_entry##*:}"
-    printf "%s > %s : " "${link_name}" "${link_path}"
-
-    if [ "${unlink_param}" == "unlink" ]; then
-      _remove_link ${link_name}
-    else
-      _create_link "${link_path}" ${link_name}
-    fi
+  echo "Common links:"
+  for link_entry in "${LINK_MAP_COMMON[@]}" ; do
+    _handle_link_entry $link_entry $unlink_param
   done
+
+  if [ "$OSTYPE" = "linux-gnu" ]; then
+    echo "Linux specific links:"
+    for link_entry in "${LINK_MAP_LINUX[@]}" ; do
+      _handle_link_entry $link_entry $unlink_param
+    done
+  fi
 
   echo "Done!"
 }
