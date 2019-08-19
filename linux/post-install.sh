@@ -94,6 +94,9 @@ xbps-install -S gcc make pkg-config libX11-devel libXft-devel libXinerama-devel
 # sound control:
 # alsamixer - TUI
 # amixer - CLI
+# volume control:
+# amixer sset Master 5%-
+# amixer sset Master 5%+
 
 # change monitor brightness
 # xbacklight -set 50
