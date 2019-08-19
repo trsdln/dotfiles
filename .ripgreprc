@@ -13,3 +13,4 @@
 --glob=!.dump/*/**
 --glob=!.tags
 --glob=!.tags.*
+--glob=!schema.json
