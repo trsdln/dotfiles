@@ -79,35 +79,35 @@ nmap <silent> [E <Plug>(ale_first)
 nmap <silent> ]E <Plug>(ale_last)
 
 
-" " Configure spelunker.vim
-" let g:spelunker_white_list_for_user = [
-"       \ 'mongo', 'ramda', 'fluture',
-"       \ 'lerna', 'eslint', 'ctags',
-"       \ 'tmux', 'graphql', 'monorepo',
-"       \ 'timesheet', 'timesheets', 'dropdown',
-"       \ 'juxt', 'dissoc', 'args', 'minpack',
-"       \ 'plugin', 'screenshots', 'screenshot', 'admin' ]
-
+" Configure spelunker.vim
 let g:spelunker_max_hi_words_each_buf = 50
 let g:spelunker_disable_auto_group = 1
+
+function! s:SplunckerWrapper()
+  if expand('%:t') ==# 'schema.json'
+    return
+  endif
+  call spelunker#check()
+endfunction
+
 augroup spelunker
   autocmd!
   autocmd BufWinEnter,BufWritePost
         \ *.vim,*.js,*.jsx,*.json,*.sh,*.md,COMMIT_EDITMSG
-        \ call spelunker#check()
+        \ call s:SplunckerWrapper()
 augroup END
 
 
 " Configure easymotion
 let g:EasyMotion_smartcase = 1
-
-nmap <Leader><Leader>m <Plug>(easymotion-overwin-f2)
-xmap <Leader><Leader>m <Plug>(easymotion-bd-f2)
-omap <Leader><Leader>m <Plug>(easymotion-bd-f2)
+" nmap <Leader><Leader>m <Plug>(easymotion-overwin-f2)
+" xmap <Leader><Leader>m <Plug>(easymotion-bd-f2)
+" omap <Leader><Leader>m <Plug>(easymotion-bd-f2)
 
 
 " Configure highlightedyank
 let g:highlightedyank_highlight_duration = 300
+
 
 " suda.vim configuration
 command! SudoWrite write suda://%
