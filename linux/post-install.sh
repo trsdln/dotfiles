@@ -83,7 +83,7 @@ xbps-install -S gcc make pkg-config libX11-devel libXft-devel libXinerama-devel
 # xbps-remove -R <pack-name>
 # xbps-query -Rs <search-exp>
 # list manually instaled packages:
-x xbps-query -lm
+# xbps-query -lm
 
 # nmcli:
 # sudo nmcli r wifi on
