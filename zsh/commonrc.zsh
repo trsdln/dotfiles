@@ -50,7 +50,7 @@ if [[ $- == *i* ]]; then
   if [[ "$OSTYPE" == "darwin"* ]]; then
     source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
   else
-    source "/usr/share/doc/fzf/completion.zsh" 2> /dev/null
+    source "/usr/share/fzf/completion.zsh" 2> /dev/null
   fi
 fi
 
@@ -58,7 +58,7 @@ fi
 if [[ "$OSTYPE" == "darwin"* ]]; then
   source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 else
-  source "/usr/share/doc/fzf/key-bindings.zsh"
+  source "/usr/share/fzf/key-bindings.zsh"
 fi
 
 export FZF_DEFAULT_COMMAND='rg --files'
