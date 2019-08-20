@@ -12,6 +12,7 @@
 
 # Connection using NetworkManager
 pacman -S networkmanager openssh
+systemctl enable NetworkManager
 systemctl start NetworkManager
 
 # Add main user
