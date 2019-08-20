@@ -56,10 +56,6 @@ function! PackInit() abort
   " Easy code navigation
   call minpac#add('easymotion/vim-easymotion')
 
-  " if !has('clipboard')
-  "   call minpac#add('christoomey/vim-system-copy')
-  " endif
-
   " Global search using Ripgrep
   call minpac#add('mhinz/vim-grepper')
 
