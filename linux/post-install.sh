@@ -10,20 +10,13 @@
 # set bigger font at /etc/rc.conf
 #FONT="latarcyrheb-sun32"
 
-# enable DHCP (do not enable if network manager is used!)
-# ln -s /etc/sv/dhcpcd /var/service/
-# check network interfaces
-# ip link
-# ip link set <interface_name> up
-
 # Connection using NetworkManager
-xbps-install -S dbus NetworkManager
-ln -s /etc/sv/dbus /var/service/
-ln -s /etc/sv/NetworkManager /var/service/
+pacman -S networkmanager openssh
+systemctl start NetworkManager
 
 # Add main user
 useradd taras
-usermod -aG wheel,users,audio,video,cdrom,input taras
+usermod -aG wheel,users,audio,video,input taras
 # and set password
 passwd taras
 # allow make instal without sudo
