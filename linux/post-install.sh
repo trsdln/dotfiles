@@ -11,7 +11,7 @@
 #FONT="latarcyrheb-sun32"
 
 # Connection using NetworkManager
-pacman -S networkmanager openssh
+pacman -S base-devel networkmanager openssh
 systemctl enable NetworkManager
 systemctl start NetworkManager
 
