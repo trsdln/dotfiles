@@ -48,7 +48,8 @@ sudo visudo
 pacman -S noto-fonts-emoji ttf-dejavu
 
 # dev env
-pacman -S zsh git ripgrep tmux neovim chromium htop x11-ssh-askpass ctags
+pacman -S zsh git ripgrep tmux neovim chromium htop x11-ssh-askpass ctags python3 python-pip
+pip install --user --upgrade pynvim
 
 # At this point dotfiles can be cloned
 
@@ -56,34 +57,17 @@ pacman -S zsh git ripgrep tmux neovim chromium htop x11-ssh-askpass ctags
 pacman -S xf86-video-intel alsa-utils tlp tpacpi-bat
 
 # desktop env
-pacman -S xorg-{server,xinit,xsetroot,xrandr} feh xsel
+pacman -S xorg-{server,xinit,xsetroot,xrandr,xbacklight} feh xsel
 
 # todo:
 # * install:
-# > nodejs@8 yarn python3 universal-ctags docker mongodb
+# > nodejs@8 yarn docker
 # > jdk elasticsearch slack robo3t compass keybase
 # > gimp "screenshot app: area + whole screen"
 # * exfat filesystem support
-# * install neovim-python3 integration:
-# pip3 install --user --upgrade pynvim
 # set close lid action: sleep
 
 # misc notes
-
-# runit usage:
-# sv up service_name
-# sv down service_name
-# sv restart service_name
-# sv status service_name
-
-# xbps
-# update all:
-# xbps-install -Su
-# remove with deps:
-# xbps-remove -R <pack-name>
-# xbps-query -Rs <search-exp>
-# list manually instaled packages:
-# xbps-query -lm
 
 # nmcli:
 # sudo nmcli r wifi on
