@@ -24,11 +24,11 @@ function do_reboot {
 }
 
 if [ "$SELECTED_OPTION" = 'Sleep' ]; then
-  sudo zzz
+  systemctl suspend
 fi
 
 if [ "$SELECTED_OPTION" = 'Hibernate' ]; then
-  sudo ZZZ
+  systemctl hibernate
 fi
 
 if [ "$SELECTED_OPTION" = 'Shutdown' ]; then
