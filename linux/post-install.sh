@@ -1,13 +1,25 @@
 #/bin/sh
 
 # Grub
-# achieve the fastest possible boot:
-# hide grub menu  at /etc/default/grub
+# # achieve the fastest possible boot:
+# # hide grub menu  at /etc/default/grub
 # GRUB_TIMEOUT=0
-# probably not relevant (fix kernel errors): GRUB_CMDLINE_LINUX_DEFAULT="loglevel=4 slub_debug=P page_poison=1 intel_iommu=off"
-# and then: sudo grub-mkconfig -o /boot/grub/grub.cfg
+# # hibernation support (ensure UUID is correct - can be taken from /etc/fstab):
+# GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet resume=UUID=a33e750b-58c9-4cc4-a661-89e9cfeb45e4"
+# # probably not relevant (fix kernel errors): GRUB_CMDLINE_LINUX_DEFAULT="loglevel=4 slub_debug=P page_poison=1 intel_iommu=off"
+# # finally:
+# sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 # enable Color option at /etc/pacman.conf
+
+# reduce swappiness
+# /etc/sysctl.d/99-swappiness.conf
+# vm.swappiness=10
+
+# hibernation setup
+# at /etc/mkinitcpio.conf add "resume" here:
+# HOOKS=(base udev autodetect keyboard modconf block filesystems resume fsck)
+# and then: mkinitcpio -p linux
 
 # set bigger font at /etc/rc.conf
 #FONT="latarcyrheb-sun32"
@@ -44,7 +56,7 @@ pacman -S zsh git ripgrep tmux neovim chromium htop x11-ssh-askpass ctags
 pacman -S xf86-video-intel alsa-utils tlp tpacpi-bat
 
 # desktop env
-pacman -S xorg-{server,xinit,xsetroot,xrandr} feh
+pacman -S xorg-{server,xinit,xsetroot,xrandr} feh xsel
 
 # todo:
 # * install:
