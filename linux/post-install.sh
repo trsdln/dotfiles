@@ -49,6 +49,7 @@ pacman -S noto-fonts-emoji ttf-dejavu
 
 # dev env
 pacman -S zsh git ripgrep tmux neovim chromium htop x11-ssh-askpass ctags python3 python-pip
+pacman -S yarn nodejs-lts-carbon
 pip install --user --upgrade pynvim
 
 # At this point dotfiles can be cloned
@@ -61,7 +62,7 @@ pacman -S xorg-{server,xinit,xsetroot,xrandr,xbacklight} feh xsel
 
 # todo:
 # * install:
-# > nodejs@8 yarn docker
+# > docker
 # > jdk elasticsearch slack robo3t compass keybase
 # > gimp "screenshot app: area + whole screen"
 # * exfat filesystem support
