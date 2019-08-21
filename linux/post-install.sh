@@ -2,9 +2,9 @@
 
 # Grub
 # achieve the fastest possible boot:
-# hide grub menu and fix kernel errors at /etc/default/grub
+# hide grub menu  at /etc/default/grub
 # GRUB_TIMEOUT=0
-# GRUB_CMDLINE_LINUX_DEFAULT="loglevel=4 slub_debug=P page_poison=1 intel_iommu=off"
+# probably not relevant (fix kernel errors): GRUB_CMDLINE_LINUX_DEFAULT="loglevel=4 slub_debug=P page_poison=1 intel_iommu=off"
 # and then: sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 # enable Color option at /etc/pacman.conf
@@ -36,7 +36,7 @@ sudo visudo
 pacman -S noto-fonts-emoji ttf-dejavu
 
 # dev env
-pacman -S zsh git ripgrep tmux neovim chromium htop x11-ssh-askpass
+pacman -S zsh git ripgrep tmux neovim chromium htop x11-ssh-askpass ctags
 
 # At this point dotfiles can be cloned
 
@@ -44,11 +44,7 @@ pacman -S zsh git ripgrep tmux neovim chromium htop x11-ssh-askpass
 pacman -S xf86-video-intel alsa-utils tlp tpacpi-bat
 
 # desktop env
-xbps-install -S xorg-minimal xorg-fonts feh xsetroot xrandr
-# Investigate whether I need this when X11 is installed:  xsel
-
-# for building dwm
-xbps-install -S gcc make pkg-config libX11-devel libXft-devel libXinerama-devel
+pacman -S xorg-{server,xinit,xsetroot,xrandr} feh
 
 # todo:
 # * install:
