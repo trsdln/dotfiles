@@ -7,6 +7,8 @@
 # GRUB_CMDLINE_LINUX_DEFAULT="loglevel=4 slub_debug=P page_poison=1 intel_iommu=off"
 # and then: sudo grub-mkconfig -o /boot/grub/grub.cfg
 
+# enable Color option at /etc/pacman.conf
+
 # set bigger font at /etc/rc.conf
 #FONT="latarcyrheb-sun32"
 
@@ -39,10 +41,7 @@ pacman -S zsh git ripgrep tmux neovim chromium htop x11-ssh-askpass
 # At this point dotfiles can be cloned
 
 # drivers
-pacman -S xf86-video-intel alsa-utils
-
-# configure from here
-pacman -S tpacpi-bat
+pacman -S xf86-video-intel alsa-utils tlp tpacpi-bat
 
 # desktop env
 xbps-install -S xorg-minimal xorg-fonts feh xsetroot xrandr
