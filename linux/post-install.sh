@@ -30,25 +30,24 @@ sudo visudo
 # to enable to run basic commands for user append this:
 # taras ALL=NOPASSWD:/usr/bin/zzz,/usr/bin/ZZZ,/usr/bin/shutdown,/bin/nmcli,/bin/tlp-stat
 
-# base setup
-xbps-install -S tlp ntp setxkbmap
-ln -s /etc/sv/tlp /var/service/
-ln -s /etc/sv/ntpd /var/service/
-
 # better font
-xbps-install -S dejavu-fonts-ttf noto-fonts-emoji
+pacman -S noto-fonts-emoji ttf-dejavu
 
 # dev env
-xbps-install -S zsh git chromium xsel ripgrep tmux neovim htop gnome-ssh-askpass curl
+pacman -S zsh git ripgrep tmux neovim chromium htop x11-ssh-askpass
 
 # At this point dotfiles can be cloned
 
 # drivers
-xbps-install -S xf86-video-intel tpacpi-bat alsa-utils
-sudo ln -s /etc/sv/alsa /var/service
+pacman -S xf86-video-intel alsa-utils
+
+# configure from here
+pacman -S tpacpi-bat
 
 # desktop env
 xbps-install -S xorg-minimal xorg-fonts feh xsetroot xrandr
+# Investigate whether I need this when X11 is installed:  xsel
+
 # for building dwm
 xbps-install -S gcc make pkg-config libX11-devel libXft-devel libXinerama-devel
 
