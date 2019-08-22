@@ -76,8 +76,9 @@ pacman -S repose
 # > docker
 # > jdk elasticsearch slack robo3t compass keybase
 # > gimp "screenshot app: area + whole screen"
-# * exfat filesystem support
-# set close lid action: sleep
+# * fix ctags config error
+# * set close lid action: sleep
+# * custom key mappings
 
 # misc notes
 
