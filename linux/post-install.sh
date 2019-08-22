@@ -60,6 +60,11 @@ pacman -S xf86-video-intel alsa-utils tlp tpacpi-bat
 # desktop env
 pacman -S xorg-{server,xinit,xsetroot,xrandr,xbacklight} feh xsel
 
+# required by hubstaff
+pacman -S libcurl-gnutls libnotify
+
+ln -s /home/taras/apps/Hubstaff/HubstaffClient.bin.x86_64 /usr/local/bin/hubstaff
+
 # todo:
 # * install:
 # > docker
