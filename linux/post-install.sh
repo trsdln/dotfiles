@@ -55,15 +55,21 @@ pip install --user --upgrade pynvim
 # At this point dotfiles can be cloned
 
 # drivers
-pacman -S xf86-video-intel alsa-utils tlp tpacpi-bat
+pacman -S xf86-video-intel alsa-utils tlp tpacpi-bat exfat-utils
 
 # desktop env
 pacman -S xorg-{server,xinit,xsetroot,xrandr,xbacklight} feh xsel
 
-# required by hubstaff
+# required by Hubstaff
 pacman -S libcurl-gnutls libnotify
 
 ln -s /home/taras/apps/Hubstaff/HubstaffClient.bin.x86_64 /usr/local/bin/hubstaff
+
+# AUR:
+pacman -S repose
+# then install "aurutils"
+
+# install ffcast + use https://askubuntu.com/a/759660 for clipboard
 
 # todo:
 # * install:
