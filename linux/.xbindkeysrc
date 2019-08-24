@@ -1,13 +1,13 @@
 # Increase volume
-"amixer sset $(amixer scontrols | cut -d "'" -f2 | head -n 1) 5%+"
+"chanage-volume.sh 5%+"
    XF86AudioRaiseVolume
 
 # Decrease volume
-"amixer sset $(amixer scontrols | cut -d "'" -f2 | head -n 1) 5%-"
+"change-volume.sh 5%-"
    XF86AudioLowerVolume
 
 # Mute volume
-"amixer sset $(amixer scontrols | cut -d "'" -f2 | head -n 1) toggle"
+"change-volume.sh toggle"
    XF86AudioMute
 
 "toggle-hdmi.sh"
