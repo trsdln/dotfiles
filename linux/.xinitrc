@@ -23,4 +23,6 @@ do
 	sleep 20s
 done &
 
+dunst &
+
 exec dwm

@@ -58,7 +58,7 @@ pip install --user --upgrade pynvim
 pacman -S xf86-video-intel alsa-utils tlp tpacpi-bat exfat-utils
 
 # desktop env
-pacman -S xorg-{server,xinit,xsetroot,xrandr,xbacklight} feh xsel xbindkeys mpv
+pacman -S xorg-{server,xinit,xsetroot,xrandr,xbacklight} xsel xbindkeys dunst feh mpv
 
 # required by Hubstaff
 pacman -S libcurl-gnutls libnotify
