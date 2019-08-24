@@ -4,8 +4,10 @@ VOLUME_VALUE=$1
 
 SOURCE=$(amixer scontrols | cut -d "'" -f2 | head -n 1)
 
-amixer sset $SOURCE $VOLUME_VALUE
+amixer sset "${SOURCE}" "${VOLUME_VALUE}"
 
-# NEW_VOLUME_VALUE=$(amixer)
+VOLUME_STATUS=$(amixer get "${SOURCE}" | tail -n 1)
+NEW_VOLUME_VALUE=$(echo $VOLUME_STATUS | awk '{print $4 " " $6}')
 
-notify-send -h string:x-canonical-private-synchronous:volume "Volume: ${VOLUME_VALUE}"
+notify-send -h string:x-canonical-private-synchronous:volume \
+  "Volume ${NEW_VOLUME_VALUE}"
