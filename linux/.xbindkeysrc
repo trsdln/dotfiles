@@ -13,6 +13,9 @@
 "toggle-hdmi.sh"
    XF86Display
 
+"power-manager.sh"
+   XF86Favorites
+
 "toggle-wifi.sh"
    XF86WLAN
 
