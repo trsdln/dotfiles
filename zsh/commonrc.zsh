@@ -99,10 +99,10 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
   if [ "$(ps -u $USER | grep ssh-agent | wc -l)" -lt "1" ]; then
     # Start the ssh-agent and redirect the environment variables into a file
     rm -f ~/.ssh/ssh-agent > /dev/null
-    ssh-agent -s >~/.ssh/ssh-agent
+    ssh-agent -s > ~/.ssh/ssh-agent
   fi
   # Source existing agent env variables
-  . ~/.ssh/ssh-agent >/dev/null
+  . ~/.ssh/ssh-agent > /dev/null
 
   # Do not keep logged in session
   alias startx='startx; exit'
