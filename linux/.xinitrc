@@ -3,6 +3,9 @@
 # Set keyboard layouts
 setxkbmap -model thinkpad -layout us,ua -option grp:win_space_toggle
 
+# load bindings
+xbindkeys --poll-rc
+
 # Set wallpaper
 feh --bg-scale Pictures/wallpaper.jpg
 

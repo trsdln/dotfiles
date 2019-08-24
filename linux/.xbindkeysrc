@@ -1,9 +1,9 @@
 # Increase volume
-"chanage-volume.sh 5%+"
+"change-volume.sh '5%+'"
    XF86AudioRaiseVolume
 
 # Decrease volume
-"change-volume.sh 5%-"
+"change-volume.sh '5%-'"
    XF86AudioLowerVolume
 
 # Mute volume
