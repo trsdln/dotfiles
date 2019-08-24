@@ -90,7 +90,3 @@ pacman -S repose
 
 # sound control:
 # alsamixer - TUI
-# amixer - CLI
-# volume control:
-# amixer sset Master 5%-
-# amixer sset Master 5%+

@@ -13,6 +13,9 @@
 "toggle-hdmi.sh"
    XF86Display
 
+"toggle-wifi.sh"
+   XF86WLAN
+
 # Increase backlight
 "change-brightness.sh '-inc 10'"
    XF86MonBrightnessUp
