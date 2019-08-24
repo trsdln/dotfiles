@@ -1,0 +1,19 @@
+# Increase volume
+"amixer sset $(amixer scontrols | cut -d "'" -f2 | head -n 1) 5%+"
+   XF86AudioRaiseVolume
+
+# Decrease volume
+"amixer sset $(amixer scontrols | cut -d "'" -f2 | head -n 1) 5%-"
+   XF86AudioLowerVolume
+
+# Mute volume
+"amixer sset $(amixer scontrols | cut -d "'" -f2 | head -n 1) toggle"
+   XF86AudioMute
+
+# Increase backlight
+"xbacklight -inc 10"
+   XF86MonBrightnessUp
+
+# Decrease backlight
+"xbacklight -dec 10"
+   XF86MonBrightnessDown

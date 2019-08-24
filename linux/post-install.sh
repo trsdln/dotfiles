@@ -58,7 +58,7 @@ pip install --user --upgrade pynvim
 pacman -S xf86-video-intel alsa-utils tlp tpacpi-bat exfat-utils
 
 # desktop env
-pacman -S xorg-{server,xinit,xsetroot,xrandr,xbacklight} feh xsel mpv
+pacman -S xorg-{server,xinit,xsetroot,xrandr,xbacklight} feh xsel xbindkeys mpv
 
 # required by Hubstaff
 pacman -S libcurl-gnutls libnotify
@@ -94,6 +94,3 @@ pacman -S repose
 # volume control:
 # amixer sset Master 5%-
 # amixer sset Master 5%+
-
-# change monitor brightness
-# xbacklight -set 50

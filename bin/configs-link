@@ -27,6 +27,7 @@ LINK_MAP_COMMON=(
 LINK_MAP_LINUX=(
   # X env
   ".xinitrc:./${DOTFILES_DIR_NAME}/linux/.xinitrc"
+  ".xbindkeysrc:./${DOTFILES_DIR_NAME}/linux/.xbindkeysrc"
   # Alsa config
   ".asoundrc:./${DOTFILES_DIR_NAME}/linux/asound.conf"
 )
