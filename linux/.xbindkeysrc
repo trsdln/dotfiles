@@ -10,6 +10,9 @@
 "amixer sset $(amixer scontrols | cut -d "'" -f2 | head -n 1) toggle"
    XF86AudioMute
 
+"toggle-hdmi.sh"
+   XF86Display
+
 # Increase backlight
 "xbacklight -inc 10"
    XF86MonBrightnessUp
