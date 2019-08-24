@@ -14,9 +14,9 @@
    XF86Display
 
 # Increase backlight
-"xbacklight -inc 10"
+"change-brightness.sh '-inc 10'"
    XF86MonBrightnessUp
 
 # Decrease backlight
-"xbacklight -dec 10"
+"change-brightness.sh '-dec 10'"
    XF86MonBrightnessDown
