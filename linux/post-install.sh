@@ -42,7 +42,7 @@ sudo visudo
 # then uncomment:
 # %wheel ALL=(ALL) ALL
 # to enable to run basic commands for user append this:
-# taras ALL=NOPASSWD:/usr/bin/zzz,/usr/bin/ZZZ,/usr/bin/shutdown,/bin/nmcli,/bin/tlp-stat
+# taras ALL=NOPASSWD:/usr/bin/zzz,/usr/bin/ZZZ,/usr/bin/shutdown,/bin/nmcli,/bin/tlp-stat,/usr/bin/mount,/usr/bin/umount
 
 # better font
 pacman -S noto-fonts-emoji ttf-dejavu
