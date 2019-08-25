@@ -3,6 +3,9 @@
 # Set keyboard layouts
 setxkbmap -model thinkpad -layout us,ua -option grp:win_space_toggle
 
+# Lock autimatically before hibernate/suspend
+xss-lock -- slock &
+
 # load bindings
 xbindkeys --poll-rc
 

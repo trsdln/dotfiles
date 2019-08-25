@@ -21,6 +21,10 @@
 # HOOKS=(base udev autodetect keyboard modconf block filesystems resume fsck)
 # and then: mkinitcpio -p linux
 
+# # enable suspend when lid is closed at /etc/systemd/logind.conf:
+# HandleLidSwitch=hibernate
+# HandleLidSwitchDocked=hibernate
+
 # set bigger font at /etc/rc.conf
 #FONT="latarcyrheb-sun32"
 
@@ -58,7 +62,10 @@ pip install --user --upgrade pynvim
 pacman -S xf86-video-intel alsa-utils tlp tpacpi-bat exfat-utils
 
 # desktop env
-pacman -S xorg-{server,xinit,xsetroot,xrandr,xbacklight} xsel xbindkeys dunst feh mpv transmission-qt
+pacman -S xorg-{server,xinit,xsetroot,xrandr,xbacklight} xsel xbindkeys dunst feh xss-lock slock
+
+# misc apps
+pacman -S mpv transmission-qt
 
 # required by Hubstaff
 pacman -S libcurl-gnutls libnotify
