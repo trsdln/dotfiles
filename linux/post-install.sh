@@ -48,11 +48,11 @@ sudo visudo
 # to enable to run basic commands for user append this:
 # taras ALL=NOPASSWD:/usr/bin/zzz,/usr/bin/ZZZ,/usr/bin/shutdown,/bin/nmcli,/bin/tlp-stat,/usr/bin/mount,/usr/bin/umount
 
-# better font
+# better fonts
 pacman -S noto-fonts-emoji ttf-dejavu
 
 # dev env
-pacman -S zsh git ripgrep tmux neovim chromium htop x11-ssh-askpass ctags python3 python-pip
+pacman -S zsh git ripgrep tmux neovim htop ctags python3 python-pip
 pacman -S yarn nodejs-lts-carbon
 pip install --user --upgrade pynvim
 
@@ -62,30 +62,27 @@ pip install --user --upgrade pynvim
 pacman -S xf86-video-intel alsa-utils tlp tpacpi-bat exfat-utils
 
 # desktop env
-pacman -S xorg-{server,xinit,xsetroot,xrandr,xbacklight} xsel xbindkeys dunst feh xss-lock slock
+pacman -S xorg-{server,xinit,xsetroot,xrandr,xbacklight} x11-ssh-askpass xsel xbindkeys dunst feh xss-lock slock
 
 # misc apps
-pacman -S mpv transmission-qt
+pacman -S mpv transmission-qt chromium
 
 # required by Hubstaff
 pacman -S libcurl-gnutls libnotify
-
+# download and install Hubstaff and then:
 ln -s /home/taras/apps/Hubstaff/HubstaffClient.bin.x86_64 /usr/local/bin/hubstaff
 
 # AUR:
 pacman -S repose
 # then install "aurutils"
 
-# install ffcast + use https://askubuntu.com/a/759660 for clipboard
-
 # todo:
 # * install:
-# > docker
-# > jdk elasticsearch slack robo3t compass keybase
-# > gimp "screenshot app: area + whole screen"
+# > docker jdk elasticsearch slack robo3t compass keybase
+# > gimp
+# > "screenshot app: area + whole screen"
+#   > install ffcast + use https://askubuntu.com/a/759660 for clipboard
 # * fix ctags config error
-# * set close lid action: sleep
-# * custom key mappings
 
 # misc notes
 
