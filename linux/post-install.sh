@@ -75,6 +75,7 @@ ln -s /home/taras/apps/Hubstaff/HubstaffClient.bin.x86_64 /usr/local/bin/hubstaf
 # AUR:
 pacman -S repose
 # then install "aurutils"
+# then configure local repo based on `man aur` (with double CacheDir fix)
 
 # todo:
 # * install:
@@ -94,3 +95,6 @@ pacman -S repose
 
 # sound control:
 # alsamixer - TUI
+
+# simple aur utils usage:
+# aur sync <package> && sudo pacman -S <package>
