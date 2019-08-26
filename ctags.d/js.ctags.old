@@ -25,8 +25,8 @@
 
 --_mtable-regex-javascript=toplevel/\/\*//{tenter=comment_block}
 --_mtable-regex-javascript=toplevel/\/\///{tenter=comment_eol}
---_mtable-regex-javascript=toplevel/export[ \n\t]*\{//{tenter=export}
---_mtable-regex-javascript=toplevel/export[ \n\t]+const[ \n\t]*\{//{tenter=export_const_destruct}
+--_mtable-regex-javascript=toplevel/export[ \n\t]*{//{tenter=export}
+--_mtable-regex-javascript=toplevel/export[ \n\t]+const[ \n\t]*{//{tenter=export_const_destruct}
 --_mtable-regex-javascript=toplevel/.//
 
 
@@ -38,7 +38,7 @@
 --_mtable-regex-javascript=comment_eol/.//
 
 
---_mtable-regex-javascript=export/\}([ \n\t]*from[ \n\t]*'.+')*;//{tleave}
+--_mtable-regex-javascript=export/}([ \n\t]*from[ \n\t]*\'.+\')*;//{tleave}
 
 # Handle comments
 --_mtable-regex-javascript=export/\/\*//{tenter=comment_block}
