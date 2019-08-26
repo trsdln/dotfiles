@@ -1,0 +1,21 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/3fdf28bc/
+exp01	index.js	/^  exp01,$/;"	C
+exp02	index.js	/^  orig_name_exp_02 as exp02$/;"	C
+exp03	index.js	/^export {exp03};$/;"	C
+exp04	index.js	/^export const { exp04, exp05 } = { do_not_parse_me };$/;"	C
+exp05	index.js	/^export const { exp04, exp05 } = { do_not_parse_me };$/;"	C
+exp06	index.js	/^export const { exp06, exp07 = "de\\"f_val07" } = not_exported1;$/;"	C
+exp07	index.js	/^export const { exp06, exp07 = "de\\"f_val07" } = not_exported1;$/;"	C
+exp08	index.js	/^export const { exp08 = 'def_ \\'val08', exp09} = { not_exported2 };$/;"	C
+exp09	index.js	/^export const { exp08 = 'def_ \\'val08', exp09} = { not_exported2 };$/;"	C
+exp10	index.js	/^export const { exp10, exp11 = default_var11, exp12 } = processSomething($/;"	C
+exp11	index.js	/^export const { exp10, exp11 = default_var11, exp12 } = processSomething($/;"	C
+exp12	index.js	/^export const { exp10, exp11 = default_var11, exp12 } = processSomething($/;"	C
+exp13	index.js	/^export { exp13, not_exported3 as exp14 } from 'some-package\/foo\/bar';$/;"	C
+exp14	index.js	/^export { exp13, not_exported3 as exp14 } from 'some-package\/foo\/bar';$/;"	C
