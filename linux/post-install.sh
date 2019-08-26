@@ -98,3 +98,6 @@ pacman -S repose
 
 # simple aur utils usage:
 # aur sync <package> && sudo pacman -S <package>
+
+# take area screenshot
+# ffcast -s png ~/file.png
