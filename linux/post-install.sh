@@ -62,7 +62,7 @@ pip install --user --upgrade pynvim
 pacman -S xf86-video-intel alsa-utils tlp tpacpi-bat exfat-utils
 
 # desktop env
-pacman -S xorg-{server,xinit,xsetroot,xrandr,xbacklight} x11-ssh-askpass xsel xbindkeys dunst feh xss-lock slock
+pacman -S xorg-{server,xinit,xsetroot,xrandr,xbacklight,xclipboard} x11-ssh-askpass xsel xbindkeys xclip dunst feh xss-lock slock
 
 # misc apps
 pacman -S mpv transmission-qt chromium

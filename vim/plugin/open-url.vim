@@ -9,6 +9,7 @@ function! s:OpenCurrentURL()
 endfunction
 
 function! g:OpenURL(url)
-  call system("open '" . a:url . "'")
+  let open_app_name = has('macunix') ? 'open' : 'xdg-open'
+  call system(open_app_name . " '" . a:url . "'")
   echo "OpenURL " . a:url
 endfunction
