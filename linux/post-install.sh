@@ -53,7 +53,7 @@ pacman -S noto-fonts-emoji ttf-dejavu
 
 # dev env
 pacman -S zsh git ripgrep tmux neovim htop ctags python3 python-pip
-pacman -S yarn nodejs-lts-carbon
+pacman -S yarn nodejs-lts-carbon docker
 pip install --user --upgrade pynvim
 
 # At this point dotfiles can be cloned
@@ -65,7 +65,7 @@ pacman -S xf86-video-intel alsa-utils tlp tpacpi-bat exfat-utils
 pacman -S xorg-{server,xinit,xsetroot,xrandr,xbacklight,xclipboard} x11-ssh-askpass xsel xbindkeys xclip dunst feh xss-lock slock
 
 # misc apps
-pacman -S mpv transmission-qt chromium
+pacman -S mpv transmission-qt chromium gimp
 
 # required by Hubstaff
 pacman -S libcurl-gnutls libnotify
@@ -76,14 +76,15 @@ ln -s /home/taras/apps/Hubstaff/HubstaffClient.bin.x86_64 /usr/local/bin/hubstaf
 pacman -S repose
 # then install "aurutils"
 # then configure local repo based on `man aur` (with double CacheDir fix)
+aur sync ffcast && sudo pacman -S ffcast
+aur sync google-cloud-sdk && sudo pacman -S google-cloud-sdk
+pacman -S kubectl
+
 
 # todo:
 # * install:
-# > docker jdk elasticsearch slack robo3t compass keybase
-# > gimp
-# > "screenshot app: area + whole screen"
-#   > install ffcast + use https://askubuntu.com/a/759660 for clipboard
-# * fix ctags config error
+# > jdk elasticsearch slack robo3t compass keybase
+# * check new ctags config at darwin env
 
 # misc notes
 
@@ -98,6 +99,8 @@ pacman -S repose
 
 # simple aur utils usage:
 # aur sync <package> && sudo pacman -S <package>
+# remove package from local repo
+# repo-remove /home/custompkgs/custom.db.tar <package>
 
 # take area screenshot
 # ffcast -s png ~/file.png
