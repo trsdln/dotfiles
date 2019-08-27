@@ -12,6 +12,9 @@ xbindkeys --poll-rc
 # Set wallpaper
 feh --bg-scale Pictures/wallpaper.jpg
 
+# load terminal color scheme
+[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+
 BAT_DISCH_STATUS="Discharging"
 
 while true

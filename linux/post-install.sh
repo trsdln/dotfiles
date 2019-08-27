@@ -84,6 +84,8 @@ pacman -S kubectl
 aur sync mongodb-bin && pacman -S mongodb-bin
 aur sync mongodb-tools-bin && pacman -S mongodb-tools-bin
 aur sync slack-desktop && pacman -S slack-desktop
+aur sync ttf-symbola && pacman -S ttf-symbola
+aur sync tmux-mem-cpu-load-git && pacman -S tmux-mem-cpu-load-git
 
 # todo:
 # * install:
