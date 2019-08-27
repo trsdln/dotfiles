@@ -81,11 +81,15 @@ aur sync ffcast && sudo pacman -S ffcast
 aur sync google-cloud-sdk && sudo pacman -S google-cloud-sdk
 pacman -S kubectl
 
+aur sync mongodb-bin && pacman -S mongodb-bin
+aur sync mongodb-tools-bin && pacman -S mongodb-tools-bin
+aur sync slack-desktop && pacman -S slack-desktop
 
 # todo:
 # * install:
 # > robo3t compass
 # * check new ctags config at darwin env
+# * st investigate emoji support
 
 # misc notes
 
