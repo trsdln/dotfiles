@@ -355,6 +355,7 @@ inoremap <C-K> <Esc>b~ea
 nnoremap <leader>w :w!<cr>
 
 if has('clipboard')
+  " todo: copy to "* as well
   nnoremap cp "+y
   vnoremap cp "+y
   nnoremap cP "+yy

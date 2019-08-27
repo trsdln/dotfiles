@@ -53,7 +53,8 @@ pacman -S noto-fonts-emoji ttf-dejavu
 
 # dev env
 pacman -S zsh git ripgrep tmux neovim htop ctags python3 python-pip
-pacman -S yarn nodejs-lts-carbon docker
+pacman -S yarn nodejs-lts-carbon docker keybase kbsf
+pacman -S jdk11-openjdk
 pip install --user --upgrade pynvim
 
 # At this point dotfiles can be cloned
@@ -83,7 +84,7 @@ pacman -S kubectl
 
 # todo:
 # * install:
-# > jdk elasticsearch slack robo3t compass keybase
+# > robo3t compass
 # * check new ctags config at darwin env
 
 # misc notes
@@ -104,3 +105,6 @@ pacman -S kubectl
 
 # take area screenshot
 # ffcast -s png ~/file.png
+
+# extract tar
+# tar -xvzf <file.name>
