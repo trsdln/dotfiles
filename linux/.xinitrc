@@ -7,7 +7,7 @@ setxkbmap -model thinkpad -layout us,ua -option grp:win_space_toggle
 xss-lock -- slock &
 
 # load bindings
-xbindkeys --poll-rc
+xbindkeys
 
 # Set wallpaper
 feh --bg-scale Pictures/wallpaper.jpg

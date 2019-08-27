@@ -19,6 +19,9 @@
 "toggle-wifi.sh"
    XF86WLAN
 
+"screenshot-to-clipboard.sh"
+   Print
+
 # Increase backlight
 "change-brightness.sh '-inc 10'"
    XF86MonBrightnessUp

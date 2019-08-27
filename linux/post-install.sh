@@ -66,7 +66,7 @@ pacman -S xf86-video-intel alsa-utils tlp tpacpi-bat exfat-utils
 pacman -S xorg-{server,xinit,xsetroot,xrandr,xbacklight,xclipboard} x11-ssh-askpass xsel xbindkeys xclip dunst feh xss-lock slock
 
 # misc apps
-pacman -S mpv transmission-qt chromium gimp
+pacman -S mpv transmission-qt chromium gimp thunderbird telegram-desktop
 
 # required by Hubstaff
 pacman -S libcurl-gnutls libnotify
@@ -90,7 +90,6 @@ aur sync tmux-mem-cpu-load-git && pacman -S tmux-mem-cpu-load-git
 # todo:
 # * install:
 # > robo3t compass
-# * check new ctags config at darwin env
 
 # misc notes
 
@@ -105,7 +104,7 @@ aur sync tmux-mem-cpu-load-git && pacman -S tmux-mem-cpu-load-git
 
 # simple aur utils usage:
 # aur sync <package> && sudo pacman -S <package>
-# remove package from local repo
+# remove package from local repo:
 # repo-remove /home/custompkgs/custom.db.tar <package>
 
 # take area screenshot

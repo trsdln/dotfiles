@@ -7,3 +7,5 @@ ffcast -s png "${FILE_NAME}"
 
 # copy to clipboard
 xclip -selection clipboard -t image/png -i "${FILE_NAME}"
+
+rm -f "${FILE_NAME}"
