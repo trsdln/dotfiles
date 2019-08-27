@@ -91,7 +91,6 @@ aur sync tmux-mem-cpu-load-git && pacman -S tmux-mem-cpu-load-git
 # * install:
 # > robo3t compass
 # * check new ctags config at darwin env
-# * st investigate emoji support
 
 # misc notes
 
