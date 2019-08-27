@@ -77,7 +77,7 @@ endfunction
 " UI / FZF Picker
 
 function! s:PickSessionNameWithFZF(prompt, flags, on_option_select)
-  let raw_names_list = system('ls -l1 ' . g:session_store_dir)
+  let raw_names_list = system('ls -1 ' . g:session_store_dir)
 
   let names_list = map(
         \ split(raw_names_list, '\n'),
