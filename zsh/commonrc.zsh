@@ -106,4 +106,5 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
 
   # Do not keep logged in session
   alias startx='startx; exit'
+  export OPEN='xdg-open'
 fi

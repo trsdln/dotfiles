@@ -86,6 +86,7 @@ aur sync mongodb-tools-bin && pacman -S mongodb-tools-bin
 aur sync slack-desktop && pacman -S slack-desktop
 aur sync ttf-symbola && pacman -S ttf-symbola
 aur sync tmux-mem-cpu-load-git && pacman -S tmux-mem-cpu-load-git
+aur sync rover && pacman -S rover
 
 # todo:
 # * install:
