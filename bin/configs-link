@@ -30,8 +30,7 @@ LINK_MAP_LINUX=(
   ".xbindkeysrc:./${DOTFILES_DIR_NAME}/linux/.xbindkeysrc"
   ".Xresources:./${DOTFILES_DIR_NAME}/linux/.Xresources"
   ".config/dunst:../${DOTFILES_DIR_NAME}/linux/dunst"
-  # Alsa config
-  ".asoundrc:./${DOTFILES_DIR_NAME}/linux/asound.conf"
+  ".config/pulse/default.pa:../../${DOTFILES_DIR_NAME}/linux/alsa/default.pa"
 )
 
 function _create_link {
@@ -83,6 +82,7 @@ function _main {
   done
 
   if [ "$OSTYPE" = "linux-gnu" ]; then
+    mkdir -p .config/alsa/
     echo "Linux specific links:"
     for link_entry in "${LINK_MAP_LINUX[@]}" ; do
       _handle_link_entry $link_entry $unlink_param

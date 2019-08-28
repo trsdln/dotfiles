@@ -61,6 +61,9 @@ pip install --user --upgrade pynvim
 
 # drivers
 pacman -S xf86-video-intel alsa-utils tlp tpacpi-bat exfat-utils
+pacman -S pulseaudio pulseaudio-alsa
+# At /etc/pulse/client.conf set
+# autospawn = yes
 
 # desktop env
 pacman -S xorg-{server,xinit,xsetroot,xrandr,xbacklight,xclipboard} x11-ssh-askpass xsel xbindkeys xclip dunst feh xss-lock slock
