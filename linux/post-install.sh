@@ -83,14 +83,12 @@ pacman -S kubectl
 
 aur sync mongodb-bin && pacman -S mongodb-bin
 aur sync mongodb-tools-bin && pacman -S mongodb-tools-bin
+aur sync mongodb-compass && pacman -S mongodb-compass
+aur sync robo3t-bin && pacman -S robo3t-bin
 aur sync slack-desktop && pacman -S slack-desktop
 aur sync ttf-symbola && pacman -S ttf-symbola
 aur sync tmux-mem-cpu-load-git && pacman -S tmux-mem-cpu-load-git
 aur sync rover && pacman -S rover
-
-# todo:
-# * install:
-# > robo3t compass
 
 # misc notes
 
