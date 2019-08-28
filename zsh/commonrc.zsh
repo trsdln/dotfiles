@@ -107,4 +107,9 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
   # Do not keep logged in session
   alias startx='startx; exit'
   export OPEN='xdg-open'
+
+  # Automatic startx on login
+  if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+    exec startx
+  fi
 fi
