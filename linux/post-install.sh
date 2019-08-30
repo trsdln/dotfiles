@@ -70,6 +70,7 @@ pacman -S xorg-{server,xinit,xsetroot,xrandr,xbacklight,xclipboard} x11-ssh-askp
 
 # misc apps
 pacman -S mpv transmission-qt chromium gimp thunderbird telegram-desktop
+pacman -S zathura zathura-djvu zathura-pdf-mupdf
 
 # required by Hubstaff
 pacman -S libcurl-gnutls libnotify
