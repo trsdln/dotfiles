@@ -68,17 +68,16 @@ pacman -S pulseaudio pulseaudio-alsa
 # desktop env
 pacman -S xorg-{server,xinit,xsetroot,xrandr,xbacklight,xclipboard} x11-ssh-askpass xsel xbindkeys xclip dunst feh xss-lock slock
 
-# misc apps
+# desktop apps
 pacman -S mpv transmission-qt chromium gimp thunderbird telegram-desktop
-pacman -S zathura zathura-djvu zathura-pdf-mupdf
+pacman -S zathura zathura-djvu zathura-pdf-mupdf perl-file-mimeinfo
 
 # required by Hubstaff
 pacman -S libcurl-gnutls libnotify
 # download and install Hubstaff and then:
 ln -s /home/taras/apps/Hubstaff/HubstaffClient.bin.x86_64 /usr/local/bin/hubstaff
 
-# AUR:
-pacman -S repose
+pacman -S repose # don't use this one for now
 # then install "aurutils"
 # then configure local repo based on `man aur` (with double CacheDir fix)
 aur sync ffcast && sudo pacman -S ffcast
@@ -93,25 +92,3 @@ aur sync slack-desktop && pacman -S slack-desktop
 aur sync ttf-symbola && pacman -S ttf-symbola
 aur sync tmux-mem-cpu-load-git && pacman -S tmux-mem-cpu-load-git
 aur sync rover && pacman -S rover
-
-# misc notes
-
-# nmcli:
-# sudo nmcli r wifi on
-# sudo nmcli r wifi off
-# sudo nmcli d wifi list
-# sudo nmcli d wifi connect "point_name" password "password_val"
-
-# sound control:
-# alsamixer - TUI
-
-# simple aur utils usage:
-# aur sync <package> && sudo pacman -S <package>
-# remove package from local repo:
-# repo-remove /home/custompkgs/custom.db.tar <package>
-
-# take area screenshot
-# ffcast -s png ~/file.png
-
-# extract tar
-# tar -xvzf <file.name>
