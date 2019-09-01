@@ -1,5 +1,0 @@
-* fix mute/unmute notification info
-- Archived [DONE]
-  - Gbrowse support for github
-  - try Gbrowse plugin for gitlab
-  - Fix manual session picker for neovim (FZF bug)
