@@ -1561,7 +1561,7 @@ xkb_symbols "pc+us+ua(legacy):2+inet(evdev)+group(win_space_toggle)" {
     key <I175> {         [ XF86AudioRecord ] };
     key <I176> {         [ XF86AudioRewind ] };
     key <I177> {         [       XF86Phone ] };
-    key <I179> {         [       XF86Tools ] };
+    key <I179> {         [   XF86AudioPlay ] };
     key <I180> {         [    XF86HomePage ] };
     key <I181> {         [      XF86Reload ] };
     key <I182> {         [       XF86Close ] };
