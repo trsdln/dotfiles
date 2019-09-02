@@ -66,7 +66,8 @@ pacman -S pulseaudio pulseaudio-alsa
 # autospawn = yes
 
 # desktop env
-pacman -S xorg-{server,xinit,xsetroot,xrandr,xbacklight,xclipboard} x11-ssh-askpass xsel xbindkeys xclip dunst feh xss-lock slock
+pacman -S xorg-{server,xinit,xsetroot,xrandr,xbacklight,xclipboard} x11-ssh-askpass xsel xbindkeys xclip
+pacman -S dunst feh xss-lock slock redshift
 
 # desktop apps
 pacman -S mpv transmission-qt chromium gimp thunderbird telegram-desktop

@@ -39,6 +39,8 @@ xkbcomp $HOME/.dotfiles/linux/xkbmap.xkb $DISPLAY
 # Lock autimatically before hibernate/suspend
 xss-lock -- slock &
 
+redshift -l 50.45:30.523333 &
+
 # load bindings
 xbindkeys
 
@@ -57,4 +59,8 @@ if [ "$(ps -u $USER | grep 'dunst' | wc -l)" -lt "1" ]; then
   dunst &
 fi
 
-exec dwm
+# automatically restart dwm
+while true; do
+  dwm
+done
+# exec dwm
