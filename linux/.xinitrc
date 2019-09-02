@@ -60,7 +60,7 @@ if [ "$(ps -u $USER | grep 'dunst' | wc -l)" -lt "1" ]; then
 fi
 
 # automatically restart dwm
-while true; do
-  dwm
-done
-# exec dwm
+# while true; do
+#   dwm
+# done
+exec dwm
