@@ -246,6 +246,8 @@ Commands:
 
 * Zl - fix word under cursor
 * ZL - fix all misspelling at file
+* Zg - add word to spell file
+* Zw - mark word as bad
 
 ### Abolish coercion
 
