@@ -10,5 +10,4 @@ VOLUME_STATUS=$(amixer get "${SOURCE}" | tail -n 1)
 NEW_VOLUME_VALUE=$(echo $VOLUME_STATUS | awk -F'[][]' '{print $2 " " $4}')
 
 notify-send --hint string:x-canonical-private-synchronous:volume \
-  --icon audio-volume-high-symbolic \
   "Volume: ${NEW_VOLUME_VALUE}"

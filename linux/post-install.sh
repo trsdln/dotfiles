@@ -49,7 +49,7 @@ sudo visudo
 # taras ALL=NOPASSWD:/usr/bin/zzz,/usr/bin/ZZZ,/usr/bin/shutdown,/bin/nmcli,/bin/tlp-stat,/usr/bin/mount,/usr/bin/umount
 
 # better fonts
-pacman -S noto-fonts-emoji ttf-dejavu
+pacman -S noto-fonts-emoji ttf-dejavu ttf-font-awesome
 
 # dev env
 pacman -S zsh git ripgrep tmux neovim htop ctags python3 python-pip
@@ -68,6 +68,7 @@ pacman -S pulseaudio pulseaudio-alsa
 # desktop env
 pacman -S xorg-{server,xinit,xsetroot,xrandr,xbacklight,xclipboard} x11-ssh-askpass xsel xbindkeys xclip
 pacman -S dunst feh xss-lock slock redshift
+pacman -S xdotools moka-icon-theme
 
 # desktop apps
 pacman -S mpv transmission-qt chromium gimp thunderbird telegram-desktop
