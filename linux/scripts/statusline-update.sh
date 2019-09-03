@@ -30,4 +30,6 @@ if [ $BAT_STATUS = 'Full' ]; then
   STATUS_ICON='⚡'
 fi
 
-xsetroot -name " ${STATUS_ICON} ${BAT_CAPACITY}% • ${LOCALTIME} "
+CPU_TEMP=$(sensors | awk '/Core 0/ {print $3}')
+
+xsetroot -name " ${CPU_TEMP} • ${STATUS_ICON} ${BAT_CAPACITY}% • ${LOCALTIME} "
