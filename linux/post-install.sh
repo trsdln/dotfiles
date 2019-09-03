@@ -49,7 +49,7 @@ sudo visudo
 # taras ALL=NOPASSWD:/usr/bin/zzz,/usr/bin/ZZZ,/usr/bin/shutdown,/bin/nmcli,/bin/tlp-stat,/usr/bin/mount,/usr/bin/umount
 
 # better fonts
-pacman -S noto-fonts-emoji ttf-dejavu ttf-font-awesome
+pacman -S noto-fonts-emoji ttf-dejavu
 
 # dev env
 pacman -S zsh git ripgrep tmux neovim htop ctags python3 python-pip
