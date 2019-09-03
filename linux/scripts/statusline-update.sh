@@ -2,8 +2,28 @@
 
 LOCALTIME=$(date +%H:%M%4a%_d-%b)
 
-TLP_RES=$(sudo tlp-stat -b | grep -E '(Charge\s+=|BAT0/status)')
-BAT_STATUS_FLAG=$([ $(echo $TLP_RES | awk '{print $3}') = $BAT_DISCH_STATUS ] && echo '' || echo '+')
-BAT=$(echo $TLP_RES  | awk '{print $6 "%"}')
+BAT_NAME="BAT0"
+BAT_CAPACITY=$(cat "/sys/class/power_supply/$BAT_NAME/capacity")
+BAT_STATUS=$(cat "/sys/class/power_supply/$BAT_NAME/status")
 
-xsetroot -name " $BAT_STATUS_FLAG $BAT | $LOCALTIME "
+if [ $BAT_STATUS = 'Charging' ]; then
+  STATUS_ICON='🔌'
+fi
+
+if [ $BAT_STATUS = 'Discharging' ]; then
+  STATUS_ICON='🔋'
+fi
+
+if [ $BAT_STATUS = 'Not Charging' ]; then
+  STATUS_ICON='🛑'
+fi
+
+if [ $BAT_STATUS = 'Unknown' ]; then
+  STATUS_ICON='♻️'
+fi
+
+if [ $BAT_STATUS = 'Full' ]; then
+  STATUS_ICON='⚡'
+fi
+
+xsetroot -name " ${STATUS_ICON} ${BAT_CAPACITY}% • ${LOCALTIME} "

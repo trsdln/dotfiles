@@ -52,7 +52,7 @@ BAT_DISCH_STATUS="Discharging"
 while true
 do
   $HOME/.dotfiles/linux/scripts/statusline-update.sh
-	sleep 20s
+	sleep 50s
 done &
 
 if [ "$(ps -u $USER | grep 'dunst' | wc -l)" -lt "1" ]; then
