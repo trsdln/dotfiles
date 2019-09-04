@@ -35,3 +35,6 @@
 
 "change-brightness.sh '-set 0'"
    Shift + XF86MonBrightnessDown
+
+"toggle-keyboard-layout.sh"
+   Mod4 + space

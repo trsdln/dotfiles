@@ -34,7 +34,7 @@ fi
 # Set keyboard layouts
 setxkbmap -model thinkpad -layout us,ua -variant ,legacy -option grp:win_space_toggle
 # "legacy" variant fixes problem with ? vs . at UA keyboard
-xkbcomp $HOME/.dotfiles/linux/xkbmap.xkb $DISPLAY
+# xkbcomp $HOME/.dotfiles/linux/xkbmap.xkb $DISPLAY
 
 # Lock autimatically before hibernate/suspend
 xss-lock -- slock &

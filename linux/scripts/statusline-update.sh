@@ -37,4 +37,6 @@ WIRED_NET_STATUS=$(cat /sys/class/net/e*/operstate)
 WIRELESS_NET_STATUS=$(cat /sys/class/net/w*/operstate)
 [ "${WIRED_NET_STATUS}" = 'down' -a "${WIRELESS_NET_STATUS}" = 'down' ] && NETWORK_STATUS="❎" || NETWORK_STATUS="🌐"
 
-xsetroot -name " ${NETWORK_STATUS} • ${CPU_TEMP} • ${STATUS_ICON} ${BAT_CAPACITY}% • ${LOCAL_TIME} ${NY_TIME}"
+KEYBOARD_LAYOUT="$(setxkbmap -query | awk '/layout/ {print toupper($2)}')"
+
+xsetroot -name " ${NETWORK_STATUS} • ${CPU_TEMP} • ${STATUS_ICON} ${BAT_CAPACITY}% • ${KEYBOARD_LAYOUT} • ${LOCAL_TIME} ${NY_TIME}"
