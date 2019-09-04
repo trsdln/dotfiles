@@ -60,7 +60,7 @@ function! PackInit() abort
   call minpac#add('mhinz/vim-grepper')
 
   " Linting, especially by ESLint
-  call minpac#add('w0rp/ale')
+  call minpac#add('dense-analysis/ale')
 
   " Workflowy analog for VIM
   call minpac#add('vim-scripts/workflowish')

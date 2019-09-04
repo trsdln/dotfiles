@@ -5,7 +5,7 @@ fzf.vim//359a80e3a34aacbd5257713b6a88aa085337166f
 fzf//5c7dcaffe892dad764d0130ee49198646cd8fd73
 gv.vim//023b315ea1fb92aba20c71ef54f806d2903cfc9e
 lightline.vim//8b3aa1632c08784928458b2b85faf5c89feefccf
-spelunker.vim//c2fab8a56bc7abfbf8f16e76dd8ccd89ddecd5a7
+spelunker.vim//c692469231c141c80edbad72286cec5c86b80b1b
 suda.vim//c91b897237ffb82e78c8536b7320373fbb5875d7
 tabular//339091ac4dd1f17e225fe7d57b48aff55f99b23a
 vim-abolish//b95463a1cffd8fc9aff2a1ff0ae9327944948699
@@ -15,7 +15,7 @@ vim-css3-syntax//cfaa56b81b9aa2a2aa49964a89a334588b7221b4
 vim-dirvish//e8a213d9d0a21f03fc03319fa7560521b6cd6928
 vim-easymotion//85e90c9759e14633d878ed534ef313876ab96555
 vim-eunuch//e066a0999e442d9d96f24ad9d203b1bd030ef72e
-vim-fugitive//a45e2c6d577ca3ec6c10ed82465aa9650316f70c
+vim-fugitive//63a05a6935ec4a45551bf141089c13d5671202a1
 vim-graphql//61e342c4facd5cbc645104262e866882ea1cf5c3
 vim-grepper//1b9cec58509ba2bc212ad21e4a58eb3acf501b9f
 vim-gutentags//eecb136fae97e30d5f01e71f0d3b775c8b017385
