@@ -33,5 +33,8 @@ fi
 
 CPU_TEMP=$(sensors | awk '/Core 0/ {print $3}')
 
-xsetroot -name " ${CPU_TEMP} • ${STATUS_ICON} ${BAT_CAPACITY}% • ${LOCALTIME} "
-xsetroot -name " ${CPU_TEMP} • ${STATUS_ICON} ${BAT_CAPACITY}% • ${LOCAL_TIME} ${NY_TIME}"
+WIRED_NET_STATUS=$(cat /sys/class/net/e*/operstate)
+WIRELESS_NET_STATUS=$(cat /sys/class/net/w*/operstate)
+[ "${WIRED_NET_STATUS}" = 'down' -a "${WIRELESS_NET_STATUS}" = 'down' ] && NETWORK_STATUS="❎" || NETWORK_STATUS="🌐"
+
+xsetroot -name " ${NETWORK_STATUS} • ${CPU_TEMP} • ${STATUS_ICON} ${BAT_CAPACITY}% • ${LOCAL_TIME} ${NY_TIME}"
