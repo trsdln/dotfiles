@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/dash
 
 FILE_NAME="/tmp/screenshot_$(date +%d-%m-%y_%H-%M-%S).png"
 

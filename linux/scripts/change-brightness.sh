@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/dash
 
 BRIGHTNESS_CHANGE=$1
 

@@ -1,10 +1,10 @@
-#!/bin/bash
+#!/bin/dash
 
 OPTIONS="Sleep\nHibernate\nShutdown\nReboot"
 
 SELECTED_OPTION=$(printf $OPTIONS | dmenu -i -p 'Action')
 
-function prompt_confirmation {
+prompt_confirmation () {
   local prompt_message=$1
   local prompt_action=$2
 
@@ -15,11 +15,11 @@ function prompt_confirmation {
   fi
 }
 
-function do_shutdown {
+do_shutdown () {
   sudo shutdown -h now
 }
 
-function do_reboot {
+do_reboot () {
   sudo shutdown -r now
 }
 

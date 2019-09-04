@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/dash
 
 # Pass file name as first argument to this script
 

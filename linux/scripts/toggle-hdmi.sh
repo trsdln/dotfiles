@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/dash
 
 HDMI_OUT="HDMI1"
 
@@ -11,4 +11,4 @@ else
 fi
 
 notify-send -h string:x-canonical-private-synchronous:hdmi_status \
-  "HDMI: ${HDMI_STATUS}"
+  "HDMI" "${HDMI_STATUS}"

@@ -57,6 +57,8 @@ pacman -S yarn nodejs-lts-carbon docker keybase kbsf
 pacman -S jdk11-openjdk
 pip install --user --upgrade pynvim
 
+pacman -S dash
+
 # At this point dotfiles can be cloned
 
 # drivers

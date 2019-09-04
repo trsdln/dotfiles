@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/dash
 
 LOCAL_TIME=$(date '+%a %d %b %H:%M')
 NY_TIME="" # "• $(TZ='America/New_York' date '+%a %H:%M')"
