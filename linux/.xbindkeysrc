@@ -26,6 +26,12 @@
 "change-brightness.sh '-inc 10'"
    XF86MonBrightnessUp
 
+"change-brightness.sh '-set 100'"
+   Shift + XF86MonBrightnessUp
+
 # Decrease backlight
 "change-brightness.sh '-dec 10'"
    XF86MonBrightnessDown
+
+"change-brightness.sh '-set 0'"
+   Shift + XF86MonBrightnessDown
