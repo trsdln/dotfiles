@@ -64,3 +64,4 @@ fi
 #   dwm
 # done
 exec dwm
+# vim:ft=sh
