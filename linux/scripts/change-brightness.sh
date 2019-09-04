@@ -7,4 +7,4 @@ xbacklight ${BRIGHTNESS_CHANGE}
 NEW_BRIGHTNESS=$(xbacklight -get | cut -d "." -f1)
 
 notify-send --hint string:x-canonical-private-synchronous:volume \
-  "Brightness: ${NEW_BRIGHTNESS}%"
+  "Brightness" "${NEW_BRIGHTNESS}%"
