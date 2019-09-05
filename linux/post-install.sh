@@ -69,7 +69,7 @@ pacman -S pulseaudio pulseaudio-alsa
 
 # desktop env
 pacman -S xorg-{server,xinit,xsetroot,xrandr,xbacklight,xclipboard} x11-ssh-askpass xsel xbindkeys xclip
-pacman -S dunst feh xss-lock slock redshift
+pacman -S dunst feh sxiv xss-lock slock redshift
 pacman -S xdotools moka-icon-theme
 
 # desktop apps
@@ -96,3 +96,4 @@ aur sync slack-desktop && pacman -S slack-desktop
 aur sync ttf-symbola && pacman -S ttf-symbola
 aur sync tmux-mem-cpu-load-git && pacman -S tmux-mem-cpu-load-git
 aur sync rover && pacman -S rover
+aur sync grive && pacman -S grive
