@@ -11,3 +11,6 @@ nnoremap <buffer> <silent> a  <C-W><CR><C-W>L<C-W>p<C-W>J<C-W>p
 nnoremap <buffer> <silent> A  <C-W><CR><C-W>L<C-W>p<C-W>c<C-W>p
 " Open at vertical split and go back to quick list
 nnoremap <buffer> <silent> ga <C-W><CR><C-W>L<C-W>p<C-W>J
+" Open at last visited window: <CR>
+" Preview at last visited window
+nnoremap <buffer> <silent> g<CR> <CR><C-W>p
