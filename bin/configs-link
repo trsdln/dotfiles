@@ -30,6 +30,7 @@ LINK_MAP_LINUX=(
   ".xbindkeysrc:./${DOTFILES_DIR_NAME}/linux/.xbindkeysrc"
   ".Xresources:./${DOTFILES_DIR_NAME}/linux/.Xresources"
   ".config/dunst:../${DOTFILES_DIR_NAME}/linux/dunst"
+  ".config/sxiv:../${DOTFILES_DIR_NAME}/linux/sxiv"
   ".config/pulse/default.pa:../../${DOTFILES_DIR_NAME}/linux/pulse/default.pa"
 )
 
