@@ -16,6 +16,6 @@ case "$1" in
 # "C-x")      xclip -in -filter | tr '\n' ' ' | xclip -in -selection clipboard ;;
 "C-c")      while read file; do xclip -selection clipboard -target image/png "$file"; done ;;
 "C-g")      tr '\n' '\0' | xargs -0 gimp & ;;
-"C-w")      while read file; do feh --bg-scale "${file}"; notify-send "New Wallpaper Set" "${file}"; done ;;
+"C-w")      while read file; do set-wallpaper.sh "${file}"; done ;;
 esac
 

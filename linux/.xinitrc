@@ -45,9 +45,9 @@ redshift -l 50.45:30.523333 &
 xbindkeys
 
 # Set wallpaper
-feh --bg-scale Pictures/wallpaper.jpg
-
-BAT_DISCH_STATUS="Discharging"
+if [ -f $HOME/.fehbg ]; then
+  . $HOME/.fehbg
+fi
 
 while true
 do
