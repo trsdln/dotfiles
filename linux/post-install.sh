@@ -69,7 +69,7 @@ pacman -S pulseaudio pulseaudio-alsa
 
 # desktop env
 pacman -S xorg-{server,xinit,xsetroot,xrandr,xbacklight,xclipboard} x11-ssh-askpass xsel xbindkeys xclip
-pacman -S dunst feh sxiv xss-lock slock redshift
+pacman -S dunst feh sxiv xss-lock slock redshift compton
 pacman -S xdotools moka-icon-theme
 
 # desktop apps

@@ -41,6 +41,9 @@ xss-lock -- slock &
 
 redshift -l 50.45:30.523333 &
 
+# Provides window transparancy
+compton -b
+
 # load bindings
 xbindkeys
 
