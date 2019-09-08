@@ -58,6 +58,7 @@ pacman -S jdk11-openjdk
 pip install --user --upgrade pynvim
 
 pacman -S dash
+cd /bin && rm -f sh && ln -s dash sh
 
 # At this point dotfiles can be cloned
 
