@@ -37,7 +37,7 @@ fi
 # xkbcomp $HOME/.dotfiles/linux/xkbmap.xkb $DISPLAY
 
 # Lock autimatically before hibernate/suspend
-xss-lock -- slock &
+xss-lock -- lock-screen.sh &
 
 redshift -l 50.45:30.523333 &
 
