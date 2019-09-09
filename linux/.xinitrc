@@ -37,6 +37,9 @@ compton -b
 # load bindings
 xbindkeys
 
+# Set charge thresholds between 40%-80%
+sudo tlp setcharge 40 80 BAT0
+
 # Set wallpaper
 if [ -f $HOME/.fehbg ]; then
   . $HOME/.fehbg

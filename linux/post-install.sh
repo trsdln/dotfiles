@@ -46,7 +46,7 @@ sudo visudo
 # then uncomment:
 # %wheel ALL=(ALL) ALL
 # to enable to run basic commands for user append this:
-# taras ALL=NOPASSWD:/usr/bin/zzz,/usr/bin/ZZZ,/usr/bin/shutdown,/bin/nmcli,/bin/tlp-stat,/usr/bin/mount,/usr/bin/umount
+# taras ALL=NOPASSWD:/usr/bin/zzz,/usr/bin/ZZZ,/usr/bin/shutdown,/bin/nmcli,/usr/bin/tlp-stat,/usr/bin/tlp,/usr/bin/mount,/usr/bin/umount,
 
 # better fonts
 pacman -S noto-fonts-emoji ttf-dejavu
@@ -64,6 +64,8 @@ cd /bin && rm -f sh && ln -s dash sh
 
 # drivers
 pacman -S xf86-video-intel alsa-utils tlp tpacpi-bat exfat-utils
+systemctl enable tlp
+systemctl enable tlp-sleep
 pacman -S pulseaudio pulseaudio-alsa
 # At /etc/pulse/client.conf set
 # autospawn = yes
