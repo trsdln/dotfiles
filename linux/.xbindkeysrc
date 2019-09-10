@@ -38,3 +38,6 @@
 
 "toggle-keyboard-layout.sh"
    Mod4 + space
+
+"toggle-bluetooth.sh"
+   XF86Bluetooth
