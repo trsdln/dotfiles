@@ -35,7 +35,7 @@ systemctl start NetworkManager
 
 # Add main user
 useradd taras
-usermod -aG wheel,users,audio,video,input taras
+usermod -aG wheel,users,audio,video,input,lp taras
 # and set password
 passwd taras
 # allow make instal without sudo
@@ -66,7 +66,7 @@ cd /bin && rm -f sh && ln -s dash sh
 pacman -S xf86-video-intel alsa-utils tlp tpacpi-bat exfat-utils
 systemctl enable tlp
 systemctl enable tlp-sleep
-pacman -S bluez bluez-utils
+pacman -S bluez bluez-utils pulseaudio-bluetooth
 systemctl enable bluetooth
 pacman -S pulseaudio pulseaudio-alsa
 # At /etc/pulse/client.conf set
