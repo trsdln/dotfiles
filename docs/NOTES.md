@@ -30,8 +30,8 @@ Note: most of vim's monitions work as well obviously
 * `C-W v`  - create vertical split
 * `C-W s`  - create horizontal split
 * `C-W c`  - close current window
-* `C-W _`  - maximaze height
-* `C-W |`  - maximaze width
+* `C-W _`  - maximize height
+* `C-W |`  - maximize width
 * `C-W =`  - equalize widths and heights
 
 

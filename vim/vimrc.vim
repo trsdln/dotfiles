@@ -88,7 +88,8 @@ function! PackInit() abort
   call minpac#add('mxw/vim-jsx')
   call minpac#add('jparise/vim-graphql')
   call minpac#add('hail2u/vim-css3-syntax')
-  call minpac#add('ap/vim-css-color')
+  " Affects performance for bigger files, so it optional now
+  call minpac#add('ap/vim-css-color', {'type': 'opt'})
   call minpac#add('styled-components/vim-styled-components', {'branch': 'main'})
   call minpac#add('trsdln/vim-js-file-import', {'do': 'npm install'})
 endfunction

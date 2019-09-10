@@ -66,7 +66,7 @@ let g:ale_fix_on_save = 1
 let g:ale_sign_error = "◉"
 let g:ale_sign_warning = "◉"
 
-highlight ALEErrorSign ctermfg=red ctermbg=black guifg=#D34A25 
+highlight ALEErrorSign ctermfg=red ctermbg=black guifg=#D34A25
 " guibg=#003641
 highlight ALEWarningSign ctermfg=magenta ctermbg=black guifg=#6971C1
 " guibg=#003641
@@ -84,7 +84,9 @@ let g:spelunker_max_hi_words_each_buf = 50
 let g:spelunker_disable_auto_group = 1
 
 function! s:SplunckerWrapper()
-  if expand('%:t') ==# 'schema.json'
+  let targetFile = expand('%:t')
+  " allows ignore files with names that end with '.nospl.<any_ext>'
+  if targetFile ==# 'schema.json' || targetFile =~? '\v\.nospl\.\w+$'
     return
   endif
   call spelunker#check()
