@@ -66,6 +66,7 @@ cd /bin && rm -f sh && ln -s dash sh
 pacman -S xf86-video-intel alsa-utils tlp tpacpi-bat exfat-utils
 systemctl enable tlp
 systemctl enable tlp-sleep
+pacman -S bluez bluez-utils
 pacman -S pulseaudio pulseaudio-alsa
 # At /etc/pulse/client.conf set
 # autospawn = yes
