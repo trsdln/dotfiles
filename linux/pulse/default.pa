@@ -1,3 +1,6 @@
 .include /etc/pulse/default.pa
 
+load-module module-switch-on-connect
+
 set-default-sink alsa_output.usb-DELL_DELL_UZ2715H_000000000000-00.analog-stereo
+
