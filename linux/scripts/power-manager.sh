@@ -5,8 +5,8 @@ OPTIONS="Sleep\nHibernate\nShutdown\nReboot"
 SELECTED_OPTION=$(printf $OPTIONS | dmenu -i -p 'Action')
 
 prompt_confirmation () {
-  local prompt_message=$1
-  local prompt_action=$2
+  local prompt_message="$1"
+  local prompt_action="$2"
 
   local answer=$(printf "No\nYes" | dmenu -i -p "$prompt_message")
 
