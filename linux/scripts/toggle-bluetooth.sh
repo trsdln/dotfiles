@@ -1,8 +1,5 @@
 #!/bin/dash
 
-# Bluetooth button toggles "power on/off" automatically
-# so script only shows current status
-
 notify-send -h string:x-canonical-private-synchronous:bluetooth_status \
   "Bluetooth" "Applying..."
 
@@ -11,6 +8,7 @@ sleep 5
 
 bluetoothctl show > /dev/null
 if [ "$?" = "0" ]; then
+  bluetoothctl power on > /dev/null
   NEW_STATUS='Enabled'
 else
   NEW_STATUS='Disabled'
