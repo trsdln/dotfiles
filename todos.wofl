@@ -1,0 +1,6 @@
+* rething session management
+  * put session file into repo root (branch relation out of the box)
+    \ I usually don't need to open session from another branch
+    \ advantage: sharing session between multiple work stations
+  * default open/save session command/mapping: ss/so
+  * custom tagged open/close session mapping (not sure I need this though - never used it in current setup)
