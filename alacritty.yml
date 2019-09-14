@@ -513,7 +513,10 @@ key_bindings:
   #- { key: W,      mods: Command,         action: Quit             }
   #- { key: F,      mods: Command|Control, action: ToggleFullscreen }
 
-  # todo: alt-c/alt-v to copy/paste
+  # Compatibility layer with macOS
+  - { key: V,        mods: Alt,     action: Paste                            }
+  - { key: C,        mods: Alt,     action: Copy                             }
+
   - { key: Paste,                   action: Paste                            }
   - { key: Copy,                    action: Copy                             }
   - { key: L,        mods: Control, action: ClearLogNotice                   }
