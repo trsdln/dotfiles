@@ -1,3 +1,4 @@
+* try alacritty
 * rething session management
   * put session file into repo root (branch relation out of the box)
     \ I usually don't need to open session from another branch
