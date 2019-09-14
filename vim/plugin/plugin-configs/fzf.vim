@@ -1,9 +1,6 @@
 " Search files
 nnoremap <C-P> :Files<CR>
 
-" Search buffer history
-" nnoremap <leader>y :History<CR>
-
 " Search mappings
 nnoremap <leader>c :Maps<CR>
 

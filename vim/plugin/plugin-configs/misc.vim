@@ -102,9 +102,6 @@ augroup END
 
 " Configure easymotion
 let g:EasyMotion_smartcase = 1
-" nmap <Leader><Leader>m <Plug>(easymotion-overwin-f2)
-" xmap <Leader><Leader>m <Plug>(easymotion-bd-f2)
-" omap <Leader><Leader>m <Plug>(easymotion-bd-f2)
 
 
 " Configure highlightedyank
@@ -114,3 +111,13 @@ let g:highlightedyank_highlight_duration = 300
 " suda.vim configuration
 command! SudoWrite write suda://%
 command! -nargs=1 SudoEdit  edit  suda://<args>
+
+
+" vim-obsession
+set sessionoptions=curdir,winpos,buffers,winsize,help,tabpages
+
+" Start/Stop session tracking
+nnoremap <leader>ss :Obsession<CR>
+
+" Load default session
+nnoremap <leader>so :source Session.vim<CR>

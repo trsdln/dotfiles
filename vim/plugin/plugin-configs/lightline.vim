@@ -12,23 +12,6 @@ let g:lightline = {
       \ }
       \ }
 
-" 'fileformat', 'fileencoding', 'filetype'
-" \   'fileformat': 'LightlineFileformat',
-" \   'filetype': 'LightlineFiletype',
-" \   'fileencoding': 'LightlineFileencoding',
-
-" function! LightlineFileformat()
-"   return winwidth(0) > 70 ? &fileformat : ''
-" endfunction
-
-" function! LightlineFiletype()
-"   return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
-" endfunction
-
-" function! LightlineFileencoding()
-"   return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
-" endfunction
-
 function! LightlineModified()
   return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
 endfunction

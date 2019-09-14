@@ -48,6 +48,8 @@ function! PackInit() abort
   call minpac#add('tpope/vim-eunuch')
   " Linguistically correct substitution
   call minpac#add('tpope/vim-abolish')
+  " Session management
+  call minpac#add('tpope/vim-obsession')
 
   call minpac#add('lambdalisue/suda.vim')
 

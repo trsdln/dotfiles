@@ -54,6 +54,7 @@ pacman -S noto-fonts-emoji ttf-dejavu
 # dev env
 pacman -S zsh git ripgrep tmux neovim htop ctags python3 python-pip
 pacman -S yarn nodejs-lts-carbon docker keybase kbsf
+pacman -S alacritty
 pacman -S jdk11-openjdk
 pip install --user --upgrade pynvim
 
