@@ -29,11 +29,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   export PATH="usr/local/bin:$PATH"
 fi
 
-# Add linux specific scripts and apps
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  export PATH="${DOTFILES_PATH}/linux/scripts:$PATH"
-fi
-
 # Setup ripgrep
 export RIPGREP_CONFIG_PATH="${DOTFILES_PATH}/.ripgreprc"
 
@@ -104,12 +99,8 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
   # Source existing agent env variables
   . ~/.ssh/ssh-agent > /dev/null
 
-  # Do not keep logged in session
-  alias startx='startx; exit'
   export OPEN='xdg-open'
 
-  # Automatic startx on login
-  if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-    exec startx
-  fi
+  # Add linux specific scripts and apps
+  export PATH="${DOTFILES_PATH}/linux/scripts:$PATH"
 fi

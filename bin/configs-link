@@ -26,6 +26,7 @@ LINK_MAP_COMMON=(
 )
 
 LINK_MAP_LINUX=(
+  ".profile:./${DOTFILES_DIR_NAME}/linux/.profile"
   # X env
   ".xinitrc:./${DOTFILES_DIR_NAME}/linux/.xinitrc"
   ".xbindkeysrc:./${DOTFILES_DIR_NAME}/linux/.xbindkeysrc"
