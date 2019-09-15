@@ -3,6 +3,7 @@ export KEYTIMEOUT=1
 
 export EDITOR='nvim'
 export VISUAL='nvim'
+export SHELL='/bin/zsh'
 
 # Load machine specific configs
 [ -f ~/.zsh_specific ] && source ~/.zsh_specific
