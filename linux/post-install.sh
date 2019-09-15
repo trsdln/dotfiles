@@ -57,6 +57,7 @@ pacman -S yarn nodejs-lts-carbon docker keybase kbsf
 pacman -S alacritty
 pacman -S jdk11-openjdk
 pip install --user --upgrade pynvim
+pacman -S kubectl
 
 pacman -S dash
 cd /bin && rm -f sh && ln -s dash sh
@@ -87,23 +88,14 @@ pacman -S libcurl-gnutls libnotify
 # download and install Hubstaff and then:
 ln -s /home/taras/apps/Hubstaff/HubstaffClient.bin.x86_64 /usr/local/bin/hubstaff
 
-pacman -S repose # don't use this one for now
-# then install "aurutils"
-# then configure local repo based on `man aur` (with double CacheDir fix)
-aur sync ffcast && sudo pacman -S ffcast
-aur sync google-cloud-sdk && sudo pacman -S google-cloud-sdk
-pacman -S kubectl
+# Install "aurutils" and configure local
+# repo based on `man aur` (with double CacheDir fix)
 
-aur sync aic94xx-firmware && pacman -S aic94xx-firmware
-aur sync wd719x-firmware && pacman -S wd719x-firmware
+# Packages from AUR:
+# sync AUR packages
+dash aur-upgrade.sh
+# install
+pacman -S mongodb-bin mongodb-tools-bin mongodb-compass robo3t-bin
+pacman -S slack-desktop ttf-symbola tmux-mem-cpu-load-git rover grive
+# For aic94xx & wd719x:
 mkinitcpio -p linux
-
-aur sync mongodb-bin && pacman -S mongodb-bin
-aur sync mongodb-tools-bin && pacman -S mongodb-tools-bin
-aur sync mongodb-compass && pacman -S mongodb-compass
-aur sync robo3t-bin && pacman -S robo3t-bin
-aur sync slack-desktop && pacman -S slack-desktop
-aur sync ttf-symbola && pacman -S ttf-symbola
-aur sync tmux-mem-cpu-load-git && pacman -S tmux-mem-cpu-load-git
-aur sync rover && pacman -S rover
-aur sync grive && pacman -S grive
