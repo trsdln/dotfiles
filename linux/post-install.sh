@@ -94,6 +94,10 @@ aur sync ffcast && sudo pacman -S ffcast
 aur sync google-cloud-sdk && sudo pacman -S google-cloud-sdk
 pacman -S kubectl
 
+aur sync aic94xx-firmware && pacman -S aic94xx-firmware
+aur sync wd719x-firmware && pacman -S wd719x-firmware
+mkinitcpio -p linux
+
 aur sync mongodb-bin && pacman -S mongodb-bin
 aur sync mongodb-tools-bin && pacman -S mongodb-tools-bin
 aur sync mongodb-compass && pacman -S mongodb-compass
