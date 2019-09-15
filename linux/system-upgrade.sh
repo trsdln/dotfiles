@@ -15,3 +15,9 @@ aur sync rover
 aur sync grive
 
 sudo pacman -Suy
+
+echo "Orphan packages:"
+pacman -Qdt
+
+echo "Potentially removed packages (or installed from AUR):"
+pacman -Qm
