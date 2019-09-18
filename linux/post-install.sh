@@ -93,7 +93,7 @@ ln -s /home/taras/apps/Hubstaff/HubstaffClient.bin.x86_64 /usr/local/bin/hubstaf
 
 # Packages from AUR:
 # sync AUR packages
-dash aur-upgrade.sh
+dash system-upgrade.sh
 # install
 pacman -S mongodb-bin mongodb-tools-bin mongodb-compass robo3t-bin
 pacman -S slack-desktop ttf-symbola tmux-mem-cpu-load-git rover grive
