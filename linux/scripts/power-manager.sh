@@ -1,4 +1,4 @@
-#!/bin/dash
+#!/bin/sh
 
 OPTIONS="Sleep\nHibernate\nShutdown\nReboot"
 

@@ -1,4 +1,4 @@
-#!/bin/dash
+#!/bin/sh
 
 # otherwise we get status line content of status line before lock/sleep
 # over next statusline refresh timeout

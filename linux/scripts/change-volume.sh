@@ -1,4 +1,4 @@
-#!/bin/dash
+#!/bin/sh
 
 VOLUME_VALUE=$1
 

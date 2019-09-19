@@ -1,4 +1,4 @@
-#!/bin/dash
+#!/bin/sh
 
 HDMI_OUT="HDMI1"
 

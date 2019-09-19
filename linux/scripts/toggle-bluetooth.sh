@@ -1,4 +1,4 @@
-#!/bin/dash
+#!/bin/sh
 
 notify-send -h string:x-canonical-private-synchronous:bluetooth_status \
   "Bluetooth" "Applying..."

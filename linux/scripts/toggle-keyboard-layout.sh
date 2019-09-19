@@ -1,4 +1,4 @@
-#!/bin/dash
+#!/bin/sh
 
 KEYBOARD_LAYOUT="$(setxkbmap -query | awk '/layout/ {print $2}')"
 

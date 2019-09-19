@@ -1,4 +1,4 @@
-#!/bin/dash
+#!/bin/sh
 
 # button toggles wifi automatically so need just to show
 # information message and update status line

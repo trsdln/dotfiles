@@ -1,4 +1,4 @@
-#!/bin/dash
+#!/bin/sh
 
 # Pass file name as first argument to this script
 NEW_WALLPAPER=$1
