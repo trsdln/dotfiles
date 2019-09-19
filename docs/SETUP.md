@@ -33,7 +33,7 @@ git clone --recursive git@github.com:trsdln/prezto.git "${HOME}/.zprezto"
 ```
 brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 brew install vim ripgrep fzf
-brew install tmux reattach-to-user-namespace tmux-mem-cpu-load
+brew install tmux reattach-to-user-namespace tmux-mem-cpu-load osx-cpu-temp
 ```
 
 3. Ensure Brew's VIM/Ctags will be used at shell by putting `/usr/local/bin` before other directories at $PATH
