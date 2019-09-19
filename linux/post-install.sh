@@ -61,6 +61,7 @@ pacman -S kubectl
 
 pacman -S dash
 cd /bin && rm -f sh && ln -s dash sh
+cd /usr/bin && rm -f sh && ln -s $(which dash) sh
 
 # At this point dotfiles can be cloned
 
