@@ -20,8 +20,8 @@ function dev_env_open_base {
     # execute startup sequence on first call
     source ${CONFIGS_BIN_DIR}/common/dev-startup.sh
 
-    tmux attach-session -t ${VIM_SESSION}
+    tmux attach-session -t ${VIM_SESSION} &
   else
-    tmux attach-session -t ${SERVERS_SESSION}
+    tmux attach-session -t ${SERVERS_SESSION} &
   fi
 }
