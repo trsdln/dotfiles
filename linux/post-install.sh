@@ -4,7 +4,7 @@
 # # achieve the fastest possible boot:
 # # hide grub menu  at /etc/default/grub
 # GRUB_TIMEOUT=0
-# # hibernation support (ensure UUID is correct - can be taken from /etc/fstab):
+# # hibernation support (ensure UUID of swap is correct - can be taken from /etc/fstab):
 # GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet resume=UUID=a33e750b-58c9-4cc4-a661-89e9cfeb45e4"
 # # probably not relevant (fix kernel errors): GRUB_CMDLINE_LINUX_DEFAULT="loglevel=4 slub_debug=P page_poison=1 intel_iommu=off"
 # # finally:
@@ -24,9 +24,6 @@
 # # enable suspend when lid is closed at /etc/systemd/logind.conf:
 # HandleLidSwitch=hibernate
 # HandleLidSwitchDocked=hibernate
-
-# set bigger font at /etc/rc.conf
-#FONT="latarcyrheb-sun32"
 
 # Connection using NetworkManager
 pacman -S base-devel networkmanager openssh
@@ -54,10 +51,8 @@ pacman -S noto-fonts-emoji ttf-dejavu
 # dev env
 pacman -S zsh git ripgrep tmux neovim htop ctags python3 python-pip
 pacman -S yarn nodejs-lts-carbon docker keybase kbsf
-pacman -S alacritty
-pacman -S jdk11-openjdk
+pacman -S jdk11-openjdk kubectl
 pip install --user --upgrade pynvim
-pacman -S kubectl
 
 pacman -S dash
 cd /bin && rm -f sh && ln -s dash sh
@@ -77,7 +72,7 @@ pacman -S pulseaudio pulseaudio-alsa
 
 # desktop env
 pacman -S xorg-{server,xinit,xsetroot,xrandr,xbacklight,xclipboard} x11-ssh-askpass xsel xbindkeys xclip
-pacman -S dunst feh sxiv xss-lock slock redshift compton
+pacman -S dunst feh sxiv xss-lock slock redshift compton alacritty
 pacman -S xdotools moka-icon-theme
 
 # desktop apps
@@ -98,5 +93,6 @@ dash system-upgrade.sh
 # install
 pacman -S mongodb-bin mongodb-tools-bin mongodb-compass robo3t-bin
 pacman -S slack-desktop ttf-symbola tmux-mem-cpu-load-git rover grive
+pacman -S aic94xx-firmware wd719x-firmware
 # For aic94xx & wd719x:
 mkinitcpio -p linux
