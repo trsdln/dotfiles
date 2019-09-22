@@ -9,8 +9,8 @@ BAT_NAME="BAT0"
 BAT_CAPACITY=$(cat "/sys/class/power_supply/$BAT_NAME/capacity")
 BAT_STATUS=$(cat "/sys/class/power_supply/$BAT_NAME/status")
 
-if [ "${BAT_CAPACITY}" -lt "15" ]; then
-  notify-send --urgency=critical "Low Battery: ${BAT_CAPACITY}%"
+if [ "${BAT_CAPACITY}" -lt "15" ] && [ $BAT_STATUS != 'Charging' ]; then
+  notify-send --urgency=critical "Low Charge" "Current Level: ${BAT_CAPACITY}%"
 fi
 
 if [ $BAT_STATUS = 'Charging' ]; then
