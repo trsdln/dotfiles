@@ -23,6 +23,7 @@ LINK_MAP_COMMON=(
   ".ctags.d/exclusion.ctags:../${DOTFILES_DIR_NAME}/ctags.d/exclusion.ctags"
   ".terminfo:./${DOTFILES_DIR_NAME}/terminfo"
   ".config/alacritty/alacritty.yml:../../${DOTFILES_DIR_NAME}/alacritty.yml"
+  ".config/lf:../${DOTFILES_DIR_NAME}/lf"
 )
 
 LINK_MAP_LINUX=(

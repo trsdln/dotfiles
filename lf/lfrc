@@ -1,0 +1,1 @@
+cmd delete $IFS="`printf '\n\t'`"; rm $fx
