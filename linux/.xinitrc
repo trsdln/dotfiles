@@ -21,13 +21,9 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
   unset f
 fi
 
-# Set keyboard layouts
-# setxkbmap -model thinkpad -layout us
-# "legacy" variant fixes problem with ? vs . at UA keyboard
-# xkbcomp $HOME/.dotfiles/linux/xkbmap.xkb $DISPLAY
-
 # Lock autimatically before hibernate/suspend
-xss-lock -- lock-screen.sh &
+xss-lock --transfer-sleep-lock -- lock-screen.sh &
+
 
 redshift -l 50.45:30.523333 &
 
