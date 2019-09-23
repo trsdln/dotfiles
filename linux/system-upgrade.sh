@@ -11,7 +11,6 @@ aur sync robo3t-bin
 aur sync slack-desktop
 aur sync ttf-symbola
 aur sync tmux-mem-cpu-load-git
-aur sync rover
 aur sync grive
 
 sudo pacman -Suy

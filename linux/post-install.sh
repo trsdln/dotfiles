@@ -92,7 +92,7 @@ ln -s /home/taras/apps/Hubstaff/HubstaffClient.bin.x86_64 /usr/local/bin/hubstaf
 dash system-upgrade.sh
 # install
 pacman -S mongodb-bin mongodb-tools-bin mongodb-compass robo3t-bin
-pacman -S slack-desktop ttf-symbola tmux-mem-cpu-load-git rover grive
+pacman -S slack-desktop ttf-symbola tmux-mem-cpu-load-git grive
 pacman -S aic94xx-firmware wd719x-firmware
 # For aic94xx & wd719x:
 mkinitcpio -p linux
