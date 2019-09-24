@@ -1,3 +1,5 @@
+" winwidth - fixes ineffective space usage at tabline
+" https://github.com/itchyny/lightline.vim/issues/220
 let g:lightline = {
       \ 'colorscheme': 'solarized',
       \ 'active': {
@@ -9,7 +11,8 @@ let g:lightline = {
       \   'filename': 'LightlineFilename',
       \   'mode': 'LightlineMode',
       \   'gutentags': 'gutentags#statusline',
-      \ }
+      \ },
+      \ 'winwidth': 240
       \ }
 
 function! LightlineModified()
