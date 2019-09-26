@@ -41,3 +41,6 @@
 
 "toggle-bluetooth.sh"
    XF86Bluetooth
+
+"app-launcher.sh"
+   Alt + space
