@@ -8,6 +8,7 @@ let s:js_repl_src_prefix = 'function maybeRequire (moduleName) { try { return re
 
 let s:SED_SUB_EXP = shellescape('s/^/\/\/ /')
 
+" Bug: fails at statements like `myFn('https://something.com')`
 function! s:JSRepl()
   let input_src = s:GetVisualSelectionText()
 
