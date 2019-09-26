@@ -202,6 +202,9 @@ will do the trick.
 :Gdiff               - 2 or 3way diff, depending on context
 :diffget //2 or //3  - apply theirs/ours (at working copy buffer - middle one)
 
+While previewing RO file `.` can be used to prepopulate full file path to
+command line (useful for doing `:edit current_RO_file`).
+
 ### GV
 
 Git log extension for vim-fugitive:
