@@ -100,6 +100,9 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
   # Source existing agent env variables
   . ~/.ssh/ssh-agent > /dev/null
 
+  # Autoplay animations
+  alias sxiv='sxiv -a'
+
   export OPEN='xdg-open'
 
   # Add linux specific scripts and apps
