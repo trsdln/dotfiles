@@ -1,5 +1,7 @@
 #!/bin/dash
 
+sudo pacman -Suy
+
 aur sync ffcast
 aur sync google-cloud-sdk
 aur sync aic94xx-firmware
@@ -12,8 +14,6 @@ aur sync slack-desktop
 aur sync ttf-symbola
 aur sync tmux-mem-cpu-load-git
 aur sync grive
-
-sudo pacman -Suy
 
 echo "Orphan packages:"
 pacman -Qdt
