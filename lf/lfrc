@@ -1,1 +1,1 @@
-cmd delete $IFS="`printf '\n\t'`"; rm $fx
+cmd deletedir $IFS="`printf '\n\t'`"; rm -r $fx
