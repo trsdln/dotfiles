@@ -1,1 +1,10 @@
 cmd deletedir $IFS="`printf '\n\t'`"; rm -r $fx
+
+cmd open ${{
+    echo "FX: $fx"
+    # override image opening command
+    case $(file --mime-type $f -b) in
+        image/*) sxiv -a $f;;
+        *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;
+    esac
+}}
