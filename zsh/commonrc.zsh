@@ -27,7 +27,7 @@ export PATH="${DOTFILES_PATH}/bin:$PATH"
 # Ensure apps installed by brew are resolved first
 # (before system default) e.g. vim
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  export PATH="usr/local/bin:$PATH"
+  export PATH="usr/local/bin:${DOTFILES_PATH}/darwin/scripts:$PATH"
 fi
 
 # Setup ripgrep
