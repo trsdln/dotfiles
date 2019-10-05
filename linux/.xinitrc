@@ -24,7 +24,6 @@ fi
 # Lock autimatically before hibernate/suspend
 xss-lock --transfer-sleep-lock -- lock-screen.sh &
 
-
 redshift -l 50.45:30.523333 &
 
 # Provides window transparancy

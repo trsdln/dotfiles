@@ -8,8 +8,6 @@ if [ "${KEYBOARD_LAYOUT}" = 'us' ]; then
 else
   # Set keyboard layout
   setxkbmap us -model thinkpad -layout us
-  # support for play/pause media keys
-  # xkbcomp $HOME/.dotfiles/linux/xkbmap.xkb $DISPLAY
 fi
 
 statusline-update.sh

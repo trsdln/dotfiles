@@ -1,7 +1,9 @@
 #!/bin/dash
 
+# Update all official packages
 sudo pacman -Suy
 
+# Update all AUR packages
 aur sync ffcast
 aur sync google-cloud-sdk
 aur sync aic94xx-firmware
