@@ -14,6 +14,7 @@ aur sync slack-desktop
 aur sync ttf-symbola
 aur sync tmux-mem-cpu-load-git
 aur sync grive
+aur sync tuijam
 
 echo "Orphan packages:"
 pacman -Qdt

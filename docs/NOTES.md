@@ -64,6 +64,8 @@ Note: most of vim's monitions work as well obviously
 * `@:`          - repeat last Ex command
 * `q:`          - Ex command history
 * `q/`/`q?`     - search history
+* `g*`          - next partial matching word search
+* `g#`          - previous partial matching word search
 
 ### Switching into insert mode
 
@@ -82,6 +84,7 @@ Except common ones (`i/s/a/A/o/O`) there are couple more:
 * `/`, `?`    - search; can be used with any operator!
 * `` ` ` ``   - position before last jump
 * `` `. ``    - position of last change
+* `'.`        - line of last change
 * `ge`, `gE`  - end of previous word/WORD
 * `gn`        - next search match
 

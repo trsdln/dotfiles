@@ -251,10 +251,10 @@ noremap k gk
 noremap gj j
 noremap gk k
 " Adjust edge motions as well
-noremap 0 g0
-noremap $ g$
-noremap g0 0
-noremap g$ $
+" noremap 0 g0
+" noremap $ g$
+" noremap g0 0
+" noremap g$ $
 
 " Smart way to move between windows
 noremap <C-j> <C-W>j
