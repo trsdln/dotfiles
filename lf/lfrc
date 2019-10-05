@@ -1,10 +1,12 @@
-cmd deletedir $IFS="`printf '\n\t'`"; rm -r $fx
-
 cmd open ${{
-    echo "FX: $fx"
-    # override image opening command
-    case $(file --mime-type $f -b) in
-        image/*) sxiv -a $f;;
-        *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;
-    esac
+  # provides ability to open multiple files at once at 3rd party app
+  # shell-bug: will not work if file name contains space
+  FILES_TO_OPEN=$(for cf in $fx; do printf "${cf} "; done)
+
+  case $(file --mime-type $f -b) in
+    image/*) sxiv -a ${FILES_TO_OPEN};;
+    video/*) mpv ${FILES_TO_OPEN};;
+    *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;
+  esac
 }}
+
