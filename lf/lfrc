@@ -10,3 +10,8 @@ cmd open ${{
   esac
 }}
 
+cmd fixname ${{
+  # replaces all spaces at name with underscores
+  mv "${f}" $(echo "${f}" | tr ' ' '_')
+}}
+
