@@ -10,8 +10,11 @@ cmd open ${{
   esac
 }}
 
-cmd fixname ${{
+cmd fixname %{{
   # replaces all spaces at name with underscores
-  mv "${f}" $(echo "${f}" | tr ' ' '_')
+  if mv "${f}" $(echo "${f}" | tr ' ' '_') > /dev/null 2> /dev/null; then
+    echo "Name fixed"
+  else
+    echo "Error while fixing name"
+  fi
 }}
-
