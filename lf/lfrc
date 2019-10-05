@@ -12,6 +12,7 @@ cmd open ${{
 
 cmd fixname %{{
   # replaces all spaces at name with underscores
+  # todo: handle case when parent dir name contains spaces
   if mv "${f}" $(echo "${f}" | tr ' ' '_') > /dev/null 2> /dev/null; then
     echo "Name fixed"
   else
