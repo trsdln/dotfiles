@@ -74,6 +74,7 @@ pacman -S pulseaudio pulseaudio-alsa
 pacman -S xorg-{server,xinit,xsetroot,xrandr,xbacklight,xclipboard} x11-ssh-askpass xsel xbindkeys xclip
 pacman -S dunst feh sxiv xss-lock slock redshift compton alacritty
 pacman -S xdotools moka-icon-theme
+pacman -S playerctl
 
 # desktop apps
 pacman -S mpv transmission-qt chromium gimp thunderbird telegram-desktop

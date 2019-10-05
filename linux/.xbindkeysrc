@@ -44,3 +44,6 @@
 
 "app-launcher.sh"
    Alt + space
+
+"playerctl play-pause"
+   XF86Tools
