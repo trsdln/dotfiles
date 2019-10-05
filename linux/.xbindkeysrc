@@ -10,6 +10,10 @@
 "change-volume.sh toggle"
    XF86AudioMute
 
+# Mute/unmute microphone
+"amixer sset Capture toggle"
+   XF86AudioMicMute
+
 "toggle-hdmi.sh"
    XF86Display
 
@@ -45,5 +49,6 @@
 "app-launcher.sh"
    Alt + space
 
+# Play/Pause music
 "playerctl play-pause"
    XF86Tools
