@@ -1,21 +1,15 @@
-cmd open ${{
-  # provides ability to open multiple files at once at 3rd party app
-  # shell-bug: will not work if file name contains space
-  FILES_TO_OPEN=$(for cf in $fx; do printf "${cf} "; done)
+# configuration below solves problem with spaces at file names for Zsh
+set shell zsh
+set shellopts '-eu:--shwordsplit'
+set ifs "\n"
+set filesep "\n"
 
+cmd open ${{
   case $(file --mime-type $f -b) in
-    image/*) sxiv -a ${FILES_TO_OPEN};;
-    video/*) mpv ${FILES_TO_OPEN};;
+    image/*) sxiv -a $fx;;
+    video/*) mpv $fx;;
     *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;
   esac
 }}
 
-cmd fixname %{{
-  # replaces all spaces at name with underscores
-  # todo: handle case when parent dir name contains spaces
-  if mv "${f}" $(echo "${f}" | tr ' ' '_') > /dev/null 2> /dev/null; then
-    echo "Name fixed"
-  else
-    echo "Error while fixing name"
-  fi
-}}
+map a push %mkdir<space>
