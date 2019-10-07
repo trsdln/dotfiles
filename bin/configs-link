@@ -26,6 +26,9 @@ LINK_MAP_COMMON=(
   ".config/lf:../${DOTFILES_DIR_NAME}/lf"
 )
 
+SYSTEMD_UNITS=".config/systemd/user"
+SYSTEMD_DOTFILES_PATH="../../../${DOTFILES_DIR_NAME}/linux/systemd"
+
 LINK_MAP_LINUX=(
   ".profile:./${DOTFILES_DIR_NAME}/linux/.profile"
   # X env
@@ -35,6 +38,8 @@ LINK_MAP_LINUX=(
   ".config/dunst:../${DOTFILES_DIR_NAME}/linux/dunst"
   ".config/sxiv:../${DOTFILES_DIR_NAME}/linux/sxiv"
   ".config/pulse/default.pa:../../${DOTFILES_DIR_NAME}/linux/pulse/default.pa"
+  "${SYSTEMD_UNITS}/eye-rest.service:${SYSTEMD_DOTFILES_PATH}/eye-rest.service"
+  "${SYSTEMD_UNITS}/eye-rest.timer:${SYSTEMD_DOTFILES_PATH}/eye-rest.timer"
 )
 
 function _create_link {
@@ -70,7 +75,7 @@ function _main {
   cd ~
 
   # doesn't seem like ctags works with links
-  mkdir -p .ctags.d/ .config/ .config/alacritty
+  mkdir -p .ctags.d/ .config/ .config/alacritty/
 
   echo "Processing links at '$(echo ~)' ..."
 
@@ -86,7 +91,7 @@ function _main {
   done
 
   if [ "$OSTYPE" = "linux-gnu" ]; then
-    mkdir -p .config/alsa/
+    mkdir -p .config/alsa/  .config/systemd/user/
     echo "Linux specific links:"
     for link_entry in "${LINK_MAP_LINUX[@]}" ; do
       _handle_link_entry $link_entry $unlink_param

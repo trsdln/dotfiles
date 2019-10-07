@@ -1,0 +1,6 @@
+[Unit]
+Description=Eye rest reminder
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/notify-send -u critical -i /usr/share/icons/Moka/32x32/status/messagebox_warning.png -h string:x-canonical-private-synchronous:eye-rest  "Eye Rest" "Time to make short break"
