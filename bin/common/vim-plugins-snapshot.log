@@ -1,4 +1,4 @@
-ale//a486aa1d24294c5b14c8b2763a3b5ffdc39d0739
+ale//f9322113095ac01c00d4c38da6aca715663e35cf
 delimitMate//728b57a6564c1d2bdfb9b9e0f2f8c5ba3d7e0c5c
 fugitive-gitlab.vim//43a13dbbc9aae85338877329ed28c9e4d8488db1
 fzf//ab11b74be4b0c9fac88d95f0f563d0dc0cb06ed3
@@ -14,9 +14,9 @@ vim-css3-syntax//7eaca88c16c228a7a8202b43a0649cc88f116298
 vim-dirvish//e8a213d9d0a21f03fc03319fa7560521b6cd6928
 vim-easymotion//85e90c9759e14633d878ed534ef313876ab96555
 vim-eunuch//e066a0999e442d9d96f24ad9d203b1bd030ef72e
-vim-fugitive//973d814e26db486d6b4d46a3dfed56be612bd759
+vim-fugitive//698065596c9ccee74825ac9667357ce8222ed7b0
 vim-graphql//61e342c4facd5cbc645104262e866882ea1cf5c3
-vim-grepper//271d7d9728163efe8ab95e81356982312638877a
+vim-grepper//809bf84808065eb1bf0f6419b0105a46c281513d
 vim-gutentags//eecb136fae97e30d5f01e71f0d3b775c8b017385
 vim-highlightedyank//51e25c9fa3bd2dca500ee0c910a45641d57a57fa
 vim-javascript//b6c8c8419240bdd29b5eb51a47d488fd390deed5
@@ -26,7 +26,7 @@ vim-obsession//60f0ef80fd74b8c58fd0cc7a55b81846e06c04f3
 vim-pasta//cb4501a123d74fc7d66ac9f10b80c9d393746c66
 vim-repeat//ae361bea990e27d5beade3a8d9fa22e25cec3100
 vim-rhubarb//75ad917e4978b4620c3b0eff1722880d2d53a9f4
-vim-solarized8//9afbe12f68082df4fab92d3cef3050910e7e9af2
+vim-solarized8//cd5e87ccfa6a782e8058255b91af94a45b7603e0
 vim-styled-components//0a2fcd21a8385619901ff781101b23d4de5e092c
 vim-surround//fab8621670f71637e9960003af28365129b1dfd0
 vim-trailing-whitespace//4c596548216b7c19971f8fc94e38ef1a2b55fee6
