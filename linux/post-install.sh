@@ -94,6 +94,7 @@ dash system-upgrade.sh
 # install
 pacman -S mongodb-bin mongodb-tools-bin mongodb-compass robo3t-bin
 pacman -S slack-desktop ttf-symbola tmux-mem-cpu-load-git grive
+pacman -S ffcast google-cloud-sdk tuijam
 pacman -S aic94xx-firmware wd719x-firmware
 # For aic94xx & wd719x:
 mkinitcpio -p linux
