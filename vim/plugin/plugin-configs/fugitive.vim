@@ -6,5 +6,6 @@ noremap <leader>gb :MerginalToggle<cr>
 call g:SetupCommandAlias("Gpu","Gpush --no-verify")
 call g:SetupCommandAlias("gpu","Gpush --no-verify")
 
-" Try to use another diff algorithm patience
-set diffopt+=internal,algorithm:patience
+if has('nvim-0.3.2') || has("patch-8.1.0360")
+    set diffopt=filler,internal,algorithm:histogram,indent-heuristic
+endif
