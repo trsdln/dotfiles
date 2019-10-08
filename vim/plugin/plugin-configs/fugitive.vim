@@ -1,5 +1,6 @@
 " Quick access mappings
 noremap <leader>gs :Gstatus<cr>
+noremap <leader>gb :MerginalToggle<cr>
 
 " Shortcut push to prevent hooks
 call g:SetupCommandAlias("Gpu","Gpush --no-verify")

@@ -51,6 +51,9 @@ function! PackInit() abort
   " Session management
   call minpac#add('tpope/vim-obsession')
 
+  " Extension for Fugitive to manage branches
+  call minpac#add('idanarye/vim-merginal')
+
   call minpac#add('lambdalisue/suda.vim')
 
   " Automatic ctags generation
