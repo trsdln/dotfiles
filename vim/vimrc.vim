@@ -39,6 +39,9 @@ function! PackInit() abort
   " Git log add-on for fugitive
   call minpac#add('junegunn/gv.vim')
 
+  " Extension for Fugitive to manage branches
+  call minpac#add('idanarye/vim-merginal')
+
   " Easy surround anything
   call minpac#add('tpope/vim-surround')
   call minpac#add('tpope/vim-commentary')
@@ -50,9 +53,6 @@ function! PackInit() abort
   call minpac#add('tpope/vim-abolish')
   " Session management
   call minpac#add('tpope/vim-obsession')
-
-  " Extension for Fugitive to manage branches
-  call minpac#add('idanarye/vim-merginal')
 
   call minpac#add('lambdalisue/suda.vim')
 
@@ -253,11 +253,6 @@ noremap j gj
 noremap k gk
 noremap gj j
 noremap gk k
-" Adjust edge motions as well
-" noremap 0 g0
-" noremap $ g$
-" noremap g0 0
-" noremap g$ $
 
 " Smart way to move between windows
 noremap <C-j> <C-W>j
