@@ -51,14 +51,11 @@ augroup END
 
 
 " Setup ale
-let b:ale_linters = {
-      \ 'javascript': ['eslint'],
-      \ 'sh': ['shell']
-      \}
+let g:ale_linters = { 'javascript': ['eslint'] }
 
 let g:ale_fixers = {
-      \   'javascript': ['prettier_eslint'],
-      \   'json': ['prettier_eslint'],
+      \ 'javascript': ['prettier_eslint'],
+      \ 'json': ['prettier_eslint'],
       \}
 
 " Randomly breaks auto-import's 'go back to usage feature'
