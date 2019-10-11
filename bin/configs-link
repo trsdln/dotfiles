@@ -12,17 +12,14 @@ LINK_MAP_COMMON=(
   ".zshrc:./${DOTFILES_DIR_NAME}/zsh/zpreztorc.zsh"
 
   # Vim Configs
-  ".vimrc:./${DOTFILES_DIR_NAME}/vim/vimrc.vim"
   ".vim:./${DOTFILES_DIR_NAME}/vim"
   ".config/nvim:../${DOTFILES_DIR_NAME}/nvim"
+  ".vimrc:./${DOTFILES_DIR_NAME}/vim/vimrc.vim"
 
-  # Misc
-  ".tmux.conf:./${DOTFILES_DIR_NAME}/tmux/$([ "$OSTYPE" == "linux-gnu" ] && echo "linux-gnu.conf" || echo "darwin.conf")"
+  # Misc apps
   ".gitconfig:./${DOTFILES_DIR_NAME}/.gitconfig"
   ".ctags.d/javascript.ctags:../${DOTFILES_DIR_NAME}/ctags.d/javascript.ctags"
   ".ctags.d/exclusion.ctags:../${DOTFILES_DIR_NAME}/ctags.d/exclusion.ctags"
-  ".terminfo:./${DOTFILES_DIR_NAME}/terminfo"
-  ".config/alacritty/alacritty.yml:../../${DOTFILES_DIR_NAME}/alacritty.yml"
   ".config/lf:../${DOTFILES_DIR_NAME}/lf"
 )
 
@@ -31,15 +28,27 @@ SYSTEMD_DOTFILES_PATH="../../../${DOTFILES_DIR_NAME}/linux/systemd"
 
 LINK_MAP_LINUX=(
   ".profile:./${DOTFILES_DIR_NAME}/linux/.profile"
+
   # X env
   ".xinitrc:./${DOTFILES_DIR_NAME}/linux/.xinitrc"
   ".xbindkeysrc:./${DOTFILES_DIR_NAME}/linux/.xbindkeysrc"
   ".Xresources:./${DOTFILES_DIR_NAME}/linux/.Xresources"
+
+  # misc apps
+  ".tmux.conf:./${DOTFILES_DIR_NAME}/tmux/linux-gnu.conf"
   ".config/dunst:../${DOTFILES_DIR_NAME}/linux/dunst"
   ".config/sxiv:../${DOTFILES_DIR_NAME}/linux/sxiv"
   ".config/pulse/default.pa:../../${DOTFILES_DIR_NAME}/linux/pulse/default.pa"
+  ".config/alacritty/alacritty.yml:../../${DOTFILES_DIR_NAME}/alacritty.yml"
+
+  # custom services
   "${SYSTEMD_UNITS}/eye-rest.service:${SYSTEMD_DOTFILES_PATH}/eye-rest.service"
   "${SYSTEMD_UNITS}/eye-rest.timer:${SYSTEMD_DOTFILES_PATH}/eye-rest.timer"
+)
+
+LINK_MAP_DARWIN=(
+  ".terminfo:./${DOTFILES_DIR_NAME}/terminfo"
+  ".tmux.conf:./${DOTFILES_DIR_NAME}/tmux/darwin.conf"
 )
 
 function _create_link {
@@ -75,7 +84,7 @@ function _main {
   cd ~
 
   # doesn't seem like ctags works with links
-  mkdir -p .ctags.d/ .config/ .config/alacritty/
+  mkdir -p .ctags.d/ .config/
 
   echo "Processing links at '$(echo ~)' ..."
 
@@ -91,9 +100,16 @@ function _main {
   done
 
   if [ "$OSTYPE" = "linux-gnu" ]; then
-    mkdir -p .config/alsa/  .config/systemd/user/
+    mkdir -p .config/alsa/  .config/systemd/user/ .config/alacritty/
     echo "Linux specific links:"
     for link_entry in "${LINK_MAP_LINUX[@]}" ; do
+      _handle_link_entry $link_entry $unlink_param
+    done
+  fi
+
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    echo "MacOS specific links:"
+    for link_entry in "${LINK_MAP_DARWIN[@]}" ; do
       _handle_link_entry $link_entry $unlink_param
     done
   fi
