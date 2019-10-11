@@ -1,8 +1,11 @@
 ## Setup
 
 1. Clone this repo into `~/.dotfiles`
-2. Link configs
-3. Specify iTerm2 configuration path manually in preferences
+2. Clone zprezto into `~/.dotfiles/zsh/zprezto`:
+   `git clone --recursive git@github.com:trsdln/prezto.git "${HOME}/.dotfiles/zprezto"`
+3. Link configs
+4. [macos] Change default shell to zsh: `chsh -s /bin/zsh`
+5. [macos] Specify iTerm2 configuration path manually in preferences
 
 ### Linking
 
@@ -20,13 +23,7 @@ Removes all dot files links
 ./configs-link unlink
 ```
 
-## Zsh/VIM/TMUX setup
-
-0. Zprezto setup
-
-```sh
-git clone --recursive git@github.com:trsdln/prezto.git "${HOME}/.zprezto"
-```
+## VIM/TMUX setup
 
 1. Install Universal Ctags, Ripgrep and Vim with python3 support
 

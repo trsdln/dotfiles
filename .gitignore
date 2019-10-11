@@ -1,8 +1,7 @@
 .DS_Store
-docs/test.txt
 zsh/zdotdir/.zcompdump
 zsh/zdotdir/.zhistory
 zsh/zdotdir/.zcompcache/
 zsh/zprezto/
-vim/pack/minpac/
+nvim/pack/minpac/
 Session.vim

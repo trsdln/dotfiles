@@ -12,9 +12,7 @@ LINK_MAP_COMMON=(
   ".zshrc:./${DOTFILES_DIR_NAME}/zsh/zpreztorc.zsh"
 
   # Vim Configs
-  ".vim:./${DOTFILES_DIR_NAME}/vim"
   ".config/nvim:../${DOTFILES_DIR_NAME}/nvim"
-  ".vimrc:./${DOTFILES_DIR_NAME}/vim/vimrc.vim"
 
   # Misc apps
   ".gitconfig:./${DOTFILES_DIR_NAME}/.gitconfig"
