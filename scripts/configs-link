@@ -37,7 +37,7 @@ LINK_MAP_LINUX=(
   ".config/dunst:../${DOTFILES_DIR_NAME}/linux/dunst"
   ".config/sxiv:../${DOTFILES_DIR_NAME}/linux/sxiv"
   ".config/pulse/default.pa:../../${DOTFILES_DIR_NAME}/linux/pulse/default.pa"
-  ".config/alacritty/alacritty.yml:../../${DOTFILES_DIR_NAME}/alacritty.yml"
+  ".config/alacritty/alacritty.yml:../../${DOTFILES_DIR_NAME}/linux/alacritty.yml"
 
   # custom services
   "${SYSTEMD_UNITS}/eye-rest.service:${SYSTEMD_DOTFILES_PATH}/eye-rest.service"
