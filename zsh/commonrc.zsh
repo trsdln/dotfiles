@@ -22,7 +22,7 @@ alias reload='source ~/.zshrc'
 alias vi='nvim'
 
 # Add common scripts
-export PATH="${DOTFILES_PATH}/bin:$PATH"
+export PATH="${DOTFILES_PATH}/scripts:$PATH"
 
 # Ensure apps installed by brew are resolved first
 # (before system default) e.g. vim
