@@ -35,3 +35,9 @@ tar -xvzf <file.name>
 ```
 mimeopen -d $file.pdf
 ```
+
+# unrar usage
+
+```
+unrar x <archive.file.name>
+```
