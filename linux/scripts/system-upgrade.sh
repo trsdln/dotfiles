@@ -3,7 +3,14 @@
 # Update all official packages
 sudo pacman -Suy
 
-# Update all AUR packages
+# from https://gitlab.com/mgdobachesky/ArchSystemMaintenance/blob/master/src/maint/logic.sh
+echo "Checking for upgrade warnings..."
+last_upgrade="$(sed -n '/pacman -Syu/h; ${x;s/.\([0-9-]*\).*/\1/p;}' /var/log/pacman.log)"
+if [[ -n "$last_upgrade" ]]; then
+  paclog --after="$last_upgrade" | paclog --warnings
+fi
+
+echo "Updating all AUR packages..."
 aur sync ffcast
 aur sync google-cloud-sdk
 aur sync aic94xx-firmware
@@ -23,3 +30,9 @@ pacman -Qdt
 
 echo "Potentially removed packages (or installed from AUR):"
 pacman -Qm
+
+echo "Checking for errors..."
+# systemd
+systemctl --failed
+# logs
+journalctl -p 3 -xb
