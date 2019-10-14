@@ -13,6 +13,8 @@ LINK_MAP_COMMON=(
 
   # Vim Configs
   ".config/nvim:../${DOTFILES_DIR_NAME}/nvim"
+  ".vimrc:./${DOTFILES_DIR_NAME}/vim/vimrc.vim"
+  ".vim:./${DOTFILES_DIR_NAME}/vim"
 
   # Misc apps
   ".gitconfig:./${DOTFILES_DIR_NAME}/.gitconfig"

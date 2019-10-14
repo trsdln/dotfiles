@@ -3,5 +3,5 @@ zsh/zdotdir/.zcompdump
 zsh/zdotdir/.zhistory
 zsh/zdotdir/.zcompcache/
 zsh/zprezto/
-nvim/pack/minpac/
+vim/pack/minpac/
 Session.vim
