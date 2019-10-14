@@ -71,8 +71,7 @@ function! PackInit() abort
   call minpac#add('vim-scripts/workflowish')
 
   " Indentation aware pasting
-  " issue with CPU consumption after paste at macos
-  " call minpac#add('sickill/vim-pasta')
+  call minpac#add('sickill/vim-pasta')
 
   " Insert mode auto-completion for quotes, parens, brackets, etc.
   call minpac#add('Raimondi/delimitMate')
@@ -233,7 +232,6 @@ set textwidth=500
 set autoindent  " Auto indent
 set si          " Smart indent
 set wrap        " Wrap lines
-
 
 " Shortcut to rapidly toggle `set list`
 nnoremap <leader>tl :set list!<CR>
