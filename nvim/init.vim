@@ -71,7 +71,8 @@ function! PackInit() abort
   call minpac#add('vim-scripts/workflowish')
 
   " Indentation aware pasting
-  call minpac#add('sickill/vim-pasta')
+  " issue with CPU consumption after paste at macos
+  " call minpac#add('sickill/vim-pasta')
 
   " Insert mode auto-completion for quotes, parens, brackets, etc.
   call minpac#add('Raimondi/delimitMate')
@@ -81,7 +82,7 @@ function! PackInit() abort
   call minpac#add('nelstrom/vim-visual-star-search')
 
   " Multi-line like table text alignment
-  call minpac#add('godlygeek/tabular')
+  call minpac#add('godlygeek/tabular', {'type': 'opt'})
 
   " Improved spell check for source code
   call minpac#add('kamykn/spelunker.vim')
