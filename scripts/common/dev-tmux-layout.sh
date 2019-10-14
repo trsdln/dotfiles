@@ -69,7 +69,7 @@ function configure_vim_session {
   local session_name=$1
 
   # Open Vim with project at first window
-  tmux send-keys "${EDITOR} ." ${EXEC_KEY}
+  tmux send-keys "vim ." ${EXEC_KEY}
   tmux rename-window "apps-vim"
 
   # Open wim with my configs at second window

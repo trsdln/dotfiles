@@ -13,11 +13,3 @@ source "${DOTFILES_PATH}/zsh/zprezto/init.zsh"
 
 # C-<Space> to accept suggestion
 bindkey '^ ' autosuggest-accept
-
-# Change cursor shape for different VI modes
-# (is a bit buggy, but usable enough)
-_fix_cursor() {
-   echo -ne '\e[5 q'
-}
-
-precmd_functions+=(_fix_cursor)
