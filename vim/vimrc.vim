@@ -90,7 +90,7 @@ function! PackInit() abort
 
   " JS Specific plugins
   call minpac#add('pangloss/vim-javascript')
-  call minpac#add('mxw/vim-jsx')
+  call minpac#add('MaxMEllon/vim-jsx-pretty')
   call minpac#add('jparise/vim-graphql')
   call minpac#add('hail2u/vim-css3-syntax')
   " Affects performance for bigger files, so it optional now
