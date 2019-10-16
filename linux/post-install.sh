@@ -46,7 +46,7 @@ sudo visudo
 # taras ALL=NOPASSWD:/usr/bin/zzz,/usr/bin/ZZZ,/usr/bin/shutdown,/bin/nmcli,/usr/bin/tlp-stat,/usr/bin/tlp,/usr/bin/mount,/usr/bin/umount,
 
 # better fonts
-pacman -S noto-fonts-emoji ttf-dejavu ttf-hack
+pacman -S noto-fonts-emoji ttf-dejavu ttf-hack adobe-source-sans-pro-fonts
 
 # dev env
 pacman -S zsh git ripgrep tmux neovim htop ctags python3 python-pip
@@ -73,7 +73,6 @@ pacman -S pulseaudio pulseaudio-alsa
 # desktop env
 pacman -S xorg-{server,xinit,xsetroot,xrandr,xbacklight,xclipboard} x11-ssh-askpass xsel xbindkeys xclip
 pacman -S dunst feh sxiv xss-lock slock redshift compton alacritty
-pacman -S xdotools moka-icon-theme
 pacman -S playerctl
 
 # desktop apps
@@ -97,7 +96,7 @@ dash system-upgrade.sh
 # install
 pacman -S mongodb-bin mongodb-tools-bin mongodb-compass robo3t-bin
 pacman -S slack-desktop ttf-symbola tmux-mem-cpu-load-git grive
-pacman -S ffcast google-cloud-sdk tuijam
+pacman -S ffcast google-cloud-sdk tuijam paper-icon-theme-git
 pacman -S aic94xx-firmware wd719x-firmware
 # For aic94xx & wd719x:
 mkinitcpio -p linux

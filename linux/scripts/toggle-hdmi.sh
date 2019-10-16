@@ -10,5 +10,6 @@ else
   HDMI_STATUS="on"
 fi
 
-notify-send -h string:x-canonical-private-synchronous:hdmi_status \
+notify-send --hint=string:x-canonical-private-synchronous:hdmi-status \
+  --icon=/usr/share/icons/Paper/32x32/devices/display.png \
   "HDMI" "${HDMI_STATUS}"

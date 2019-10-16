@@ -29,7 +29,7 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "300x5-30+20"
+    geometry = "320x5-15+15"
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
@@ -41,7 +41,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.).
-    transparency = 10
+    transparency = 5
 
     # The height of the entire notification.  If the height is smaller
     # than the font height and padding combined, it will be raised
@@ -54,17 +54,17 @@
     separator_height = 2
 
     # Padding between text and separator.
-    padding = 8
+    padding = 10
 
     # Horizontal padding.
-    horizontal_padding = 8
+    horizontal_padding = 10
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 2
+    frame_width = 1
 
     # Defines color of the frame around the notification window.
-    frame_color = "#aaaaaa"
+    frame_color = "#232323"
 
     # Define a color for the separator.
     # possible values are:
@@ -86,7 +86,7 @@
 
     ### Text ###
 
-    font = DejavuSansMono 12
+    font = Source Sans Pro 12
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -126,7 +126,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<b>%s</b>\n%b"
+    format = "<span foreground='#f3f4f5'><b>%s %p</b></span>\n%b"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
@@ -167,7 +167,7 @@
 
     # Paths to default icons.
     # it doesn't work need to specify absolete path for every icon
-    icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/
+    icon_path = /usr/share/icons/Paper/16x16/status/:/usr/share/icons/Paper/16x16/devices/:/usr/share/icons/Paper/16x16/apps/
 
     ### History ###
 
@@ -214,7 +214,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 5
+    corner_radius = 0
 
     ### Legacy
 
@@ -276,25 +276,23 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#002b36"
-    foreground = "#268bd2"
-    frame_color = "#268bd2"
+    background = "#232323"
+    foreground = "#a8a8a8"
     timeout = 10
-    icon = /usr/share/icons/Moka/32x32/status/info.png
+    icon = /usr/share/icons/Paper/32x32/status/dialog-info.png
 
 [urgency_normal]
-    background = "#002b36"
-    foreground = "#859900"
-    frame_color = "#859900"
+    background = "#232323"
+    foreground = "#a8a8a8"
     timeout = 10
-    icon = /usr/share/icons/Moka/32x32/status/info.png
+    icon = /usr/share/icons/Paper/32x32/status/dialog-info.png
 
 [urgency_critical]
-    background = "#002b36"
-    foreground = "#dc322f"
-    frame_color = "#dc322f"
+    background = "#d64e4e"
+    foreground = "#f0e0e0"
+    frame_color = "#d64e4e"
     timeout = 0
-    icon = /usr/share/icons/Moka/32x32/status/error.png
+    icon = /usr/share/icons/Paper/32x32/status/dialog-warning.png
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.

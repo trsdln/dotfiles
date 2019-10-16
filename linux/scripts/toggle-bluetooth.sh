@@ -1,6 +1,7 @@
 #!/bin/sh
 
-notify-send -h string:x-canonical-private-synchronous:bluetooth_status \
+notify-send --hint=string:x-canonical-private-synchronous:bluetooth-status \
+  --icon=/usr/share/icons/Paper/32x32/devices/bluetooth.png \
   "Bluetooth" "Applying..."
 
 # wait until status is toggled
@@ -14,5 +15,6 @@ else
   NEW_STATUS='Disabled'
 fi
 
-notify-send -h string:x-canonical-private-synchronous:bluetooth_status \
+notify-send --hint=string:x-canonical-private-synchronous:bluetooth-status \
+  --icon=/usr/share/icons/Paper/32x32/devices/bluetooth.png \
   "Bluetooth" "${NEW_STATUS}"

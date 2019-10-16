@@ -24,6 +24,7 @@ aur sync ttf-symbola
 aur sync tmux-mem-cpu-load-git
 aur sync grive
 aur sync tuijam
+aur sync paper-icon-theme-git
 
 echo "Orphan packages:"
 pacman -Qdt
