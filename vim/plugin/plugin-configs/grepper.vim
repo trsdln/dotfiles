@@ -23,10 +23,12 @@ function! s:GrepJsDefinition()
 
   let js_def_exp ='\bconst\s' . escaped_target . '\b\s?=\s?'
   let js_destruct_def_exp ='\bconst\s\{.+\b' . escaped_target . '\b.+\}\s?=\s?'
+  let js_function_def_exp ='\bfunction\s' . escaped_target . '\s?\('
   let gql_def_exp = '\b(input|type|enum|fragment|query)\s' . escaped_target . '\s?\{'
 
   execute "silent Grepper -noprompt -query -s -- '("
         \ . js_def_exp . "|"
+        \ . js_function_def_exp . "|"
         \ . gql_def_exp . "|"
         \ . js_destruct_def_exp . ")'"
 endfunction
