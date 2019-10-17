@@ -62,7 +62,13 @@ getforecast() {
 
   local part1="$(sed '16q;d' "${temp_weather_file}" | grep -wo "[0-9]*%" | sort -n | sed -e '$!d' | sed -e "s/^/☔ /g" | tr -d '\n')"
   local part2="$(sed '13q;d' "${temp_weather_file}" | grep -o "m\\(-\\)*[0-9]\\+" | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | awk '{print " ❄️",$1 "°","🌞",$2 "°"}')"
-  echo "${part1}${part2}" > "${WEATHER_CACHE}"
+  local new_report="${part1}${part2}"
+
+  if [ "${new_report}" = "" ]; then
+    local new_report="Error: empty report"
+  fi
+
+  echo "${new_report}" > "${WEATHER_CACHE}"
   rm -f "${temp_weather_file}"
 }
 
