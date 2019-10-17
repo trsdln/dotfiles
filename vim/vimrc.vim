@@ -54,6 +54,8 @@ function! PackInit() abort
   " Session management
   call minpac#add('tpope/vim-obsession')
 
+  call minpac#add('tpope/vim-dispatch')
+
   call minpac#add('lambdalisue/suda.vim')
 
   " Automatic ctags generation
