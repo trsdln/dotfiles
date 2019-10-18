@@ -85,7 +85,7 @@ pacman -S libcurl-gnutls libnotify
 ln -s /home/taras/apps/Hubstaff/HubstaffClient.bin.x86_64 /usr/local/bin/hubstaff
 
 # Utilities
-pacman -S unzip unrar
+pacman -S unzip unrar youtube-dl
 
 # Install "aurutils" and configure local
 # repo based on `man aur` (with double CacheDir fix)
