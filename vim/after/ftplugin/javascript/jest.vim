@@ -11,12 +11,25 @@ function! s:StartJestWithFlags(flags)
 
   let l:testPath = expand('%')
 
-  " Parse test path
-  let l:strippedPath = matchstr(l:testPath, '\vpackages/\zs.+\ze\.js$')
-  let l:packageName = matchstr(l:strippedPath, '\v\zs[a-z\-]+\ze/.+')
-  let l:testName = matchstr(l:strippedPath, '\v[a-z\-]+/\zs.+\ze$')
+  " Check if E2E test
+  let l:e2eTestName = matchstr(l:testPath, '\v^e2e/\zsjest.+\ze$')
 
-  let l:runJestCommand = 'yarn test ' . l:packageName . ' ' . a:flags .' --watch ' . l:testName
+  if l:e2eTestName ==# ''
+    " Parse test path
+    let l:strippedPath = matchstr(l:testPath, '\vpackages/\zs.+\ze\.js$')
+    let l:packageName = matchstr(l:strippedPath, '\v\zs[a-z\-]+\ze/.+')
+    let l:testName = matchstr(l:strippedPath, '\v[a-z\-]+/\zs.+\ze$')
+    let l:commandEnv = ''
+  else
+    let l:packageName = 'e2e'
+    let l:testName = l:e2eTestName
+    let l:commandEnv = 'DEBUG=true'
+  endif
+
+  let l:runJestCommand = l:commandEnv . ' yarn test '
+        \ . l:packageName
+        \ . ' ' . a:flags
+        \ . ' --watch ' . l:testName
   call g:TmuxRunShellCommandAtMainPane(l:runJestCommand)
 endfunction
 
