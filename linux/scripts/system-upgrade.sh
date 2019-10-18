@@ -12,7 +12,7 @@ fi
 
 echo "Updating all AUR packages..."
 aur sync ffcast
-aur sync google-cloud-sdk
+# aur sync google-cloud-sdk
 aur sync aic94xx-firmware
 aur sync wd719x-firmware
 aur sync mongodb-bin
@@ -32,8 +32,8 @@ pacman -Qdt
 echo "Potentially removed packages (or installed from AUR):"
 pacman -Qm
 
-echo "Checking for errors..."
-# systemd
-systemctl --failed
-# logs
+echo "Checking for system errors:"
 journalctl -p 3 -xb
+
+echo "Checking for service errors:"
+systemctl --failed
