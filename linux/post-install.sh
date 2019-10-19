@@ -1,6 +1,6 @@
 #/bin/sh
 
-# Grub
+# # Grub
 # # achieve the fastest possible boot:
 # # hide grub menu  at /etc/default/grub
 # GRUB_TIMEOUT=0
@@ -10,20 +10,23 @@
 # # finally:
 # sudo grub-mkconfig -o /boot/grub/grub.cfg
 
-# enable Color option at /etc/pacman.conf
+# # enable Color option at /etc/pacman.conf
 
-# reduce swappiness
-# /etc/sysctl.d/99-swappiness.conf
+# # reduce swappiness at /etc/sysctl.d/99-swappiness.conf
 # vm.swappiness=10
 
-# hibernation setup
-# at /etc/mkinitcpio.conf add "resume" here:
+# # hibernation setup
+# # at /etc/mkinitcpio.conf add "resume" here:
 # HOOKS=(base udev autodetect keyboard modconf block filesystems resume fsck)
-# and then: mkinitcpio -p linux
+# # and then: mkinitcpio -p linux
 
 # # enable suspend when lid is closed at /etc/systemd/logind.conf:
 # HandleLidSwitch=hibernate
 # HandleLidSwitchDocked=hibernate
+
+# # Speed up AUR updates by disabling compression at /etc/makepkg.conf:
+# PKGEXT='.pkg.tar'
+# SRCEXT='.src.tar'
 
 # Connection using NetworkManager
 pacman -S base-devel networkmanager openssh
