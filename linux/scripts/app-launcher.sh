@@ -5,6 +5,8 @@ echo "Google Chrome:chromium
 Alacritty Terminal:alacritty
 Telegram:telegram-desktop
 Slack:slack
+Htop:alacritty -e htop
+Tuijam:alacritty -e tuijam
 Thunderbird Email:thunderbird
 Hubstuff:hubsuff
 MongoDB Compass:mongodb-compass
@@ -18,7 +20,7 @@ prompt_app_and_run () {
   local selected_option=$(print_app_options | cut -d ':' -f1 | dmenu -i -l 20 -p 'Launch App')
   local run_cmd=$(print_app_options | grep "${selected_option}" | cut -d ':' -f2)
 
-  "${run_cmd}" &
+  ${run_cmd} &
 }
 
 prompt_app_and_run
