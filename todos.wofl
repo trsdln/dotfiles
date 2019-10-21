@@ -1,3 +1,4 @@
 - update zprezto (original 1f4601e44c989b90dc7314b151891fa60a101251)
 - [remind] update zprezto location + update repo itself
 - [remind] update iterm config location via UI
+* [vim] JS import path 1 level up/down command (multiline/operator)
