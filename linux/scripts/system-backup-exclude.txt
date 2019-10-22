@@ -1,0 +1,27 @@
+# system specific
+/dev/*
+/proc/*
+/sys/*
+/tmp/*
+/run/*
+/mnt/*
+/media/*
+/var/cache/*
+/var/log/*
+/var/tmp/*
+/opt/google-cloud-sdk/.install/*
+# user specific
+/home/taras/.cache/*
+/home/taras/.config/Slack/*
+/home/taras/.config/chromium/*
+/home/taras/.config/yarn/*
+/home/taras/.config/gcloud/logs/*
+/home/taras/.kube/cache/*
+/home/taras/.kube/http-cache/*
+/home/taras/.dotfiles/*
+/home/taras/.ssh/*
+/home/taras/GoogleDrive/*
+/home/taras/projects/*
+/home/taras/apps/suckless/*
+/home/taras/apps/elasticsearch-7.3.1/data/*
+/home/taras/apps/elasticsearch-7.3.1/logs/*

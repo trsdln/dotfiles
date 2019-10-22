@@ -1,5 +1,13 @@
 #!/bin/sh
 
+# Do system backup before upgrade
+sudo system-backup.sh
+backup_result=$?
+if [ "${backup_result}" != "0" ]; then
+  echo "Error: Backup failed. System upgrade cancelled"
+  exit 1
+fi
+
 # Update all official packages
 sudo pacman -Suy
 
