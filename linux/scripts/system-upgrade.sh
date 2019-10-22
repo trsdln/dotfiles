@@ -1,4 +1,4 @@
-#!/bin/dash
+#!/bin/sh
 
 # Update all official packages
 sudo pacman -Suy
@@ -6,8 +6,10 @@ sudo pacman -Suy
 # from https://gitlab.com/mgdobachesky/ArchSystemMaintenance/blob/master/src/maint/logic.sh
 echo "Checking for upgrade warnings..."
 last_upgrade="$(sed -n '/pacman -Syu/h; ${x;s/.\([0-9-]*\).*/\1/p;}' /var/log/pacman.log)"
-if [[ -n "$last_upgrade" ]]; then
+if [ -n "$last_upgrade" ]; then
+  echo "================================"
   paclog --after="$last_upgrade" | paclog --warnings
+  echo "================================"
 fi
 
 echo "Updating all AUR packages..."
