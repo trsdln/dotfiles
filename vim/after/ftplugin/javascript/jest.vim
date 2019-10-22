@@ -23,7 +23,7 @@ function! s:StartJestWithFlags(flags)
   else
     let l:packageName = 'e2e'
     let l:testName = l:e2eTestName
-    let l:commandEnv = 'DEBUG=true'
+    let l:commandEnv = 'DEBUG=true USE_MOCK_DATA=false'
   endif
 
   let l:runJestCommand = l:commandEnv . ' yarn test '
