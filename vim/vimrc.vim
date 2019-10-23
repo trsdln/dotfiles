@@ -369,15 +369,16 @@ if has('nvim') || has('terminal')
   tnoremap <C-v><Esc> <Esc>
 endif
 
-" Snippets guides. source:
-" https://github.com/LukeSmithxyz/voidrice/blob/archi3/.config/nvim/init.vim#L111
-inoremap <C-]> <Esc>/<++><Enter>"_c4l
-vnoremap <C-]> <Esc>/<++><Enter>"_c4l
-nnoremap <C-]> <Esc>/<++><Enter>"_c4l
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Utility functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! g:ApplySnippetNavigationMapping()
+  " Snippets guides. source:
+  " https://github.com/LukeSmithxyz/voidrice/blob/archi3/.config/nvim/init.vim#L111
+  inoremap <buffer> <C-]> <Esc>/<++><Enter>"_c4l
+  vnoremap <buffer> <C-]> <Esc>/<++><Enter>"_c4l
+  nnoremap <buffer> <C-]> <Esc>/<++><Enter>"_c4l
+endfunction
 
 " Very useful for abbreviation's trailing space removal:
 " <C-R>=g:Eatchar('\s')<CR>

@@ -1,6 +1,8 @@
 " Map 'c' to Ramda's compose at vim-surround
 let b:surround_99 = "R.compose(\r)"
 
+" JS snippets
+call g:ApplySnippetNavigationMapping()
 
 " Unit testing snippets
 
