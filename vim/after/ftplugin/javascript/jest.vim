@@ -12,7 +12,7 @@ function! s:StartJestWithFlags(flags)
   let l:testPath = expand('%')
 
   " Check if E2E test
-  let l:e2eTestName = matchstr(l:testPath, '\v^e2e/\zsjest.+\ze$')
+  let l:e2eTestName = matchstr(l:testPath, '\ve2e/\zsjest.+\ze$')
 
   if l:e2eTestName ==# ''
     " Parse test path
