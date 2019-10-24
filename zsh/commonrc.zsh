@@ -88,6 +88,26 @@ _gen_fzf_default_opts
 
 export FZF_CTRL_R_OPTS='--sort'
 
+# Setup lf
+# ---------
+# https://github.com/gokcehan/lf/blob/master/etc/lfcd.sh
+lfcd () {
+  tmp="$(mktemp)"
+  lf -last-dir-path="$tmp" "$@"
+  if [ -f "$tmp" ]; then
+    dir="$(cat "$tmp")"
+    rm -f "$tmp"
+    if [ -d "$dir" ]; then
+      if [ "$dir" != "$(pwd)" ]; then
+        cd "$dir"
+      fi
+    fi
+  fi
+}
+bindkey -s '^o' 'lfcd\n'
+
+# Persistent ssh-agent session
+# ---------
 if [ "$OSTYPE" = "linux-gnu" ]; then
   # SSH Agent management
   # source https://blog.tinned-software.net/manage-ssh-keys-with-the-ssh-agent/
