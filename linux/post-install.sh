@@ -89,6 +89,7 @@ ln -s /home/taras/apps/Hubstaff/HubstaffClient.bin.x86_64 /usr/local/bin/hubstaf
 
 # Utilities
 pacman -S unzip unrar youtube-dl rsync
+pacman -S p7zip # executable is called "7z"
 
 # Install "aurutils" and configure local
 # repo based on `man aur` (with double CacheDir fix)

@@ -12,4 +12,6 @@ cmd open ${{
   esac
 }}
 
+cmd mpvsub $mpv --sub-file $(fzf) $fx
+
 map a push %mkdir<space>
