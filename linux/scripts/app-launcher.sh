@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 print_app_options () {
 echo "Google Chrome:chromium
