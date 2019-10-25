@@ -5,13 +5,18 @@ set ifs "\n"
 set filesep "\n"
 
 cmd open ${{
-  case $(file --mime-type $f -b) in
-    image/*) sxiv -a $fx;;
-    video/*) mpv $fx;;
-    *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;
-  esac
+  if [[ $f == *.djvu ]]; then
+    # otherwise we hit image mimetype at the case statement
+    xdg-open $f
+  else
+    case $(file --mime-type $f -b) in
+      image/*) sxiv -a $fx;;
+      video/*) mpv $fx;;
+      *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;
+    esac
+  fi
 }}
 
-cmd mpvsub $mpv --sub-file $(fzf) $fx
+cmd mpvsub $mpv --sub-file $(fzf --prompt="Subtitles file>") $fx
 
 map a push %mkdir<space>
