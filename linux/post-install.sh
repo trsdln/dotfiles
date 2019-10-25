@@ -29,7 +29,6 @@
 # SRCEXT='.src.tar'
 
 # Connection using NetworkManager
-pacman -S base-devel networkmanager openssh
 systemctl enable NetworkManager
 systemctl start NetworkManager
 
@@ -48,48 +47,25 @@ sudo visudo
 # to enable to run basic commands for user append this:
 # taras ALL=NOPASSWD:/usr/bin/zzz,/usr/bin/ZZZ,/usr/bin/shutdown,/bin/nmcli,/usr/bin/tlp-stat,/usr/bin/tlp,/usr/bin/mount,/usr/bin/umount,
 
-# better fonts
-pacman -S noto-fonts-emoji ttf-dejavu ttf-hack adobe-source-sans-pro-fonts
-
-# dev env
-pacman -S zsh git ripgrep tmux neovim htop ctags python3 python-pip
-pacman -S yarn nodejs-lts-carbon docker keybase kbsf
-pacman -S jdk11-openjdk kubectl
 pip install --user --upgrade pynvim
 
-pacman -S dash
-cd /bin && rm -f sh && ln -s dash sh
-cd /usr/bin && rm -f sh && ln -s $(which dash) sh
+cd /usr/bin && rm -f sh && ln -s dash sh
 
 # At this point dotfiles can be cloned
 
-# drivers
-pacman -S xf86-video-intel alsa-utils tlp tpacpi-bat exfat-utils
 systemctl enable tlp
 systemctl enable tlp-sleep
-pacman -S bluez bluez-utils pulseaudio-bluetooth
 systemctl enable bluetooth
-pacman -S pulseaudio pulseaudio-alsa
+
+# Audio setup
 # At /etc/pulse/client.conf set
 # autospawn = yes
 
-# desktop env
-pacman -S xorg-{server,xinit,xsetroot,xrandr,xbacklight,xclipboard} x11-ssh-askpass xsel xbindkeys xclip
-pacman -S dunst feh sxiv xss-lock slock redshift compton alacritty
-pacman -S playerctl
+# install all packages
+cat ./package-list.conf | sed -E '/(^$|^#)/d' | pacman -S -
 
-# desktop apps
-pacman -S mpv transmission-qt chromium gimp thunderbird telegram-desktop
-pacman -S zathura zathura-djvu zathura-pdf-mupdf perl-file-mimeinfo android-file-transfer
-
-# required by Hubstaff
-pacman -S libcurl-gnutls libnotify
 # download and install Hubstaff and then:
 ln -s /home/taras/apps/Hubstaff/HubstaffClient.bin.x86_64 /usr/local/bin/hubstaff
-
-# Utilities
-pacman -S unzip unrar youtube-dl rsync
-pacman -S p7zip # executable is called "7z"
 
 # Install "aurutils" and configure local
 # repo based on `man aur` (with double CacheDir fix)

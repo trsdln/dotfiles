@@ -47,3 +47,10 @@ pacman -Qdt
 
 echo "Potentially removed packages (or installed from AUR):"
 pacman -Qm
+
+if [ "$(file $(which sh))" = "/usr/bin/sh: symbolic link to dash" ]; then
+  SH_STATUS="OK"
+else
+  SH_STATUS="FAILED"
+fi
+echo "sh symlink points to dash: $SH_STATUS"
