@@ -126,5 +126,5 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
   export OPEN='xdg-open'
 
   # Add linux specific scripts and apps
-  export PATH="${DOTFILES_PATH}/linux/scripts:$PATH"
+  export PATH="${DOTFILES_PATH}/linux/scripts:${HOME}/.local/bin:$PATH"
 fi

@@ -28,10 +28,6 @@
 # PKGEXT='.pkg.tar'
 # SRCEXT='.src.tar'
 
-# Connection using NetworkManager
-systemctl enable NetworkManager
-systemctl start NetworkManager
-
 # Add main user
 useradd taras
 usermod -aG wheel,users,audio,video,input,lp taras
@@ -47,11 +43,21 @@ sudo visudo
 # to enable to run basic commands for user append this:
 # taras ALL=NOPASSWD:/usr/bin/zzz,/usr/bin/ZZZ,/usr/bin/shutdown,/bin/nmcli,/usr/bin/tlp-stat,/usr/bin/tlp,/usr/bin/mount,/usr/bin/umount,
 
-pip install --user --upgrade pynvim
-
-cd /usr/bin && rm -f sh && ln -s dash sh
+# install all packages
+cat ./package-list.conf | sed -E '/(^$|^#)/d' | pacman -S -
 
 # At this point dotfiles can be cloned
+
+# Connection using NetworkManager
+systemctl enable NetworkManager
+systemctl start NetworkManager
+
+# Python integration for Neovim
+pip install --user --upgrade pynvim
+# Live preview of markdown at browser
+pip install --user grip
+
+cd /usr/bin && rm -f sh && ln -s dash sh
 
 systemctl enable tlp
 systemctl enable tlp-sleep
@@ -60,9 +66,6 @@ systemctl enable bluetooth
 # Audio setup
 # At /etc/pulse/client.conf set
 # autospawn = yes
-
-# install all packages
-cat ./package-list.conf | sed -E '/(^$|^#)/d' | pacman -S -
 
 # download and install Hubstaff and then:
 ln -s /home/taras/apps/Hubstaff/HubstaffClient.bin.x86_64 /usr/local/bin/hubstaff
