@@ -48,9 +48,16 @@ pacman -Qdt
 echo "Potentially removed packages (or installed from AUR):"
 pacman -Qm
 
+# Bash updates will override symlink "dash -> /bin/sh"
+# instead of messing around with Pacman's hooks it can be fixed here
 if [ "$(file $(which sh))" = "/usr/bin/sh: symbolic link to dash" ]; then
   SH_STATUS="OK"
 else
-  SH_STATUS="FAILED"
+  sudo ln -sfT dash /bin/sh
+  if [ "$(file $(which sh))" = "/usr/bin/sh: symbolic link to dash" ]; then
+    SH_STATUS="FIXED"
+  else
+    SH_STATUS="FAILED"
+  fi
 fi
-echo "sh symlink points to dash: $SH_STATUS"
+echo "dash -> /bin/sh symlink: $SH_STATUS"
