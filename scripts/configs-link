@@ -8,8 +8,8 @@ CONFIGS_ROOT_DIR=$(cd $(dirname "$0")/.. && pwd)
 
 # format: "link_name:path_to_original"
 LINK_MAP_COMMON=(
-  # Zprezto
-  ".zshrc:./${DOTFILES_DIR_NAME}/zsh/zpreztorc.zsh"
+  # Shell
+  ".zshrc:./${DOTFILES_DIR_NAME}/zsh/zshrc.zsh"
 
   # Vim Configs
   ".config/nvim:../${DOTFILES_DIR_NAME}/nvim"

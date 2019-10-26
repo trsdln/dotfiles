@@ -9,7 +9,8 @@ source "${DOTFILES_PATH}/zsh/zprezto/runcoms/zprofile"
 # Source Prezto
 source "${DOTFILES_PATH}/zsh/zprezto/init.zsh"
 
-[ -f "${DOTFILES_PATH}/zsh/commonrc.zsh" ] && source "${DOTFILES_PATH}/zsh/commonrc.zsh"
+source "${DOTFILES_PATH}/zsh/common.zsh"
 
-# C-<Space> to accept suggestion
-bindkey '^ ' autosuggest-accept
+if [ "$OSTYPE" = "linux-gnu" ]; then
+  source "${DOTFILES_PATH}/zsh/linux.zsh"
+fi
