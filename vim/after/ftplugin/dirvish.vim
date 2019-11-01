@@ -3,3 +3,6 @@ try
   unmap <buffer> <C-p>
 catch
 endtry
+
+" Create new file shortcut
+map <buffer> A :e %
