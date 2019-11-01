@@ -4,5 +4,5 @@ try
 catch
 endtry
 
-" Create new file shortcut
-map <buffer> A :e %
+" Create new file at current directory
+map <buffer> A :e % \| w<left><left><left><left>
