@@ -4,5 +4,16 @@ try
 catch
 endtry
 
-" Create new file at current directory
-map <buffer> A :e % \| w<left><left><left><left>
+" Create new file at current directory (with potentially new nested directories)
+command! -nargs=1 E call s:CustomEdit(<f-args>)
+
+function! s:CustomEdit(file_name)
+  " Start file editing
+  execute 'edit ' . a:file_name
+  " Create potential parent directories
+  Mkdir!
+  " Save file itself
+  write
+endfunction
+
+map <buffer> A :E %

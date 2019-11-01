@@ -6,6 +6,7 @@ Alacritty Terminal:alacritty
 Telegram:telegram-desktop
 Slack:slack
 Htop:alacritty -e htop
+Newsboat:alacritty -e newsboat
 Tuijam:alacritty -e tuijam
 Thunderbird Email:thunderbird
 Hubstuff:hubsuff

@@ -40,6 +40,7 @@ LINK_MAP_LINUX=(
   ".config/sxiv:../${DOTFILES_DIR_NAME}/linux/sxiv"
   ".config/pulse/default.pa:../../${DOTFILES_DIR_NAME}/linux/pulse/default.pa"
   ".config/alacritty/alacritty.yml:../../${DOTFILES_DIR_NAME}/linux/alacritty.yml"
+  ".config/newsboat/config:../../${DOTFILES_DIR_NAME}/linux/newsboat/config"
 
   # custom services
   "${SYSTEMD_UNITS}/eye-rest.service:${SYSTEMD_DOTFILES_PATH}/eye-rest.service"
@@ -100,7 +101,7 @@ function _main {
   done
 
   if [ "$OSTYPE" = "linux-gnu" ]; then
-    mkdir -p .config/alsa/  .config/systemd/user/ .config/alacritty/
+    mkdir -p .config/alsa/  .config/systemd/user/ .config/alacritty/ .config/newsboat
     echo "Linux specific links:"
     for link_entry in "${LINK_MAP_LINUX[@]}" ; do
       _handle_link_entry $link_entry $unlink_param

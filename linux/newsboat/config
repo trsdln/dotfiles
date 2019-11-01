@@ -1,0 +1,54 @@
+# realod at startup
+auto-reload yes
+# every 20 minutes
+reload-time 20
+
+external-url-viewer "urlscan"
+
+text-width 80
+
+# bindings
+bind-key j down
+bind-key k up
+bind-key j next articlelist
+bind-key k prev articlelist
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
+bind-key G end
+bind-key g home
+bind-key d pagedown
+bind-key u pageup
+bind-key l open
+bind-key h quit
+bind-key a toggle-article-read
+bind-key n next-unread
+bind-key N prev-unread
+bind-key D pb-download
+bind-key U show-urls
+bind-key x pb-delete
+
+# link handling
+# todo: custom link handling script here
+browser chromium
+macro , open-in-browser
+macro v set browser "setsid nohup mpv"; open-in-browser ; set browser linkhandler
+macro c set browser "xsel -b <<<" ; open-in-browser ; set browser linkhandler
+
+# color scheme (solarized dark)
+# source: https://github.com/newsboat/newsboat/blob/master/contrib/colorschemes/solarized-dark
+color background         default   default
+color listnormal         default   default
+color listnormal_unread  default   default
+color listfocus          black     yellow
+color listfocus_unread   black     yellow
+color info               default   black
+color article            default   default
+# highlights
+highlight article "^(Title):.*$" blue default
+highlight article "https?://[^ ]+" red default
+highlight article "\\[image\\ [0-9]+\\]" green default
+
+# sketchy script to export youtube channels' urls:
+# urls = []; document.querySelectorAll('.yt-simple-endpoint.style-scope.ytd-guide-entry-renderer').forEach(e => urls.push({href: e.getAttribute('href'), title: e.getAttribute('title')})); urls.filter(u => u.href && /^\/channel\//.test(u.href)).map(u => `https://www.youtube.com/feeds/videos.xml?channel_id=${u.href.split('/')[2]} "~${u.title}" yt`).join('\n');
+
+# vim:ft=config
