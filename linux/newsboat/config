@@ -5,6 +5,9 @@ reload-time 20
 
 external-url-viewer "urlscan"
 
+# do not store search history
+history-limit 0
+feed-sort-order unreadarticlecount
 text-width 80
 
 # bindings
@@ -16,8 +19,8 @@ bind-key J next-feed articlelist
 bind-key K prev-feed articlelist
 bind-key G end
 bind-key g home
-bind-key d pagedown
-bind-key u pageup
+bind-key ^D pagedown
+bind-key ^U pageup
 bind-key l open
 bind-key h quit
 bind-key a toggle-article-read
