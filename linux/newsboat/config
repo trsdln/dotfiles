@@ -34,8 +34,7 @@ bind-key x pb-delete
 # todo: custom link handling script here
 browser chromium
 macro , open-in-browser
-macro v set browser "setsid nohup mpv"; open-in-browser ; set browser linkhandler
-macro c set browser "xsel -b <<<" ; open-in-browser ; set browser linkhandler
+macro v set browser "setsid nohup mpv"; open-in-browser ; set browser chromium
 
 # color scheme (solarized dark)
 # source: https://github.com/newsboat/newsboat/blob/master/contrib/colorschemes/solarized-dark
