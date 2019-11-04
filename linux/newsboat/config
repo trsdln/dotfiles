@@ -7,7 +7,7 @@ external-url-viewer "urlscan"
 
 # do not store search history
 history-limit 0
-feed-sort-order unreadarticlecount
+feed-sort-order unreadarticlecount-asc
 text-width 80
 
 # bindings
