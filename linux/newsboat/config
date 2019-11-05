@@ -34,7 +34,7 @@ bind-key x pb-delete
 # todo: custom link handling script here
 browser chromium
 macro , open-in-browser
-macro v set browser "mpv"; open-in-browser; set browser chromium
+macro v set browser mpv; open-in-browser; set browser chromium
 
 # color scheme (solarized dark)
 # source: https://github.com/newsboat/newsboat/blob/master/contrib/colorschemes/solarized-dark
