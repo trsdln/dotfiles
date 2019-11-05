@@ -52,3 +52,6 @@
 # Play/Pause music
 "playerctl play-pause"
    XF86Tools
+
+"playerctl next"
+   Shift + XF86Tools
