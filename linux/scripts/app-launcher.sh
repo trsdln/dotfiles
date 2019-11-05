@@ -9,7 +9,6 @@ Htop:alacritty -e htop
 Newsboat:alacritty -e newsboat
 Tuijam:alacritty -e tuijam
 Thunderbird Email:thunderbird
-Hubstuff:hubsuff
 MongoDB Compass:mongodb-compass
 Robo3T:robo3t
 Transmission Torrent:transmission-qt
