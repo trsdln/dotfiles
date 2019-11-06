@@ -41,6 +41,7 @@ LINK_MAP_LINUX=(
   ".config/pulse/default.pa:../../${DOTFILES_DIR_NAME}/linux/pulse/default.pa"
   ".config/alacritty/alacritty.yml:../../${DOTFILES_DIR_NAME}/linux/alacritty.yml"
   ".config/newsboat/config:../../${DOTFILES_DIR_NAME}/linux/newsboat/config"
+  ".config/tuijam/config.yaml:../../${DOTFILES_DIR_NAME}/linux/tuijam/config.yaml"
 
   # custom services
   "${SYSTEMD_UNITS}/eye-rest.service:${SYSTEMD_DOTFILES_PATH}/eye-rest.service"
