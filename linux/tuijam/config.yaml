@@ -3,38 +3,38 @@ persist_queue: true
 reverse_scrolling: false
 video: false
 
-controls:
-  queue: "q"
-  queue_next: "Q"
-  expand: ["e", "enter"]
-  back: "backspace",
-  radio: "r",
-  # queue panel
-  swap_up: ["u", "shift up"],
-  swap_down: ["d", "shift down"],
-  to_top: ["U", "ctrl up"],
-  to_bottom: ["D", "ctrl down"],
-  remove: ["delete", "x"],
-  play_pause: " ",
-  # search and queue panel
-  down: "j",
-  up: "k",
-  expand: ["e", "enter"],
-  seek_pos: ">",
-  seek_neg: "<",
-  vol_up: ["+", "="],
-  vol_down: ["-", "_"],
-  focus_search: ["ctrl f", "/"],
-  # global inputs
-  # Avoid single letter/number/symb keys to work with search input focused, unless vim-mode is active.
-  g_focus_next: "tab",
-  g_focus_prev: "shift tab",
-  g_play_pause: "ctrl p",
-  g_stop: "ctrl k",
-  g_play_next: "ctrl n",
-  g_recent: "ctrl r",
-  g_shuffle: "ctrl s",
-  g_rate_good: "ctrl u",
-  g_rate_bad: "ctrl d",
-  g_clear_queue: "ctrl w",
-  g_queue_all: "ctrl q",
+# controls:
+#   queue: "q"
+#   queue_next: "Q"
+#   expand: ["e", "enter"]
+#   back: "backspace"
+#   radio: "r"
+#   # queue panel
+#   swap_up: ["u", "shift up"]
+#   swap_down: ["d", "shift down"]
+#   to_top: ["U", "ctrl up"]
+#   to_bottom: ["D", "ctrl down"]
+#   remove: ["delete", "x"]
+#   play_pause: " "
+#   # search and queue panel
+#   down: "j"
+#   up: "k"
+#   expand: ["e", "enter"]
+#   seek_pos: ">"
+#   seek_neg: "<"
+#   vol_up: ["+", "="]
+#   vol_down: ["-", "_"],
+#   focus_search: ["ctrl f", "/"]
+#   # global inputs
+#   # Avoid single letter/number/symb keys to work with search input focused, unless vim-mode is active.
+#   g_focus_next: "tab"
+#   g_focus_prev: "shift tab"
+#   g_play_pause: "ctrl p"
+#   g_stop: "ctrl k"
+#   g_play_next: "ctrl n"
+#   g_recent: "ctrl r"
+#   g_shuffle: "ctrl s"
+#   g_rate_good: "ctrl u"
+#   g_rate_bad: "ctrl d"
+#   g_clear_queue: "ctrl w"
+#   g_queue_all: "ctrl q"
