@@ -46,13 +46,13 @@ command! ToggleTestCaseFocus call s:ToggleTestCaseFocus()
 function! s:ToggleTestCaseFocus()
   try
     " Go to "it" above
-    execute 'normal! ?\v(\s|^)(it)(\.only){0,1}\(["'']?g' . "\<cr>"
+    execute 'normal! ?\v(\s|^)(it)(\.only){0,1}\(?g' . "\<cr>"
 
     " Figure out whether we should add or remove ".only"
-    if getline('.') =~# '\v(it)\(["'']'
-      substitute/\v(\s|^)\zs(it)\ze\(["']/it.only/
+    if getline('.') =~# '\v(it)\('
+      substitute/\v(\s|^)\zs(it)\ze\(/it.only/
     else
-      substitute/\v(\s|^)\zs(it\.only)\ze\(["']/it/
+      substitute/\v(\s|^)\zs(it\.only)\ze\(/it/
     endif
 
     nohlsearch
