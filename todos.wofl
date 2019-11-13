@@ -3,3 +3,4 @@
 - [remind] update iterm config location via UI
 - update zprezto (original 2873885d37e362ae9be8ff4cb93ae36739ac0067)
 * [vim] JS import path 1 level up/down command (multiline/operator)
+* easy mount: handle case when disk is busy

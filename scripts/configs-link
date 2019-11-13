@@ -42,6 +42,8 @@ LINK_MAP_LINUX=(
   ".config/alacritty/alacritty.yml:../../${DOTFILES_DIR_NAME}/linux/alacritty.yml"
   ".config/newsboat/config:../../${DOTFILES_DIR_NAME}/linux/newsboat/config"
   ".config/tuijam/config.yaml:../../${DOTFILES_DIR_NAME}/linux/tuijam/config.yaml"
+  ".config/mpv/mpv.conf:../../${DOTFILES_DIR_NAME}/linux/mpv/mpv.conf"
+  ".config/mpv/input.conf:../../${DOTFILES_DIR_NAME}/linux/mpv/input.conf"
 
   # custom services
   "${SYSTEMD_UNITS}/eye-rest.service:${SYSTEMD_DOTFILES_PATH}/eye-rest.service"
@@ -102,7 +104,9 @@ function _main {
   done
 
   if [ "$OSTYPE" = "linux-gnu" ]; then
-    mkdir -p .config/alsa/  .config/systemd/user/ .config/alacritty/ .config/newsboat
+    mkdir -p .config/alsa/  .config/systemd/user/ \
+      .config/alacritty/ .config/newsboat .config/mpv/
+
     echo "Linux specific links:"
     for link_entry in "${LINK_MAP_LINUX[@]}" ; do
       _handle_link_entry $link_entry $unlink_param
