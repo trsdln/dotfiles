@@ -24,6 +24,7 @@
 /home/taras/.grip/*
 /home/taras/GoogleDrive/*
 /home/taras/projects/*
+/home/taras/Downloads/*
 /home/taras/apps/suckless/*
 /home/taras/apps/elasticsearch-7.3.1/data/*
 /home/taras/apps/elasticsearch-7.3.1/logs/*
