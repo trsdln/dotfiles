@@ -21,7 +21,10 @@ aur sync <package> && sudo pacman -S <package>
 
 # remove package from local repo
 repo-remove /home/custompkgs/custom.db.tar <package>
-sudo pacman -Syu
+sudo pacman -Suy
+
+# list packages at local repo
+aur repo -l
 ```
 
 # Extract tar
