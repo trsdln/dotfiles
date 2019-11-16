@@ -37,7 +37,7 @@ HandleLidSwitchDocked=hibernate
 
 ```
 useradd taras
-usermod -aG wheel,users,audio,video,input,lp taras
+usermod -aG wheel,users,audio,video,input,lp,cups taras
 passwd taras
 # allow make instal without sudo
 chown -R taras:wheel /usr/local
@@ -139,6 +139,26 @@ pacman -S ffcast google-cloud-sdk paper-icon-theme-git
 pacman -S aic94xx-firmware wd719x-firmware
 # For aic94xx & wd719x:
 mkinitcpio -p linux
+```
+
+#### Printer setup
+
+```
+sudo systemctl enable org.cups.cupsd.service
+sudo systemctl start org.cups.cupsd.service
+```
+
+Create queue:
+
+```
+# list devices
+lpinfo -v
+
+# list models
+lpinfo -m
+
+# create queue
+lpadmin -p "queue_name" -E -v uri -m "model"
 ```
 
 #### Done!
