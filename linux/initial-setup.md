@@ -72,6 +72,22 @@ Section "Device"
 EndSection
 ```
 
+#### Fix Fn+F11 unrecognized issue
+
+Create `/etc/udev/hwdb.d/90-thinkpad-keyboard.hwdb`:
+
+```
+evdev:name:ThinkPad Extra Buttons:dmi:bvn*:bvr*:bd*:svnLENOVO*:pn*
+ KEYBOARD_KEY_49=prog1
+```
+
+To make the changes take effect:
+
+```
+# udevadm hwdb --update
+# udevadm trigger --sysname-match="event*"
+```
+
 #### Install python packages
 
 ```
