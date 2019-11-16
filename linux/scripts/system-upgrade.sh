@@ -33,8 +33,11 @@ aur sync slack-desktop
 aur sync ttf-symbola
 aur sync tmux-mem-cpu-load-git
 aur sync grive
-aur sync tuijam
 aur sync paper-icon-theme-git
+
+echo "Update pip packages:"
+pip install --user --upgrade pynvim
+pip install --user --upgrade tuijam
 
 echo "Checking for system errors:"
 journalctl -p 3 -xb

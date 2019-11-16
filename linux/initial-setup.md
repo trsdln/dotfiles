@@ -78,7 +78,9 @@ EndSection
 # Python integration for Neovim
 pip install --user --upgrade pynvim
 # Live preview of markdown at browser
-pip install --user grip
+pip install --user --upgrade grip
+# Google Play Music TUI client
+pip install --user --upgrade tuijam
 ```
 
 #### Dash as `/bin/sh`:
@@ -117,7 +119,7 @@ Sync packages using part of `system-upgrade.sh`. Then install:
 ```
 pacman -S mongodb-bin mongodb-tools-bin mongodb-compass robo3t-bin
 pacman -S slack-desktop ttf-symbola tmux-mem-cpu-load-git grive
-pacman -S ffcast google-cloud-sdk tuijam paper-icon-theme-git
+pacman -S ffcast google-cloud-sdk paper-icon-theme-git
 pacman -S aic94xx-firmware wd719x-firmware
 # For aic94xx & wd719x:
 mkinitcpio -p linux
