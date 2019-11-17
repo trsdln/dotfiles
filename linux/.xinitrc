@@ -27,7 +27,7 @@ xss-lock --transfer-sleep-lock -- lock-screen.sh &
 redshift -l 50.45:30.523333 &
 
 # Provides window transparancy
-compton -b
+picom -b
 
 # load bindings
 xbindkeys
