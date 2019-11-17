@@ -141,6 +141,18 @@ pacman -S aic94xx-firmware wd719x-firmware
 mkinitcpio -p linux
 ```
 
+#### Firewall
+
+[Basic Instructions](https://wiki.archlinux.org/index.php/Simple_stateful_firewall)
+
+```
+sudo systemctl enable iptables.service
+sudo systemctl start iptables.service
+
+sudo systemctl enable ip6tables.service
+sudo systemctl start ip6tables.service
+```
+
 #### Printer setup
 
 ```
