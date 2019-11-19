@@ -40,5 +40,8 @@ command! GrepGqlEndpointUsage call s:GrepGqlEndpointUsage()
 function! s:GrepGqlEndpointUsage()
   let target = expand('<cword>')
   let escaped_target = shellescape(fnameescape(target))
-  execute "silent Grepper -noprompt -query -s -- '" . escaped_target . '(\s\{|\()' . "'"
+  " todo: add ability to recognize comments (starting with #)
+  " e.g. `myField    # comment for this field`
+  let endpoint_usage_exp = '\b' . escaped_target . '((\s\{|\()|$)'
+  execute "silent Grepper -noprompt -query -s -- '" . endpoint_usage_exp . "'"
 endfunction
