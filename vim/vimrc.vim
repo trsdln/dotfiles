@@ -2,7 +2,8 @@
 " => Plugin Manager
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Automatically install minpac
-let s:minpac_install_dir = $DOTFILES_PATH . '/vim/pack/minpac/opt/minpac'
+let s:minpac_opt_dir = $DOTFILES_PATH . '/vim/pack/minpac/opt'
+let s:minpac_install_dir = s:minpac_opt_dir . '/minpac'
 " check any file at plugin dir
 if empty(glob(s:minpac_install_dir . '/.gitignore'))
   silent execute '!mkdir -p ' . s:minpac_install_dir
@@ -107,6 +108,8 @@ command! PackUpdate call PackInit() | call minpac#update('', {
       \ })
 command! PackClean  call PackInit() | call minpac#clean()
 command! PackStatus call PackInit() | call minpac#status()
+" List optional plugins
+command! PackOptList execute '!ls ' . s:minpac_opt_dir
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
