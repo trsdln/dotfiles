@@ -44,3 +44,24 @@ mimeopen -d $file.pdf
 ```
 unrar x <archive.file.name>
 ```
+
+# Bluetooth
+
+Ensure device is not hard/soft blocked. Hard - enable via hardware button.
+Soft unblock via:
+
+```
+rfkill list
+sudo rfkill unblock bluetooth
+```
+
+Then pair device:
+
+```
+bluetoothctl
+# scan on
+# devices
+# pair <mac>
+# connect <mac>
+# scan off
+```
