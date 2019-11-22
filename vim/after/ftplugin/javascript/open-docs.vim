@@ -1,5 +1,5 @@
 " Interactive Ramda docs
-nnoremap <Leader>rd :OpenDocs<cr>
+nnoremap <buffer> <Leader>rd :OpenDocs<cr>
 command! OpenDocs call s:OpenDocs()
 
 let s:docs_sources_map = {
