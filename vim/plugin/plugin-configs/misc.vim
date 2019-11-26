@@ -22,7 +22,10 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 set background=dark
 silent! colorscheme solarized8
-
+" Fixes terminal window transparency for linux-gnu
+if !has('macunix')
+  hi Normal ctermbg=NONE guibg=NONE
+endif
 
 " Setup vim-javascript
 let g:javascript_plugin_jsdoc = 1
@@ -34,10 +37,10 @@ let g:gutentags_auto_add_cscope = 1
 
 " Index only files included into VCS repo
 let g:gutentags_file_list_command = {
-    \ 'markers': {
-      \ '.git': 'git ls-files',
-    \ },
-  \ }
+      \   'markers': {
+      \     '.git': 'git ls-files',
+      \   },
+      \ }
 let g:gutentags_resolve_symlinks = 0
 let g:gutentags_ctags_tagfile = '.tags'
 let g:gutentags_ctags_exclude = ['*.yaml', '*.yml', '*.sh', '*.md', '*.lock']
@@ -54,9 +57,9 @@ augroup END
 let g:ale_linters = { 'javascript': ['eslint'] }
 
 let g:ale_fixers = {
-      \ 'javascript': ['prettier_eslint'],
-      \ 'json': ['prettier_eslint'],
-      \}
+      \   'javascript': ['prettier_eslint'],
+      \   'json': ['prettier_eslint'],
+      \ }
 
 " Randomly breaks auto-import's 'go back to usage feature'
 let g:ale_fix_on_save = 1
