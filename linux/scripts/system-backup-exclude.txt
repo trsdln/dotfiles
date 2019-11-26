@@ -17,6 +17,7 @@
 /home/taras/.config/yarn/*
 /home/taras/.config/gcloud/logs/*
 /home/taras/.config/MongoDB Compass/*
+/home/taras/.config/mpv/watch_later/*
 /home/taras/.kube/cache/*
 /home/taras/.kube/http-cache/*
 /home/taras/.dotfiles/*
