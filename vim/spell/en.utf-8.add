@@ -21,3 +21,6 @@ screenshots
 plugins
 debounce
 xero
+middleware
+cors
+middlewares
