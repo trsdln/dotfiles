@@ -38,7 +38,7 @@ function configure_severs_session {
   tmux send-keys "yarn start graph"
 
   tmux select-pane -t 1
-  tmux send-keys "yarn start admin-new"
+  tmux send-keys "yarn start admin"
 
   tmux select-pane -t 2
   tmux send-keys "yarn start site"
