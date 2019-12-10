@@ -1,8 +1,8 @@
 ale//5f84325cd811ec179b7f3642652438c6a45b174d
 delimitMate//728b57a6564c1d2bdfb9b9e0f2f8c5ba3d7e0c5c
 fugitive-gitlab.vim//f3e56ff60fe3fb5ebc891cbe5fd12cd8c59ae6ef
-fzf//2b725a4db5e973d7ce90d1ac0996dcfd3c3f0116
 fzf.vim//65edb6ad99b51514aaf29afc25e35ce5f05281ba
+fzf//2b725a4db5e973d7ce90d1ac0996dcfd3c3f0116
 gv.vim//a18f4465974dfbd53f1ea33bfbbcc8a32baf1b4b
 lightline.vim//e6f282f5e9ae931f0b404dd15aab2e5e249ae092
 spelunker.vim//8032f749aff995eaa85983edc552949051cec75a
