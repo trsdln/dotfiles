@@ -121,3 +121,6 @@ nnoremap <leader>ss :Obsession<CR>
 
 " Load default session
 nnoremap <leader>so :source Session.vim<CR>
+
+" vim-dispatch
+let g:dispatch_tmux_height = 0
