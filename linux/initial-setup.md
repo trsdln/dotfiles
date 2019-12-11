@@ -173,4 +173,13 @@ lpinfo -m
 lpadmin -p "queue_name" -E -v uri -m "model"
 ```
 
+### Switch to LTS kernel
+
+1. Install LTS kernel: `sudo pacman -S linux-lts acpi_call-lts`.
+2. Switch GRUB timeout back to > 0 value and regenerate Grub config.
+3. Reboot > at Grub menu select Advanced > Arch with linux-lts.
+4. Verify if everything is OK after boot.
+5. Remove linux latest kernel: `sudo pacman -Rs linux acpi_call`.
+6. Regenerate Grub config again.
+
 #### Done!
