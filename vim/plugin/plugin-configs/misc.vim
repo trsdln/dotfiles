@@ -113,7 +113,7 @@ command! SudoWrite write suda://%
 command! -nargs=1 SudoEdit  edit  suda://<args>
 
 
-" vim-obsession
+" Configure vim-obsession
 set sessionoptions=curdir,winpos,buffers,winsize,help,tabpages
 
 " Start/Stop session tracking
@@ -122,5 +122,10 @@ nnoremap <leader>ss :Obsession<CR>
 " Load default session
 nnoremap <leader>so :source Session.vim<CR>
 
-" vim-dispatch
+
+" Configure vim-dispatch
 let g:dispatch_tmux_height = 0
+
+
+" Configure js-file-import
+let g:js_file_import_string_quote = "'"
