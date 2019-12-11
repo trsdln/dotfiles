@@ -180,6 +180,7 @@ lpadmin -p "queue_name" -E -v uri -m "model"
 3. Reboot > at Grub menu select Advanced > Arch with linux-lts.
 4. Verify if everything is OK after boot.
 5. Remove linux latest kernel: `sudo pacman -Rs linux acpi_call`.
-6. Regenerate Grub config again.
+6. Regenerate inital ramdisk `sudo mkinitcpio -p linux-lts`.
+6. Get `GRUB_TIMEOUT` back and regenerate config again.
 
 #### Done!
