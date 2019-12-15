@@ -38,6 +38,10 @@ macro , open-in-browser
 macro v set browser "setsid nohup mpv %u > /dev/null &" ; open-in-browser ; set browser chromium
 macro c set browser "printf %u | xsel -i -b" ; open-in-browser ; set browser chromium
 
+# Podcasts configuration
+player "mpv"
+download-path "~/Downloads/podcasts/%n"
+
 # color scheme (solarized dark)
 # source: https://github.com/newsboat/newsboat/blob/master/contrib/colorschemes/solarized-dark
 color background         default   default
