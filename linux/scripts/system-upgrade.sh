@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Prevent auto suspend and disable screensaver
+xset -dpms
+xset s off
+
 # Do system backup before upgrade
 sudo system-backup.sh
 backup_result=$?
@@ -64,3 +68,7 @@ else
   fi
 fi
 echo "dash -> /bin/sh symlink: $SH_STATUS"
+
+# Restore screen saver and auto suspend
+xset +dpms
+xset s on
