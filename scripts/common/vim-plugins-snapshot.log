@@ -15,7 +15,7 @@ vim-dispatch//1206e1474fc613caeb1ba56d36b71d7f9f7760ac
 vim-easymotion//85e90c9759e14633d878ed534ef313876ab96555
 vim-eunuch//75efe06ccc63b7cd50b193b99cce83e3ad3e60cb
 vim-fugitive//b68b6d4329d9bee58a521e0ff8c6adbbc53915b4
-vim-graphql//96e7385fcd36025e06e61ca1ed9db0a4ad6725ec
+vim-graphql//f30ad48a4bf0a3e9b47ef789fa1ae81d7f3bb793
 vim-grepper//dde6a660c7dd4e02b331da238ea477770073aca2
 vim-gutentags//eb9e57f579d2ef747be25a7a4ec5add6fe5ca3d9
 vim-highlightedyank//51e25c9fa3bd2dca500ee0c910a45641d57a57fa
