@@ -65,3 +65,7 @@ bluetoothctl
 # connect <mac>
 # scan off
 ```
+
+# Docker
+
+Start docker daemon: `sudo dockerd`
