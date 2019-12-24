@@ -8,21 +8,17 @@ let s:js_repl_src_prefix = 'function maybeRequire (moduleName) { try { return re
 
 let s:SED_SUB_EXP = shellescape('s/^/\/\/ /')
 
-" Bug: fails at statements like `myFn('https://something.com')`
+" To avoid escaping and comments edge cases
+let s:temp_repl_file = tempname()
+
 function! s:JSRepl()
   let input_src = s:GetVisualSelectionText()
 
-  " Strip down comments to prevent mess up
-  " of single line code
-  let no_comments_src = substitute(input_src, '\v\/\/[^\n]+', '', 'g')
+  let complete_src = s:js_repl_src_prefix . input_src
 
-  let single_line_src = substitute(no_comments_src, '\n', ' ','g')
+  call writefile(split(complete_src, '\n'), s:temp_repl_file)
 
-  let complete_src = s:js_repl_src_prefix . single_line_src
-
-  let escaped_src = shellescape(complete_src)
-
-  let eval_shell_cmd = "node -p " . escaped_src . " 2>&1 | sed " . s:SED_SUB_EXP
+  let eval_shell_cmd = "node " . s:temp_repl_file . " 2>&1 | sed " . s:SED_SUB_EXP
 
   " Go to the end of selection, so result
   " is inserted UNDER it for multiline code
