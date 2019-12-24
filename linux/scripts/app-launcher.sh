@@ -2,7 +2,7 @@
 
 print_app_options () {
 echo "Google Chrome:chromium
-Google Chrome Incognito:chromium --incognito
+Chromium Incognito:chromium --incognito
 Alacritty Terminal:alacritty
 Telegram:telegram-desktop
 Slack:slack
