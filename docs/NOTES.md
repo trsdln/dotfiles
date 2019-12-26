@@ -108,8 +108,8 @@ Except common ones (`i/s/a/A/o/O`) there are couple more:
 * `:t {address}`  - move line to {address}
 * `:c {address}`  - copy line to {address}
 * `<C-R><C-W>`    - copy current word to command line
-* `:norm!@a`      - when you need to apply a macro to many lines at once select
-  lines with V and type to apply the macro to each selected line.
+* `:norm!@a`      - when you need to apply a macro to many lines at once select lines with V and type to apply the macro to each selected line.
+* `:argd *`       - clear arg list
 
 ### Registers
 
