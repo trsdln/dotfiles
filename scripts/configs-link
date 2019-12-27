@@ -44,6 +44,7 @@ LINK_MAP_LINUX=(
   ".config/tuijam/config.yaml:../../${DOTFILES_DIR_NAME}/linux/tuijam/config.yaml"
   ".config/mpv/mpv.conf:../../${DOTFILES_DIR_NAME}/linux/mpv/mpv.conf"
   ".config/mpv/input.conf:../../${DOTFILES_DIR_NAME}/linux/mpv/input.conf"
+  ".config/mimeapps.list:../${DOTFILES_DIR_NAME}/linux/mimeapps.list"
 
   # custom services
   "${SYSTEMD_UNITS}/eye-rest.service:${SYSTEMD_DOTFILES_PATH}/eye-rest.service"

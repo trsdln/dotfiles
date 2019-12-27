@@ -1,0 +1,5 @@
+
+[Default Applications]
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
+image/jpeg=sxiv.desktop;
+image/vnd.djvu+multipage=org.pwmt.zathura-djvu.desktop;
