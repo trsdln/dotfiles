@@ -5,13 +5,13 @@
 [fetch]
   prune = true
 [push]
-	default = simple
+  default = simple
 [core]
-	editor = nvim
+  editor = nvim
 [alias]
   grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
 [pager]
-	branch = false
+  branch = false
   stash = false
 [color]
   diff = auto
