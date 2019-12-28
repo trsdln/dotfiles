@@ -9,6 +9,7 @@
 /var/cache/*
 /var/log/*
 /var/tmp/*
+/var/lib/docker/*
 /opt/google-cloud-sdk/.install/*
 # user specific
 /home/taras/.cache/*
