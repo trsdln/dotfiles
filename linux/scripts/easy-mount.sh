@@ -30,8 +30,12 @@ unmount_resp=$(printf "No\nYes" | dmenu -p "Do you want unmount '$selected'?")
 if [ $unmount_resp = "Yes" ]; then
   echo "Now unmounting $selected..."
   sudo umount $selected
+  unmount_result=$?
+  if [ $unmount_result = 0 ]; then
+    echo "Done."
+  else
+    echo "Failed to unmount: $selected"
+  fi
 else
   echo "Skipping unmounting"
 fi
-
-echo "Done."
