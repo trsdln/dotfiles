@@ -8,8 +8,9 @@
 PRIMARY_OUTPUT="eDP1"
 SECONDARY_OUTPUT="HDMI1"
 
-SECONDARY_ENABLED=$(xrandr --listmonitors | grep "${SECONDARY_OUTPUT}")
-PRIMARY_ENABLED=$(xrandr --listmonitors | grep "${PRIMARY_OUTPUT}")
+MONITORS_LIST=$(xrandr --listmonitors)
+SECONDARY_ENABLED=$(echo "${MONITORS_LIST}" | grep "${SECONDARY_OUTPUT}")
+PRIMARY_ENABLED=$(echo "${MONITORS_LIST}" | grep "${PRIMARY_OUTPUT}")
 
 if [ "${PRIMARY_ENABLED}" != "" ] && [ "${SECONDARY_ENABLED}" = "" ]; then
   CURRENT_MODE="Only Secondary"
