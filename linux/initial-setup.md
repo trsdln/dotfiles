@@ -110,6 +110,7 @@ systemctl enable NetworkManager
 systemctl enable tlp
 systemctl enable tlp-sleep
 systemctl enable bluetooth
+systemctl enable ntpd.service
 ```
 
 ### Audio setup
