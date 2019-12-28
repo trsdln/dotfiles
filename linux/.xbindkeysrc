@@ -14,7 +14,7 @@
 "amixer sset Capture toggle"
    XF86AudioMicMute
 
-"toggle-hdmi.sh"
+"toggle-screens.sh"
    XF86Display
 
 "power-manager.sh"
