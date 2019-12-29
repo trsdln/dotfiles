@@ -2,14 +2,12 @@ nnoremap <buffer> cc :Gcommit --no-verify<cr>
 nnoremap <buffer> ca :Gcommit --no-verify --amend<cr>
 nnoremap <buffer> ce :Gcommit --no-verify --amend --reuse-message=HEAD<cr>
 
-" Consistent with NERDtree/Ack's mappings
-" Open at vsplit
-nnoremap <buffer> s :call <SID>FugitiveOpenCurrentFileVSplit(0)<cr>
-" Preview at vsplit
-nnoremap <buffer> gs :call <SID>FugitiveOpenCurrentFileVSplit(1)<cr>
 
-" Fixes not fully working Fugitive's `X` mapping at status window
-nnoremap <buffer> rm :call <SID>FugitiveDeleteCurrentFile()<cr>
+" Consistent with Dirvish/Quickfix mappings
+" Open at vsplit
+nnoremap <buffer> a :call <SID>FugitiveOpenCurrentFileVSplit(0)<cr>
+" Preview at vsplit
+nnoremap <buffer> ga :call <SID>FugitiveOpenCurrentFileVSplit(1)<cr>
 
 function! s:FugitiveOpenCurrentFileVSplit(isPreview)
   let target = s:FugitiveStatusGetCurrentFile()
@@ -32,25 +30,6 @@ function! s:FugitiveOpenCurrentFileVSplit(isPreview)
     endif
   else
     echo "No active file to open"
-  endif
-endfunction
-
-function! s:FugitiveDeleteCurrentFile()
-  let target = s:FugitiveStatusGetCurrentFile()
-  if len(target) > 0
-    " Remove file
-    call system('git rm -f ' . target)
-
-    " Close buffer
-    if bufwinnr(target) > -1
-      execute "bdelete " . target
-    endif
-
-    " Refresh status window
-    execute "normal R"
-    echo "Removed " . target
-  else
-    echoerr "Unable to detect file path at: " . curr_line
   endif
 endfunction
 
