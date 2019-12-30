@@ -35,6 +35,7 @@ if [ $unmount_resp = "Yes" ]; then
     echo "Done."
   else
     echo "Failed to unmount: $selected"
+    exit $unmount_result
   fi
 else
   echo "Skipping unmounting"
