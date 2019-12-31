@@ -15,6 +15,9 @@ sleep_delay=1
 
 # Run before starting the locker
 pre_lock() {
+  # we need to change keyboard layout to correct one otherwise
+  # there is no ability to change it while slock is running
+  setxkbmap -model thinkpad -layout us
   return
 }
 
@@ -23,10 +26,6 @@ post_lock() {
   # otherwise we get status line content of status line before lock/sleep
   # over next statusline refresh timeout
   statusline-update.sh
-
-  # we need to change keyboard layout to correct one otherwise
-  # there is no ability to change it while slock is running
-  setxkbmap -model thinkpad -layout us
   return
 }
 
