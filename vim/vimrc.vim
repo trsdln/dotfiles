@@ -91,6 +91,8 @@ function! PackInit() abort
 
   call minpac#add('machakann/vim-highlightedyank')
 
+  call minpac#add('cespare/vim-toml')
+
   " JS Specific plugins
   call minpac#add('pangloss/vim-javascript')
   call minpac#add('MaxMEllon/vim-jsx-pretty')
