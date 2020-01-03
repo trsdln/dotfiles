@@ -18,7 +18,9 @@ function! s:JSRepl()
 
   call writefile(split(complete_src, '\n'), s:temp_repl_file)
 
-  let eval_shell_cmd = "node " . s:temp_repl_file . " 2>&1 | sed " . s:SED_SUB_EXP
+  let node_path = "NODE_PATH='" . getcwd() . "/node_modules'"
+
+  let eval_shell_cmd = node_path . " node " . s:temp_repl_file . " 2>&1 | sed " . s:SED_SUB_EXP
 
   " Go to the end of selection, so result
   " is inserted UNDER it for multiline code
