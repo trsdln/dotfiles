@@ -31,6 +31,15 @@ set_side_by_side_mode() {
     --output "${SECONDARY_OUTPUT}" --auto --right-of "${PRIMARY_OUTPUT}"
 }
 
+# --fix flag support (is used by lock-screen.sh)
+if [ "$1" = "--fix" ]; then
+  if [ "${SECONDARY_DISCONNECTED}" != "" ]; then
+    set_only_primary_mode
+  fi
+  exit 0
+fi
+
+# screen mode toggle logic
 if [ "${SECONDARY_DISCONNECTED}" = "" ]; then
   if [ "${PRIMARY_ENABLED}" != "" ] && [ "${SECONDARY_ENABLED}" = "" ]; then
     set_only_secondary_mode

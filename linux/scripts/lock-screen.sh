@@ -25,6 +25,7 @@ pre_lock() {
 post_lock() {
   # otherwise we get status line content of status line before lock/sleep
   # over next statusline refresh timeout
+  toggle-screens.sh --fix
   statusline-update.sh
   return
 }
