@@ -11,12 +11,12 @@ cmd open ${{
   else
     case $(file --mime-type $f -b) in
       image/*) [[ "$OSTYPE" == "linux-gnu" ]] && sxiv -a $fx || open $fx;;
-      video/*) mpv $fx;;
+      video/*) setsid nohup mpv $fx > /dev/null &;;
       *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;
     esac
   fi
 }}
 
-cmd mpvsub $mpv --sub-file $(fzf --prompt="Subtitles file>") $fx
+cmd mpvsub $setsid nohup mpv --sub-file $(fzf --prompt="Subtitles file>") $fx > /dev/null &
 
 map a push %mkdir<space>
