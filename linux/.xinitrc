@@ -24,10 +24,12 @@ fi
 # Lock autimatically before hibernate/suspend
 xss-lock --transfer-sleep-lock -- lock-screen.sh &
 
-redshift -l 50.45:30.523333 &
-
 # Provides window transparancy
 picom -b
+
+# redshift -l 50.45:30.523333 &
+# investigate why it doesn't work after reboot
+redshift -l 50.45:30.523333 -v > ~/redshift_$(date +%s).log &
 
 # load bindings
 xbindkeys
