@@ -317,18 +317,18 @@ nnoremap <silent> ]q :cnfile<cr>
 
 " Better window resizing (todo: check on Linux)
 " Alt+J
-nnoremap <M-j> :resize +1<CR>
+nnoremap <silent> <M-j> :resize +1<CR>
 " Alt+K
-nnoremap <M-k> :resize -1<CR>
+nnoremap <silent> <M-k> :resize -1<CR>
 " Alt+L
-nnoremap <M-l> :vertical resize +5<CR>
+nnoremap <silent> <M-l> :vertical resize +5<CR>
 " Alt+H
-nnoremap <M-h> :vertical resize -5<CR>
+nnoremap <silent> <M-h> :vertical resize -5<CR>
 
 " Open last file at vsplit
-nnoremap <leader>vt :execute "rightbelow vsplit " . bufname("#")<CR>
+nnoremap <silent> <leader>vt :execute "rightbelow vsplit " . bufname("#")<CR>
 " Open last file at split
-nnoremap <leader>hz :execute "rightbelow split " . bufname("#")<CR>
+nnoremap <silent> <leader>hz :execute "rightbelow split " . bufname("#")<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Search
@@ -344,7 +344,7 @@ nnoremap & :&&<CR>
 xnoremap & :&&<CR>
 
 " Remove search highlighting and redraw screen
-noremap <leader>n :<c-u>nohlsearch<cr><C-l>
+noremap <silent> <leader>n :<c-u>nohlsearch<cr><C-l>
 
 " Put search match at the center of screen
 noremap n nzz
