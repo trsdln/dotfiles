@@ -315,11 +315,15 @@ endfunction
 nnoremap <silent> [q :cpfile<cr>
 nnoremap <silent> ]q :cnfile<cr>
 
-" Better window resizing
-nnoremap <Leader>hi :resize +5<CR>
-nnoremap <Leader>hd :resize -5<CR>
-nnoremap <Leader>vi :vertical resize +10<CR>
-nnoremap <Leader>vd :vertical resize -10<CR>
+" Better window resizing (todo: check on Linux)
+" Alt+J
+nnoremap <M-j> :resize +1<CR>
+" Alt+K
+nnoremap <M-k> :resize -1<CR>
+" Alt+L
+nnoremap <M-l> :vertical resize +5<CR>
+" Alt+H
+nnoremap <M-h> :vertical resize -5<CR>
 
 " Open last file at vsplit
 nnoremap <leader>vt :execute "rightbelow vsplit " . bufname("#")<CR>
