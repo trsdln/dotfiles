@@ -507,6 +507,13 @@ key_bindings:
   # Compatibility layer with macOS
   - { key: V,        mods: Alt,     action: Paste                            }
   - { key: C,        mods: Alt,     action: Copy                             }
+  # Simulate <M-x> as Super+x for used shortcuts at Vim
+  # Basically swaps Alt (Mac OS) to Super (Linux)
+  # Also, this prevents conflicts with DWM
+  - { key: L,        mods: Super,   chars: "\x1bl"                           }
+  - { key: H,        mods: Super,   chars: "\x1bh"                           }
+  - { key: J,        mods: Super,   chars: "\x1bj"                           }
+  - { key: K,        mods: Super,   chars: "\x1bk"                           }
 
   - { key: Paste,                   action: Paste                            }
   - { key: Copy,                    action: Copy                             }
