@@ -14,7 +14,9 @@ MongoDB Compass:mongodb-compass
 Robo3T:robo3t
 Transmission Torrent:transmission-qt
 Android File Transfer:android-file-transfer
-Gimp:gimp"
+Gimp:gimp
+Hubstaff:hubstaff
+Toggle Redshift:pkill -USR1 redshift"
 }
 
 prompt_app_and_run () {
