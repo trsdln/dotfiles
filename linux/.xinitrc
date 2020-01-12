@@ -35,6 +35,9 @@ xbindkeys
 # Set charge thresholds between 40%-80%
 sudo tlp setcharge 40 80 BAT0
 
+# Set default monitor depending on what is plugged in
+toggle-screens.sh --fix
+
 # Set wallpaper
 if [ -f $HOME/.fehbg ]; then
   . $HOME/.fehbg

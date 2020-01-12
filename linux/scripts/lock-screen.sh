@@ -23,9 +23,10 @@ pre_lock() {
 
 # Run after the locker exits
 post_lock() {
+  # Set default monitor depending on what is plugged in
+  toggle-screens.sh --fix
   # otherwise we get status line content of status line before lock/sleep
   # over next statusline refresh timeout
-  toggle-screens.sh --fix
   statusline-update.sh
   return
 }
