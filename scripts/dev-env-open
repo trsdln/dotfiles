@@ -10,7 +10,11 @@ source ${CONFIGS_BIN_DIR}/common/dev-env-open-base.sh
 
 # Update only on first run
 if [ "${VIM_SESSION_EXISTS}" -eq 1 ]; then
-  ${CONFIGS_BIN_DIR}/configs-update
+  if [ "${CONFIGS_DEBUG}" == "true" ]; then
+    echo "Skipping update because CONFIGS_DEBUG is set."
+  else
+    ${CONFIGS_BIN_DIR}/configs-update
+  fi
 fi
 
 dev_env_open_base
