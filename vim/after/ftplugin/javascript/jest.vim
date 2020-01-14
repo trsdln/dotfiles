@@ -12,24 +12,15 @@ function! s:StartJestWithFlags(flags)
   let l:testPath = expand('%')
 
   " Check if E2E test
-  let l:e2eTestName = matchstr(l:testPath, '\ve2e/\zsjest.+\ze$')
+  let l:e2eTestName = matchstr(l:testPath, '\ve2e/\zssrc.+\ze$')
 
   if l:e2eTestName ==# ''
-    " Parse test path
-    let l:strippedPath = matchstr(l:testPath, '\vpackages/\zs.+\ze\.js$')
-    let l:packageName = matchstr(l:strippedPath, '\v\zs[a-z\-]+\ze/.+')
-    let l:testName = matchstr(l:strippedPath, '\v[a-z\-]+/\zs.+\ze$')
     let l:commandEnv = ''
   else
-    let l:packageName = 'e2e'
-    let l:testName = l:e2eTestName
-    let l:commandEnv = 'DEBUG=true USE_MOCK_DATA=false'
+    let l:commandEnv = 'E2E=true DEBUG=true USE_MOCK_DATA=false '
   endif
 
-  let l:runJestCommand = l:commandEnv . ' yarn test '
-        \ . l:packageName
-        \ . ' ' . a:flags
-        \ . ' --watch ' . l:testName
+  let l:runJestCommand = l:commandEnv . 'yarn jest ' . a:flags . ' --watch ' . l:testPath
   call g:TmuxRunShellCommandAtMainPane(l:runJestCommand)
 endfunction
 
