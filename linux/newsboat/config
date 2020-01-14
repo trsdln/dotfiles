@@ -37,6 +37,7 @@ macro , open-in-browser
 # warning: spaces before/after ; are required!
 macro v set browser "setsid nohup mpv %u > /dev/null &" ; open-in-browser ; set browser chromium
 macro c set browser "printf %u | xsel -i -b" ; open-in-browser ; set browser chromium
+macro w set browser "watch-later.sh add %u" ; open-in-browser ; set browser chromium
 
 # Podcasts configuration
 player "mpv"

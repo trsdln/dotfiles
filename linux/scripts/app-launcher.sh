@@ -16,7 +16,9 @@ Transmission Torrent:transmission-qt
 Android File Transfer:android-file-transfer
 Gimp:gimp
 Hubstaff:hubstaff
-Toggle Redshift:pkill -USR1 redshift"
+Toggle Redshift:pkill -USR1 redshift
+Play Watch Later:watch-later.sh play
+Clear Watch Later:watch-later.sh clear"
 }
 
 prompt_app_and_run () {

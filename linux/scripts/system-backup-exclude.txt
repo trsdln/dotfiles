@@ -13,6 +13,7 @@
 /opt/google-cloud-sdk/.install/*
 # user specific
 /home/taras/.cache/*
+/home/taras/.cargo/*
 /home/taras/.config/Slack/*
 /home/taras/.config/chromium/*
 /home/taras/.config/yarn/*
