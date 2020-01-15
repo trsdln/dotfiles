@@ -8,6 +8,8 @@ nnoremap <buffer> ce :Gcommit --no-verify --amend --reuse-message=HEAD<cr>
 nnoremap <buffer> a :call <SID>FugitiveOpenCurrentFileVSplit(0)<cr>
 " Preview at vsplit
 nnoremap <buffer> ga :call <SID>FugitiveOpenCurrentFileVSplit(1)<cr>
+" Open changed file using default (for OS) external program
+nnoremap <buffer> xo :call g:XDGOpen('./' . <SID>FugitiveStatusGetCurrentFile())<cr>
 
 function! s:FugitiveOpenCurrentFileVSplit(isPreview)
   let target = s:FugitiveStatusGetCurrentFile()

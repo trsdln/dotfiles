@@ -26,6 +26,6 @@ function! s:OpenDocsBySourceName(selected_option)
     let docs_url = get(s:docs_sources_map, a:selected_option)
     let current_word = expand('<cword>')
 
-    call g:OpenURL(docs_url . shellescape(current_word))
+    call g:XDGOpen(docs_url . shellescape(current_word))
   endif
 endfunction
