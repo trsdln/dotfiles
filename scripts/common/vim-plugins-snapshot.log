@@ -13,7 +13,7 @@ vim-css3-syntax//75322b91a1f642cb254b3fa28472da23efc3e3b7
 vim-dirvish//9c12328df924ddb875ee1e5c9fc0f939b62d6a6c
 vim-dispatch//1206e1474fc613caeb1ba56d36b71d7f9f7760ac
 vim-easymotion//d534ba0d0c211d8228408c88fa3ebde13fecec37
-vim-eunuch//75efe06ccc63b7cd50b193b99cce83e3ad3e60cb
+vim-eunuch//33e875b31c8b811a0a47908884a5e2339106bbe8
 vim-fugitive//c83355d5c52002f94d08267f1d14ca6d1a2763e9
 vim-graphql//0858a26d7b3bd263f40b1844829651ea5a577364
 vim-grepper//dde6a660c7dd4e02b331da238ea477770073aca2
