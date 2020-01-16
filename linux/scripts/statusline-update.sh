@@ -52,34 +52,36 @@ KEYBOARD_LAYOUT="$(setxkbmap -query | awk '/layout/ {print toupper($2)}')"
 
 
 # Weather
-WEATHER_CACHE="$HOME/.local/share/weatherreport.cache"
+# WEATHER_CACHE="$HOME/.local/share/weatherreport.cache"
 
-getforecast() {
-  rm -f "${WEATHER_CACHE}"
-  local temp_weather_file="$(mktemp /tmp/weather_XXXXXXXXXX.txt)"
+# getforecast() {
+#   rm -f "${WEATHER_CACHE}"
+#   local temp_weather_file="$(mktemp /tmp/weather_XXXXXXXXXX.txt)"
 
-  ping -q -c 1 1.1.1.1 >/dev/null && curl -s "wttr.in" >> "${temp_weather_file}"
+#   ping -q -c 1 1.1.1.1 >/dev/null && curl -s "wttr.in" >> "${temp_weather_file}"
 
-  local part1="$(sed '16q;d' "${temp_weather_file}" | grep -wo "[0-9]*%" | sort -n | sed -e '$!d' | sed -e "s/^/☔ /g" | tr -d '\n')"
-  local part2="$(sed '13q;d' "${temp_weather_file}" | grep -o "m\\(-\\)*[0-9]\\+" | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | awk '{print " ❄️",$1 "°","🌞",$2 "°"}')"
-  local new_report="${part1}${part2}"
+#   local part1="$(sed '16q;d' "${temp_weather_file}" | grep -wo "[0-9]*%" | sort -n | sed -e '$!d' | sed -e "s/^/☔ /g" | tr -d '\n')"
+#   local part2="$(sed '13q;d' "${temp_weather_file}" | grep -o "m\\(-\\)*[0-9]\\+" | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | awk '{print " ❄️",$1 "°","🌞",$2 "°"}')"
+#   local new_report="${part1}${part2}"
 
-  if [ "${new_report}" != "" ]; then
-    echo "${new_report}" > "${WEATHER_CACHE}"
-  fi
+#   if [ "${new_report}" != "" ]; then
+#     echo "${new_report}" > "${WEATHER_CACHE}"
+#   fi
 
-  rm -f "${temp_weather_file}"
-}
+#   rm -f "${temp_weather_file}"
+# }
 
-if [ "$(stat -c %y ${WEATHER_CACHE} | awk '{print $1}')" != "$(date '+%Y-%m-%d')" ]
-then
-  getforecast
-fi
+# if [ "$(stat -c %y ${WEATHER_CACHE} | awk '{print $1}')" != "$(date '+%Y-%m-%d')" ]
+# then
+#   getforecast
+# fi
 
-if [ -f "${WEATHER_CACHE}" ]; then
-  WEATHER="$(cat "${WEATHER_CACHE}" | tr -d '\n')"
-else
-  WEATHER="-"
-fi
+# if [ -f "${WEATHER_CACHE}" ]; then
+#   WEATHER="$(cat "${WEATHER_CACHE}" | tr -d '\n')"
+# else
+#   WEATHER="-"
+# fi
 
-xsetroot -name " ${WEATHER} • ${NETWORK_STATUS} • ${CPU_TEMP} • ${STATUS_ICON} ${BAT_CAPACITY}% • ${KEYBOARD_LAYOUT} • ${LOCAL_TIME} ${NY_TIME}"
+WL_COUNT="WL:$(watch-later.sh count)"
+
+xsetroot -name " ${WL_COUNT} • ${NETWORK_STATUS} • ${CPU_TEMP} • ${STATUS_ICON} ${BAT_CAPACITY}% • ${KEYBOARD_LAYOUT} • ${LOCAL_TIME} ${NY_TIME}"
