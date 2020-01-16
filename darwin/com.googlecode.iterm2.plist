@@ -473,9 +473,9 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>-1703 473 592 584 -1920 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>403 476 810 517 0 0 1920 1080 </string>
+	<string>-1517 476 810 517 -1920 0 1920 1080 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>403 476 810 517 0 0 1920 1080 </string>
+	<string>-1517 476 810 517 -1920 0 1920 1080 </string>
 	<key>NeverWarnAboutShortLivedSessions_A36C60A1-F9CA-496A-BE59-6F4B930737D5</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_A36C60A1-F9CA-496A-BE59-6F4B930737D5_selection</key>
@@ -2768,7 +2768,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>05DF0DC2-160D-43D0-9F86-6A46EFF31E57</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>53</integer>
+	<integer>60</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -3543,7 +3543,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-01-08T09:00:41Z</date>
+	<date>2020-01-16T09:16:24Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
@@ -3571,7 +3571,7 @@
 	<key>TabStyle</key>
 	<integer>0</integer>
 	<key>TabStyleWithAutomaticOption</key>
-	<integer>5</integer>
+	<integer>4</integer>
 	<key>TabViewType</key>
 	<integer>0</integer>
 	<key>ThreeFingerEmulates</key>
