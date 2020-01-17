@@ -20,7 +20,9 @@ function! s:StartJestWithFlags(flags)
     let l:commandEnv = 'E2E=true DEBUG=true USE_MOCK_DATA=false '
   endif
 
-  let l:runJestCommand = l:commandEnv . 'yarn jest ' . a:flags . ' --watch ' . l:testPath
+  let l:noExtPath = matchstr(l:testPath, '\v\zs.+\ze\.js$')
+
+  let l:runJestCommand = l:commandEnv . 'yarn jest ' . a:flags . ' --watch ' . l:noExtPath
   call g:TmuxRunShellCommandAtMainPane(l:runJestCommand)
 endfunction
 
