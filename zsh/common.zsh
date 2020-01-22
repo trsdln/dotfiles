@@ -18,6 +18,8 @@ function android-screenshot {
 alias reload='source ~/.zshrc'
 alias vi='nvim'
 
+alias ls='ls --color=auto'
+
 # Add common scripts
 export PATH="${DOTFILES_PATH}/scripts:$PATH"
 
@@ -102,7 +104,3 @@ lfcd () {
   fi
 }
 bindkey -s '^o' 'lfcd\n'
-
-# Setup autosuggestion
-# C-N to accept suggestion
-bindkey '^N' autosuggest-accept
