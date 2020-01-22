@@ -41,6 +41,8 @@ zle -N zle-keymap-select
 
 function zle-line-init {
   zle editor-info
+  zle reset-prompt
+  zle -R
 }
 zle -N zle-line-init
 
