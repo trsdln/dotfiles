@@ -80,7 +80,6 @@ RPROMPT='%(?:: %F{1}✘ %? %f) %F{2}${_prompt_git_branch}%f'
 
 
 # History
-setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
 setopt SHARE_HISTORY             # Share history between all sessions.
 setopt HIST_EXPIRE_DUPS_FIRST    # Expire a duplicate event first when trimming history.
