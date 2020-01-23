@@ -76,7 +76,7 @@ add-zsh-hook precmd prompt_precmd
 # enable expression evaluation at prompt
 setopt prompt_subst
 PROMPT='%F{blue}${_prompt_pwd}%f ${_prompt_editor_info} '
-RPROMPT='%(?:: %F{1}✘ %? %f) %F{2}${_prompt_git_branch}%f'
+RPROMPT='%(?:: %F{1}✘%f) %F{2}${_prompt_git_branch}%f'
 
 
 # History
