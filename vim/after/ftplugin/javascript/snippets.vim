@@ -45,6 +45,14 @@ inoreabbrev <buffer> impc
       \<esc>F{la
       \<C-R>=g:Eatchar('\s')<CR>
 
+inoreabbrev <buffer> esexp
+      \ // eslint-disable-next-line github/unused-export
+      \<C-R>=g:Eatchar('\s')<CR>
+
+inoreabbrev <buffer> esmod
+      \ /* eslint-disable-next-line github/unused-module */
+      \<C-R>=g:Eatchar('\s')<CR>
+
 inoreabbrev <buffer> impd
       \ import  from '<++>';
       \<esc>Ftla

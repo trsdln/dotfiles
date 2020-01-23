@@ -18,7 +18,11 @@ function android-screenshot {
 alias reload='source ~/.zshrc'
 alias vi='nvim'
 
-alias ls='ls --color=auto'
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias ls='ls -G'
+else
+  alias ls='ls --color=auto'
+fi
 
 # Add common scripts
 export PATH="${DOTFILES_PATH}/scripts:$PATH"
