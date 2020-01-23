@@ -50,7 +50,7 @@ inoreabbrev <buffer> esexp
       \<C-R>=g:Eatchar('\s')<CR>
 
 inoreabbrev <buffer> esmod
-      \ /* eslint-disable-next-line github/unused-module */
+      \ /* eslint-disable github/unused-module */
       \<C-R>=g:Eatchar('\s')<CR>
 
 inoreabbrev <buffer> impd
