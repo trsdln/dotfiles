@@ -1,7 +1,4 @@
 .DS_Store
-zsh/zdotdir/.zcompdump
-zsh/zdotdir/.zhistory
-zsh/zdotdir/.zcompcache/
-zsh/zprezto/
+zsh/zplug
 vim/pack/minpac/
 Session.vim
