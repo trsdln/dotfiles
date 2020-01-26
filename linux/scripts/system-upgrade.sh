@@ -38,6 +38,7 @@ aur sync ttf-symbola
 aur sync tmux-mem-cpu-load-git
 aur sync grive
 aur sync paper-icon-theme-git
+aur sync aurutils
 
 echo "Update pip packages:"
 pip install --user --upgrade pynvim
