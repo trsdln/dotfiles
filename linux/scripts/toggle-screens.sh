@@ -39,6 +39,14 @@ if [ "$1" = "--fix" ]; then
   exit 0
 fi
 
+# --init set preferred initial configuration
+if [ "$1" = "--init" ]; then
+  if [ "${SECONDARY_DISCONNECTED}" = "" ]; then
+    set_only_secondary_mode
+  fi
+  exit 0
+fi
+
 # screen mode toggle logic
 if [ "${SECONDARY_DISCONNECTED}" = "" ]; then
   if [ "${PRIMARY_ENABLED}" != "" ] && [ "${SECONDARY_ENABLED}" = "" ]; then

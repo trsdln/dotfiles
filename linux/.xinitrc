@@ -36,7 +36,7 @@ xbindkeys
 sudo tlp setcharge 40 80 BAT0
 
 # Set default monitor depending on what is plugged in
-toggle-screens.sh --fix
+toggle-screens.sh --init
 
 # Set wallpaper
 if [ -f $HOME/.fehbg ]; then
