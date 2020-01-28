@@ -21,6 +21,7 @@ LINK_MAP_COMMON=(
   ".ctags.d/javascript.ctags:../${DOTFILES_DIR_NAME}/ctags.d/javascript.ctags"
   ".ctags.d/exclusion.ctags:../${DOTFILES_DIR_NAME}/ctags.d/exclusion.ctags"
   ".config/lf:../${DOTFILES_DIR_NAME}/lf"
+  ".config/neomutt/neomuttrc:../../${DOTFILES_DIR_NAME}/neomutt/neomuttrc"
 )
 
 SYSTEMD_UNITS=".config/systemd/user"
@@ -89,7 +90,7 @@ function _main {
   cd ~
 
   # doesn't seem like ctags works with links
-  mkdir -p .ctags.d/ .config/
+  mkdir -p .ctags.d/ .config/ .config/neomutt/
 
   echo "Processing links at '$(echo ~)' ..."
 
