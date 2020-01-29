@@ -1,6 +1,0 @@
-# Poly specific
---exclude=packages/poly-react-scripts
---exclude=packages/secrets
---exclude=docs
---exclude=.dump
---exclude=.db

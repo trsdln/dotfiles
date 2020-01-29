@@ -43,7 +43,17 @@ let g:gutentags_file_list_command = {
       \ }
 let g:gutentags_resolve_symlinks = 0
 let g:gutentags_ctags_tagfile = '.tags'
-let g:gutentags_ctags_exclude = ['*.yaml', '*.yml', '*.sh', '*.md', '*.lock']
+let g:gutentags_ctags_exclude = [
+      \ '*.yaml', '*.yml', '*.sh', '*.md', '*.lock', '*.css', '*.json',
+      \ "e2e/src/data-samples/*",
+      \ "packages/poly-react-scripts/*",
+      \ "packages/poly-apollo-mocking/src/schema.js",
+      \ "packages/secrets/*",
+      \ "schema.json",
+      \ "docs/*",
+      \ ".dump/*",
+      \ ".db/*"
+      \ ]
 let g:gutentags_ctags_exclude_wildignore = 1
 
 augroup MyGutentagsStatusLineRefresher

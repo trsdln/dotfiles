@@ -18,8 +18,6 @@ LINK_MAP_COMMON=(
 
   # Misc apps
   ".gitconfig:./${DOTFILES_DIR_NAME}/.gitconfig"
-  ".ctags.d/javascript.ctags:../${DOTFILES_DIR_NAME}/ctags.d/javascript.ctags"
-  ".ctags.d/exclusion.ctags:../${DOTFILES_DIR_NAME}/ctags.d/exclusion.ctags"
   ".config/lf:../${DOTFILES_DIR_NAME}/lf"
   ".config/neomutt/neomuttrc:../../${DOTFILES_DIR_NAME}/neomutt/neomuttrc"
 )
@@ -55,6 +53,8 @@ LINK_MAP_LINUX=(
 LINK_MAP_DARWIN=(
   ".terminfo:./${DOTFILES_DIR_NAME}/terminfo"
   ".tmux.conf:./${DOTFILES_DIR_NAME}/tmux/darwin.conf"
+  # todo: remove when ctags are updated at brew
+  ".config/ctags/javascript.ctags:../../${DOTFILES_DIR_NAME}/ctags/javascript.ctags"
 )
 
 function _create_link {
@@ -90,7 +90,7 @@ function _main {
   cd ~
 
   # doesn't seem like ctags works with links
-  mkdir -p .ctags.d/ .config/ .config/neomutt/
+  mkdir -p .config/neomutt/
 
   echo "Processing links at '$(echo ~)' ..."
 
@@ -117,6 +117,7 @@ function _main {
 
   if [[ "$OSTYPE" == "darwin"* ]]; then
     echo "MacOS specific links:"
+    mkdir -p .config/ctags
     for link_entry in "${LINK_MAP_DARWIN[@]}" ; do
       _handle_link_entry $link_entry $unlink_param
     done
