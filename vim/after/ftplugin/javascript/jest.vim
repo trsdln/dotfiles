@@ -3,7 +3,7 @@ nnoremap <buffer> <Leader>jv :StartJest<CR>
 nnoremap <buffer> <Leader>jn :StartJestNoVerbose<CR>
 
 command! StartJest call s:StartJestWithFlags('')
-command! StartJestNoVerbose call s:StartJestWithFlags('--verbose false')
+command! StartJestNoVerbose call s:StartJestWithFlags('--verbose false ')
 
 function! s:StartJestWithFlags(flags)
   " Save file if it isn't saved yet
@@ -22,7 +22,7 @@ function! s:StartJestWithFlags(flags)
 
   let l:noExtPath = matchstr(l:testPath, '\v\zs.+\ze\.js$')
 
-  let l:runJestCommand = l:commandEnv . 'yarn jest ' . a:flags . ' --watch ' . l:noExtPath
+  let l:runJestCommand = l:commandEnv . 'yarn jest ' . a:flags . '--watch ' . l:noExtPath
   call g:TmuxRunShellCommandAtMainPane(l:runJestCommand)
 endfunction
 
