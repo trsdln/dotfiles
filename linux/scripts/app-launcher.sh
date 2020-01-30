@@ -18,6 +18,7 @@ Android File Transfer:android-file-transfer
 Gimp:gimp
 Hubstaff:hubstaff
 Toggle Redshift:pkill -USR1 redshift
+passmenu:passmenu
 Play Watch Later:watch-later.sh play
 Clear Watch Later:watch-later.sh clear"
 }
