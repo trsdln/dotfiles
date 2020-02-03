@@ -28,19 +28,13 @@ Removes all dot files links
 1. Install Universal Ctags, Ripgrep and Vim with python3 support
 
 ```
-brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+brew tap universal-ctags/universal-ctags
+brew install --HEAD universal-ctags
 brew install vim ripgrep fzf
 brew install tmux reattach-to-user-namespace tmux-mem-cpu-load osx-cpu-temp
 ```
 
-3. Ensure Brew's VIM/Ctags will be used at shell by putting `/usr/local/bin` before other directories at $PATH
-
-```
-# .zsh_specific
-PATH="/usr/local/bin:$PATH"
-```
-
-4. Start vim and install plugins itself
+2. Start vim and install plugins itself
 
 ```
 :PackUpdate
