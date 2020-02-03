@@ -54,7 +54,7 @@ LINK_MAP_DARWIN=(
   ".terminfo:./${DOTFILES_DIR_NAME}/terminfo"
   ".tmux.conf:./${DOTFILES_DIR_NAME}/tmux/darwin.conf"
   # todo: remove when ctags are updated at brew
-  ".config/ctags/javascript.ctags:../../${DOTFILES_DIR_NAME}/ctags/javascript.ctags"
+  # ".config/ctags/javascript.ctags:../../${DOTFILES_DIR_NAME}/ctags/javascript.ctags"
 )
 
 function _create_link {
