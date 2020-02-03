@@ -32,6 +32,7 @@ brew tap universal-ctags/universal-ctags
 brew install --HEAD universal-ctags
 brew install vim ripgrep fzf
 brew install tmux reattach-to-user-namespace tmux-mem-cpu-load osx-cpu-temp
+brew install gpg pass
 ```
 
 2. Start vim and install plugins itself
