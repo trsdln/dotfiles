@@ -19,7 +19,6 @@ LINK_MAP_COMMON=(
   # Misc apps
   ".gitconfig:./${DOTFILES_DIR_NAME}/.gitconfig"
   ".config/lf:../${DOTFILES_DIR_NAME}/lf"
-  ".config/neomutt/neomuttrc:../../${DOTFILES_DIR_NAME}/neomutt/neomuttrc"
 )
 
 SYSTEMD_UNITS=".config/systemd/user"
