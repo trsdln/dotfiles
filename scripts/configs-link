@@ -43,6 +43,7 @@ LINK_MAP_LINUX=(
   ".config/mpv/mpv.conf:../../${DOTFILES_DIR_NAME}/linux/mpv/mpv.conf"
   ".config/mpv/input.conf:../../${DOTFILES_DIR_NAME}/linux/mpv/input.conf"
   ".config/mimeapps.list:../${DOTFILES_DIR_NAME}/linux/mimeapps.list"
+  ".gnupg/gpg-agent.conf:../${DOTFILES_DIR_NAME}/gnupg/gpg-agent.linux.conf"
 
   # custom services
   "${SYSTEMD_UNITS}/eye-rest.service:${SYSTEMD_DOTFILES_PATH}/eye-rest.service"
@@ -52,8 +53,7 @@ LINK_MAP_LINUX=(
 LINK_MAP_DARWIN=(
   ".terminfo:./${DOTFILES_DIR_NAME}/terminfo"
   ".tmux.conf:./${DOTFILES_DIR_NAME}/tmux/darwin.conf"
-  # todo: remove when ctags are updated at brew
-  # ".config/ctags/javascript.ctags:../../${DOTFILES_DIR_NAME}/ctags/javascript.ctags"
+  ".gnupg/gpg-agent.conf:../${DOTFILES_DIR_NAME}/gnupg/gpg-agent.darwin.conf"
 )
 
 function _create_link {
