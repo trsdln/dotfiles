@@ -19,6 +19,7 @@ LINK_MAP_COMMON=(
   # Misc apps
   ".gitconfig:./${DOTFILES_DIR_NAME}/.gitconfig"
   ".config/lf:../${DOTFILES_DIR_NAME}/lf"
+  ".mailcap:./${DOTFILES_DIR_NAME}/mailcap"
 )
 
 SYSTEMD_UNITS=".config/systemd/user"
