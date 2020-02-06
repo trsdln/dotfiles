@@ -1,6 +1,9 @@
 [user]
   name = Taras
   email = trsdln@gmail.com
+  signingkey = 01220FABCE946EEE
+[commit]
+  gpgsign = true
 [fetch]
   prune = true
 [push]
