@@ -1,4 +1,5 @@
 .DS_Store
+private/
 zsh/zplug
 vim/pack/minpac/
 Session.vim

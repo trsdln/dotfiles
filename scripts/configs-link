@@ -20,6 +20,9 @@ LINK_MAP_COMMON=(
   ".gitconfig:./${DOTFILES_DIR_NAME}/.gitconfig"
   ".config/lf:../${DOTFILES_DIR_NAME}/lf"
   ".mailcap:./${DOTFILES_DIR_NAME}/mailcap"
+
+  ".ssh/config:../${DOTFILES_DIR_NAME}/private/ssh-config"
+  ".config/neomutt:../${DOTFILES_DIR_NAME}/private/neomutt"
 )
 
 SYSTEMD_UNITS=".config/systemd/user"
@@ -49,6 +52,9 @@ LINK_MAP_LINUX=(
   # custom services
   "${SYSTEMD_UNITS}/eye-rest.service:${SYSTEMD_DOTFILES_PATH}/eye-rest.service"
   "${SYSTEMD_UNITS}/eye-rest.timer:${SYSTEMD_DOTFILES_PATH}/eye-rest.timer"
+
+  ".zsh_specific:./${DOTFILES_DIR_NAME}/private/specific.linux.zsh"
+  ".config/newsboat/urls:../../${DOTFILES_DIR_NAME}/private/newsboat/urls"
 )
 
 LINK_MAP_DARWIN=(
@@ -89,8 +95,7 @@ function _handle_link_entry {
 function _main {
   cd ~
 
-  # doesn't seem like ctags works with links
-  mkdir -p .config/neomutt/
+  mkdir -p .config/
 
   echo "Processing links at '$(echo ~)' ..."
 
