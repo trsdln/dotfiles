@@ -10,5 +10,5 @@ password=$(printf '%s\n' "${password_files[@]}" | fzf --layout=reverse --height=
 
 [[ -n $password ]] || exit
 
-pass show -c "$password" 2>/dev/null
+pass show -c "$password"
 # vim:ft=sh
