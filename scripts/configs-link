@@ -19,7 +19,6 @@ LINK_MAP_COMMON=(
   # Misc apps
   ".gitconfig:./${DOTFILES_DIR_NAME}/.gitconfig"
   ".config/lf:../${DOTFILES_DIR_NAME}/lf"
-  ".mailcap:./${DOTFILES_DIR_NAME}/mailcap"
 
   ".ssh/config:../${DOTFILES_DIR_NAME}/private/ssh-config"
   ".config/neomutt:../${DOTFILES_DIR_NAME}/private/neomutt"
