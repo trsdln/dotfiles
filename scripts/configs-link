@@ -61,6 +61,7 @@ LINK_MAP_DARWIN=(
   ".terminfo:./${DOTFILES_DIR_NAME}/terminfo"
   ".tmux.conf:./${DOTFILES_DIR_NAME}/tmux/darwin.conf"
   ".gnupg/gpg-agent.conf:../${DOTFILES_DIR_NAME}/gnupg/gpg-agent.darwin.conf"
+  ".zsh_specific:./${DOTFILES_DIR_NAME}/private/specific.darwin.zsh"
 )
 
 function _create_link {
