@@ -116,3 +116,5 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=blue'
 bindkey '^N' autosuggest-accept
 
 source "$DOTFILES_PATH/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+
+source "${DOTFILES_PATH}/zsh/plugins/yarn.completions.zsh"
