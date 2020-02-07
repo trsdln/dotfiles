@@ -1,9 +1,8 @@
 #!/bin/sh
 
 print_app_options () {
-echo "Brave Browser:brave
-Brave Incognito:brave --incognito
-Google Chrome:chromium
+echo "Google Chrome:chromium
+Chrome Incognito:chromium --incognito
 Alacritty Terminal:alacritty
 Telegram:telegram-desktop
 Slack:slack
