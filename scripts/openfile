@@ -2,6 +2,6 @@
 
 # OS agnostic file opener script
 
-open_cmd=$([ $OSTYPE = "linux-gnu" ] && echo "xdg-open" || echo "open")
+[ $OSTYPE = "linux-gnu" ] && open_cmd="setsid xdg-open" || open_cmd="open"
 
-$open_cmd $1
+$open_cmd $1 >/dev/null 2>&1 &
