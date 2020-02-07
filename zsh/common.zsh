@@ -109,3 +109,10 @@ lfcd () {
   fi
 }
 bindkey -s '^o' 'lfcd\n'
+
+source "$DOTFILES_PATH/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=blue'
+# C-N to accept suggestion
+bindkey '^N' autosuggest-accept
+
+source "$DOTFILES_PATH/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
