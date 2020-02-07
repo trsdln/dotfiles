@@ -2,6 +2,6 @@
 
 # OS agnostic file opener script
 
-open_cmd=$([ $OSTYPE = "linux" ] && echo "xdg-open" || echo "open")
+open_cmd=$([ $OSTYPE = "linux-gnu" ] && echo "xdg-open" || echo "open")
 
 $open_cmd $1
