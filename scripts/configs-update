@@ -10,8 +10,11 @@ echo "Unlink old configs"
 
 echo "Updating configs repo"
 if [ "${CONFIGS_DEBUG}" != "true" ]; then
-  git fetch --prune
   git pull
+  PRIVATE_CONFIGS_DIR=${DOTFILES_PATH}/private/.git
+  if [ -d "${PRIVATE_CONFIGS_DIR}" ]; then
+    git --git-dir="${PRIVATE_CONFIGS_DIR}" pull
+  fi
 fi
 
 echo "Link new configs"
