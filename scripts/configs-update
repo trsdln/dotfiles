@@ -14,6 +14,7 @@ if [ "${CONFIGS_DEBUG}" != "true" ]; then
   PRIVATE_CONFIGS_DIR=${DOTFILES_PATH}/private/.git
   if [ -d "${PRIVATE_CONFIGS_DIR}" ]; then
     git --git-dir="${PRIVATE_CONFIGS_DIR}" pull
+    pass git pull
   fi
 fi
 
