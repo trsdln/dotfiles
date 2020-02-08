@@ -1,10 +1,10 @@
 ale//4afbf2f25dc0ce86b118261b0cfb904c80ae6ba0
 delimitMate//728b57a6564c1d2bdfb9b9e0f2f8c5ba3d7e0c5c
 fugitive-gitlab.vim//f3e56ff60fe3fb5ebc891cbe5fd12cd8c59ae6ef
-fzf//293dd76af14ff47cde08281b0e2d5f7dd1ce46af
-fzf.vim//dc4c4c22715c060a2babd5a5187004bdecbcdea7
+fzf//446df07b6269d2fe519aa15c02b6b0d514f0d5dc
+fzf.vim//467c3277884240f7b5430f8f4d600e3415c38f3b
 gv.vim//72dc64df998355b41a75ebfa32adfd08ed5c5819
-lightline.vim//f7dd47eb55aed259cbc3e913f78c4ab21b3504bf
+lightline.vim//377e62d8010ae3a65ee19b88328e4f3a5e54eca5
 spelunker.vim//8032f749aff995eaa85983edc552949051cec75a
 suda.vim//a0c7068dffcc52407e3bd7b2f6b5aead3089e23e
 vim-abolish//7e4da6e78002344d499af9b6d8d5d6fcd7c92125
@@ -14,10 +14,10 @@ vim-dirvish//5d84cb9ce7fdf7d3fd729a9d3f59060ca5ab3a6e
 vim-dispatch//1206e1474fc613caeb1ba56d36b71d7f9f7760ac
 vim-easymotion//9194ce922d7edda10d9e1e4f053fd9abab0370c7
 vim-eunuch//33e875b31c8b811a0a47908884a5e2339106bbe8
-vim-fugitive//3221cdfbde27da59dfb593c07487e8be1a3ad36b
+vim-fugitive//460664018a8eaecd89fb2b095fad59c0e16f5f06
 vim-graphql//0858a26d7b3bd263f40b1844829651ea5a577364
 vim-grepper//dde6a660c7dd4e02b331da238ea477770073aca2
-vim-gutentags//eb9e57f579d2ef747be25a7a4ec5add6fe5ca3d9
+vim-gutentags//31c0ead56428529c8991e45c0ac0fa7dd99e3bd0
 vim-highlightedyank//3871624ec89c9e8257b20044fd48a1836c05cbfc
 vim-javascript//db595656304959dcc3805cf63ea9a430e3f01e8f
 vim-js-file-import//076c0b900396a447c7b556fec97830fc59a6407a
