@@ -5,21 +5,23 @@ CONFIGS_BIN_DIR=$(dirname "$0")
 echo " = Updating configs = "
 pushd ${CONFIGS_BIN_DIR}
 
-echo "Unlink old configs"
-[[ "${CONFIGS_DEBUG}" != "true" ]] && ./configs-link unlink
-
-echo "Updating configs repo"
-if [ "${CONFIGS_DEBUG}" != "true" ]; then
-  git pull
-  PRIVATE_CONFIGS_DIR=${DOTFILES_PATH}/private/.git
-  if [ -d "${PRIVATE_CONFIGS_DIR}" ]; then
-    git --git-dir="${PRIVATE_CONFIGS_DIR}" pull
-    pass git pull
-  fi
+if [ "$1" = "--relink" ]; then
+  echo "Unlink old configs"
+  [[ "${CONFIGS_DEBUG}" != "true" ]] && ./configs-link unlink
 fi
 
-echo "Link new configs"
-[[ "${CONFIGS_DEBUG}" != "true" ]] && ./configs-link
+echo "Updating configs repo"
+git pull
+PRIVATE_CONFIGS_DIR=${DOTFILES_PATH}/private/.git
+if [ -d "${PRIVATE_CONFIGS_DIR}" ]; then
+  git --git-dir="${PRIVATE_CONFIGS_DIR}" pull
+  pass git pull
+fi
+
+if [ "$1" = "--relink" ]; then
+  echo "Link new configs"
+  [[ "${CONFIGS_DEBUG}" != "true" ]] && ./configs-link
+fi
 
 echo " = Update finished! = "
 popd

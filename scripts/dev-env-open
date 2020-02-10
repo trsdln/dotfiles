@@ -13,7 +13,7 @@ if [ "${VIM_SESSION_EXISTS}" -eq 1 ]; then
   if [ "${CONFIGS_DEBUG}" == "true" ]; then
     echo "Skipping update because CONFIGS_DEBUG is set."
   else
-    ${CONFIGS_BIN_DIR}/configs-update
+    ${CONFIGS_BIN_DIR}/configs-update --relink
   fi
 fi
 
