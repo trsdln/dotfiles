@@ -60,7 +60,8 @@ function! PackInit() abort
   call minpac#add('lambdalisue/suda.vim')
 
   " Automatic ctags generation
-  call minpac#add('ludovicchabant/vim-gutentags')
+  call minpac#add('ludovicchabant/vim-gutentags', {'rev': 'eb9e57f57'})
+
   " Easy code navigation
   call minpac#add('easymotion/vim-easymotion')
 

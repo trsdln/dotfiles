@@ -17,7 +17,7 @@ vim-eunuch//33e875b31c8b811a0a47908884a5e2339106bbe8
 vim-fugitive//460664018a8eaecd89fb2b095fad59c0e16f5f06
 vim-graphql//0858a26d7b3bd263f40b1844829651ea5a577364
 vim-grepper//dde6a660c7dd4e02b331da238ea477770073aca2
-vim-gutentags//31c0ead56428529c8991e45c0ac0fa7dd99e3bd0
+vim-gutentags//eb9e57f579d2ef747be25a7a4ec5add6fe5ca3d9
 vim-highlightedyank//3871624ec89c9e8257b20044fd48a1836c05cbfc
 vim-javascript//db595656304959dcc3805cf63ea9a430e3f01e8f
 vim-js-file-import//076c0b900396a447c7b556fec97830fc59a6407a
