@@ -6,8 +6,6 @@
 
 CONFIGS_BIN_DIR=$(dirname "$0")
 
-source ${CONFIGS_BIN_DIR}/common/dev-env-open-base.sh
-
 # Update only on first run
 if [ "${VIM_SESSION_EXISTS}" -eq 1 ]; then
   if [ "${CONFIGS_DEBUG}" == "true" ]; then
@@ -17,4 +15,5 @@ if [ "${VIM_SESSION_EXISTS}" -eq 1 ]; then
   fi
 fi
 
+source ${CONFIGS_BIN_DIR}/common/dev-env-open-base.sh
 dev_env_open_base
