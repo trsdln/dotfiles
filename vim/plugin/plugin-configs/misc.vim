@@ -56,6 +56,9 @@ let g:gutentags_ctags_exclude = [
       \ ]
 let g:gutentags_ctags_exclude_wildignore = 1
 
+" Disable methods and object properties
+let g:gutentags_ctags_extra_args = ['--javascript-kinds=-m-p']
+
 augroup MyGutentagsStatusLineRefresher
   autocmd!
   autocmd User GutentagsUpdating call lightline#update()

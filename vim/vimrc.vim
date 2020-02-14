@@ -102,7 +102,7 @@ function! PackInit() abort
   " Affects performance for bigger files, so it optional now
   call minpac#add('ap/vim-css-color', {'type': 'opt'})
   call minpac#add('styled-components/vim-styled-components', {'branch': 'main'})
-  call minpac#add('trsdln/vim-js-file-import', {'do': 'npm install'})
+  call minpac#add('kristijanhusak/vim-js-file-import', {'do': 'npm install'})
 endfunction
 
 command! PackUpdate call PackInit() | call minpac#update('', {
