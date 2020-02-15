@@ -1,6 +1,6 @@
 " Start Jest's tests execution from Vim
-nnoremap <buffer> <Leader>jv :StartJest<CR>
-nnoremap <buffer> <Leader>jn :StartJestNoVerbose<CR>
+nnoremap <buffer> <leader>jv :StartJest<CR>
+nnoremap <buffer> <leader>jn :StartJestNoVerbose<CR>
 
 command! StartJest call s:StartJestWithFlags('')
 command! StartJestNoVerbose call s:StartJestWithFlags('--verbose false ')

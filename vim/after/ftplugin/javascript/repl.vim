@@ -1,4 +1,4 @@
-vnoremap <leader>je :<c-u>JSRepl<cr>
+vnoremap <buffer> <leader>je :<c-u>JSRepl<cr>
 
 command! JSRepl call s:JSRepl()
 

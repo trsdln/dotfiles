@@ -1,1 +1,2 @@
 text/html; openfile %s ; nametemplate=%s.html ; copiousoutput
+application/*; openfile %s
