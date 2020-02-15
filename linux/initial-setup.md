@@ -136,7 +136,7 @@ Sync packages using part of `system-upgrade.sh`. Then install:
 ```
 pacman -S mongodb-bin mongodb-tools-bin mongodb-compass robo3t-bin
 pacman -S slack-desktop ttf-symbola tmux-mem-cpu-load-git grive
-pacman -S ffcast google-cloud-sdk paper-icon-theme-git
+pacman -S ffcast google-cloud-sdk paper-icon-theme-git tuijam
 pacman -S aic94xx-firmware wd719x-firmware
 # For aic94xx & wd719x:
 mkinitcpio -p linux

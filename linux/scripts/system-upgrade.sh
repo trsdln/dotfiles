@@ -27,6 +27,7 @@ if [ -n "$last_upgrade" ]; then
 fi
 
 echo "Updating all AUR packages..."
+aur sync tuijam
 aur sync ffcast
 # aur sync google-cloud-sdk
 aur sync aic94xx-firmware
@@ -44,7 +45,6 @@ aur sync aurutils
 
 echo "Update pip packages:"
 pip install --user --upgrade pynvim
-pip install --user --upgrade tuijam
 
 echo "Checking for system errors:"
 journalctl -p 3 -xb
