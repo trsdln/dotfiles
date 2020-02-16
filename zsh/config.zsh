@@ -1,7 +1,7 @@
 # Setup autocompletion
 autoload -Uz compinit
 zmodload zsh/complist
-compinit
+compinit -d "$HOME/.cache/.zcompdump"
 
 setopt COMPLETE_ALIASES
 zstyle ':completion:*' menu select
@@ -91,7 +91,7 @@ setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history
 setopt HIST_VERIFY               # Do not execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing non-existent history.
 
-HISTFILE="${HOME}/.zhistory"    # The path to the history file.
+HISTFILE="${HOME}/.cache/.zhistory"    # The path to the history file.
 HISTSIZE=10000                   # The maximum number of events to save in the internal history.
 SAVEHIST=10000                   # The maximum number of events to save in the history file.
 
