@@ -1,0 +1,50 @@
+#!/bin/bash
+
+CONFIGS_BIN_DIR=$(dirname "$0")
+
+print_step_result() {
+  local command_res=$1
+  if [ "${command_res}" = "0" ]; then
+    echo "DONE"
+  else
+    echo "FAIL"
+  fi
+}
+
+# this ensures we have access to configs-link
+# whatever PATH we have
+cd ${CONFIGS_BIN_DIR}
+
+echo "Syncing configs:"
+
+printf " * unlink all...        "
+if [ "$1" = "--relink" ] && [ "${CONFIGS_DEBUG}" != "true" ]; then
+  ./configs-link unlink > /dev/null
+  print_step_result "$?"
+else
+  echo "SKIP"
+fi
+
+printf " * dotfiles...          "
+git pull > /dev/null && git push &> /dev/null
+print_step_result "$?"
+
+printf " * private dotfiles...  "
+PRIVATE_DOTFILES="${DOTFILES_PATH}/private/.git"
+git --git-dir="${PRIVATE_DOTFILES}" pull > /dev/null \
+  && git --git-dir="${PRIVATE_DOTFILES}" push &> /dev/null
+print_step_result "$?"
+
+printf " * password store...    "
+pass git pull > /dev/null && pass git push &> /dev/null
+print_step_result "$?"
+
+printf " * link all...          "
+if [ "$1" = "--relink" ] && [ "${CONFIGS_DEBUG}" != "true" ]; then
+  ./configs-link > /dev/null
+  print_step_result "$?"
+else
+  echo "SKIP"
+fi
+
+echo "Update completed."

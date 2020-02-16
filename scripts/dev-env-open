@@ -6,14 +6,19 @@
 
 CONFIGS_BIN_DIR=$(dirname "$0")
 
+# Will initialize VIM_SESSION_EXISTS
+source ${CONFIGS_BIN_DIR}/common/dev-env-open-base.sh
+
 # Update only on first run
 if [ "${VIM_SESSION_EXISTS}" -eq 1 ]; then
   if [ "${CONFIGS_DEBUG}" == "true" ]; then
     echo "Skipping update because CONFIGS_DEBUG is set."
   else
-    ${CONFIGS_BIN_DIR}/configs-update --relink
+    ${CONFIGS_BIN_DIR}/configs-sync --relink
   fi
 fi
 
+# Source same file again in case
+# if layout was changed after update
 source ${CONFIGS_BIN_DIR}/common/dev-env-open-base.sh
 dev_env_open_base
