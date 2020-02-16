@@ -33,7 +33,6 @@ LINK_MAP_LINUX=(
   # X env
   ".xinitrc:./${DOTFILES_DIR_NAME}/linux/.xinitrc"
   ".xbindkeysrc:./${DOTFILES_DIR_NAME}/linux/.xbindkeysrc"
-  ".Xresources:./${DOTFILES_DIR_NAME}/linux/.Xresources"
 
   # misc apps
   ".tmux.conf:./${DOTFILES_DIR_NAME}/tmux/linux-gnu.conf"
@@ -52,7 +51,6 @@ LINK_MAP_LINUX=(
   "${SYSTEMD_UNITS}/eye-rest.service:${SYSTEMD_DOTFILES_PATH}/eye-rest.service"
   "${SYSTEMD_UNITS}/eye-rest.timer:${SYSTEMD_DOTFILES_PATH}/eye-rest.timer"
 
-  ".zsh_specific:./${DOTFILES_DIR_NAME}/private/specific.linux.zsh"
   ".config/newsboat/urls:../../${DOTFILES_DIR_NAME}/private/newsboat/urls"
 )
 
@@ -60,7 +58,6 @@ LINK_MAP_DARWIN=(
   ".terminfo:./${DOTFILES_DIR_NAME}/terminfo"
   ".tmux.conf:./${DOTFILES_DIR_NAME}/tmux/darwin.conf"
   ".gnupg/gpg-agent.conf:../${DOTFILES_DIR_NAME}/gnupg/gpg-agent.darwin.conf"
-  ".zsh_specific:./${DOTFILES_DIR_NAME}/private/specific.darwin.zsh"
 )
 
 function _create_link {

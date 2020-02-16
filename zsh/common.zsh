@@ -7,7 +7,11 @@ export SHELL='/bin/zsh'
 export GPG_TTY=$(tty)
 
 # Load machine specific configs
-[ -f ~/.zsh_specific ] && source ~/.zsh_specific
+if [ "${OSTYPE}" = "linux-gnu" ]; then
+  source "${DOTFILES_PATH}/private/specific.linux.zsh"
+else
+  source "${DOTFILES_PATH}/private/specific.darwin.zsh"
+fi
 
 function android-screenshot {
   local file_name=~/Desktop/__android_screenshot.png
