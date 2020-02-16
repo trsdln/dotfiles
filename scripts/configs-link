@@ -17,7 +17,7 @@ LINK_MAP_COMMON=(
   ".vim:./${DOTFILES_DIR_NAME}/vim"
 
   # Misc apps
-  ".gitconfig:./${DOTFILES_DIR_NAME}/.gitconfig"
+  ".config/git:../${DOTFILES_DIR_NAME}/git"
   ".config/lf:../${DOTFILES_DIR_NAME}/lf"
 
   ".ssh/config:../${DOTFILES_DIR_NAME}/private/ssh-config"

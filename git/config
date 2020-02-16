@@ -28,3 +28,4 @@
   untracked = magenta bold
 [color "branch"]
   remote = yellow
+#vim:ft=gitconfig
