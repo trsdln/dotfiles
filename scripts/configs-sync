@@ -11,6 +11,23 @@ print_step_result() {
   fi
 }
 
+sync_git_repo() {
+  local repo_path=$1
+
+  cd "${repo_path}"
+
+  # check if repo is clean
+  if [ "$(git status -s | wc -l)" = "0" ]; then
+    git pull > /dev/null \
+      && git push &> /dev/null
+    print_step_result "$?"
+  else
+    echo "FAIL: uncommited changes"
+  fi
+
+  cd ${CONFIGS_BIN_DIR}
+}
+
 # this ensures we have access to configs-link
 # whatever PATH we have
 cd ${CONFIGS_BIN_DIR}
@@ -26,18 +43,13 @@ else
 fi
 
 printf " * dotfiles...          "
-git pull > /dev/null && git push &> /dev/null
-print_step_result "$?"
+sync_git_repo "${DOTFILES_PATH}"
 
 printf " * private dotfiles...  "
-PRIVATE_DOTFILES="${DOTFILES_PATH}/private/.git"
-git --git-dir="${PRIVATE_DOTFILES}" pull > /dev/null \
-  && git --git-dir="${PRIVATE_DOTFILES}" push &> /dev/null
-print_step_result "$?"
+sync_git_repo "${DOTFILES_PATH}/private"
 
 printf " * password store...    "
-pass git pull > /dev/null && pass git push &> /dev/null
-print_step_result "$?"
+sync_git_repo "${HOME}/.password-store"
 
 printf " * link all...          "
 if [ "$1" = "--relink" ] && [ "${CONFIGS_DEBUG}" != "true" ]; then
