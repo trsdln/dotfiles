@@ -11,6 +11,9 @@ if [ "${OSTYPE}" = "linux-gnu" ]; then
   source "${DOTFILES_PATH}/private/specific.linux.zsh"
 else
   source "${DOTFILES_PATH}/private/specific.darwin.zsh"
+  # fixes ctrl-O shortcut at neomutt
+  # per https://github.com/neomutt/neomutt/issues/1195#issuecomment-388016804
+  stty discard undef
 fi
 
 function android-screenshot {
