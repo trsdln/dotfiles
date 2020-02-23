@@ -5,6 +5,9 @@
 --no-ignore-vcs
 
 # Exclude some common stuff
+--glob=!.cache/**
+--glob=!.local/**
+--glob=!.cargo/**
 --glob=!**/.git/**
 --glob=!**/node_modules/**
 --glob=!**/.meteor/local/**

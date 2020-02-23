@@ -37,3 +37,15 @@ cmd unarchive ${{
 cmd zip %zip -r "$f" "$f"
 cmd tar %tar cvf "$f.tar" "$f"
 cmd tarbz2 %tar cjvf "$f.tar.bz2" "$f"
+
+cmd fzf_jump ${{
+  res="$(fzf --reverse --header='Jump to location')"
+  if [ -f "$res" ]; then
+    cmd="select"
+  elif [ -d "$res" ]; then
+    cmd="cd"
+  fi
+  lf -remote "send $id $cmd \"$res\""
+}}
+map f
+map f fzf_jump
