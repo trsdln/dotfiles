@@ -20,3 +20,20 @@ cmd open ${{
 cmd mpvsub $setsid nohup mpv --sub-file $(fzf --prompt="Subtitles file>") $fx > /dev/null &
 
 map a push %mkdir<space>
+
+# Archive bindings
+cmd unarchive ${{
+# source: https://github.com/BrodieRobertson/dotfiles/blob/master/config/lf/lfrc
+  case "$f" in
+      *.zip) unzip "$f" ;;
+      *.tar.gz) tar -xzvf "$f" ;;
+      *.tar.bz2) tar -xjvf "$f" ;;
+      *.tar) tar -xvf "$f" ;;
+      *.rar) unrar "$f" ;;
+      *) echo "Unsupported format" ;;
+  esac
+}}
+
+cmd zip %zip -r "$f" "$f"
+cmd tar %tar cvf "$f.tar" "$f"
+cmd tarbz2 %tar cjvf "$f.tar.bz2" "$f"
