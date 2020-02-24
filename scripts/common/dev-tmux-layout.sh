@@ -77,7 +77,7 @@ function configure_vim_session {
   tmux send-keys "cd ${DOTFILES_PATH} && ${EDITOR} ." ${EXEC_KEY}
 
   # Open mutt window
-  tmux new-window -t ${session_name}:2 -n 'mutt'
+  tmux new-window -t ${session_name}:3 -n 'mutt'
   tmux send-keys "mutt" ${EXEC_KEY}
 
   # Finally go back to project Vim
