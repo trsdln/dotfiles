@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# super useful for TDD
+
+while true; do
+  rg --files src | entr -c -d cargo test $@
+
+  # allows break infinite loop
+  if [ "$?" = 130 ]; then
+    echo "Interrupted by user (C-c or q)"
+    exit 0
+  fi
+done
+
