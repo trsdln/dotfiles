@@ -198,6 +198,10 @@ will do the trick.
 * `C-xC-n`  - can by used to copy sequence of text somewhere at document if
   used sequentially multiple times
 
+### Terminal
+
+* Mod-j - vi-mode for command editing
+
 ## VIM Plugins
 
 ### Fugitive
