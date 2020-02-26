@@ -17,3 +17,5 @@
 --glob=!.tags
 --glob=!.tags.*
 --glob=!schema.json
+--glob=!todos.wofl
+--glob=!Session.vim
