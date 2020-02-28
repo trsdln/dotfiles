@@ -36,8 +36,16 @@ inoreabbrev <buffer> fdebugm
 
 " Import snippets
 inoreabbrev <buffer> imprf
-      \ import R from 'ramda';
-      \<CR>import F from 'fluture';
+      \ import * as R from 'ramda';
+      \<CR>import * as F from 'fluture';
+      \<CR><esc><bs>
+
+inoreabbrev <buffer> impr
+      \ import * as R from 'ramda';
+      \<CR><esc><bs>
+
+inoreabbrev <buffer> impf
+      \ import * as F from 'fluture';
       \<CR><esc><bs>
 
 inoreabbrev <buffer> impc
