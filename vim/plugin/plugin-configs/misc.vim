@@ -74,6 +74,8 @@ let g:ale_fixers = {
       \   'json': ['prettier_eslint'],
       \ }
 
+let g:ale_enabled = 1
+
 " Randomly breaks auto-import's 'go back to usage feature'
 let g:ale_fix_on_save = 1
 " let g:ale_lint_on_save = 1
