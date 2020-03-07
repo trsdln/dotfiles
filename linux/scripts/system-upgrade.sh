@@ -41,6 +41,7 @@ aur sync ttf-symbola
 aur sync tmux-mem-cpu-load-git
 aur sync grive
 aur sync paper-icon-theme-git
+aur sync mpv-mpris
 aur sync aurutils
 
 echo "Update pip packages:"
