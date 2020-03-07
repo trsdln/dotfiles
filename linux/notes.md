@@ -13,6 +13,15 @@ sudo nmcli d wifi connect "point_name" password "password_val"
 
 TUI app: `alsamixer`
 
+### Restart PulseAudio
+
+```
+pulseaudio --k
+pulseaudio --start
+```
+
+Usually is used to apply/load new configuration (also, fixes problems with Bluetooth headset).
+
 # `aurutils` usage
 
 ```
