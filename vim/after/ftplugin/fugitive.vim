@@ -1,6 +1,7 @@
 nnoremap <buffer> cc :Gcommit --no-verify<cr>
 nnoremap <buffer> ca :Gcommit --no-verify --amend<cr>
 nnoremap <buffer> ce :Gcommit --no-verify --amend --reuse-message=HEAD<cr>
+nnoremap <buffer> cvc :tab Gcommit --no-verify --verbose<cr>
 
 
 " Consistent with Dirvish/Quickfix mappings
