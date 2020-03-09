@@ -17,3 +17,5 @@ function! s:CustomEdit(file_name)
 endfunction
 
 map <buffer> A :E %
+
+nnoremap <buffer> xo :call g:XDGOpen(getline('.'))<cr>
