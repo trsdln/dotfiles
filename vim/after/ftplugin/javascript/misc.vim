@@ -5,3 +5,4 @@ command! LintDiff Dispatch -compiler=eslint ./scripts/lint-ci.sh origin/develop
 command! -nargs=? Lint compiler eslint | execute 'Make ' . <q-args>
 
 command! Jest compiler jest | Make -o
+command! JestDiff compiler jest | Make --changedSince=origin/develop
