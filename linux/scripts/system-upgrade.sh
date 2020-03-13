@@ -14,6 +14,9 @@ if [ "$1" = "--backup" ]; then
   fi
 fi
 
+echo "Cleaning logs older than 7 days..."
+sudo journalctl --vacuum-time=7d
+
 echo "Clean pacman cache..."
 sudo paccache --remove
 
