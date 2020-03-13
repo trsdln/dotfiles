@@ -14,6 +14,9 @@ if [ "$1" = "--backup" ]; then
   fi
 fi
 
+echo "Clean pacman cache..."
+sudo paccache --remove
+
 # Update all official packages
 sudo pacman -Suy
 
