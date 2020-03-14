@@ -2,9 +2,5 @@
 
 load-module module-switch-on-connect
 
-load-module module-bluetooth-policy
-load-module module-bluez5-device
-load-module module-bluez5-discover
-
 set-default-sink alsa_output.usb-DELL_DELL_UZ2715H_000000000000-00.analog-stereo
 
