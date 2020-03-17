@@ -88,6 +88,12 @@ format_panel_info() {
         ;;
     esac
     complete_info="%{l}${title}%{c}${wm}%{r}${date}${sys}"
-    printf "%s\n" "%{Sl}${complete_info}%{Sf}${complete_info}"
+
+    if [ $num_mon -lt 2 ]; then
+      printf "%s\n" "%{Sl}${complete_info}"
+    else
+      # show status line at both monitors if available
+      printf "%s\n" "%{Sl}${complete_info}%{Sf}${complete_info}"
+    fi
   done
 }
