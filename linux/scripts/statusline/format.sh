@@ -87,6 +87,7 @@ format_panel_info() {
         format_wm_info
         ;;
     esac
-    printf "%s\n" "%{Sl}%{l}${title}%{c}${wm}%{r}${date}${sys}"
+    complete_info="%{l}${title}%{c}${wm}%{r}${date}${sys}"
+    printf "%s\n" "%{Sl}${complete_info}%{Sf}${complete_info}"
   done
 }
