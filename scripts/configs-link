@@ -30,11 +30,7 @@ SYSTEMD_DOTFILES_PATH="../../../${DOTFILES_DIR_NAME}/linux/systemd"
 LINK_MAP_LINUX=(
   ".profile:./${DOTFILES_DIR_NAME}/linux/.profile"
 
-  # X env
   ".xinitrc:./${DOTFILES_DIR_NAME}/linux/.xinitrc"
-  ".xbindkeysrc:./${DOTFILES_DIR_NAME}/linux/.xbindkeysrc"
-
-  # misc apps
   ".tmux.conf:./${DOTFILES_DIR_NAME}/tmux/linux-gnu.conf"
   ".config/dunst:../${DOTFILES_DIR_NAME}/linux/dunst"
   ".config/sxiv:../${DOTFILES_DIR_NAME}/linux/sxiv"
@@ -46,6 +42,8 @@ LINK_MAP_LINUX=(
   ".config/mpv/input.conf:../../${DOTFILES_DIR_NAME}/linux/mpv/input.conf"
   ".config/mpv/scripts/mpris.so:/usr/lib/mpv/mpris.so"
   ".config/mimeapps.list:../${DOTFILES_DIR_NAME}/linux/mimeapps.list"
+  ".config/sxhkd:../${DOTFILES_DIR_NAME}/linux/sxhkd"
+  ".config/bspwm:../${DOTFILES_DIR_NAME}/linux/bspwm"
   ".gnupg/gpg-agent.conf:../${DOTFILES_DIR_NAME}/gnupg/gpg-agent.linux.conf"
 
   # custom services

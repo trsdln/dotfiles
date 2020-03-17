@@ -19,6 +19,6 @@ elif [ $cmd = "play" ]; then
   notify-send --hint $notification_hint "$notification_title" "Starting mpv..."
   exec mpv --playlist=$watch_later_file
 elif [ $cmd = "count" ]; then
-  items_count=$(wc -l $watch_later_file || echo 0)
+  items_count=$(wc -l $watch_later_file 2> /dev/null || echo 0)
   echo "$items_count" | awk '{print $1}'
 fi

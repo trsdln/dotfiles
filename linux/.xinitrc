@@ -29,33 +29,22 @@ picom -b
 
 redshift -l 50.45:30.523333 &
 
-# load bindings
-xbindkeys
-
 # Set charge thresholds between 40%-80%
 sudo tlp setcharge 40 80 BAT0
-
-# Set default monitor depending on what is plugged in
-toggle-screens.sh --init
 
 # Set wallpaper
 if [ -f $HOME/.fehbg ]; then
   . $HOME/.fehbg
 fi
 
-while true
-do
-  $HOME/.dotfiles/linux/scripts/statusline-update.sh
-	sleep 50s
-done &
-
 if [ "$(ps -u $USER | grep 'dunst' | wc -l)" -lt "1" ]; then
   dunst &
 fi
 
-# automatically restart dwm
-# while true; do
-#   dwm
-# done
-exec dwm
+# load bindings
+sxhkd &
+
+# starting it here to ensure it will be stopped within bspwm
+$HOME/.dotfiles/linux/lemonbar/panel.sh &
+exec bspwm
 # vim:ft=sh

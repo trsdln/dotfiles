@@ -93,6 +93,7 @@ function! PackInit() abort
   call minpac#add('machakann/vim-highlightedyank')
 
   call minpac#add('cespare/vim-toml')
+  call minpac#add('kovetskiy/sxhkd-vim')
 
   " JS Specific plugins
   call minpac#add('pangloss/vim-javascript')

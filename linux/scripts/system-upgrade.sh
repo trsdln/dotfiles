@@ -49,6 +49,9 @@ aur sync grive
 aur sync paper-icon-theme-git
 aur sync mpv-mpris
 aur sync aurutils
+# bspwm related:
+aur sync lemonbar-xft-git
+aur sync xtitle
 
 echo "Update pip packages:"
 pip install --user --upgrade pynvim

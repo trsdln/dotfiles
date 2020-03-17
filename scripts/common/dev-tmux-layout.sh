@@ -55,7 +55,11 @@ function configure_severs_session {
 
   tmux split-window -v
   tmux select-pane -t 2
-  tmux send-keys "redis-server /usr/local/etc/redis.conf" ${EXEC_KEY}
+  if [ "${OSTYPE}" = "linux-gnu" ]; then
+    tmux send-keys "sudo redis-server /etc/redis.conf" ${EXEC_KEY}
+  else
+    tmux send-keys "redis-server /usr/local/etc/redis.conf" ${EXEC_KEY}
+  fi
 
   # Main window - 2 panes for on demand tasks
   tmux select-window -t ${session_name}:1

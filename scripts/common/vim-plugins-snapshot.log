@@ -1,12 +1,13 @@
 ale//bbe5153fcb36dec9860ced33ae8ff0b5d76ac02a
 delimitMate//728b57a6564c1d2bdfb9b9e0f2f8c5ba3d7e0c5c
 fugitive-gitlab.vim//f3e56ff60fe3fb5ebc891cbe5fd12cd8c59ae6ef
-fzf//b0673c35634a04687237cd57ef4ab2fafeeb620a
-fzf.vim//ed9d66c2a65333a0d49509a2d53098392683eec1
+fzf//c39113ee41f032c72a08e015b23d00f60d61a57c
+fzf.vim//d16ddcf58dd5d99671474ab9a815c5599e377f4c
 gv.vim//72dc64df998355b41a75ebfa32adfd08ed5c5819
-lightline.vim//e8577f3654cac97ee18faae28c80a2200aaaad5a
+lightline.vim//893bd90787abfec52a2543074e444fc6a9e0cf78
 spelunker.vim//610381f1d4e8ea9f3c19d3e3800fceca0540fd2a
 suda.vim//a0c7068dffcc52407e3bd7b2f6b5aead3089e23e
+sxhkd-vim//2760f9d32bd2fb4d7d5305a88eb2056d149c6484
 vim-abolish//7e4da6e78002344d499af9b6d8d5d6fcd7c92125
 vim-commentary//f8238d70f873969fb41bf6a6b07ca63a4c0b82b1
 vim-css3-syntax//d852533256b43bb4f80593d3bd4f160fd16c50e5
@@ -21,7 +22,7 @@ vim-gutentags//96cd7dbfe324e8983da68468085967e0b85dc898
 vim-highlightedyank//931cc6bd53e4a1fdbe592751f0e13c0e401f0a49
 vim-javascript//db595656304959dcc3805cf63ea9a430e3f01e8f
 vim-js-file-import//076c0b900396a447c7b556fec97830fc59a6407a
-vim-jsx-pretty//838cfce82df8cf99df5e3a200ad23f6c0f027550
+vim-jsx-pretty//05f9953fcaccc18a8f5c1ee9db06ac2b26662347
 vim-merginal//13e8f2801022f8f800a8d42f2f3974a9ee29c31a
 vim-obsession//96a3f837c112cb64e0a9857b69f6d6a71041155e
 vim-pasta//cb4501a123d74fc7d66ac9f10b80c9d393746c66
