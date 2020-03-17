@@ -1,8 +1,5 @@
 #!/bin/sh
 
-LEMONBAR_DIR=$(dirname "$0")
-. $LEMONBAR_DIR/configs.sh
-
 padding=" "
 
 format_wm_info() {
@@ -90,6 +87,6 @@ format_panel_info() {
         format_wm_info
         ;;
     esac
-    printf "%s\n" "%{l}${title}%{c}${wm}%{r}${date}${sys}"
+    printf "%s\n" "%{Sl}%{l}${title}%{c}${wm}%{r}${date}${sys}"
   done
 }

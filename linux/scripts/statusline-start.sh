@@ -2,14 +2,13 @@
 
 # based on https://github.com/mellok1488/dotfiles/blob/master/panel
 
-LEMONBAR_DIR=$(dirname "$0")
-. $LEMONBAR_DIR/configs.sh
-. $LEMONBAR_DIR/update_info.sh
-. $LEMONBAR_DIR/format.sh
+SCRIPTS_DIR=$(dirname "$0")
+. $SCRIPTS_DIR/statusline/configs.sh
+. $SCRIPTS_DIR/statusline/format.sh
 
 if xdo id -a "$PANEL_WM_NAME" > /dev/null ; then
-	printf "%s\n" "The panel is already running." >&2
-	exit 1
+  printf "%s\n" "The panel is already running." >&2
+  exit 1
 fi
 
 [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
@@ -23,7 +22,7 @@ xtitle -sf 'T%s\n' > "$PANEL_FIFO" &
 
 # clock
 while true; do
-  lemonbar_update_info
+  statusline-update.sh
   sleep 30
 done &
 

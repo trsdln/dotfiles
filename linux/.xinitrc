@@ -45,6 +45,6 @@ fi
 sxhkd &
 
 # starting it here to ensure it will be stopped within bspwm
-$HOME/.dotfiles/linux/lemonbar/panel.sh &
+statusline-start.sh &
 exec bspwm
 # vim:ft=sh
