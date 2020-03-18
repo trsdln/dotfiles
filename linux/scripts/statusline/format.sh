@@ -90,7 +90,7 @@ format_panel_info() {
     complete_info="%{l}${title}%{c}${wm}%{r}${date}${sys}"
 
     if [ $num_mon -lt 2 ]; then
-      printf "%s\n" "%{Sl}${complete_info}"
+      printf "%s\n" "${complete_info}"
     else
       # show status line at both monitors if available
       printf "%s\n" "%{Sl}${complete_info}%{Sf}${complete_info}"

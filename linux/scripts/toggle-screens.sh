@@ -15,6 +15,20 @@ SECONDARY_DISCONNECTED=$(xrandr | grep "${SECONDARY_OUTPUT} disconnected")
 
 LEMONBAR_HEIGHT=21
 
+# When switching from single screen to side-by-side
+# lemonbar doesn't pick up second screen, so we need restart it
+statusline_restart() {
+  # pgrep is not able to find process if whole process
+  # name is specified :facepalm:
+  statusline_pid=$(pgrep 'statusline-star' | sort | head -n 1)
+
+  if [ "${statusline_pid}" != "" ]; then
+    pkill -P "${statusline_pid}"
+  fi
+
+  setsid statusline-start.sh &
+}
+
 set_only_primary_mode() {
   CURRENT_MODE="Only Primary"
   xrandr --output "${PRIMARY_OUTPUT}" --auto \
@@ -22,6 +36,7 @@ set_only_primary_mode() {
 
   bspc monitor "${PRIMARY_OUTPUT}" -d 1 2 3 4 5 6 7 8 9 0
   bspc config -m "${PRIMARY_OUTPUT}" top_padding ${LEMONBAR_HEIGHT}
+  statusline_restart
 }
 
 set_only_secondary_mode() {
@@ -31,6 +46,7 @@ set_only_secondary_mode() {
 
   bspc monitor "${SECONDARY_OUTPUT}" -d 1 2 3 4 5 6 7 8 9 0
   bspc config -m "${SECONDARY_OUTPUT}" top_padding ${LEMONBAR_HEIGHT}
+  statusline_restart
 }
 
 set_side_by_side_mode() {
@@ -42,6 +58,7 @@ set_side_by_side_mode() {
   bspc monitor "${SECONDARY_OUTPUT}" -d 6 7 8 9 0
   bspc config -m "${PRIMARY_OUTPUT}" top_padding ${LEMONBAR_HEIGHT}
   bspc config -m "${SECONDARY_OUTPUT}" top_padding ${LEMONBAR_HEIGHT}
+  statusline_restart
 }
 
 # --fix flag support (is used by lock-screen.sh)
