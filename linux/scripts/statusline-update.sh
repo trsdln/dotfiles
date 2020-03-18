@@ -3,10 +3,15 @@
 SCRIPTS_DIR=$(dirname "$0")
 . $SCRIPTS_DIR/statusline/configs.sh
 
-lemonbar_update_info() {
-  LOCAL_TIME=$(date '+%a %d %b %H:%M')
-  NY_TIME="" # "• $(TZ='America/New_York' date '+%a %H:%M')"
+CYAN_COLOR="#2aa198"
+YELLOW_COLOR="#b58900"
+BLUE_COLOR="#268bd2"
+RED_COLOR="#dc322f"
+GREEN_COLOR="#859900"
 
+lemonbar_update_info() {
+  LOCAL_TIME="%{F$CYAN_COLOR}$(date '+%a %d %b %H:%M')%{F-}"
+  NY_TIME="" # "• $(TZ='America/New_York' date '+%a %H:%M')"
 
   # Battery status
   BAT_NAME="BAT0"
@@ -18,6 +23,14 @@ lemonbar_update_info() {
       --icon=/usr/share/icons/Paper/32x32/status/battery-caution.png \
       --hint=string:x-canonical-private-synchronous:low-battery \
       "Low Charge" "Current Level: ${BAT_CAPACITY}%"
+  fi
+
+  if [ "${BAT_CAPACITY}" -lt "20" ]; then
+    BATTERY_COLOR=$RED_COLOR
+  elif [  "${BAT_CAPACITY}" -lt "50" ]; then
+    BATTERY_COLOR=$YELLOW_COLOR
+  else
+    BATTERY_COLOR=$GREEN_COLOR
   fi
 
   if [ $BAT_STATUS = 'Charging' ]; then
@@ -40,23 +53,32 @@ lemonbar_update_info() {
     STATUS_ICON='⚡'
   fi
 
-
   # CPU temperature
-  CPU_TEMP=$(sensors | awk '/Core 0/ {print $3}')
-
+  CPU_TEMP=$(sensors | awk '/Core 0/ {print gensub(/\+(.+)\..+/,"\\1","g",$3) }')
+  if [ "${CPU_TEMP}" -lt "50" ]; then
+    CPU_TEMP_COLOR=$BLUE_COLOR
+  elif [ "${CPU_TEMP}" -lt "70" ]; then
+    CPU_TEMP_COLOR=$YELLOW_COLOR
+  else
+    CPU_TEMP_COLOR=$RED_COLOR
+  fi
 
   # Network status
   WIRED_NET_STATUS=$(cat /sys/class/net/e*/operstate)
   WIRELESS_NET_STATUS=$(cat /sys/class/net/w*/operstate)
-  [ "${WIRED_NET_STATUS}" = 'down' -a "${WIRELESS_NET_STATUS}" = 'down' ] && NETWORK_STATUS="x" || NETWORK_STATUS="I"
-
+  [ "${WIRED_NET_STATUS}" = 'down' -a "${WIRELESS_NET_STATUS}" = 'down' ] && NETWORK_STATUS="%{F$RED_COLOR}X%{F-}" || NETWORK_STATUS="%{F$GREEN_COLOR}I%{F-}"
 
   # Keyboard layout
   KEYBOARD_LAYOUT="$(setxkbmap -query | awk '/layout/ {print toupper($2)}')"
+  if [ $KEYBOARD_LAYOUT = "UA" ]; then
+    KEYBOARD_LAYOUT_COLOR=$YELLOW_COLOR
+  else
+    KEYBOARD_LAYOUT_COLOR=$BLUE_COLOR
+  fi
 
   WL_COUNT="WL:$(watch-later.sh count)"
 
-  echo "C ${WL_COUNT} • ${NETWORK_STATUS} • ${CPU_TEMP} • ${STATUS_ICON} ${BAT_CAPACITY}% • ${KEYBOARD_LAYOUT} • ${LOCAL_TIME} ${NY_TIME}" > "${PANEL_FIFO}"
+  echo "C ${WL_COUNT} • ${NETWORK_STATUS} • %{F$CPU_TEMP_COLOR}${CPU_TEMP}°C%{F-} • %{F$BATTERY_COLOR}${STATUS_ICON} ${BAT_CAPACITY}%%{F-} • %{F$KEYBOARD_LAYOUT_COLOR}${KEYBOARD_LAYOUT}%{F-} • ${LOCAL_TIME} ${NY_TIME}" > "${PANEL_FIFO}"
 }
 
 lemonbar_update_info
