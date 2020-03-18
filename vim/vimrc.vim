@@ -407,3 +407,6 @@ function! g:SetupCommandAlias(from, to)
         \ .' ((getcmdtype() is# ":" && getcmdline() is# "'.a:from.'")'
         \ .'? ("'.a:to.'") : ("'.a:from.'"))'
 endfunction
+
+" Quickly open dotfiles directory for edit at new tab
+command! Dotfiles tabnew | lcd ~/.dotfiles | Dirvish
