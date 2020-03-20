@@ -2,7 +2,7 @@
 
 PANEL_FIFO=/tmp/panel-fifo
 PANEL_FONT="Hack:size=10"
-PANEL_FONT_ICON="Symbola:size=10"
+PANEL_FONT_ICON="Noto Color Emoji:size=10"
 PANEL_WM_NAME=bspwm_lemonbar
 
 COLOR_DEFAULT_FG="#c5c8c6"
