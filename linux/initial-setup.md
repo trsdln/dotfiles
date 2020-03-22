@@ -184,4 +184,12 @@ lpadmin -p "queue_name" -E -v uri -m "model"
 6. Regenerate inital ramdisk `sudo mkinitcpio -p linux-lts`.
 6. Get `GRUB_TIMEOUT` back and regenerate config again.
 
+### Remove obsolete startup entries
+
+```
+sudo rm -f /etc/xdg/autostart/geoclue-demo-agent.desktop
+```
+
+Plus inspect autostart directory manually.
+
 #### Done!

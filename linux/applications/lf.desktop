@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Directory Sheme Handler
+Exec=alacritty -e lf %u
+StartupNotify=false
+MimeType=inode/directory
