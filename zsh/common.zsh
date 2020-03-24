@@ -1,10 +1,9 @@
-# Reduce delay for vi mode at zsh
-export KEYTIMEOUT=1
-
+export KEYTIMEOUT=1 # Reduce delay for vi mode at zsh
 export EDITOR='nvim'
 export VISUAL='nvim'
 export SHELL='/bin/zsh'
 export GPG_TTY=$(tty)
+export LESSHISTFILE='-' # no history file for less
 
 # Load machine specific configs
 if [ "${OSTYPE}" = "linux-gnu" ]; then
@@ -25,6 +24,7 @@ function android-screenshot {
 # Easy re-sourcing of config
 alias reload='source ~/.zshrc'
 alias vi='nvim'
+alias tmux="tmux -f $HOME/.config/tmux.conf"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   alias ls='ls -G'

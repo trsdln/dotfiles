@@ -49,7 +49,10 @@ printf " * private dotfiles...  "
 sync_git_repo "${DOTFILES_PATH}/private"
 
 printf " * password store...    "
-sync_git_repo "${HOME}/.password-store"
+if [ -z "$PASSWORD_STORE_DIR" ]; then
+  PASSWORD_STORE_DIR="${HOME}/.password-store"
+fi
+sync_git_repo "${PASSWORD_STORE_DIR}"
 
 printf " * link all...          "
 if [ "$1" = "--relink" ] && [ "${CONFIGS_DEBUG}" != "true" ]; then

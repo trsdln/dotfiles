@@ -31,7 +31,7 @@ LINK_MAP_LINUX=(
   ".profile:./${DOTFILES_DIR_NAME}/linux/.profile"
 
   ".xinitrc:./${DOTFILES_DIR_NAME}/linux/.xinitrc"
-  ".tmux.conf:./${DOTFILES_DIR_NAME}/tmux/linux-gnu.conf"
+  ".config/tmux.conf:../${DOTFILES_DIR_NAME}/tmux/linux-gnu.conf"
   ".config/dunst:../${DOTFILES_DIR_NAME}/linux/dunst"
   ".config/sxiv:../${DOTFILES_DIR_NAME}/linux/sxiv"
   ".config/pulse/default.pa:../../${DOTFILES_DIR_NAME}/linux/pulse/default.pa"
@@ -56,7 +56,7 @@ LINK_MAP_LINUX=(
 
 LINK_MAP_DARWIN=(
   ".terminfo:./${DOTFILES_DIR_NAME}/terminfo"
-  ".tmux.conf:./${DOTFILES_DIR_NAME}/tmux/darwin.conf"
+  ".config/tmux.conf:../${DOTFILES_DIR_NAME}/tmux/darwin.conf"
   ".gnupg/gpg-agent.conf:../${DOTFILES_DIR_NAME}/gnupg/gpg-agent.darwin.conf"
 )
 
