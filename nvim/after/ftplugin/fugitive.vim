@@ -3,7 +3,6 @@ nnoremap <buffer> ca :Gcommit --no-verify --amend<cr>
 nnoremap <buffer> ce :Gcommit --no-verify --amend --reuse-message=HEAD<cr>
 nnoremap <buffer> cvc :tab Gcommit --no-verify --verbose<cr>
 
-
 " Consistent with Dirvish/Quickfix mappings
 " Open at vsplit
 nnoremap <buffer> a :call <SID>FugitiveOpenCurrentFileVSplit(0)<cr>
