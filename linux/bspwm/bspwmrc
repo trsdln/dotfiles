@@ -15,6 +15,7 @@ bspc config remove_disabled_monitors true
 bspc config remove_unplugged_monitors true
 
 bspc rule -a mpv state=floating
+bspc rule -a Hubstaff state=floating rectangle=900x600+50+100
 
 # get rid of cross cursor above wallpaper:
 xsetroot -cursor_name left_ptr &
