@@ -11,15 +11,9 @@ LINK_MAP_COMMON=(
   # Shell
   ".zshrc:./${DOTFILES_DIR_NAME}/zsh/zshrc.zsh"
 
-  # Vim Configs
   ".config/nvim:../${DOTFILES_DIR_NAME}/nvim"
-  ".vimrc:./${DOTFILES_DIR_NAME}/vim/vimrc.vim"
-  ".vim:./${DOTFILES_DIR_NAME}/vim"
-
-  # Misc apps
   ".config/git:../${DOTFILES_DIR_NAME}/git"
   ".config/lf:../${DOTFILES_DIR_NAME}/lf"
-
   ".ssh/config:../${DOTFILES_DIR_NAME}/private/ssh-config"
   ".config/neomutt:../${DOTFILES_DIR_NAME}/private/neomutt"
 )

@@ -21,7 +21,7 @@ function snapshots_main {
 
   touch "${output_file}"
 
-  cd $DOTFILES_PATH/vim/pack/minpac/start
+  cd $DOTFILES_PATH/nvim/pack/minpac/start
 
   for plugin_dir in $(ls -1) ; do
     local plugin_sha=$(cd ${plugin_dir} && git rev-parse --verify HEAD)

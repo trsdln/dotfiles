@@ -17,7 +17,7 @@ function smart_create_tmux_session {
     echo "Session '${session_name}' not found. Creating..."
     pushd ${project_dir}
 
-    tmux new-session -d -s ${session_name}
+    tmux -f $HOME/.config/tmux.conf new-session -d -s ${session_name}
     ${configure_session_cb} ${session_name}
 
     popd
