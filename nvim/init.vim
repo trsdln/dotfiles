@@ -64,6 +64,7 @@ function! PackInit() abort
 
   " Easy code navigation
   call minpac#add('easymotion/vim-easymotion')
+  call minpac#add('unblevable/quick-scope')
 
   " Global search using Ripgrep
   call minpac#add('mhinz/vim-grepper')
