@@ -32,10 +32,7 @@ redshift -l 50.45:30.523333 &
 # Set charge thresholds between 40%-80%
 sudo tlp setcharge 40 80 BAT0
 
-# Set wallpaper
-if [ -f $HOME/.fehbg ]; then
-  . $HOME/.fehbg
-fi
+set-wallpaper.sh
 
 if [ "$(ps -u $USER | grep 'dunst' | wc -l)" -lt "1" ]; then
   dunst &

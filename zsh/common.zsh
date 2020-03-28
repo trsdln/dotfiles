@@ -4,6 +4,7 @@ export VISUAL='nvim'
 export SHELL='/bin/zsh'
 export GPG_TTY=$(tty)
 export LESSHISTFILE='-' # no history file for less
+export NODE_REPL_HISTORY=''
 
 # Load machine specific configs
 if [ "${OSTYPE}" = "linux-gnu" ]; then

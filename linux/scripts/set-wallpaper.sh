@@ -1,7 +1,13 @@
 #!/bin/sh
 
-# Pass file name as first argument to this script
-NEW_WALLPAPER=$1
+WALLPAPER_CONFIG=$HOME/.local/share/wallpaper.txt
 
-feh --bg-scale "${NEW_WALLPAPER}"
-notify-send -h string:x-canonical-private-synchronous:wallpaper_change "Wallpaper Changed" "${NEW_WALLPAPER}"
+if [ -n "$1" ]; then
+  rm -f "$WALLPAPER_CONFIG"
+  echo "$1" > "$WALLPAPER_CONFIG"
+  notify-send -h string:x-canonical-private-synchronous:wallpaper_change "Wallpaper Changed" "$1"
+fi
+
+if [ -f "$WALLPAPER_CONFIG" ]; then
+  xwallpaper --zoom $(cat "$WALLPAPER_CONFIG")
+fi
