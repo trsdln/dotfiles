@@ -3,6 +3,7 @@
 print_app_options () {
 echo "Google Chrome:chromium
 Chrome Incognito:chromium --incognito
+Tmux:alacritty -e tmux
 Alacritty Terminal:alacritty
 Telegram:telegram-desktop
 Slack:slack
