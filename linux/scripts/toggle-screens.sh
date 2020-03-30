@@ -13,7 +13,8 @@ SECONDARY_ENABLED=$(echo "${MONITORS_LIST}" | grep "${SECONDARY_OUTPUT}")
 PRIMARY_ENABLED=$(echo "${MONITORS_LIST}" | grep "${PRIMARY_OUTPUT}")
 SECONDARY_DISCONNECTED=$(xrandr | grep "${SECONDARY_OUTPUT} disconnected")
 
-LEMONBAR_HEIGHT=21
+LEMONBAR_HEIGHT=20
+INIT_DELAY=3
 
 # When switching from single screen to side-by-side
 # lemonbar doesn't pick up second screen, so we need restart it
@@ -34,6 +35,7 @@ set_only_primary_mode() {
   xrandr --output "${PRIMARY_OUTPUT}" --auto \
     --output "${SECONDARY_OUTPUT}" --off
 
+  sleep $INIT_DELAY
   bspc monitor "${PRIMARY_OUTPUT}" -d 1 2 3 4 5 6 7 8 9 0
   bspc config -m "${PRIMARY_OUTPUT}" top_padding ${LEMONBAR_HEIGHT}
   statusline_restart
@@ -44,6 +46,7 @@ set_only_secondary_mode() {
   xrandr --output "${PRIMARY_OUTPUT}" --off \
     --output "${SECONDARY_OUTPUT}" --auto
 
+  sleep $INIT_DELAY
   bspc monitor "${SECONDARY_OUTPUT}" -d 1 2 3 4 5 6 7 8 9 0
   bspc config -m "${SECONDARY_OUTPUT}" top_padding ${LEMONBAR_HEIGHT}
   statusline_restart
@@ -54,6 +57,7 @@ set_side_by_side_mode() {
   xrandr --output "${PRIMARY_OUTPUT}" --auto \
     --output "${SECONDARY_OUTPUT}" --auto --right-of "${PRIMARY_OUTPUT}"
 
+  sleep $INIT_DELAY
   bspc monitor "${PRIMARY_OUTPUT}"   -d 1 2 3 4 5
   bspc monitor "${SECONDARY_OUTPUT}" -d 6 7 8 9 0
   bspc config -m "${PRIMARY_OUTPUT}" top_padding ${LEMONBAR_HEIGHT}
