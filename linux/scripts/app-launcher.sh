@@ -2,10 +2,22 @@
 
 export DOTFILES_PATH=$HOME/.dotfiles
 
+tmux_new () {
+  alacritty -e tmux -f $HOME/.config/tmux.conf
+}
+
+tmux_attach () {
+  local picked_session_id=$(tmux ls | dmenu -i -l 5 -p 'Session>' | cut -d ":" -f 1)
+  if [ -n "${picked_session_id}" ]; then
+    alacritty -e tmux -f $HOME/.config/tmux.conf attach -t "${picked_session_id}"
+  fi
+}
+
 print_app_options () {
 echo "Google Chrome:chromium
 Chrome Incognito:chromium --incognito
-Tmux:alacritty -e tmux -f $HOME/.config/tmux.conf
+TMUX New:tmux_new
+TMUX Attach:tmux_attach
 Alacritty Terminal:alacritty
 Telegram:telegram-desktop
 Slack:slack
@@ -19,7 +31,7 @@ Android File Transfer:android-file-transfer
 Gimp:gimp
 Hubstaff:hubstaff
 Toggle Redshift:pkill -USR1 redshift
-passmenu:passmenu
+PassMenu:passmenu
 Play Watch Later:watch-later.sh play
 Clear Watch Later:watch-later.sh clear"
 }
