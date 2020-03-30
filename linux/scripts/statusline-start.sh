@@ -15,7 +15,7 @@ fi
 mkfifo "$PANEL_FIFO"
 
 bspc subscribe report > "$PANEL_FIFO" &
-
+bspc config top_padding 20
 
 # title
 xtitle -sf 'T%s\n' > "$PANEL_FIFO" &

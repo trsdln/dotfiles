@@ -1,9 +1,11 @@
 #!/bin/sh
 
+export DOTFILES_PATH=$HOME/.dotfiles
+
 print_app_options () {
 echo "Google Chrome:chromium
 Chrome Incognito:chromium --incognito
-Tmux:alacritty -e tmux
+Tmux:alacritty -e tmux -f $HOME/.config/tmux.conf
 Alacritty Terminal:alacritty
 Telegram:telegram-desktop
 Slack:slack
