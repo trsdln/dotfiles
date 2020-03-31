@@ -75,6 +75,15 @@ bluetoothctl
 # scan off
 ```
 
+# DNS Caching
+
+```
+sudo systemctl enable systemd-resolved.service
+sudo systemctl start systemd-resolved.service
+sudo ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+resolvectl status
+```
+
 # Docker
 
 Start docker daemon: `sudo dockerd`
