@@ -9,17 +9,9 @@ alt + shift + Return
 alt + space
 	app-launcher.sh
 
-# Increase volume
-XF86AudioRaiseVolume
-	change-volume.sh '5%+'
-
-# Decrease volume
-XF86AudioLowerVolume
-	change-volume.sh '5%-'
-
-# Mute volume
-XF86AudioMute
-	change-volume.sh toggle
+# Decrease / Increase volume / Mute audio
+{XF86AudioLowerVolume, XF86AudioRaiseVolume, XF86AudioMute}
+	change-volume.sh {'5%-','5%+',toggle}
 
 # Mute/unmute microphone
 XF86AudioMicMute
@@ -38,18 +30,12 @@ Print
 	screenshot-to-clipboard.sh
 
 # Increase backlight
-XF86MonBrightnessUp
-	change-brightness.sh '-inc 5'
-
-shift + XF86MonBrightnessUp
-	change-brightness.sh '-set 100'
+{_, shift +} XF86MonBrightnessUp
+	change-brightness.sh {'-inc 5','-set 100'}
 
 # Decrease backlight
-XF86MonBrightnessDown
-	change-brightness.sh '-dec 5'
-
-shift + XF86MonBrightnessDown
-	change-brightness.sh '-set 0'
+{_,shift +} XF86MonBrightnessDown
+	change-brightness.sh {'-dec 5','-set 0'}
 
 super + space
 	toggle-keyboard-layout.sh
@@ -57,12 +43,9 @@ super + space
 XF86Bluetooth
 	toggle-bluetooth.sh
 
-# Play/Pause music
-XF86Tools
-	playerctl play-pause
-
-shift + XF86Tools
-	playerctl next
+# Play/Pause & Next track
+{_, shift +} XF86Tools
+	playerctl {play-pause,next}
 
 # Free key:
 # XF86Launch1
