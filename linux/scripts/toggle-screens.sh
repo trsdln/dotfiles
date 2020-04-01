@@ -14,7 +14,7 @@ PRIMARY_ENABLED=$(echo "${MONITORS_LIST}" | grep "${PRIMARY_OUTPUT}")
 SECONDARY_DISCONNECTED=$(xrandr | grep "${SECONDARY_OUTPUT} disconnected")
 
 LEMONBAR_HEIGHT=20
-INIT_DELAY=3
+INIT_DELAY=1
 
 # When switching from single screen to side-by-side
 # lemonbar doesn't pick up second screen, so we need restart it
