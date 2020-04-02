@@ -18,17 +18,7 @@ INIT_DELAY=1
 
 # When switching from single screen to side-by-side
 # lemonbar doesn't pick up second screen, so we need restart it
-statusline_restart() {
-  # pgrep is not able to find process if whole process
-  # name is specified :facepalm:
-  statusline_pid=$(pgrep 'statusline-star' | sort | head -n 1)
-
-  if [ "${statusline_pid}" != "" ]; then
-    pkill -P "${statusline_pid}"
-  fi
-
-  setsid statusline-start.sh &
-}
+. statusline-restart.sh
 
 set_only_primary_mode() {
   CURRENT_MODE="Only Primary"

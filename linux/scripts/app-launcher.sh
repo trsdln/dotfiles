@@ -3,13 +3,13 @@
 export DOTFILES_PATH=$HOME/.dotfiles
 
 tmux_new () {
-  alacritty -e tmux -f $HOME/.config/tmux.conf
+  alacritty -e tmux -f $HOME/.config/tmux.conf &
 }
 
 tmux_attach () {
   local picked_session_id=$(tmux ls | dmenu -i -l 5 -p 'Session>' | cut -d ":" -f 1)
   if [ -n "${picked_session_id}" ]; then
-    alacritty -e tmux -f $HOME/.config/tmux.conf attach -t "${picked_session_id}"
+    alacritty -e tmux -f $HOME/.config/tmux.conf attach -t "${picked_session_id}" &
   fi
 }
 

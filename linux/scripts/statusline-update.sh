@@ -34,7 +34,7 @@ lemonbar_update_info() {
   fi
 
   if [ $BAT_STATUS = 'Charging' ]; then
-    STATUS_ICON='🔌'
+    STATUS_ICON='⚡'
   fi
 
   if [ $BAT_STATUS = 'Discharging' ]; then
@@ -50,7 +50,7 @@ lemonbar_update_info() {
   fi
 
   if [ $BAT_STATUS = 'Full' ]; then
-    STATUS_ICON='⚡'
+    STATUS_ICON='🔌'
   fi
 
   # CPU temperature
