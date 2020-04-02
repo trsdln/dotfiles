@@ -18,6 +18,7 @@ echo "Google Chrome:chromium
 Chrome Incognito:chromium --incognito
 TMUX New:tmux_new
 TMUX Attach:tmux_attach
+PulseMixer:alacritty -e pulsemixer
 Alacritty Terminal:alacritty
 Telegram:telegram-desktop
 Slack:slack
