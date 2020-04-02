@@ -103,16 +103,12 @@ alt + {p,b,period}
 	bspc node -f @{parent,brother,first}
 
 # focus the next/previous node in the current desktop
-alt + {_,shift + }c
+alt + {_, shift + }c
 	bspc node -f {next,prev}.local
 
-# focus alternative monitor
-alt + comma
-	bspc monitor 'any.!focused' --focus
-
-# send to alternative monitor
-alt + shift + comma
-	bspc node -m 'any.!focused' -f
+# focus/send to alternative monitor
+alt + {_, shift + }comma
+	bspc {monitor,node -m} 'any.!focused' --focus
 
 # focus the next/previous desktop in the current monitor
 alt + bracket{left,right}
