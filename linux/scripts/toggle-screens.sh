@@ -67,6 +67,10 @@ fi
 if [ "$1" = "--init" ]; then
   if [ "${SECONDARY_DISCONNECTED}" = "" ]; then
     set_only_secondary_mode
+  else
+    # if secondary disconnected call this function anyway
+    # to get bspwm workspaces initialized
+    set_only_primary_mode
   fi
   exit 0
 fi
