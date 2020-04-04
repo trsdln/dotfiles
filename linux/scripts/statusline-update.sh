@@ -11,7 +11,7 @@ GREEN_COLOR="#859900"
 
 lemonbar_update_info() {
   LOCAL_TIME="%{F$CYAN_COLOR}$(date '+%a %d %b %H:%M')%{F-}"
-  NY_TIME="" # "• $(TZ='America/New_York' date '+%a %H:%M')"
+  # NY_TIME="$(TZ='America/New_York' date '+%a %H:%M')"
 
   # Battery status
   BAT_NAME="BAT0"
@@ -66,7 +66,8 @@ lemonbar_update_info() {
   # Network status
   WIRED_NET_STATUS=$(cat /sys/class/net/e*/operstate)
   WIRELESS_NET_STATUS=$(cat /sys/class/net/w*/operstate)
-  [ "${WIRED_NET_STATUS}" = 'down' -a "${WIRELESS_NET_STATUS}" = 'down' ] && NETWORK_STATUS="%{F$RED_COLOR}X%{F-}" || NETWORK_STATUS="%{F$GREEN_COLOR}I%{F-}"
+  [ "${WIRED_NET_STATUS}" = 'down' -a "${WIRELESS_NET_STATUS}" = 'down' ] \
+    && NETWORK_STATUS="🚫" || NETWORK_STATUS="🌐"
 
   # Keyboard layout
   KEYBOARD_LAYOUT="$(setxkbmap -query | awk '/layout/ {print toupper($2)}')"
@@ -76,9 +77,10 @@ lemonbar_update_info() {
     KEYBOARD_LAYOUT_COLOR=$BLUE_COLOR
   fi
 
-  WL_COUNT="WL:$(watch-later.sh count)"
+  WL_COUNT="📷:$(watch-later.sh count)"
+  SEP="  "
 
-  echo "C ${WL_COUNT} • ${NETWORK_STATUS} • %{F$CPU_TEMP_COLOR}${CPU_TEMP}°C%{F-} • %{F$BATTERY_COLOR}${STATUS_ICON} ${BAT_CAPACITY}%%{F-} • %{F$KEYBOARD_LAYOUT_COLOR}${KEYBOARD_LAYOUT}%{F-} • ${LOCAL_TIME} ${NY_TIME}" > "${PANEL_FIFO}"
+  echo "C ${WL_COUNT}${SEP}${NETWORK_STATUS}${SEP}%{F$CPU_TEMP_COLOR}${CPU_TEMP}°C%{F-}${SEP}%{F$BATTERY_COLOR}${STATUS_ICON} ${BAT_CAPACITY}%%{F-}${SEP}%{F$KEYBOARD_LAYOUT_COLOR}${KEYBOARD_LAYOUT}%{F-}${SEP}${LOCAL_TIME}" > "${PANEL_FIFO}"
 }
 
 lemonbar_update_info
