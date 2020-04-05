@@ -1,5 +1,26 @@
 ## Arch Setup
 
+#### Partitions
+
+```
+  512M /boot
+   12G [SWAP]
+ 50.2G /
+175.8G /home
+```
+
+#### fstab
+
+```
+UUID=??	/         	xfs       	rw,relatime,attr2,inode64,noquota,noatime,discard	0 1
+
+UUID=??	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro,noatime,discard	0 2
+
+UUID=??	/home     	xfs       	rw,relatime,attr2,inode64,noquota,noatime,discard	0 2
+
+UUID=??	none      	swap      	defaults,noatime,discard  	0 0
+```
+
 #### Grub (/etc/default/grub)
 
 Achieve the fastest possible boot (hide Grub menu):
