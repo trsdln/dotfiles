@@ -32,6 +32,9 @@ aur sync <package> && sudo pacman -S <package>
 repo-remove /home/custompkgs/custom.db.tar <package>
 sudo pacman -Suy
 
+# list not installed AUR packages
+pacman -Sl custom | grep -v installed | cut -d " " -f 2
+
 # list packages at local repo
 aur repo -l
 ```

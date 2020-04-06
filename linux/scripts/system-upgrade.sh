@@ -19,6 +19,8 @@ sudo journalctl --vacuum-time=7d
 
 echo "Clean pacman cache..."
 sudo paccache --remove
+# remove uninstalled cached packages
+sudo paccache -ruk0
 
 # Update all official packages
 sudo pacman -Suy
@@ -43,14 +45,12 @@ aur sync mongodb-tools-bin
 aur sync mongodb-compass
 aur sync robo3t-bin
 aur sync slack-desktop
-# aur sync ttf-symbola
 aur sync tmux-mem-cpu-load-git
 aur sync grive
 aur sync paper-icon-theme-git
 aur sync mpv-mpris
 aur sync aurutils
 # bspwm related:
-aur sync lemonbar-xft-git
 aur sync xtitle
 aur sync libxft-bgra
 
