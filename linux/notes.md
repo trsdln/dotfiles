@@ -90,3 +90,11 @@ resolvectl status
 # Docker
 
 Start docker daemon: `sudo dockerd`
+
+# Inspect window class
+
+```
+xprop WM_CLASS
+```
+
+And then click on target window.
