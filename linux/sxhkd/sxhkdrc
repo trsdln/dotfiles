@@ -47,8 +47,8 @@ XF86Bluetooth
 {_, shift +} XF86Tools
 	playerctl {play-pause,next}
 
-# Free key:
-# XF86Launch1
+XF86Launch1
+	copy-emoji.sh
 
 # make sxhkd reload its configuration files:
 alt + Escape
