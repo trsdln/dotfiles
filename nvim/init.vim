@@ -36,6 +36,7 @@ function! PackInit() abort
   call minpac#add('tpope/vim-fugitive')
   call minpac#add('tpope/vim-rhubarb')
   call minpac#add('shumphrey/fugitive-gitlab.vim')
+  call minpac#add('tommcdo/vim-fubitive')
 
   " Git log add-on for fugitive
   call minpac#add('junegunn/gv.vim')
