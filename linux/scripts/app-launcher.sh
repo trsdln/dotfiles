@@ -20,6 +20,7 @@ TMUX New:tmux_new
 TMUX Attach:tmux_attach
 PulseMixer:alacritty -e pulsemixer
 LF:alacritty -e lf
+Bluetoothctl:alacritty -e bluetoothctl
 Alacritty Terminal:alacritty
 Telegram:telegram-desktop
 Slack:slack
