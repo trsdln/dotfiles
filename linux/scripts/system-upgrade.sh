@@ -1,5 +1,82 @@
 #!/bin/sh
 
+upgrade_aur_packages() {
+  echo "Updating all AUR packages..."
+  aur sync tuijam
+  aur sync ffcast
+  # aur sync google-cloud-sdk
+  aur sync aic94xx-firmware
+  aur sync wd719x-firmware
+  aur sync mongodb-bin
+  aur sync mongodb-tools-bin
+  aur sync mongodb-compass
+  aur sync robo3t-bin
+  aur sync slack-desktop
+  aur sync tmux-mem-cpu-load-git
+  aur sync grive
+  aur sync paper-icon-theme-git
+  aur sync mpv-mpris
+  aur sync aurutils
+  # bspwm related:
+  aur sync xtitle
+  aur sync libxft-bgra
+}
+
+upgrade_pip_packages() {
+  echo "Update pip packages:"
+  pip install --user --upgrade pynvim
+}
+
+fix_bin_sh_link() {
+  # Bash updates will override symlink "dash -> /bin/sh"
+  # instead of messing around with Pacman's hooks it can be fixed here
+  if [ "$(file $(which sh))" = "/usr/bin/sh: symbolic link to dash" ]; then
+    SH_STATUS="OK"
+  else
+    sudo ln -sfT dash /bin/sh
+    if [ "$(file $(which sh))" = "/usr/bin/sh: symbolic link to dash" ]; then
+      SH_STATUS="FIXED"
+    else
+      SH_STATUS="FAILED"
+    fi
+  fi
+  echo "dash -> /bin/sh symlink: $SH_STATUS"
+}
+
+clean_custompkgs_obsolete_files() {
+  local repo_path="/home/custompkgs"
+
+  echo "\nChecking ${repo_path} for obsolete files..."
+
+  local existing_files="$(ls "${repo_path}" | grep -v 'custom.db' | grep -v 'custom.files')"
+
+  for installed_pack in $(pacman -Sl custom | cut -d " " -f 2)
+  do
+    # remove registered package from the list
+    existing_files=$(printf "%s\n" "${existing_files}" | grep -v "${installed_pack}")
+  done
+
+  printf "Obsolete package files:\n%s\n" "${existing_files}"
+
+  if [ "${existing_files}" != "" ]; then
+    printf "Remove obsolete files? [y/n] (y) "
+    read -r ans
+    if [ "$ans" = "y" ] || [ "$ans" = "" ]; then
+      for file_name in $(printf "%s" "${existing_files}"); do
+        file_path="${repo_path}/${file_name}"
+        echo "Removing ${file_path}"
+        rm -f ${file_path}
+      done
+      echo "Obsolete files cleaned."
+    else
+      echo "Cleaning skipped."
+    fi
+  else
+    echo "Nothing to clean."
+  fi
+}
+
+
 # Prevent auto suspend and disable screensaver
 xset -dpms
 xset s off
@@ -34,28 +111,9 @@ if [ -n "$last_upgrade" ]; then
   echo "================================"
 fi
 
-echo "Updating all AUR packages..."
-aur sync tuijam
-aur sync ffcast
-# aur sync google-cloud-sdk
-aur sync aic94xx-firmware
-aur sync wd719x-firmware
-aur sync mongodb-bin
-aur sync mongodb-tools-bin
-aur sync mongodb-compass
-aur sync robo3t-bin
-aur sync slack-desktop
-aur sync tmux-mem-cpu-load-git
-aur sync grive
-aur sync paper-icon-theme-git
-aur sync mpv-mpris
-aur sync aurutils
-# bspwm related:
-aur sync xtitle
-aur sync libxft-bgra
+upgrade_aur_packages
 
-echo "Update pip packages:"
-pip install --user --upgrade pynvim
+upgrade_pip_packages
 
 echo "Checking for system errors:"
 journalctl -p 3 -xb
@@ -69,19 +127,9 @@ pacman -Qdt
 echo "Potentially removed packages (or installed from AUR):"
 pacman -Qm
 
-# Bash updates will override symlink "dash -> /bin/sh"
-# instead of messing around with Pacman's hooks it can be fixed here
-if [ "$(file $(which sh))" = "/usr/bin/sh: symbolic link to dash" ]; then
-  SH_STATUS="OK"
-else
-  sudo ln -sfT dash /bin/sh
-  if [ "$(file $(which sh))" = "/usr/bin/sh: symbolic link to dash" ]; then
-    SH_STATUS="FIXED"
-  else
-    SH_STATUS="FAILED"
-  fi
-fi
-echo "dash -> /bin/sh symlink: $SH_STATUS"
+fix_bin_sh_link
+
+clean_custompkgs_obsolete_files
 
 # Restore screen saver and auto suspend
 xset +dpms
