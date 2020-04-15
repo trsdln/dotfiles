@@ -35,6 +35,7 @@ Gimp:gimp
 Hubstaff:hubstaff
 Toggle Redshift:pkill -USR1 redshift
 PassMenu:passmenu
+Keybase:keybase-gui
 Play Watch Later:watch-later.sh play
 Clear Watch Later:watch-later.sh clear"
 }
