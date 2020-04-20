@@ -882,7 +882,7 @@
 🧨 firecracker; U+1F9E8
 ✨ sparkles; U+2728
 🎈 balloon; U+1F388
-🎉 party popper; U+1F389
+🎉 party popper, tada; U+1F389
 🎊 confetti ball; U+1F38A
 🎋 tanabata tree; U+1F38B
 🎍 pine decoration; U+1F38D
@@ -899,9 +899,9 @@
 🎖 military medal; U+1F396
 🏆 trophy; U+1F3C6
 🏅 sports medal; U+1F3C5
-1st place medal; U+1F947 🥇
-2nd place medal; U+1F948 🥈
-3rd place medal; U+1F949 🥉
+🥇 1st place medal; U+1F947
+🥈 2nd place medal; U+1F948
+🥉 3rd place medal; U+1F949
 ⚽ soccer ball; U+26BD
 ⚾ baseball; U+26BE
 🥎 softball; U+1F94E
