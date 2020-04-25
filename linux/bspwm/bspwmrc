@@ -18,6 +18,7 @@ bspc config pointer_follows_monitor true
 bspc rule -a mpv state=floating
 bspc rule -a Zathura state=tiled
 bspc rule -a Hubstaff state=floating rectangle=900x600+50+100
+bspc rule -a ShowCal state=floating rectangle=210x500+1690+35
 
 # get rid of cross cursor above wallpaper:
 xsetroot -cursor_name left_ptr &
