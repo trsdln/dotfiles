@@ -1,3 +1,4 @@
+"
 " Start Jest's tests execution from Vim
 nnoremap <buffer> <leader>jv :StartJest<CR>
 nnoremap <buffer> <leader>jn :StartJestNoVerbose<CR>
@@ -39,14 +40,17 @@ command! ToggleTestCaseFocus call s:ToggleTestCaseFocus()
 function! s:ToggleTestCaseFocus()
   try
     " Go to "it" above
-    execute 'normal! ?\v(\s|^)(it)(\.only){0,1}\(?g' . "\<cr>"
+    silent execute 'normal! ?\v(\s|^)(it)(\.only){0,1}\(?g' . "\<cr>"
 
     " Figure out whether we should add or remove ".only"
     if getline('.') =~# '\v(it)\('
-      substitute/\v(\s|^)\zs(it)\ze\(/it.only/
+      silent substitute/\v(\s|^)\zs(it)\ze\(/it.only/
     else
-      substitute/\v(\s|^)\zs(it\.only)\ze\(/it/
+      silent substitute/\v(\s|^)\zs(it\.only)\ze\(/it/
     endif
+
+    " Go to last cursor position
+    execute "normal! \<C-O>"
 
     nohlsearch
   catch
