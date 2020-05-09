@@ -127,6 +127,9 @@ pacman -Qdt
 echo "Potentially removed packages (or installed from AUR):"
 pacman -Qm
 
+echo "Unused packages at 'custom' repo:"
+pacman -Sl custom | grep -v installed | cut -d " " -f 2
+
 fix_bin_sh_link
 
 clean_custompkgs_obsolete_files
