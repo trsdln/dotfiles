@@ -98,3 +98,14 @@ xprop WM_CLASS
 ```
 
 And then click on target window.
+
+# Mirrorlist ranking
+
+Save output of
+
+```
+curl -s "https://www.archlinux.org/mirrorlist/?country=PL&country=DE&country=CZ&country=UA&protocol=https&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 5 -
+```
+
+at `/etc/pacman.d/mirrorlist`. Better backup it before replacing
+
