@@ -178,6 +178,7 @@ sudo systemctl start ip6tables.service
 #### Printer setup
 
 ```
+sudo pacman -S cups splix
 sudo systemctl enable org.cups.cupsd.service
 sudo systemctl start org.cups.cupsd.service
 ```
