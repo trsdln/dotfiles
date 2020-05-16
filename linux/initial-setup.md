@@ -194,6 +194,8 @@ lpinfo -m
 
 # create queue
 lpadmin -p "queue_name" -E -v uri -m "model"
+# example:
+lpadmin -p HP_DESKJET_940C -E -v "usb://HP/DESKJET%20940C?serial=CN16E6C364BH" -m drv:///HP/hp-deskjet_940c.ppd.gz
 ```
 
 ### Switch to LTS kernel
