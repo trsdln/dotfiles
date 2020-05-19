@@ -75,6 +75,7 @@ bluetoothctl
 # devices
 # pair <mac>
 # connect <mac>
+# trust <mac>
 # scan off
 ```
 
