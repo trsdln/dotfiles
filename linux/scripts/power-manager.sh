@@ -1,6 +1,6 @@
 #!/bin/sh
 
-OPTIONS="Sleep\nHibernate\nShutdown\nReboot"
+OPTIONS="Lock\nSleep\nHibernate\nShutdown\nReboot"
 
 SELECTED_OPTION=$(printf $OPTIONS | dmenu -i -p 'Action')
 
@@ -22,6 +22,10 @@ do_shutdown () {
 do_reboot () {
   sudo shutdown -r now
 }
+
+if [ "$SELECTED_OPTION" = 'Lock' ]; then
+  slock &
+fi
 
 if [ "$SELECTED_OPTION" = 'Sleep' ]; then
   systemctl suspend
