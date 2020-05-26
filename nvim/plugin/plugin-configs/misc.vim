@@ -74,6 +74,12 @@ let g:ale_fixers = {
       \   'json': ['prettier_eslint'],
       \ }
 
+command! ALEToggleFixer call s:ALEToggleFixer()
+function! s:ALEToggleFixer()
+  let g:ale_fix_on_save = get(g:, 'ale_fix_on_save', 0) ? 0 : 1
+  echo 'ALE fixer ' . (g:ale_fix_on_save ? 'enabled' : 'disabled')
+endfunction
+
 let g:ale_enabled = 1
 
 " Randomly breaks auto-import's 'go back to usage feature'
