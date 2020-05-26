@@ -76,6 +76,7 @@ let g:ale_fixers = {
 
 command! ALEToggleFixer call s:ALEToggleFixer()
 function! s:ALEToggleFixer()
+  ALEToggle
   let g:ale_fix_on_save = get(g:, 'ale_fix_on_save', 0) ? 0 : 1
   echo 'ALE fixer ' . (g:ale_fix_on_save ? 'enabled' : 'disabled')
 endfunction
