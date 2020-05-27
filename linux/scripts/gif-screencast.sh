@@ -2,6 +2,9 @@
 
 # source https://unix.stackexchange.com/questions/113695/gif-screencasting-the-unix-way
 
+# todo: rewrite it using alternative to ffcast app; remove ffcast and all deps
+# possible alternative: https://github.com/naelstrof/slop#practical-applications
+
 TMP_AVI=$(mktemp /tmp/screencast_XXXXXXXXXX.avi)
 GIF_OUTPUT_NAME=~/Desktop/screencast_$(date +%d-%m-%y_%H-%M-%S).gif
 
