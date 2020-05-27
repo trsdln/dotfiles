@@ -11,7 +11,8 @@ if [ "${new_count}" -gt 0 ]; then
     notify-send --icon='/usr/share/icons/Paper/32x32/apps/email.png' \
       --hint='string:x-canonical-private-synchronous:mutt-new-email' \
       'New Email' "${new_count} new messages, ${unread_count} unread." &
+    tput bel
   else
-    echo "todo: implement for macos"
+    tput bel
   fi
 fi
