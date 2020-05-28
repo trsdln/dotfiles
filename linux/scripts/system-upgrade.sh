@@ -3,7 +3,6 @@
 upgrade_aur_packages() {
   echo "Updating all AUR packages..."
   aur sync tuijam
-  aur sync ffcast
   # aur sync google-cloud-sdk
   aur sync aic94xx-firmware
   aur sync wd719x-firmware
@@ -75,7 +74,6 @@ clean_custompkgs_obsolete_files() {
     echo "Nothing to clean."
   fi
 }
-
 
 # Prevent auto suspend and disable screensaver
 xset -dpms

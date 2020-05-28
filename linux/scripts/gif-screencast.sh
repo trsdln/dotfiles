@@ -1,18 +1,14 @@
-#!/bin/sh
-
-# source https://unix.stackexchange.com/questions/113695/gif-screencasting-the-unix-way
-
-# todo: rewrite it using alternative to ffcast app; remove ffcast and all deps
-# possible alternative: https://github.com/naelstrof/slop#practical-applications
+#!/bin/bash
 
 TMP_AVI=$(mktemp /tmp/screencast_XXXXXXXXXX.avi)
 GIF_OUTPUT_NAME=~/Desktop/screencast_$(date +%d-%m-%y_%H-%M-%S).gif
 
-echo "Starting recording... Press q to stop"
+echo "After area selection recording will start. Press q to stop"
 
-ffcast -s % ffmpeg -y -f x11grab -show_region 1 -framerate 15 \
-    -video_size %s -i %D+%c -codec:v huffyuv                  \
-    -vf crop="iw-mod(iw\\,2):ih-mod(ih\\,2)" $TMP_AVI
+# source: https://github.com/naelstrof/slop#practical-applications
+slop=$(slop -f "%x %y %w %h %g %i") || exit 1
+read -r X Y W H G ID < <(echo $slop)
+ffmpeg -f x11grab -s "$W"x"$H" -i :0.0+$X,$Y -codec:v huffyuv -framerate 15 -y "${TMP_AVI}"
 
 gifgen -sf 15 -o "${GIF_OUTPUT_NAME}" "${TMP_AVI}"
 
