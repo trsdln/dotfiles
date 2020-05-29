@@ -67,6 +67,8 @@ Note: most of vim's monitions work as well obviously
 * `q/`/`q?`     - search history
 * `g*`          - next partial matching word search
 * `g#`          - previous partial matching word search
+* `ZZ`          - save file and exit Vim
+* `ZQ`          - exit Vim without saving file
 
 ### Switching into insert mode
 
