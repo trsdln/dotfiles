@@ -158,7 +158,34 @@ let g:dispatch_tmux_height = 0
 " Configure js-file-import
 let g:js_file_import_string_quote = "'"
 
+
+" Configure quick-scope
 " Trigger a highlight in the appropriate direction when pressing these keys:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
 highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
+
+
+" Configure vim-closetag
+" These are the file extensions where this plugin is enabled.
+let g:closetag_filenames = '*.html'
+
+" This will make the list of non-closing tags self-closing in the specified files.
+let g:closetag_xhtml_filenames = '*.jsx,*.js'
+
+" These are the file types where this plugin is enabled.
+let g:closetag_filetypes = 'html,javascript'
+
+" This will make the list of non-closing tags self-closing in the specified files.
+let g:closetag_xhtml_filetypes = 'js,jsx'
+
+" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
+let g:closetag_emptyTags_caseSensitive = 1
+
+
+" Configure delimMate
+augroup delimMate
+  " Prevent from conflicting with vim-closetag at HTML
+  autocmd FileType html let b:delimitMate_matchpairs = "(:),[:],{:}"
+augroup END
+
