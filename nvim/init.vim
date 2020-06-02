@@ -413,3 +413,6 @@ endfunction
 
 " Quickly open dotfiles directory for edit at new tab
 command! Dotfiles tabnew | lcd ~/.dotfiles | Dirvish
+
+" try to get used to alternative mapping
+nnoremap :wq :echo "use ZZ instead"<CR>
