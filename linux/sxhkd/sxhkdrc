@@ -149,24 +149,3 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 alt + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
-
-
-# Unused BSPWM shortcuts (probably can be deleted)
-
-# # focus the last node/desktop
-# super + {grave,Tab}
-# 	bspc {node,desktop} -f last
-
-# # focus the older or newer node in the focus history
-# alt + {o,i}
-# 	bspc wm -h off; \
-# 	bspc node {older,newer} -f; \
-# 	bspc wm -h on
-
-# # cancel the preselection for the focused desktop
-# super + ctrl + shift + space
-# 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
-
-# # preselect the ratio
-# super + ctrl + {1-9}
-# 	bspc node -o 0.{1-9}
