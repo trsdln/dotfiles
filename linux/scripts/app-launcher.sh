@@ -36,7 +36,14 @@ Keybase:keybase-gui
 Tor Browser:torbrowser-launcher
 Play Watch Later:watch-later.sh play
 Clear Watch Later:watch-later.sh clear
-Edit Watch Later:watch-later.sh edit"
+Edit Watch Later:watch-later.sh edit
+Lock:power-manager.sh lock
+Sleep:power-manager.sh sleep
+Hibernate:power-manager.sh hibernate
+Shutdown:power-manager.sh shutdown
+Reboot:power-manager.sh reboot
+Logout:power-manager.sh logout
+"
 }
 
 prompt_app_and_run () {

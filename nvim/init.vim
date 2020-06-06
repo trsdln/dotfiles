@@ -116,7 +116,7 @@ command! PackUpdate call PackInit() | call minpac#update('', {
 command! PackClean  call PackInit() | call minpac#clean()
 command! PackStatus call PackInit() | call minpac#status()
 " List optional plugins
-command! PackOptList execute '!ls ' . s:minpac_opt_dir
+command! PackOptList echo "Note: packadd has auto-completion!"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General

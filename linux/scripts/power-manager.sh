@@ -1,9 +1,5 @@
 #!/bin/sh
 
-OPTIONS="Lock\nSleep\nHibernate\nShutdown\nReboot\nLogout"
-
-SELECTED_OPTION=$(printf $OPTIONS | dmenu -i -p 'Action')
-
 prompt_confirmation () {
   local prompt_message="$1"
   local prompt_action="$2"
@@ -27,26 +23,13 @@ do_logout() {
   bspc quit
 }
 
-if [ "$SELECTED_OPTION" = 'Lock' ]; then
-  slock &
-fi
+SELECTED_COMMAND="$1"
 
-if [ "$SELECTED_OPTION" = 'Sleep' ]; then
-  systemctl suspend
-fi
-
-if [ "$SELECTED_OPTION" = 'Hibernate' ]; then
-  systemctl hibernate
-fi
-
-if [ "$SELECTED_OPTION" = 'Shutdown' ]; then
-  prompt_confirmation 'Shutting down now. Are you sure?' 'do_shutdown'
-fi
-
-if [ "$SELECTED_OPTION" = 'Reboot' ]; then
-  prompt_confirmation 'Rebooting now. Are you sure?' 'do_reboot'
-fi
-
-if [ "$SELECTED_OPTION" = 'Logout' ]; then
-  prompt_confirmation 'Logging out now. Are you sure?' 'do_logout'
-fi
+case $SELECTED_COMMAND in
+  lock) slock & ;;
+  sleep) systemctl suspend ;;
+  hibernate) systemctl hibernate ;;
+  shutdown)   prompt_confirmation 'Shutting down now. Are you sure?' 'do_shutdown' ;;
+  reboot) prompt_confirmation 'Rebooting now. Are you sure?' 'do_reboot' ;;
+  logout) prompt_confirmation 'Logging out now. Are you sure?' 'do_logout' ;;
+esac
