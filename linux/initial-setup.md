@@ -175,6 +175,15 @@ sudo systemctl enable ip6tables.service
 sudo systemctl start ip6tables.service
 ```
 
+# DNS Caching
+
+```
+sudo systemctl enable systemd-resolved.service
+sudo systemctl start systemd-resolved.service
+sudo ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+resolvectl status
+```
+
 #### Printer setup
 
 ```

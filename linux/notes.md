@@ -28,6 +28,9 @@ Usually is used to apply/load new configuration (also, fixes problems with Bluet
 # install package
 aur sync <package> && sudo pacman -S <package>
 
+# add package to local repo manually
+repo-add custom.db.tar ./<package>.pkg.tar
+
 # remove package from local repo
 repo-remove /home/custompkgs/custom.db.tar <package>
 sudo pacman -Suy
@@ -37,6 +40,9 @@ pacman -Sl custom | grep -v installed | cut -d " " -f 2
 
 # list packages at local repo
 aur repo -l
+
+# trust unknown key
+gpg --recv-key <key_id>
 ```
 
 # Extract tar
@@ -77,15 +83,6 @@ bluetoothctl
 # connect <mac>
 # trust <mac>
 # scan off
-```
-
-# DNS Caching
-
-```
-sudo systemctl enable systemd-resolved.service
-sudo systemctl start systemd-resolved.service
-sudo ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
-resolvectl status
 ```
 
 # Docker
