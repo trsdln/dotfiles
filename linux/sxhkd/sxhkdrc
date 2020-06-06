@@ -29,6 +29,9 @@ XF86WLAN
 Print
 	screenshot-to-clipboard.sh
 
+ctrl + Print
+	toggle-gif-screencast.sh
+
 # Increase backlight
 {_, shift +} XF86MonBrightnessUp
 	change-brightness.sh {'-inc 5','-set 100'}
