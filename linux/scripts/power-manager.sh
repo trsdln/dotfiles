@@ -1,6 +1,6 @@
 #!/bin/sh
 
-OPTIONS="Lock\nSleep\nHibernate\nShutdown\nReboot"
+OPTIONS="Lock\nSleep\nHibernate\nShutdown\nReboot\nLogout"
 
 SELECTED_OPTION=$(printf $OPTIONS | dmenu -i -p 'Action')
 
@@ -23,6 +23,10 @@ do_reboot () {
   sudo shutdown -r now
 }
 
+do_logout() {
+  bspc quit
+}
+
 if [ "$SELECTED_OPTION" = 'Lock' ]; then
   slock &
 fi
@@ -41,4 +45,8 @@ fi
 
 if [ "$SELECTED_OPTION" = 'Reboot' ]; then
   prompt_confirmation 'Rebooting now. Are you sure?' 'do_reboot'
+fi
+
+if [ "$SELECTED_OPTION" = 'Logout' ]; then
+  prompt_confirmation 'Logging out now. Are you sure?' 'do_logout'
 fi
