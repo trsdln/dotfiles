@@ -21,6 +21,12 @@ elif [ $cmd = "play" ]; then
   notify-send --hint $notification_hint "$notification_title" "Starting mpv..."
   exec mpv $watch_later_file
 elif [ $cmd = "count" ]; then
-  items_count=$(wc -l $watch_later_file 2> /dev/null || echo 0)
-  echo "$items_count" | awk '{print $1}'
+  items_count=$(wc -l $watch_later_file 2> /dev/null)
+  # strip file name
+  items_count=${items_count%% *}
+  # fall back to 0 as default
+  items_count=${items_count:-0}
+  # account for video titles
+  items_count=$((${items_count} / 2))
+  echo "$items_count"
 fi
