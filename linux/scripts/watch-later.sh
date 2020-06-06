@@ -29,4 +29,6 @@ elif [ $cmd = "count" ]; then
   # account for video titles
   items_count=$((${items_count} / 2))
   echo "$items_count"
+elif [ $cmd = "edit" ]; then
+  alacritty -e nvim $watch_later_file
 fi

@@ -37,7 +37,8 @@ PassMenu:passmenu
 Keybase:keybase-gui
 Tor Browser:torbrowser-launcher
 Play Watch Later:watch-later.sh play
-Clear Watch Later:watch-later.sh clear"
+Clear Watch Later:watch-later.sh clear
+Edit Watch Later:watch-later.sh edit"
 }
 
 prompt_app_and_run () {
