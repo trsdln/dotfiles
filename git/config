@@ -29,3 +29,5 @@
 [color "branch"]
   remote = yellow
 #vim:ft=gitconfig
+[pull]
+	rebase = true
