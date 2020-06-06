@@ -30,5 +30,5 @@ elif [ $cmd = "count" ]; then
   items_count=$((${items_count} / 2))
   echo "$items_count"
 elif [ $cmd = "edit" ]; then
-  alacritty -e nvim $watch_later_file
+  $TERMINAL -e $EDITOR $watch_later_file
 fi

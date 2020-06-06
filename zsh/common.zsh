@@ -1,10 +1,10 @@
 export KEYTIMEOUT=1 # Reduce delay for vi mode at zsh
-export EDITOR='nvim'
-export VISUAL='nvim'
 export SHELL='/bin/zsh'
 export GPG_TTY=$(tty)
 export LESSHISTFILE='-' # no history file for less
 export NODE_REPL_HISTORY=''
+
+source "${DOTFILES_PATH}/zsh/envs.sh"
 
 # Load machine specific configs
 if [ "${OSTYPE}" = "linux-gnu" ]; then

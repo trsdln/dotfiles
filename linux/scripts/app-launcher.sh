@@ -1,15 +1,13 @@
 #!/bin/sh
 
-export DOTFILES_PATH=$HOME/.dotfiles
-
 tmux_new () {
-  alacritty -e tmux -f $HOME/.config/tmux.conf &
+  $TERMINAL -e tmux -f $HOME/.config/tmux.conf &
 }
 
 tmux_attach () {
   local picked_session_id=$(tmux ls | dmenu -i -l 5 -p 'Session>' | cut -d ":" -f 1)
   if [ -n "${picked_session_id}" ]; then
-    alacritty -e tmux -f $HOME/.config/tmux.conf attach -t "${picked_session_id}" &
+    $TERMINAL -e tmux -f $HOME/.config/tmux.conf attach -t "${picked_session_id}" &
   fi
 }
 
@@ -18,14 +16,14 @@ echo "Google Chrome:chromium
 Chrome Incognito:chromium --incognito
 TMUX New:tmux_new
 TMUX Attach:tmux_attach
-PulseMixer:alacritty -e pulsemixer
-Bluetoothctl:alacritty -e bluetoothctl
-Alacritty Terminal:alacritty
+PulseMixer:$TERMINAL -e pulsemixer
+Bluetoothctl:$TERMINAL -e bluetoothctl
+Alacritty Terminal:$TERMINAL
 Telegram:telegram-desktop
 Slack:slack
-Htop:alacritty -e htop
-Newsboat:alacritty -e newsboat
-Tuijam:alacritty -e tuijam
+Htop:$TERMINAL -e htop
+Newsboat:$TERMINAL -e newsboat
+Tuijam:$TERMINAL -e tuijam
 MongoDB Compass:mongodb-compass
 Robo3T:robo3t
 Transmission Torrent:transmission-qt
