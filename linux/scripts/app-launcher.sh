@@ -26,7 +26,7 @@ Newsboat:$TERMINAL -e newsboat
 Tuijam:$TERMINAL -e tuijam
 MongoDB Compass:mongodb-compass
 Robo3T:robo3t
-Transmission Torrent:transmission-qt
+Transmission Torrent:transmission-gtk
 Android File Transfer:android-file-transfer
 Gimp:gimp
 Hubstaff:hubstaff
