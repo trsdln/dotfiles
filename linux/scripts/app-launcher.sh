@@ -33,6 +33,7 @@ Hubstaff:hubstaff
 Toggle Redshift:pkill -USR1 redshift
 PassMenu:passmenu
 Keybase:keybase-gui
+Firefox:firefox
 Tor Browser:torbrowser-launcher
 Play Watch Later:watch-later.sh play
 Clear Watch Later:watch-later.sh clear
