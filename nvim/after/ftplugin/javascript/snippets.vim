@@ -48,6 +48,10 @@ inoreabbrev <buffer> impf
       \ import * as F from 'fluture';
       \<CR><esc><bs>
 
+inoreabbrev <buffer> imps
+      \ import styled from 'styled-components';
+      \<CR><esc><bs>
+
 inoreabbrev <buffer> impc
       \ import {  } from '<++>';
       \<esc>F{la
