@@ -1,4 +1,4 @@
-" Interactive Ramda docs
+" Docs Opener (mnemonic: read docs)
 nnoremap <buffer> <Leader>rd :OpenDocs<cr>
 command! OpenDocs call s:OpenDocs()
 
