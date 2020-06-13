@@ -23,6 +23,10 @@ Note: most of vim's monitions work as well obviously
 
 ## Vanilla Vim
 
+### Vim Terminal
+
+* Mod-j - ZSH's vi-mode for command editing
+
 ### Window Shortcuts
 
 * `C-W r`  - "rotate" split
@@ -200,9 +204,6 @@ will do the trick.
 * `C-xC-n`  - can by used to copy sequence of text somewhere at document if
   used sequentially multiple times
 
-### Terminal
-
-* Mod-j - vi-mode for command editing
 
 ## VIM Plugins
 

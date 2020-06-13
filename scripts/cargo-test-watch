@@ -2,6 +2,9 @@
 
 # super useful for TDD
 
+# to run app on every change use:
+# find src | entr -s -c 'cargo run'
+
 while true; do
   rg --files src | entr -c -d cargo test $@
 
