@@ -116,7 +116,7 @@ endfunction
 augroup spelunker
   autocmd!
   autocmd BufWinEnter,BufWritePost
-        \ *.vim,*.js,*.jsx,*.json,*.sh,*.md,COMMIT_EDITMSG
+        \ *.vim,*.js,*.jsx,*.json,*.sh,*.md,*.rs,COMMIT_EDITMSG
         \ call s:SplunckerWrapper()
 augroup END
 
