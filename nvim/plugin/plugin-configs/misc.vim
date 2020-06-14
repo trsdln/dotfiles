@@ -68,11 +68,12 @@ augroup END
 
 
 " Setup ale
-let g:ale_linters = { 'javascript': ['eslint'] }
+let g:ale_linters = {'javascript': ['eslint'], 'rust': ['cargo'] }
 
 let g:ale_fixers = {
       \   'javascript': ['prettier_eslint'],
       \   'json': ['prettier_eslint'],
+      \   'rust': ['rustfmt', 'remove_trailing_lines', 'trim_whitespace'],
       \ }
 
 command! ALEToggleFixer call s:ALEToggleFixer()
@@ -82,6 +83,7 @@ function! s:ALEToggleFixer()
   echo 'ALE fixer ' . (g:ale_fix_on_save ? 'enabled' : 'disabled')
 endfunction
 
+let g:ale_fix_on_save = 1
 let g:ale_enabled = 1
 
 let g:ale_sign_error = "◉"
