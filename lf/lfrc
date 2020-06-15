@@ -10,7 +10,13 @@ cmd open ${{
     xdg-open $f
   else
     case $(file --mime-type $f -b) in
-      image/*) [[ "$OSTYPE" == "linux-gnu" ]] && sxiv -a $fx || open $fx;;
+      image/*)
+        if [ "${OSTYPE}" = "linux-gnu" ]; then
+          setsid nohup sxiv -a $fx > /dev/null &
+        else
+          open $fx
+        fi
+      ;;
       video/*) setsid nohup mpv $fx > /dev/null &;;
       *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;
     esac
