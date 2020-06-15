@@ -1,6 +1,6 @@
 #!/bin/sh
 
-userresources=$HOME/.Xresources
+userresources=$HOME/.config/.Xresources
 sysresources=/etc/X11/xinit/.Xresources
 
 # merge in defaults and keymaps
