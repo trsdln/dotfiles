@@ -107,3 +107,9 @@ curl -s "https://www.archlinux.org/mirrorlist/?country=PL&country=DE&country=CZ&
 
 at `/etc/pacman.d/mirrorlist`. Better backup it before replacing
 
+# Find PID that blocking device unmount
+
+```
+lsof +f -- /dev/sda2
+```
+
