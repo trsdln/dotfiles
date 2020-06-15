@@ -18,7 +18,7 @@ sync_git_repo() {
 
   # check if repo is clean
   if [ "$(git status -s | wc -l | awk '{print $1}')" = "0" ]; then
-    git pull > /dev/null \
+    git pull --rebase > /dev/null \
       && git push &> /dev/null
     print_step_result "$?"
   else
