@@ -27,7 +27,10 @@ XF86WLAN
 	toggle-wifi.sh
 
 Print
-	screenshot-to-clipboard.sh
+	take-screenshot.sh clipboard
+
+super + Print
+	take-screenshot.sh desktop
 
 ctrl + Print
 	toggle-gif-screencast.sh
