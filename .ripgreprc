@@ -19,3 +19,5 @@
 --glob=!schema.json
 --glob=!todos.wofl
 --glob=!Session.vim
+# for Rust related projects
+--glob=!target/debug/**
