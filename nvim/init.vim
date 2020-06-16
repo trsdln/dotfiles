@@ -148,7 +148,7 @@ set wildmode=full
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
-set wildignore+=*/tmp/*,*/node_modules/*,*/.meteor/local/*,*.so,*.swp,*.zip,*.png,*.ico,*.woff
+set wildignore+=*/tmp/*,*/node_modules/*,*/.meteor/local/*,*.so,*.swp,*.zip,*.ico,*.woff
 
 " Do not show line number
 set nonumber
