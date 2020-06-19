@@ -80,10 +80,16 @@ lemonbar_update_info() {
   WL_COUNT="📷:$(watch-later.sh count)"
   SEP="  "
 
-  if [ $(playerctl status) = "Playing" ]; then
-    MPRIS_STATUS="▶"
-  else
-    MPRIS_STATUS="⏸"
+  PLAYERCTL_RESULT=$(playerctl status 2>/dev/null)
+  PLAYERCTL_CODE="$?"
+
+  MPRIS_STATUS=""
+  if [ "${PLAYERCTL_CODE}" = "0" ]; then
+    if [ "${PLAYERCTL_RESULT}" = "Playing" ]; then
+      MPRIS_STATUS="▶"
+    else
+      MPRIS_STATUS="⏸"
+    fi
   fi
 
   echo "C ${MPRIS_STATUS}${SEP}${WL_COUNT}${SEP}${NETWORK_STATUS}${SEP}%{F$CPU_TEMP_COLOR}${CPU_TEMP}°C%{F-}${SEP}%{F$BATTERY_COLOR}${STATUS_ICON} ${BAT_CAPACITY}%%%{F-}${SEP}%{F$KEYBOARD_LAYOUT_COLOR}${KEYBOARD_LAYOUT}%{F-}${SEP}${LOCAL_TIME}" > "${PANEL_FIFO}"
