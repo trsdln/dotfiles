@@ -86,7 +86,9 @@ lemonbar_update_info() {
   MPRIS_STATUS=""
   if [ "${PLAYERCTL_CODE}" = "0" ]; then
     if [ "${PLAYERCTL_RESULT}" = "Playing" ]; then
-      MPRIS_STATUS="▶"
+      local mpris_title="$(playerctl metadata title)"
+      local short_title="$(printf "%.20s\n" "${mpris_title}")"
+      MPRIS_STATUS="▶ ${short_title}"
     else
       MPRIS_STATUS="⏸"
     fi
