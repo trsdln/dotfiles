@@ -77,7 +77,7 @@ lemonbar_update_info() {
     KEYBOARD_LAYOUT_COLOR=$BLUE_COLOR
   fi
 
-  WL_COUNT="📷:$(watch-later.sh count)"
+  WL_COUNT="📷 $(watch-later.sh count)"
   SEP="  "
 
   PLAYERCTL_RESULT=$(playerctl status 2>/dev/null)
@@ -86,9 +86,9 @@ lemonbar_update_info() {
   MPRIS_STATUS=""
   if [ "${PLAYERCTL_CODE}" = "0" ]; then
     if [ "${PLAYERCTL_RESULT}" = "Playing" ]; then
-      local mpris_title="$(playerctl metadata title)"
-      local short_title="$(printf "%.20s\n" "${mpris_title}")"
-      MPRIS_STATUS="▶ ${short_title}"
+      # take first 4 words of title
+      local mpris_title="$(playerctl metadata title | cut -d' ' -f 1-4)"
+      MPRIS_STATUS="▶ ${mpris_title}"
     else
       MPRIS_STATUS="⏸"
     fi
