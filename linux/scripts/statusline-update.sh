@@ -81,16 +81,20 @@ lemonbar_update_info() {
   SEP="  "
 
   PLAYERCTL_RESULT=$(playerctl status 2>/dev/null)
-  PLAYERCTL_CODE="$?"
+  local playerctl_code="$?"
 
   MPRIS_STATUS=""
-  if [ "${PLAYERCTL_CODE}" = "0" ]; then
-    if [ "${PLAYERCTL_RESULT}" = "Playing" ]; then
-      # take first 4 words of title
-      local mpris_title="$(playerctl metadata title | cut -d' ' -f 1-4)"
-      MPRIS_STATUS="▶ ${mpris_title}"
-    else
-      MPRIS_STATUS="⏸"
+  if [ "${playerctl_code}" = "0" ]; then
+    mpris_title="$(playerctl metadata title 2>/dev/null)"
+    local playerctl_code="$?"
+
+    if [ "${playerctl_code}" = "0" ]; then
+      if [ "${PLAYERCTL_RESULT}" = "Playing" ]; then
+        # take first 4 words of title
+        MPRIS_STATUS="▶ $(echo "${mpris_title}" | cut -d' ' -f 1-4)"
+      else
+        MPRIS_STATUS="⏸"
+      fi
     fi
   fi
 
