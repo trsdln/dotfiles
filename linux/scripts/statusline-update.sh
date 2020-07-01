@@ -10,7 +10,7 @@ RED_COLOR="#dc322f"
 GREEN_COLOR="#859900"
 
 lemonbar_update_info() {
-  LOCAL_TIME="%{F$CYAN_COLOR}%{A:alacritty --hold --class ShowCal,ShowCal -e cal -3:}$(date '+%a %d %b %H:%M')%{A}%{F-}"
+  LOCAL_TIME="%{F$CYAN_COLOR}%{A:alacritty --hold --class ShowCal,ShowCal -e cal -3:}$(date '+%a %d %b(%m) %H:%M')%{A}%{F-}"
   # NY_TIME="$(TZ='America/New_York' date '+%a %H:%M')"
 
   # Battery status
