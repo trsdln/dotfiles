@@ -20,8 +20,8 @@ XF86AudioMicMute
 XF86Display
 	toggle-screens.sh
 
-# free function key!
-# XF86Favorites
+XF86Favorites
+	statusline-restart.sh
 
 XF86WLAN
 	toggle-wifi.sh
