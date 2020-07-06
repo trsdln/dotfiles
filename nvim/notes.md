@@ -231,7 +231,7 @@ Git log extension for vim-fugitive:
 
 Syntax:
 
-`Grepper -query [[{any RG args}...] --] {search pattern}`
+`Grepper -query [[{any RG args}...] --] {search pattern} [path]`
 
 Rg options:
 
