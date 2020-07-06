@@ -21,11 +21,12 @@
 /home/taras/.config/MongoDB Compass/*
 /home/taras/.config/mpv/watch_later/*
 /home/taras/.password-store/*
+/home/taras/.local/share/*
 /home/taras/.kube/cache/*
 /home/taras/.kube/http-cache/*
 /home/taras/.dotfiles/*
 /home/taras/.ssh/*
-/home/taras/.grip/*
+/home/taras/.steam*
 /home/taras/GoogleDrive/*
 /home/taras/projects/*
 /home/taras/Downloads/*
