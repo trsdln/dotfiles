@@ -9,7 +9,7 @@ statusline_restart() {
     pkill -P "${statusline_pid}"
   fi
 
-  setsid statusline-start.sh &
+  setsid statusline-start.sh 2>>$STATUSLINE_LOG &
 }
 
 # do not execute if script is sourced

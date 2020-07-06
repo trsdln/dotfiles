@@ -10,4 +10,6 @@ else
   setxkbmap us -model thinkpad -layout us
 fi
 
-statusline-update.sh
+# update status line
+SCRIPTS_DIR=$(dirname "$0")
+$SCRIPTS_DIR/statusline/widgets/language.sh

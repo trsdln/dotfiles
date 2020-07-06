@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# works as shortcut for common widget actions
+# (to prevent lemonbar formatting text from overflowing)
+
+SCRIPTS_DIR=$(dirname "$0")
+
+action=$1
+widget_name=$2
+
+widget_path="${SCRIPTS_DIR}/statusline/widgets/${widget_name}.sh"
+
+if [ "${action}" = "e" ]; then # edit
+  $TERMINAL -e $EDITOR $widget_path
+elif [ "${action}" = "r"  ]; then # refresh
+  $widget_path
+fi
+

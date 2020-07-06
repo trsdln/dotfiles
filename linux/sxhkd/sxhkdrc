@@ -51,8 +51,7 @@ XF86Bluetooth
 
 # Play/Pause & Next track
 {_, shift +} XF86Tools
-	playerctl {play-pause,next} \
-    && statusline-update.sh
+	playerctl {play-pause,next}
 
 XF86Launch1
 	copy-emoji.sh

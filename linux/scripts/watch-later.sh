@@ -7,15 +7,20 @@ cmd=$1
 notification_title="Watch Later"
 notification_hint="string:x-canonical-private-synchronous:watch-later"
 
+SCRIPTS_DIR=$(dirname "$0")
+update_watch_later_widget() {
+  $SCRIPTS_DIR/statusline/widgets/watch-later.sh
+}
+
 if [ $cmd = "add" ]; then
   title=$(youtube-dl --skip-download --get-title --no-warnings "$2")
   echo "#EXTINF:, ${title}" >> $watch_later_file
   echo $2 >> $watch_later_file
-  statusline-update.sh
+  update_watch_later_widget
   notify-send --hint $notification_hint "$notification_title" "'${title}' added"
 elif [ $cmd = "clear" ]; then
   rm -rf $watch_later_file
-  statusline-update.sh
+  update_watch_later_widget
   notify-send --hint $notification_hint "$notification_title" "Cleaned!"
 elif [ $cmd = "play" ]; then
   notify-send --hint $notification_hint "$notification_title" "Starting mpv..."

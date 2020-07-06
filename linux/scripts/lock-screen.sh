@@ -21,13 +21,19 @@ pre_lock() {
   return
 }
 
+SCRIPTS_DIR=$(dirname "$0")
+
 # Run after the locker exits
 post_lock() {
   # Set default monitor depending on what is plugged in
   toggle-screens.sh --fix
-  # otherwise we get status line content of status line before lock/sleep
-  # over next statusline refresh timeout
-  statusline-update.sh
+  # need update some status line widgets
+  # otherwise we see values obtained before lock/sleep
+  $SCRIPTS_DIR/statusline/widgets/cpu-temp.sh
+  $SCRIPTS_DIR/statusline/widgets/network.sh
+  $SCRIPTS_DIR/statusline/widgets/language.sh
+  $SCRIPTS_DIR/statusline/widgets/battery.sh
+  $SCRIPTS_DIR/statusline/widgets/clock.sh
   return
 }
 

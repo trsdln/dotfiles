@@ -6,6 +6,8 @@ SCRIPTS_DIR=$(dirname "$0")
 . $SCRIPTS_DIR/statusline/configs.sh
 . $SCRIPTS_DIR/statusline/format.sh
 
+WIDGETS_DIR="$SCRIPTS_DIR/statusline/widgets"
+
 if xdo id -a "$PANEL_WM_NAME" > /dev/null ; then
   printf "%s\n" "The panel is already running." >&2
   exit 1
@@ -14,19 +16,35 @@ fi
 [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
 mkfifo "$PANEL_FIFO"
 
+# wm state
 bspc subscribe report > "$PANEL_FIFO" &
 
-# title
+# current window title
 xtitle -sf 'T%s\n' > "$PANEL_FIFO" &
 
-# clock
+# MPRIS info
+playerctl -F -f '{{status}}%%{{title}}' metadata \
+  | $WIDGETS_DIR/player.sh > "$PANEL_FIFO" &
+
+# those are updated manually when needed:
+# (call once to get only initial values)
+$WIDGETS_DIR/watch-later.sh &
+$WIDGETS_DIR/language.sh &
+
 while true; do
-  statusline-update.sh
-  sleep 30
+  $WIDGETS_DIR/clock.sh
+  sleep 15
+done &
+
+while true; do
+  $WIDGETS_DIR/cpu-temp.sh
+  $WIDGETS_DIR/network.sh
+  $WIDGETS_DIR/battery.sh
+  sleep 60
 done &
 
 format_panel_info < "$PANEL_FIFO" | \
-  lemonbar -a 32 -n "$PANEL_WM_NAME" \
+  lemonbar -a 64 -n "$PANEL_WM_NAME" \
   -f "$PANEL_FONT" -f "$PANEL_FONT_ICON" \
   -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" | sh &
 

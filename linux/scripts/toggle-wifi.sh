@@ -14,4 +14,5 @@ notify-send --hint=string:x-canonical-private-synchronous:wifi-status \
   --icon=/usr/share/icons/Paper/32x32/devices/network-wireless.png \
   "WiFi" "$(sudo nmcli r wifi)"
 
-. statusline-update.sh
+SCRIPTS_DIR=$(dirname "$0")
+$SCRIPTS_DIR/statusline/widgets/network.sh

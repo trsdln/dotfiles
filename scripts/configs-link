@@ -39,6 +39,7 @@ LINK_MAP_LINUX=(
   ".config/sxhkd:../${DOTFILES_DIR_NAME}/linux/sxhkd"
   ".config/bspwm:../${DOTFILES_DIR_NAME}/linux/bspwm"
   ".config/gtk-3.0:../${DOTFILES_DIR_NAME}/linux/gtk-3.0"
+  ".config/fontconfig:../${DOTFILES_DIR_NAME}/linux/fontconfig"
   ".config/.Xresources:../${DOTFILES_DIR_NAME}/linux/.Xresources"
   ".gnupg/gpg-agent.conf:../${DOTFILES_DIR_NAME}/gnupg/gpg-agent.linux.conf"
   ".local/share/applications/lf.desktop:../../../${DOTFILES_DIR_NAME}/linux/applications/lf.desktop"

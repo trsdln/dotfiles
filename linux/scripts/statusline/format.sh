@@ -1,7 +1,5 @@
 #!/bin/sh
 
-padding=" "
-
 format_wm_info() {
   num_mon=$(bspc query -M | wc -l)
   wm=""
@@ -60,7 +58,7 @@ format_wm_info() {
             BG=$COLOR_FOCUSED_URGENT_BG
             ;;
         esac
-        wm="${wm}%{F${FG}}%{B${BG}}%{A:bspc desktop -f ${name}:} ${padding}${name}${padding} %{A}%{B-}%{F-}"
+        wm="${wm}%{F${FG}}%{B${BG}}%{A:bspc desktop -f ${name}:}  ${name}  %{A}%{B-}%{F-}"
         ;;
       [TG]*)
         # layout, state and flags
@@ -74,10 +72,6 @@ format_wm_info() {
 format_panel_info() {
   while read -r line ; do
     case $line in
-      C*)
-        # clock output
-        sys="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} ${line#?} %{B-}%{F-}"
-        ;;
       T*)
         # xtitle
         title="%{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG} ${line#?} %{B-}%{F-}"
@@ -86,14 +80,35 @@ format_panel_info() {
         # bspwm's state
         format_wm_info
         ;;
+      V*)
+        watch_later="${line#?}${SEP}"
+        ;;
+      P*)
+        player="${line#?}${SEP}"
+        ;;
+      L*)
+        language="${line#?}${SEP}"
+        ;;
+      N*)
+        network="${line#?}${SEP}"
+        ;;
+      U*)
+        cpu="${line#?}${SEP}"
+        ;;
+      B*)
+        battery="${line#?}${SEP}"
+        ;;
+      C*)
+        clock="${line#?}"
+        ;;
     esac
-    complete_info="%{l}${title}%{c}${wm}%{r}${date}${sys}"
+    complete_info="%{l}${title}%{c}${wm}%{r}${player}${watch_later}${network}${cpu}${battery}${language}${clock} "
 
     if [ $num_mon -lt 2 ]; then
-      printf "%s\n" "${complete_info}"
+      echo "${complete_info}"
     else
       # show status line at both monitors if available
-      printf "%s\n" "%{Sl}${complete_info}%{Sf}${complete_info}"
+      echo "%{Sl}${complete_info}%{Sf}${complete_info}"
     fi
   done
 }

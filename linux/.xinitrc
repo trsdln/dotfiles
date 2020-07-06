@@ -45,6 +45,6 @@ fi
 sxhkd &
 
 # starting it here to ensure it will be stopped within bspwm
-statusline-start.sh &
+statusline-start.sh 2>>$STATUSLINE_LOG &
 exec bspwm
 # vim:ft=sh
