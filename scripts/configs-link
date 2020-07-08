@@ -43,6 +43,7 @@ LINK_MAP_LINUX=(
   ".config/.Xresources:../${DOTFILES_DIR_NAME}/linux/.Xresources"
   ".gnupg/gpg-agent.conf:../${DOTFILES_DIR_NAME}/gnupg/gpg-agent.linux.conf"
   ".local/share/applications/lf.desktop:../../../${DOTFILES_DIR_NAME}/linux/applications/lf.desktop"
+  ".local/share/applications/sxiv.desktop:../../../${DOTFILES_DIR_NAME}/linux/applications/sxiv.desktop"
 
   # custom services
   "${SYSTEMD_UNITS}/eye-rest.service:${SYSTEMD_DOTFILES_PATH}/eye-rest.service"
