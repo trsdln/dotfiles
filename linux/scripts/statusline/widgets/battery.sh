@@ -42,4 +42,4 @@ if [ $BAT_STATUS = 'Full' ]; then
   STATUS_ICON='🔌'
 fi
 
-echo "B%{F$BATTERY_COLOR}$(wrap_self_edit "${STATUS_ICON} ${BAT_CAPACITY}%%")%{F-}" > "${PANEL_FIFO}"
+echo "B%{F$BATTERY_COLOR}%{A:$0:}$(wrap_self_edit "${STATUS_ICON} ${BAT_CAPACITY}%%")%{A}%{F-}" > "${PANEL_FIFO}"
