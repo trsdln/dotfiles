@@ -4,25 +4,6 @@ set shellopts '-eu:--shwordsplit'
 set ifs "\n"
 set filesep "\n"
 
-# cmd open ${{
-#   if [[ $f == *.djvu ]]; then
-#     # otherwise we hit image mimetype at the case statement
-#     xdg-open $f
-#   else
-#     case $(file --mime-type $f -b) in
-#       image/*)
-#         if [ "${OSTYPE}" = "linux-gnu" ]; then
-#           setsid nohup sxiv -a $fx > /dev/null &
-#         else
-#           open $fx
-#         fi
-#       ;;
-#       video/*) setsid nohup mpv $fx > /dev/null &;;
-#       *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;
-#     esac
-#   fi
-# }}
-
 cmd mpvsub $setsid nohup mpv --sub-file $(fzf --prompt="Subtitles file>") $fx > /dev/null &
 
 map a push %mkdir<space>
