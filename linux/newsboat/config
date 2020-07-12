@@ -7,7 +7,6 @@ external-url-viewer "urlscan"
 
 # do not store search history
 history-limit 0
-feed-sort-order unreadarticlecount-asc
 text-width 80
 
 # bindings
@@ -55,6 +54,8 @@ color listfocus_unread   black     yellow
 color info               default   black
 color article            default   default
 # highlights
+highlight feedlist "\\*\\*\\*.*\\*\\*\\*" yellow
+highlight feedlist ".*(0/0))" black
 highlight article "^(Title):.*$" blue default
 highlight article "https?://[^ ]+" red default
 highlight article "\\[image\\ [0-9]+\\]" green default
