@@ -3,6 +3,9 @@
 upgrade_aur_packages() {
   echo "Updating all AUR packages..."
   aur sync tuijam
+  # requires manual reconfiguration before build (pulseaudio + mpris)
+  # aur sync spotifyd-full
+  aur sync spotify-tui
   # aur sync google-cloud-sdk
   aur sync aic94xx-firmware
   aur sync wd719x-firmware

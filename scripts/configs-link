@@ -50,6 +50,8 @@ LINK_MAP_LINUX=(
   "${SYSTEMD_UNITS}/eye-rest.timer:${SYSTEMD_DOTFILES_PATH}/eye-rest.timer"
 
   ".config/newsboat/urls:../../${DOTFILES_DIR_NAME}/private/newsboat/urls"
+  ".config/spotifyd:../${DOTFILES_DIR_NAME}/private/spotifyd"
+  ".config/spotify-tui:../${DOTFILES_DIR_NAME}/private/spotify-tui"
 )
 
 LINK_MAP_DARWIN=(
