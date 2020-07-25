@@ -16,7 +16,7 @@ fi
 
 if [ "${BAT_CAPACITY}" -lt "20" ]; then
   BATTERY_COLOR=$RED_COLOR
-elif [  "${BAT_CAPACITY}" -lt "50" ]; then
+elif [ "${BAT_CAPACITY}" -lt "50" ]; then
   BATTERY_COLOR=$YELLOW_COLOR
 else
   BATTERY_COLOR=$GREEN_COLOR

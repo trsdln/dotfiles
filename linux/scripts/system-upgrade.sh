@@ -2,14 +2,12 @@
 
 upgrade_aur_packages() {
   echo "Updating all AUR packages..."
-  aur sync tuijam
-  # requires manual reconfiguration before build (pulseaudio + mpris)
-  # aur sync spotifyd-full
-  aur sync spotify-tui
+  # updates too often so usually just skip:
   # aur sync google-cloud-sdk
+  aur sync tuijam
+  aur sync spotify-tui-bin
   aur sync aic94xx-firmware
   aur sync wd719x-firmware
-  aur sync mongodb-bin
   aur sync mongodb-tools-bin
   aur sync mongodb-compass
   aur sync robo3t-bin
@@ -22,6 +20,30 @@ upgrade_aur_packages() {
   # bspwm related:
   aur sync xtitle
   aur sync libxft-bgra
+}
+
+pull_and_notify() {
+  local path=$1
+  local old_path=$(pwd)
+  cd "${path}"
+  git fetch --prune
+  printf "Checking ${path}: "
+  if [ "$(git status | grep 'Your branch is behind')" != "" ]; then
+    echo "new commits. Stashing and pulling..."
+    git stash > /dev/null; git pull > /dev/null; git stash pop > /dev/null
+  else
+    echo "up-to-date"
+  fi
+  cd "${old_path}"
+}
+
+check_manual_aur_upgrades() {
+  # instead of aur sync mongodb-bin:
+  pull_and_notify ~/projects/mongodb-bin
+
+  # instead of aur sync spotifyd:
+  # requires manual reconfiguration before build (pulseaudio + mpris)
+  pull_and_notify ~/projects/spotifyd
 }
 
 upgrade_pip_packages() {
@@ -134,6 +156,9 @@ pacman -Sl custom | grep -v installed | cut -d " " -f 2
 fix_bin_sh_link
 
 clean_custompkgs_obsolete_files
+
+echo "Checking locally managed AUR packages:"
+check_manual_aur_upgrades
 
 # Restore screen saver and auto suspend
 xset +dpms
