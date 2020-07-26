@@ -2,16 +2,18 @@
 
 # based on https://github.com/mellok1488/dotfiles/blob/master/panel
 
+# Kill old instance first
+# pgrep is not able to find process if whole process name is specified :facepalm:
+old_instance_pid=$(pgrep 'statusline-star' | grep -v $$ | sort | head -n 1)
+if [ "${old_instance_pid}" != "" ]; then
+  pkill -P "${old_instance_pid}"
+fi
+
 SCRIPTS_DIR=$(dirname "$0")
 . $SCRIPTS_DIR/statusline/configs.sh
 . $SCRIPTS_DIR/statusline/format.sh
 
 WIDGETS_DIR="$SCRIPTS_DIR/statusline/widgets"
-
-if xdo id -a "$PANEL_WM_NAME" > /dev/null ; then
-  printf "%s\n" "The panel is already running." >&2
-  exit 1
-fi
 
 [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
 mkfifo "$PANEL_FIFO"
