@@ -1,7 +1,7 @@
-ale//54aeeec97ff14197a8ede31493035b4fefb44a2f
+ale//68b484a49fe2f5cc29ebccca0a3da48b31073ada
 delimitMate//728b57a6564c1d2bdfb9b9e0f2f8c5ba3d7e0c5c
 fugitive-gitlab.vim//f3e56ff60fe3fb5ebc891cbe5fd12cd8c59ae6ef
-fzf//f79b1f71b86651fe5656eab1c360781e19e97826
+fzf//a61150a96c0bc32d0c56e1127985ca238b1b89ff
 fzf.vim//2bf85d25e203a536edb2c072c0d41b29e8e4cc1b
 gv.vim//61d877d23caaad9009d672f90fe2ab576ab93d2d
 lightline.vim//079dc5754c87b4d18b40f916273c2fe56810c4a1
@@ -10,6 +10,7 @@ spelunker.vim//f75c9173fbabf38e13eea951ceab0d64da943926
 suda.vim//24a1c09ddb7ca61559f7f082c3d0b1dd13737e27
 sxhkd-vim//2760f9d32bd2fb4d7d5305a88eb2056d149c6484
 vim-abolish//7e4da6e78002344d499af9b6d8d5d6fcd7c92125
+vim-clap//91331ead692b145d14441cbd94c5e6f13e152ccf
 vim-closetag//90cf416c03ed841ad7f3d44f4d6f3192f216176a
 vim-commentary//f8238d70f873969fb41bf6a6b07ca63a4c0b82b1
 vim-css3-syntax//a1b7e3e0f41f1b3ce17313c0b709a6d7c6ec411d

@@ -25,6 +25,7 @@ function! PackInit() abort
   " Faster CtrlP alternative
   call minpac#add('junegunn/fzf')
   call minpac#add('junegunn/fzf.vim')
+  call minpac#add('liuchengxu/vim-clap', {'do': ':Clap install-binary!'})
 
   " Nice status bar at the bottom
   call minpac#add('itchyny/lightline.vim')

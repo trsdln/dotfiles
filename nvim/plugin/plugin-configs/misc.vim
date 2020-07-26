@@ -184,3 +184,7 @@ augroup delimMate
   autocmd FileType html let b:delimitMate_matchpairs = "(:),[:],{:}"
 augroup END
 
+
+" Configure clap
+nnoremap <C-P> :Clap files<CR>
+nnoremap <leader>gi :Clap grep<CR>
