@@ -1,5 +1,5 @@
-" Search files (trying vim-clap instead)
-" nnoremap <C-P> :Files<CR>
+" Search files
+nnoremap <C-P> :Files<CR>
 
 " Search mappings
 nnoremap <leader>c :Maps<CR>

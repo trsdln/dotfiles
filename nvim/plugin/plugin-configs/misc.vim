@@ -186,5 +186,4 @@ augroup END
 
 
 " Configure clap
-nnoremap <C-P> :Clap files<CR>
 nnoremap <leader>gi :Clap grep<CR>
