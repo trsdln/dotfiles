@@ -48,3 +48,9 @@ brew install gpg pass pinentry-mac
 ```
 pip3 install --user --upgrade pynvim
 ```
+
+## AWS CLI
+
+```
+pip3 install awscli --upgrade --user
+```
