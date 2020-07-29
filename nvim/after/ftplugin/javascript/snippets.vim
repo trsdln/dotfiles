@@ -21,6 +21,16 @@ inoreabbrev <buffer> testita
       \<esc>k0f';i
       \<C-R>=g:Eatchar('\s')<CR>
 
+" React snippets
+inoreabbrev <buffer> rcomp
+      \ const  = ({<++>}) => {<CR>  <++><CR>return (<++>);<CR><BS>};
+      \<esc>3k0f a
+      \<C-R>=g:Eatchar('\s')<CR>
+
+inoreabbrev <buffer> rprop
+      \ .propTypes = {<CR>  <++><CR><BS>};
+      \<esc>2k0i
+      \<C-R>=g:Eatchar('\s')<CR>
 
 " Debugging snippets
 
@@ -50,6 +60,10 @@ inoreabbrev <buffer> impf
 
 inoreabbrev <buffer> imps
       \ import styled from 'styled-components';
+      \<CR><esc><bs>
+
+inoreabbrev <buffer> imprt
+      \ import React from 'react';
       \<CR><esc><bs>
 
 inoreabbrev <buffer> impc
