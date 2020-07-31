@@ -13,3 +13,13 @@ function! s:RenameJS(newName)
 endfunction
 
 command! -nargs=1 RenameJS call s:RenameJS(<f-args>)
+
+function! s:MoveJS(newName)
+  execute 'normal!ggdG'
+  write!
+  execute 'Move ' . a:newName
+  execute 'normal!u'
+  write!
+endfunction
+
+command! -nargs=1 MoveJS call s:MoveJS(<f-args>)
