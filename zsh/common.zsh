@@ -3,6 +3,7 @@ export SHELL='/bin/zsh'
 export GPG_TTY=$(tty)
 export LESSHISTFILE='-' # no history file for less
 export NODE_REPL_HISTORY=''
+export REACT_EDITOR='vim-session-open.sh'
 
 source "${DOTFILES_PATH}/zsh/envs.sh"
 
