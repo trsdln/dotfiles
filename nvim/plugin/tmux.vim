@@ -9,22 +9,21 @@ command TmuxMainReplScrollUp call s:TmuxMainReplScrollUp()
 function! s:TmuxSelectPrimaryPaneAndExecute(commandToExecute)
   let l:sendTmuxPaneCommand =
         \ 'tmux select-window -t ' . s:SERVERS_SESSION_WINDOW
-        \ . ' && tmux select-pane -t ' . s:SERVERS_SESSION_PANE
-        \ . ' && ' . a:commandToExecute
+        \ . '\; select-pane -t ' . s:SERVERS_SESSION_PANE
+        \ . '\; ' . a:commandToExecute
 
   call system(l:sendTmuxPaneCommand)
 endfunction
 
 function! g:TmuxRunShellCommandAtMainPane(shellCommand)
-  let l:sendCommandToPrimaryPaneStr = 'tmux send-keys -t ' . s:SERVERS_SESSION_PANE . ' C-c'
-        \ . ' && tmux send-keys -t ' . s:SERVERS_SESSION_PANE
-        \ . ' "' . a:shellCommand . '" C-m'
+  let l:sendCommandToPrimaryPaneStr = 'send-keys -t ' . s:SERVERS_SESSION_PANE
+        \ . ' C-c && tmux send-keys -t ' . s:SERVERS_SESSION_PANE . ' "' . a:shellCommand . '" C-m'
 
   call s:TmuxSelectPrimaryPaneAndExecute(l:sendCommandToPrimaryPaneStr)
 endfunction
 
 function! s:TmuxMainReplScrollUp()
-  let l:sendCommandToPrimaryPaneStr = 'tmux copy-mode -u -t ' . s:SERVERS_SESSION_PANE
+  let l:sendCommandToPrimaryPaneStr = 'copy-mode -u -t ' . s:SERVERS_SESSION_PANE
   call s:TmuxSelectPrimaryPaneAndExecute(l:sendCommandToPrimaryPaneStr)
 endfunction
 
