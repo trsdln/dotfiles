@@ -24,7 +24,7 @@ inoreabbrev <buffer> testita
 " React snippets
 inoreabbrev <buffer> rcomp
       \ const  = ({<++>}) => {<CR>  <++><CR>return (<++>);<CR><BS>};
-      \<esc>3k0f a
+      \<esc>3k0f=hi
       \<C-R>=g:Eatchar('\s')<CR>
 
 inoreabbrev <buffer> rprop
