@@ -17,7 +17,7 @@ vim-css3-syntax//a1b7e3e0f41f1b3ce17313c0b709a6d7c6ec411d
 vim-dirvish//7c4dc5945b15a6b97ebef860070d30e36da01788
 vim-dispatch//fe6a34322829e466a7e8ce710a6ac5eabddff9fd
 vim-easymotion//dd7b4b526775bc8553e16bc402020573b04a948c
-vim-eunuch//33e875b31c8b811a0a47908884a5e2339106bbe8
+vim-eunuch//36c5974a74b202ade1eb40dabd134afb2fdfdbe0
 vim-fubitive//d96f33e538ce47253ab8035be4a6c3a90963d312
 vim-fugitive//260182c65cae653ac20e6a69ba8cc6124e7ba6c2
 vim-graphql//a3ff39f955e60baeddd8c3c4d1cab291ce37d66e
@@ -25,7 +25,7 @@ vim-grepper//e9004ce564891412cfe433cfbb97295cccd06b39
 vim-gutentags//8e69652c7a7e7aabd96cff21b6ee6b6a295c901c
 vim-highlightedyank//931cc6bd53e4a1fdbe592751f0e13c0e401f0a49
 vim-javascript//3c90d0cc37bb8b78422f647e62587f498a5dd7bd
-vim-js-file-import//503b7318d4d5ef0ddfeb07ff75caccd2cd01fcfe
+vim-js-file-import//076c0b900396a447c7b556fec97830fc59a6407a
 vim-jsx-pretty//c665d5ca4247b696f478f91b7c97b9e44442e4b6
 vim-merginal//13e8f2801022f8f800a8d42f2f3974a9ee29c31a
 vim-obsession//96a3f837c112cb64e0a9857b69f6d6a71041155e
