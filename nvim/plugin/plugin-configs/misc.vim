@@ -183,7 +183,3 @@ augroup delimMate
   " Prevent from conflicting with vim-closetag at HTML
   autocmd FileType html let b:delimitMate_matchpairs = "(:),[:],{:}"
 augroup END
-
-
-" Configure clap
-nnoremap <leader>gi :Clap grep<CR>
