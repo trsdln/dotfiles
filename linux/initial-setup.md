@@ -12,13 +12,13 @@
 #### fstab
 
 ```
-UUID=??	/         	xfs       	rw,relatime,attr2,inode64,noquota,noatime,discard	0 1
+UUID=??	/         	xfs       	rw,relatime,attr2,inode64,noquota,noatime 0 1
 
-UUID=??	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro,noatime,discard	0 2
+UUID=??	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro 0 2
 
-UUID=??	/home     	xfs       	rw,relatime,attr2,inode64,noquota,noatime,discard	0 2
+UUID=??	/home     	xfs       	rw,relatime,attr2,inode64,noquota,noatime	0 2
 
-UUID=??	none      	swap      	defaults,noatime,discard  	0 0
+UUID=??	none      	swap      	defaults,noatime  	0 0
 ```
 
 #### Grub (/etc/default/grub)
@@ -52,6 +52,13 @@ Enable suspend when lid is closed at `/etc/systemd/logind.conf`:
 ```
 HandleLidSwitch=hibernate
 HandleLidSwitchDocked=hibernate
+```
+
+### Enable TRIM
+
+```
+sudo systemctl enable fstrim.timer
+sudo systemctl start fstrim.timer
 ```
 
 ### User Creation
