@@ -110,7 +110,7 @@ alt + {p,b,period}
 
 # focus the next/previous node in the current desktop
 alt + {_, shift + }c
-	bspc node -f {next,prev}.local
+	bspc node -f {next,prev}.window.local
 
 # focus/send to alternative monitor
 alt + {_, shift + }comma
