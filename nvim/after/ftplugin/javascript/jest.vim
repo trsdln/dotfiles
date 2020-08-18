@@ -49,9 +49,6 @@ function! s:ToggleTestCaseFocus()
       silent substitute/\v(\s|^)\zs(it\.only)\ze\(/it/
     endif
 
-    " Go to last cursor position
-    execute "normal! \<C-O>"
-
     nohlsearch
   catch
     echoerr "No JS test case found!"
