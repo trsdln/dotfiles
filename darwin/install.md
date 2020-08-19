@@ -25,7 +25,7 @@ Removes all dot files links
 
 ## VIM/TMUX setup
 
-1. Install Universal Ctags, Ripgrep and Vim with python3 support
+1. Install MongoDB, Universal Ctags, Ripgrep and Vim with python3 support
 
 ```
 brew tap universal-ctags/universal-ctags
@@ -33,6 +33,8 @@ brew install --HEAD universal-ctags
 brew install vim ripgrep fzf
 brew install tmux reattach-to-user-namespace tmux-mem-cpu-load osx-cpu-temp
 brew install gpg pass pinentry-mac
+brew tap mongodb/brew
+brew install mongodb-community mongodb-database-tools
 ```
 
 2. Start vim and install plugins itself
