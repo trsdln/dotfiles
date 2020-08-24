@@ -10,6 +10,7 @@
 /var/log/*
 /var/tmp/*
 /var/lib/docker/*
+/var/lib/postgres/*
 /opt/google-cloud-sdk/.install/*
 # user specific
 /home/taras/.cache/*

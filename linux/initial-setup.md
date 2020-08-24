@@ -232,4 +232,21 @@ sudo rm -f /etc/xdg/autostart/geoclue-demo-agent.desktop
 
 Plus inspect autostart directory manually.
 
+### PostgreSQL
+
+```
+sudo -iu postgres
+initdb -D /var/lib/postgres/data
+```
+
+Then from regular user: `sudo systemctl start postgresql`
+
+```
+sudo -iu postgres
+createuser --interactive
+createdb testdbname
+```
+
+Connect to DB: `psql -d testdbname`
+
 #### Done!
