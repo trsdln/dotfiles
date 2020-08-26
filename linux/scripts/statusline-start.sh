@@ -2,12 +2,11 @@
 
 # based on https://github.com/mellok1488/dotfiles/blob/master/panel
 
-# Kill old instance first
+# Kill old instances first
 # pgrep is not able to find process if whole process name is specified :facepalm:
-old_instance_pid=$(pgrep 'statusline-star' | grep -v $$ | sort | head -n 1)
-if [ "${old_instance_pid}" != "" ]; then
-  pkill -P "${old_instance_pid}"
-fi
+for old_pid in $(pgrep 'statusline-star' | grep -v $$); do
+  pkill -P "${old_pid}"
+done
 
 SCRIPTS_DIR=$(dirname "$0")
 . $SCRIPTS_DIR/statusline/configs.sh
