@@ -37,3 +37,7 @@ cmd fzf_jump ${{
 }}
 map f
 map f fzf_jump
+
+map gd cd ~/.dotfiles
+
+cmd dragon %dragon --and-exit --all $fx
