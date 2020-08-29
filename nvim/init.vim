@@ -97,6 +97,8 @@ function! PackInit() abort
   call minpac#add('cespare/vim-toml')
   call minpac#add('kovetskiy/sxhkd-vim')
 
+  call minpac#add('lifepillar/pgsql.vim')
+
   " JS Specific plugins
   call minpac#add('pangloss/vim-javascript')
   call minpac#add('MaxMEllon/vim-jsx-pretty')
@@ -416,3 +418,6 @@ command! Dotfiles tabnew | lcd ~/.dotfiles | Dirvish
 
 " try to get used to alternative mapping
 nnoremap :wq :echo "use ZZ instead"<CR>
+
+" configure ft_sql (default vim's plugin)
+let g:sql_type_default = 'pgsql'
