@@ -98,6 +98,7 @@ function! PackInit() abort
   call minpac#add('kovetskiy/sxhkd-vim')
 
   call minpac#add('lifepillar/pgsql.vim')
+  call minpac#add('statico/vim-javascript-sql')
 
   " JS Specific plugins
   call minpac#add('pangloss/vim-javascript')
