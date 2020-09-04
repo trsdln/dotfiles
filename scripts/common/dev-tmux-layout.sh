@@ -48,7 +48,7 @@ function configure_severs_session {
   tmux split-window -h
 
   tmux select-pane -t 0
-  tmux send-keys "./scripts/db/start-db.sh" ${EXEC_KEY}
+  tmux send-keys "./packages/poly-scripts/src/mongo/start.sh" ${EXEC_KEY}
 
   tmux select-pane -t 1
   tmux send-keys "elasticsearch" ${EXEC_KEY}
