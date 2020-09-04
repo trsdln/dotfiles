@@ -11,7 +11,7 @@ widget_name=$2
 widget_path="${SCRIPTS_DIR}/statusline/widgets/${widget_name}.sh"
 
 if [ "${action}" = "e" ]; then # edit
-  $TERMINAL -e $EDITOR $widget_path
+  setsid $TERMINAL -e $EDITOR $widget_path &
 elif [ "${action}" = "r"  ]; then # refresh
   $widget_path
 fi
