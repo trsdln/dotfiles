@@ -12,7 +12,6 @@ upgrade_aur_packages() {
   aur sync mongodb-compass
   aur sync robo3t-bin
   aur sync slack-desktop
-  aur sync tmux-mem-cpu-load-git
   aur sync grive
   aur sync paper-icon-theme-git
   aur sync mpv-mpris
