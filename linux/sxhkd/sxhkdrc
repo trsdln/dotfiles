@@ -6,6 +6,9 @@
 alt + shift + Return
 	$TERMINAL
 
+ctrl + alt + Return
+	scratchpad.sh
+
 alt + space
 	app-launcher.sh
 
