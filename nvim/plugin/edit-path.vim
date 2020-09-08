@@ -26,6 +26,8 @@ function! s:EditFileFromCurrentPath(open_prefix)
     call s:OpenFile(relative_to_file_path . '.js', a:open_prefix)
   elseif filereadable(relative_to_file_path . '/index.js')
     call s:OpenFile(relative_to_file_path . '/index.js', a:open_prefix)
+  elseif filereadable(relative_to_file_path . '.json')
+    call s:OpenFile(relative_to_file_path . '.json', a:open_prefix)
   " Absolute path
   elseif filereadable(raw_file_path)
     call s:OpenFile(raw_file_path, a:open_prefix)
