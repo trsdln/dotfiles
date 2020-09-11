@@ -18,4 +18,4 @@ export JAVA_HOME="/usr/lib/jvm/default"
 
 # Add linux specific scripts and apps
 export PATH="${DOTFILES_PATH}/linux/scripts:${HOME}/.local/bin:$PATH"
-export PATH="${HOME}/apps/elasticsearch-7.3.1/bin:$PATH"
+export PATH="${HOME}/apps/elasticsearch-7.8.0/bin:$PATH"
