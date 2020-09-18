@@ -44,6 +44,16 @@ inoreabbrev <buffer> fdebugm
       \<esc>F'i
       \<C-R>=g:Eatchar('\s')<CR>
 
+inoreabbrev <buffer> finspect
+      \ (r) => {<CR>console.log('',deepInspect(r));<CR>return r;<CR><BS>},
+      \<esc>2k0f'a
+      \<C-R>=g:Eatchar('\s')<CR>
+
+inoreabbrev <buffer> finspectm
+      \ R.map((r) => {<CR>console.log('',deepInspect(r));<CR>return r;<CR><BS>}),
+      \<esc>2k0f'a
+      \<C-R>=g:Eatchar('\s')<CR>
+
 " Import snippets
 inoreabbrev <buffer> imprf
       \ import * as R from 'ramda';
