@@ -34,8 +34,11 @@ function! PackInit() abort
 
   " Best Git plugin for VIM
   call minpac#add('tpope/vim-fugitive')
+  " Github links
   call minpac#add('tpope/vim-rhubarb')
+  " Gitlab links
   call minpac#add('shumphrey/fugitive-gitlab.vim')
+  " Bitbucket links
   call minpac#add('tommcdo/vim-fubitive')
 
   " Git log add-on for fugitive
@@ -52,7 +55,7 @@ function! PackInit() abort
   " Shell commands shortcuts for Vim
   call minpac#add('tpope/vim-eunuch')
   " Linguistically correct substitution
-  call minpac#add('tpope/vim-abolish')
+  " call minpac#add('tpope/vim-abolish')
   " Session management
   call minpac#add('tpope/vim-obsession')
 
@@ -65,6 +68,7 @@ function! PackInit() abort
 
   " Easy code navigation
   call minpac#add('easymotion/vim-easymotion')
+  " Highlight unique characters while using F/f motions
   call minpac#add('unblevable/quick-scope')
 
   " Global search using Ripgrep
