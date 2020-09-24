@@ -46,10 +46,8 @@ let g:gutentags_ctags_tagfile = '.tags'
 let g:gutentags_ctags_exclude = [
       \ '*.yaml', '*.yml', '*.sh', '*.md', '*.lock', '*.css', '*.json',
       \ "node_modules/*",
-      \ "e2e/src/data-samples/*",
       \ "packages/poly-react-scripts/*",
       \ "packages/poly-apollo-mocking/src/schema.js",
-      \ "packages/secrets/*",
       \ "schema.json",
       \ "docs/*",
       \ ".dump/*",
