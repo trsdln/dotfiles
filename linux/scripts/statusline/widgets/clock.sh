@@ -5,6 +5,6 @@ SCRIPTS_DIR=$(dirname "$0")
 
 LOCAL_TIME="$(date '+%a %d %b(%m) %H:%M')"
 # NY_TIME="$(TZ='America/New_York' date '+%a %H:%M')"
-SHOW_CAL_CMD="alacritty --hold --class ShowCal,ShowCal -e cal -3"
+SHOW_CAL_CMD="alacritty --class ShowCal,ShowCal -e show-cal.sh"
 
 echo "C%{F$CYAN_COLOR}%{A:${SHOW_CAL_CMD}:}$(wrap_self_edit "${LOCAL_TIME}")%{A}%{F-}" > "${PANEL_FIFO}"

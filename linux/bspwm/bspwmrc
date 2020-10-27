@@ -20,7 +20,7 @@ bspc config pointer_modifier            mod1
 
 bspc rule -a mpv state=floating
 bspc rule -a Zathura state=tiled
-bspc rule -a ShowCal state=floating rectangle=210x500+1690+35
+bspc rule -a ShowCal state=floating rectangle=300x500+1600+35
 bspc rule -a AlacrittyScratchpad state=floating rectangle=1916x432+0+644
 
 # get rid of cross cursor above wallpaper:
