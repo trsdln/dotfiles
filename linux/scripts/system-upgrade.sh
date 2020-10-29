@@ -19,6 +19,7 @@ upgrade_aur_packages() {
   # bspwm related:
   aur sync xtitle
   aur sync libxft-bgra
+  aur sync lf-bin
 }
 
 pull_and_notify() {
