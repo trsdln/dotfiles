@@ -77,7 +77,7 @@ Then uncomment: `%wheel ALL=(ALL) ALL`
 
 To enable to run basic commands for user append this:
 
-`taras ALL=NOPASSWD:/usr/bin/zzz,/usr/bin/ZZZ,/usr/bin/shutdown,/bin/nmcli,/usr/bin/tlp-stat,/usr/bin/tlp,/usr/bin/mount,/usr/bin/umount,`
+`taras ALL=NOPASSWD:/usr/bin/shutdown,/bin/nmcli,/usr/bin/tlp-stat,/usr/bin/tlp,/usr/bin/mount,/usr/bin/umount,`
 
 #### Install all packages
 
