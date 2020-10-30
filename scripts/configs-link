@@ -31,7 +31,6 @@ LINK_MAP_LINUX=(
   ".config/pulse/default.pa:../../${DOTFILES_DIR_NAME}/linux/pulse/default.pa"
   ".config/alacritty/alacritty.yml:../../${DOTFILES_DIR_NAME}/linux/alacritty.yml"
   ".config/newsboat/config:../../${DOTFILES_DIR_NAME}/linux/newsboat/config"
-  ".config/tuijam/config.yaml:../../${DOTFILES_DIR_NAME}/linux/tuijam/config.yaml"
   ".config/mpv/mpv.conf:../../${DOTFILES_DIR_NAME}/linux/mpv/mpv.conf"
   ".config/mpv/input.conf:../../${DOTFILES_DIR_NAME}/linux/mpv/input.conf"
   ".config/mpv/scripts/mpris.so:/usr/lib/mpv/mpris.so"
