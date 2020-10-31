@@ -23,7 +23,6 @@ Telegram:telegram-desktop
 Slack:slack
 Htop:$TERMINAL -e htop
 Newsboat:$TERMINAL -e newsboat
-Tuijam:$TERMINAL -e tuijam
 MongoDB Compass:mongodb-compass
 Robo3T:robo3t
 Transmission Torrent:transmission-gtk

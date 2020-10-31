@@ -14,6 +14,9 @@ alias sxiv='sxiv -a'
 
 export OPEN='xdg-open'
 
+# todo: try to change to lf
+export AUR_PAGER='vifm'
+
 export JAVA_HOME="/usr/lib/jvm/default"
 
 # Add linux specific scripts and apps

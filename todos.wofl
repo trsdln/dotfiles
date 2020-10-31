@@ -1,3 +1,16 @@
 - [vim] JS import path 1 level up/down command (multiline/operator)
 - consolidate all xdg open commands
+* write complete instruction for LVM on LUKS install
+* test bluetooth
+* power management:
+  * hibernation + sleep + shutdown + reboot commands
+  * hibernation on close lid
+  * dim screen after 10 min
+* fstrim service
+* cron jobs + recreate eye rest
+* clean projects
+* setup poly
+* dns caching
+* firewall
+* fix Fn+F11
 

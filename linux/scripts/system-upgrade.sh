@@ -3,8 +3,7 @@
 upgrade_aur_packages() {
   echo "Updating all AUR packages..."
   # updates too often so usually just skip:
-  # aur sync google-cloud-sdk
-  aur sync tuijam
+  aur sync google-cloud-sdk
   aur sync spotify-tui-bin
   aur sync aic94xx-firmware
   aur sync wd719x-firmware
@@ -12,7 +11,8 @@ upgrade_aur_packages() {
   aur sync mongodb-compass
   aur sync robo3t-bin
   aur sync slack-desktop
-  aur sync grive
+  # outdated at aur:
+  # aur sync grive
   aur sync paper-icon-theme-git
   aur sync mpv-mpris
   aur sync aurutils
@@ -114,8 +114,9 @@ if [ "$1" = "--backup" ]; then
   fi
 fi
 
-echo "Cleaning logs older than 7 days..."
-sudo journalctl --vacuum-time=7d
+# todo: find artix analog
+# echo "Cleaning logs older than 7 days..."
+# sudo journalctl --vacuum-time=7d
 
 echo "Clean pacman cache..."
 sudo paccache --remove
@@ -138,11 +139,12 @@ upgrade_aur_packages
 
 upgrade_pip_packages
 
-echo "Checking for system errors:"
-journalctl -p 3 -xb
+# todo: find artix analogs
+# echo "Checking for system errors:"
+# journalctl -p 3 -xb
 
-echo "Checking for service errors:"
-systemctl --failed
+# echo "Checking for service errors:"
+# systemctl --failed
 
 echo "Orphan packages:"
 pacman -Qdt

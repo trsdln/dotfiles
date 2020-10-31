@@ -14,6 +14,6 @@ export PASSWORD_STORE_DIR="${XDG_DATA_HOME}/password-store"
 export STATUSLINE_LOG="${HOME}/.cache/statusline.log"
 
 # Automatic startx on login at TTY1
-if systemctl -q is-active graphical.target && [ "${DISPLAY}" = "" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+if [ "${DISPLAY}" = "" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   exec startx
 fi

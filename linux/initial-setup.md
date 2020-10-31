@@ -35,7 +35,7 @@ Apply changes:
 
 `sudo grub-mkconfig -o /boot/grub/grub.cfg`
 
-#### Swapiness (/etc/sysctl.d/99-swappiness.conf)
+#### Swapiness (/usr/lib/sysctl.d/99-swappiness.conf)
 
 `vm.swappiness=10`
 
@@ -121,10 +121,6 @@ To make the changes take effect:
 ```
 # Python integration for Neovim
 pip install --user --upgrade pynvim
-# Live preview of markdown at browser
-pip install --user --upgrade grip
-# Google Play Music TUI client
-pip install --user --upgrade tuijam
 ```
 
 #### Dash as `/bin/sh`:
@@ -134,11 +130,13 @@ pip install --user --upgrade tuijam
 ### Enable services:
 
 ```
-systemctl enable NetworkManager
-systemctl enable tlp
-systemctl enable tlp-sleep
-systemctl enable bluetooth
-systemctl enable ntpd.service
+acpid dmeventd NetworkManager syslog-ng elogind ntpd dbus lvmetad sulogin udevd
+```
+
+using:
+
+```
+ln -s /etc/runit/sv/<servicename> /etc/runit/runsvdir/default
 ```
 
 ### Audio setup
@@ -159,15 +157,11 @@ SRCEXT='.src.tar'
 
 #### Install AUR packages
 
-Sync packages using part of `system-upgrade.sh`. Then install:
+Sync packages using part of `system-upgrade.sh`. Then install using pacman.
+For aic94xx & wd719x:
 
 ```
-pacman -S mongodb-bin mongodb-tools-bin mongodb-compass robo3t-bin
-pacman -S slack-desktop ttf-symbola tmux-mem-cpu-load-git grive
-pacman -S ffcast google-cloud-sdk paper-icon-theme-git tuijam
-pacman -S aic94xx-firmware wd719x-firmware
-# For aic94xx & wd719x:
-mkinitcpio -p linux
+mkinitcpio -p linux-lts
 ```
 
 #### Firewall
