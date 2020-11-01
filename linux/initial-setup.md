@@ -116,6 +116,15 @@ acpid dmeventd NetworkManager syslog-ng elogind ntpd dbus lvmetad sulogin udevd
 ln -s /etc/runit/sv/<servicename> /etc/runit/runsvdir/default
 ```
 
+### Hosts
+
+Put into /etc/hosts this:
+
+```
+127.0.0.1 localhost
+::1       localhost
+```
+
 ### User Creation
 
 ```
