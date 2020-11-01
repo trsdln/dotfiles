@@ -14,8 +14,7 @@ alias sxiv='sxiv -a'
 
 export OPEN='xdg-open'
 
-# todo: try to change to lf
-export AUR_PAGER='vifm'
+export AUR_PAGER='nvim'
 
 export JAVA_HOME="/usr/lib/jvm/default"
 
