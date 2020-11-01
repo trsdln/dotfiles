@@ -8,7 +8,6 @@
   * hibernation + sleep + shutdown + reboot commands
   * hibernation on close lid
   * dim screen after 10 min
-* setup poly
 
 * fstrim service
 * cron jobs + recreate eye rest
