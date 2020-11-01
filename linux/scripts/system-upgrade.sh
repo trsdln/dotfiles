@@ -3,7 +3,7 @@
 upgrade_aur_packages() {
   echo "Updating all AUR packages..."
   # updates too often so usually just skip:
-  aur sync google-cloud-sdk
+  # aur sync google-cloud-sdk
   aur sync spotify-tui-bin
   aur sync aic94xx-firmware
   aur sync wd719x-firmware
@@ -44,6 +44,8 @@ check_manual_aur_upgrades() {
   # instead of aur sync spotifyd:
   # requires manual reconfiguration before build (pulseaudio + mpris)
   pull_and_notify ~/projects/spotifyd
+
+  pull_and_notify ~/projects/grive2
 }
 
 upgrade_pip_packages() {
@@ -114,9 +116,8 @@ if [ "$1" = "--backup" ]; then
   fi
 fi
 
-# todo: find artix analog
-# echo "Cleaning logs older than 7 days..."
-# sudo journalctl --vacuum-time=7d
+echo "Checking logs size:"
+sudo du -sh /var/log
 
 echo "Clean pacman cache..."
 sudo paccache --remove
@@ -139,12 +140,8 @@ upgrade_aur_packages
 
 upgrade_pip_packages
 
-# todo: find artix analogs
-# echo "Checking for system errors:"
-# journalctl -p 3 -xb
-
-# echo "Checking for service errors:"
-# systemctl --failed
+echo "Checking for system errors:"
+sudo less /var/log/errors.log
 
 echo "Orphan packages:"
 pacman -Qdt

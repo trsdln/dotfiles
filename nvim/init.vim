@@ -329,7 +329,6 @@ nnoremap <silent> ]f :cnfile<cr>
 nnoremap <silent> [q :cprevious<cr>
 nnoremap <silent> ]q :cnext<cr>
 
-" Better window resizing (todo: check on Linux)
 " Alt+J
 nnoremap <silent> <M-j> :resize +1<CR>
 " Alt+K
