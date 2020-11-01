@@ -329,6 +329,12 @@ sudo rm -f /etc/xdg/autostart/geoclue-demo-agent.desktop
 
 Plus inspect autostart directory manually.
 
+### Yarn
+
+```
+yarn config set prefix $HOME/.local/share/yarn
+```
+
 ### PostgreSQL
 
 ```
