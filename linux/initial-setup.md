@@ -244,6 +244,7 @@ ln -s /home/<user>/.dotfiles/linux/runit/<servicename> /run/runit/service/
 ### Audio setup
 
 At `/etc/pulse/client.conf` set: `autospawn = yes`
+At `/etc/pulse/daemon.conf` set: `exit-idle-time = -1`
 
 #### Pacman
 
