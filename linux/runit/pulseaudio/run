@@ -1,0 +1,5 @@
+#!/bin/sh
+
+exec 2>&1
+exec chpst -u taras pulseaudio --exit-idle-time=-1
+#vim:ft=sh

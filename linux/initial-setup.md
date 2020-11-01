@@ -139,16 +139,11 @@ using:
 ln -s /etc/runit/sv/<servicename> /etc/runit/runsvdir/default
 ```
 
-For lenovo_fix.service new runit entry should be
-created at /etc/runit/sv/lenovo_fix/run:
+Also, need to start custom services from dotfiles:
 
 ```
-#!/bin/sh -e
-exec 2>&1
-exec /usr/lib/throttled/lenovo_fix.py
+ln -s /home/<user>/.dotfiles/linux/runit/<servicename> /run/runit/service/
 ```
-
-`run` should be made executable. Then service can be started.
 
 ### Audio setup
 
