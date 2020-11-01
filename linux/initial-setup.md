@@ -1,4 +1,6 @@
-## Arch Setup
+## Artix Setup
+
+LVM on LUKS based on this [article](https://www.rohlix.eu/post/artix-linux-full-disk-encryption-with-uefi/)
 
 #### Partitions
 
@@ -9,16 +11,137 @@
 175.8G /home
 ```
 
-#### fstab
+#### Initial setup
+
+Boot into live usb and ensure that Internet connection is available.
+
+```sh
+# gain root access
+sudo su
+
+pacman -Sy
+pacman -S parted
+
+parted /dev/sdX
+# and remove existing partitions
+
+# make boot partition
+parted -s /dev/sdX mklabel gpt
+parted -s -a optimal /dev/sdX mkpart "primary" "fat16" "0%" "512MiB"
+parted -s /dev/sdX set 1 esp on
+
+# make root partition
+parted -s -a optimal /dev/sdX mkpart "primary" "ext4" "512MiB" "100%"
+parted -s /dev/sdX set 2 lvm on
+
+# encrypt root
+cryptsetup luksFormat -v /dev/sdX2
+cryptsetup luksOpen /dev/sdX2 lvm-system
+
+# configure LVM
+pvcreate /dev/mapper/lvm-system
+vgcreate lvmSystem /dev/mapper/lvm-system
+lvcreate -L 16G lvmSystem -n volSwap
+lvcreate -L 50G lvmSystem -n volRoot
+lvcreate -l +100%FREE lvmSystem -n volHome
+
+# format partitions
+mkswap /dev/lvmSystem/volSwap
+mkfs.fat -F32 -n ESP /dev/sdX1
+mkfs.ext4 -L volRoot /dev/lvmSystem/volRoot
+mkfs.ext4 -L volHome /dev/lvmSystem/volHome
+
+# mount everything
+swapon /dev/lvmSystem/volSwap
+mount /dev/lvmSystem/volRoot /mnt
+mkdir -p /mnt/boot /mnt/home
+mount /dev/sdX1 /mnt/boot
+mount /dev/lvmSystem/volHome /mnt/home
+
+basestrap /mnt base base-devel runit
+
+# generate fstab:
+fstabgen -U /mnt >> /mnt/etc/fstab
+
+# chroot:
+artools-chroot /mnt /bin/bash
+
+# timezone
+ln -s /usr/share/zoneinfo/Continent/City /etc/localtime
+hwclock --systohc
+
+# install text editor
+pacman -S neovim
+
+# uncomment needed locales (e.g. en_US.UTF-8):
+nvim /etc/locale.gen
+
+# generate locales
+locale-gen
+echo 'LANG=en_US.UTF-8' > /etc/locale.conf
+
+echo <myhostname> > /etc/hostname
+
+# install kernel
+pacman -S linux-lts linux-firmware
+
+# adjust hooks like this:
+# HOOKS=(base udev autodetect keyboard keymap modconf block encrypt lvm2 resume filesystems fsck)
+# at
+nvim /etc/mkinitcpio.conf
+
+mkinitcpio -p linux-lts
+
+# root password
+passwd
+
+# install grub package:
+pacman -S grub efibootmgr
+
+# adjust grub config /etc/default/grub:
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet resume=UUID=`blkid -s UUID -o value /dev/lvmSystem/volSwap`"
+GRUB_CMDLINE_LINUX="cryptdevice=UUID=`blkid -s UUID -o value /dev/sdX2`:lvm-system root=/dev/lvmSystem/volRoot"
+GRUB_ENABLE_CRYPTODISK=y
+
+# install grub
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=artix --recheck /dev/sdX
+grub-mkconfig -o /boot/grub/grub.cfg
+
+# install and enable some services
+pacman -S elogin-runtit dbus-runit cryptsetup-runit lvm2-runit device-mapper-runit networkmanager-runit ntp-runit acpid-runit syslog-ng-runit
+
+# enable every service:
+acpid dmeventd NetworkManager syslog-ng elogind ntpd dbus lvmetad sulogin udevd
+# using:
+ln -s /etc/runit/sv/<servicename> /etc/runit/runsvdir/default
+```
+
+### User Creation
 
 ```
-UUID=??	/         	xfs       	rw,relatime,attr2,inode64,noquota,noatime 0 1
+useradd taras
+usermod -aG wheel,users,audio,video,input,lp taras
+passwd taras
+```
 
-UUID=??	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro 0 2
+Allow wheel to run sudo commands: `EDITOR=nvim visudo`
 
-UUID=??	/home     	xfs       	rw,relatime,attr2,inode64,noquota,noatime	0 2
+Then uncomment: `%wheel ALL=(ALL) ALL`
 
-UUID=??	none      	swap      	defaults,noatime  	0 0
+To enable to run basic commands for user append this:
+
+`taras ALL=NOPASSWD:/usr/bin/shutdown,/bin/nmcli,/usr/bin/tlp-stat,/usr/bin/tlp,/usr/bin/mount,/usr/bin/umount`
+
+#### Reboot
+
+```
+# exit chroot
+exit
+
+umount -R /mnt
+swapoff -a
+
+reboot
 ```
 
 #### Grub (/etc/default/grub)
@@ -60,24 +183,6 @@ HandleLidSwitchDocked=hibernate
 sudo systemctl enable fstrim.timer
 sudo systemctl start fstrim.timer
 ```
-
-### User Creation
-
-```
-useradd taras
-usermod -aG wheel,users,audio,video,input,lp,cups taras
-passwd taras
-# allow make instal without sudo
-chown -R taras:wheel /usr/local
-```
-
-Allow wheel to run sudo commands: `sudo visudo`
-
-Then uncomment: `%wheel ALL=(ALL) ALL`
-
-To enable to run basic commands for user append this:
-
-`taras ALL=NOPASSWD:/usr/bin/shutdown,/bin/nmcli,/usr/bin/tlp-stat,/usr/bin/tlp,/usr/bin/mount,/usr/bin/umount,`
 
 #### Install all packages
 
@@ -129,15 +234,6 @@ pip install --user --upgrade pynvim
 
 ### Enable services:
 
-```
-acpid dmeventd NetworkManager syslog-ng elogind ntpd dbus lvmetad sulogin udevd
-```
-
-using:
-
-```
-ln -s /etc/runit/sv/<servicename> /etc/runit/runsvdir/default
-```
 
 Also, need to start custom services from dotfiles:
 
