@@ -139,6 +139,17 @@ using:
 ln -s /etc/runit/sv/<servicename> /etc/runit/runsvdir/default
 ```
 
+For lenovo_fix.service new runit entry should be
+created at /etc/runit/sv/lenovo_fix/run:
+
+```
+#!/bin/sh -e
+exec 2>&1
+exec /usr/lib/throttled/lenovo_fix.py
+```
+
+`run` should be made executable. Then service can be started.
+
 ### Audio setup
 
 At `/etc/pulse/client.conf` set: `autospawn = yes`
