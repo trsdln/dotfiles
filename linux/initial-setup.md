@@ -173,16 +173,12 @@ Apply changes:
 
 #### Hibernation
 
-At `/etc/mkinitcpio.conf` add "resume" here:
-
-`HOOKS=(base udev autodetect keyboard modconf block filesystems resume fsck)`
-
-To apply changes: `mkinitcpio -p linux`
-
-Enable suspend when lid is closed at `/etc/systemd/logind.conf`:
+Enable suspend when lid is closed at `/etc/elogind/logind.conf`:
 
 ```
+HandlePowerKey=suspend
 HandleLidSwitch=hibernate
+HandleLidSwitchExternalPower=hibernate
 HandleLidSwitchDocked=hibernate
 ```
 
