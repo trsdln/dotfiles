@@ -6,9 +6,9 @@
 - dns caching
 
 * power management:
-  * hibernation + sleep + shutdown + reboot commands
+  - hibernation + sleep + shutdown + reboot commands
+  - dim screen after 10 min
   * hibernation on close lid
-  * dim screen after 10 min
 
 * fstrim service
 * cron jobs + recreate eye rest

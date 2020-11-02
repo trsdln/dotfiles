@@ -27,8 +27,8 @@ SELECTED_COMMAND="$1"
 
 case $SELECTED_COMMAND in
   lock) slock & ;;
-  sleep) systemctl suspend ;;
-  hibernate) systemctl hibernate ;;
+  sleep) loginctl suspend ;;
+  hibernate) loginctl hibernate ;;
   shutdown)   prompt_confirmation 'Shutting down now. Are you sure?' 'do_shutdown' ;;
   reboot) prompt_confirmation 'Rebooting now. Are you sure?' 'do_reboot' ;;
   logout) prompt_confirmation 'Logging out now. Are you sure?' 'do_logout' ;;
