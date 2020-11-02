@@ -3,6 +3,7 @@
 - write complete instruction for LVM on LUKS install
 - test bluetooth
 - clean projects
+- dns caching
 
 * power management:
   * hibernation + sleep + shutdown + reboot commands
@@ -11,7 +12,6 @@
 
 * fstrim service
 * cron jobs + recreate eye rest
-* dns caching
 * firewall
 * fix Fn+F11
 
