@@ -288,21 +288,29 @@ sudo systemctl enable ip6tables.service
 sudo systemctl start ip6tables.service
 ```
 
-# DNS Caching
+# Custom DNS servers
+
+Start caching service and adjust connections:
 
 ```
-sudo systemctl enable systemd-resolved.service
-sudo systemctl start systemd-resolved.service
-sudo ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
-resolvectl status
+ln -s /etc/runit/sv/dnsmasq /run/runit/service/
+
+# modify target connections
+nmcli con mod <connectionName> ipv4.dns "8.8.8.8 8.8.4.4"
+nmcli con mod <connectionName> ipv4.ignore-auto-dns yes
+nmcli con down <connectionName>
+nmcli con up <connectionName>
+# or use nmtui
+
+# test result:
+drill github.com
 ```
 
 #### Printer setup
 
 ```
-sudo pacman -S cups splix
-sudo systemctl enable org.cups.cupsd.service
-sudo systemctl start org.cups.cupsd.service
+sudo pacman -S cups-runit splix
+# then start cups service using runit
 ```
 
 Create queue:
