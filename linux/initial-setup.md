@@ -350,6 +350,16 @@ yarn config set prefix $HOME/.local/share/yarn
 
 ### PostgreSQL
 
+Fix messed up permissions and missing directories:
+
+```
+sudo mkdir -p /var/run/postgresql
+sudo chown -R postgres:postgres /var/run/postgresql
+sudo chown -R postgres:postgres /var/lib/postgres
+```
+
+Create data file:
+
 ```
 sudo -iu postgres
 initdb -D /var/lib/postgres/data
