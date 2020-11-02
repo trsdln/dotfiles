@@ -286,19 +286,30 @@ sudo systemctl start ip6tables.service
 
 # Custom DNS servers
 
+Create `pdnsd` service config:
+
+`sudo cp /usr/share/doc/pdnsd/pdnsd.conf /etc/pdnsd.conf`
+
+All configs can be kept default except 2 `server` options:
+
+```
+	ip = 8.8.8.8, 8.8.4.4;
+	interface=wlp2s0;
+```
+
 Start caching service and adjust connections:
 
 ```
-ln -s /etc/runit/sv/dnsmasq /run/runit/service/
+ln -s /etc/runit/sv/pdnsd /run/runit/service/
 
 # modify target connections
-nmcli con mod <connectionName> ipv4.dns "8.8.8.8 8.8.4.4"
+nmcli con mod <connectionName> ipv4.dns "127.0.0.1"
 nmcli con mod <connectionName> ipv4.ignore-auto-dns yes
 nmcli con down <connectionName>
 nmcli con up <connectionName>
 # or use nmtui
 
-# test result:
+# test result by running request 2 times (0ms delay second time):
 drill github.com
 ```
 

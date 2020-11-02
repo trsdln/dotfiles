@@ -1,0 +1,5 @@
+#!/bin/sh
+logdir=/var/log/lenovo_fix
+mkdir -p $logdir
+exec svlogd -tt $logdir
+#vim:ft=sh
