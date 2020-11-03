@@ -9,6 +9,13 @@ sudo nmcli d wifi list
 sudo nmcli d wifi connect "point_name" password "password_val"
 ```
 
+View connection details (gateway, IP etc.):
+
+```
+nmcli c show --active
+nmcli c show <connection-name>
+```
+
 # Sound
 
 TUI app: `alsamixer`

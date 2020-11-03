@@ -284,7 +284,7 @@ sudo systemctl enable ip6tables.service
 sudo systemctl start ip6tables.service
 ```
 
-# Custom DNS servers
+# Custom DNS servers + caching
 
 Adjust `server_names` at `/etc/dnscrypt-proxy/dnscrypt-proxy.toml`.
 
@@ -294,17 +294,25 @@ Start caching service and adjust connections:
 
 ```
 ln -s /etc/runit/sv/dnscrypt-proxy /run/runit/service/
-
-# modify target connections
-nmcli con mod <connectionName> ipv4.dns "127.0.0.1"
-nmcli con mod <connectionName> ipv4.ignore-auto-dns yes
-nmcli con down <connectionName>
-nmcli con up <connectionName>
-# or use nmtui
-
-# test result by running request 2 times (0ms delay second time):
-drill github.com
 ```
+
+To prevent NetworkManager from configuring
+DNS edit `/etc/NetworkManager/conf.d/dns.conf`:
+
+```
+[main]
+dns=none
+```
+
+Restart service to apply configuration: `sudo sv restart NetworkManager`.
+
+Now put proper DNS into `/etc/resolv.conf`:
+
+```
+nameserver 127.0.0.1
+```
+
+Test result by running request 2 times (expected 0ms delay second time): `drill github.com`.
 
 #### Printer setup
 
