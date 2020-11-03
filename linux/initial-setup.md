@@ -2,7 +2,7 @@
 
 LVM on LUKS based on this [article](https://www.rohlix.eu/post/artix-linux-full-disk-encryption-with-uefi/)
 
-#### Partitions
+## Partitions
 
 ```
   512M /boot
@@ -11,7 +11,7 @@ LVM on LUKS based on this [article](https://www.rohlix.eu/post/artix-linux-full-
 175.8G /home
 ```
 
-#### Initial setup
+## Initial setup
 
 Boot into live usb and ensure that Internet connection is available.
 
@@ -116,7 +116,7 @@ acpid dmeventd NetworkManager syslog-ng elogind ntpd dbus lvmetad sulogin udevd
 ln -s /etc/runit/sv/<servicename> /etc/runit/runsvdir/default
 ```
 
-### Hosts
+## Hosts
 
 Put into /etc/hosts this:
 
@@ -125,7 +125,7 @@ Put into /etc/hosts this:
 ::1       localhost
 ```
 
-### User Creation
+## User Creation
 
 ```
 useradd taras
@@ -141,7 +141,7 @@ To enable to run basic commands for user append this:
 
 `taras ALL=NOPASSWD:/usr/bin/shutdown,/bin/nmcli,/usr/bin/tlp-stat,/usr/bin/tlp,/usr/bin/mount,/usr/bin/umount`
 
-#### Reboot
+## Reboot
 
 ```
 # exit chroot
@@ -153,7 +153,7 @@ swapoff -a
 reboot
 ```
 
-#### Grub (/etc/default/grub)
+## Grub (/etc/default/grub)
 
 Achieve the fastest possible boot (hide Grub menu):
 
@@ -167,11 +167,11 @@ Apply changes:
 
 `sudo grub-mkconfig -o /boot/grub/grub.cfg`
 
-#### Swapiness (/usr/lib/sysctl.d/99-swappiness.conf)
+## Swapiness (/usr/lib/sysctl.d/99-swappiness.conf)
 
 `vm.swappiness=10`
 
-#### Hibernation
+## Hibernation
 
 Enable suspend when lid is closed at `/etc/elogind/logind.conf`:
 
@@ -182,22 +182,22 @@ HandleLidSwitchExternalPower=hibernate
 HandleLidSwitchDocked=hibernate
 ```
 
-### Enable TRIM
+## Enable TRIM
 
 ```
 sudo systemctl enable fstrim.timer
 sudo systemctl start fstrim.timer
 ```
 
-#### Install all packages
+## Install all packages
 
 ```
 cat ./package-list.conf | sed -E '/(^$|^#)/d' | pacman -S -
 ```
 
-#### Clone dotfiles
+## Clone dotfiles
 
-#### Fix tearing artifacts
+## Fix tearing artifacts
 
 Create `/etc/X11/xorg.conf.d/20-intel.conf`:
 
@@ -210,7 +210,7 @@ Section "Device"
 EndSection
 ```
 
-#### Fix Fn+F11 unrecognized issue
+## Fix Fn+F11 unrecognized issue
 
 Create `/etc/udev/hwdb.d/90-thinkpad-keyboard.hwdb`:
 
@@ -226,18 +226,18 @@ To make the changes take effect:
 # udevadm trigger --sysname-match="event*"
 ```
 
-#### Install python packages
+## Install python packages
 
 ```
 # Python integration for Neovim
 pip install --user --upgrade pynvim
 ```
 
-#### Dash as `/bin/sh`:
+## Dash as `/bin/sh`:
 
 `cd /usr/bin && rm -f sh && ln -s dash sh`
 
-### Enable services:
+## Enable services:
 
 
 Also, need to start custom services from dotfiles:
@@ -246,12 +246,12 @@ Also, need to start custom services from dotfiles:
 ln -s /home/<user>/.dotfiles/linux/runit/<servicename> /run/runit/service/
 ```
 
-### Audio setup
+## Audio setup
 
 At `/etc/pulse/client.conf` set: `autospawn = yes`
 At `/etc/pulse/daemon.conf` set: `exit-idle-time = -1`
 
-#### Pacman
+## Pacman
 
 * enable Color option at `/etc/pacman.conf`
 * install `aurutils`
@@ -263,7 +263,7 @@ PKGEXT='.pkg.tar'
 SRCEXT='.src.tar'
 ```
 
-#### Install AUR packages
+## Install AUR packages
 
 Sync packages using part of `system-upgrade.sh`. Then install using pacman.
 For aic94xx & wd719x:
@@ -272,19 +272,21 @@ For aic94xx & wd719x:
 mkinitcpio -p linux-lts
 ```
 
-#### Firewall
+## Firewall
 
 [Basic Instructions](https://wiki.archlinux.org/index.php/Simple_stateful_firewall)
 
-```
-sudo systemctl enable iptables.service
-sudo systemctl start iptables.service
+Put appropriate rules into `/etc/iptables/iptables.rules` and
+`/etc/iptables/ip6tables.rules`. Then start services:
 
-sudo systemctl enable ip6tables.service
-sudo systemctl start ip6tables.service
+```
+sudo ln -s /etc/runit/sv/ip6tables /run/runit/service
+sudo ln -s /etc/runit/sv/iptables /run/runit/service
+sudo sv status iptables
+sudo sv status ip6tables
 ```
 
-# Custom DNS servers + caching
+## Custom DNS servers + caching
 
 Adjust `server_names` at `/etc/dnscrypt-proxy/dnscrypt-proxy.toml`.
 
@@ -314,7 +316,7 @@ nameserver 127.0.0.1
 
 Test result by running request 2 times (expected 0ms delay second time): `drill github.com`.
 
-#### Printer setup
+## Printer setup
 
 ```
 sudo pacman -S cups-runit splix
@@ -336,7 +338,7 @@ lpadmin -p "queue_name" -E -v uri -m "model"
 lpadmin -p HP_DESKJET_940C -E -v "usb://HP/DESKJET%20940C?serial=CN16E6C364BH" -m drv:///HP/hp-deskjet_940c.ppd.gz
 ```
 
-### Switch to LTS kernel
+## Switch to LTS kernel
 
 1. Install LTS kernel: `sudo pacman -S linux-lts acpi_call-lts`.
 2. Switch GRUB timeout back to > 0 value and regenerate Grub config.
@@ -346,7 +348,7 @@ lpadmin -p HP_DESKJET_940C -E -v "usb://HP/DESKJET%20940C?serial=CN16E6C364BH" -
 6. Regenerate inital ramdisk `sudo mkinitcpio -p linux-lts`.
 6. Get `GRUB_TIMEOUT` back and regenerate config again.
 
-### Remove obsolete startup entries
+## Remove obsolete startup entries
 
 ```
 sudo rm -f /etc/xdg/autostart/geoclue-demo-agent.desktop
@@ -354,13 +356,13 @@ sudo rm -f /etc/xdg/autostart/geoclue-demo-agent.desktop
 
 Plus inspect autostart directory manually.
 
-### Yarn
+## Yarn
 
 ```
 yarn config set prefix $HOME/.local/share/yarn
 ```
 
-### PostgreSQL
+## PostgreSQL
 
 Fix messed up permissions and missing directories:
 
@@ -387,4 +389,4 @@ createdb testdbname
 
 Connect to DB: `psql -d testdbname`
 
-#### Done!
+## Done!
