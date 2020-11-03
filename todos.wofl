@@ -1,17 +1,3 @@
-- [vim] JS import path 1 level up/down command (multiline/operator)
-- consolidate all xdg open commands
-- write complete instruction for LVM on LUKS install
-- test bluetooth
-- clean projects
-- dns caching
-
-* power management:
-  - hibernation + sleep + shutdown + reboot commands
-  - dim screen after 10 min
-  * hibernation on close lid
-
-* fstrim service
-* cron jobs + recreate eye rest
-* firewall
+* recreate eye rest
 * fix Fn+F11
 
