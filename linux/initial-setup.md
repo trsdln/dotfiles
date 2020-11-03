@@ -100,7 +100,7 @@ pacman -S grub efibootmgr
 
 # adjust grub config /etc/default/grub:
 GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet resume=UUID=`blkid -s UUID -o value /dev/lvmSystem/volSwap`"
-GRUB_CMDLINE_LINUX="cryptdevice=UUID=`blkid -s UUID -o value /dev/sdX2`:lvm-system root=/dev/lvmSystem/volRoot"
+GRUB_CMDLINE_LINUX="cryptdevice=UUID=`blkid -s UUID -o value /dev/sdX2`:lvm-system:allow-discards root=/dev/lvmSystem/volRoot"
 GRUB_ENABLE_CRYPTODISK=y
 
 # install grub
@@ -184,9 +184,16 @@ HandleLidSwitchDocked=hibernate
 
 ## Enable TRIM
 
+Enable cronie service:
+
 ```
-sudo systemctl enable fstrim.timer
-sudo systemctl start fstrim.timer
+sudo ln -s /etc/runit/sv/cronie /run/runit/service
+```
+
+Add root cron job `sudo EDITOR=nvim crontab -e -u root`:
+
+```
+0 12 * * 1 /usr/sbin/fstrim --fstab --verbose
 ```
 
 ## Install all packages
