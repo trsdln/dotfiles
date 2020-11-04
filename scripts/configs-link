@@ -18,9 +18,6 @@ LINK_MAP_COMMON=(
   ".config/neomutt:../${DOTFILES_DIR_NAME}/private/neomutt"
 )
 
-SYSTEMD_UNITS=".config/systemd/user"
-SYSTEMD_DOTFILES_PATH="../../../${DOTFILES_DIR_NAME}/linux/systemd"
-
 LINK_MAP_LINUX=(
   ".profile:./${DOTFILES_DIR_NAME}/linux/.profile"
 
@@ -43,10 +40,6 @@ LINK_MAP_LINUX=(
   ".gnupg/gpg-agent.conf:../${DOTFILES_DIR_NAME}/gnupg/gpg-agent.linux.conf"
   ".local/share/applications/lf.desktop:../../../${DOTFILES_DIR_NAME}/linux/applications/lf.desktop"
   ".local/share/applications/sxiv.desktop:../../../${DOTFILES_DIR_NAME}/linux/applications/sxiv.desktop"
-
-  # custom services
-  "${SYSTEMD_UNITS}/eye-rest.service:${SYSTEMD_DOTFILES_PATH}/eye-rest.service"
-  "${SYSTEMD_UNITS}/eye-rest.timer:${SYSTEMD_DOTFILES_PATH}/eye-rest.timer"
 
   ".config/newsboat/urls:../../${DOTFILES_DIR_NAME}/private/newsboat/urls"
   ".config/spotifyd:../${DOTFILES_DIR_NAME}/private/spotifyd"

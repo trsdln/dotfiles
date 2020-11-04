@@ -386,7 +386,7 @@ sudo -iu postgres
 initdb -D /var/lib/postgres/data
 ```
 
-Then from regular user: `sudo systemctl start postgresql`
+Then from regular user: `sudo ln -s /etc/runit/sv/postgresql /run/runit/service`
 
 ```
 sudo -iu postgres

@@ -1,13 +1,21 @@
 #!/bin/sh
 
-# Toggles eye rest notification service status
+# Toggles eye rest notification cron job
 
-if [ $(systemctl --user is-active eye-rest.timer) = "active" ]; then
+TMP_TABLE=$(mktemp /tmp/cron_XXXXXXXXXX.txt)
+EYE_REST_ENTRY='*/15 * * * * $HOME/.dotfiles/linux/scripts/eye-rest-notify.sh'
+crontab -l > $TMP_TABLE
+
+grep 'eye-rest' $TMP_TABLE
+HAS_JOB=$?
+
+if [ "${HAS_JOB}" = 0 ]; then
   NEW_STATUS="inactive"
-  systemctl --user stop eye-rest.timer
+  crontab -r
 else
   NEW_STATUS="active"
-  systemctl --user start eye-rest.timer
+  echo "$EYE_REST_ENTRY" > $TMP_TABLE
+  crontab $TMP_TABLE
 fi
 
 notify-send --hint string:x-canonical-private-synchronous:eye-rest-status \
