@@ -371,22 +371,16 @@ yarn config set prefix $HOME/.local/share/yarn
 
 ## PostgreSQL
 
-Fix messed up permissions and missing directories:
+Add next lines to `/etc/runit/sv/postgresql/run`:
 
 ```
-sudo mkdir -p /var/run/postgresql
-sudo chown -R postgres:postgres /var/run/postgresql
-sudo chown -R postgres:postgres /var/lib/postgres
+mkdir -p /var/run/postgresql
+chown -R postgres:postgres /var/run/postgresql
 ```
 
-Create data file:
+Then start service: `sudo ln -s /etc/runit/sv/postgresql /run/runit/service`
 
-```
-sudo -iu postgres
-initdb -D /var/lib/postgres/data
-```
-
-Then from regular user: `sudo ln -s /etc/runit/sv/postgresql /run/runit/service`
+Next user and db can be created:
 
 ```
 sudo -iu postgres
