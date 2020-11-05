@@ -7,17 +7,10 @@ nnoremap <leader>c :Maps<CR>
 " Search ctags
 nnoremap <leader>[ :Tags<CR>
 
-" This is the default extra key bindings
-let g:fzf_action = {
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
+let g:skim_layout = { 'down': '~40%' }
 
-" Default fzf layout
-" - down / up / left / right
-let g:fzf_layout = { 'down': '~40%' }
-
-" Customize fzf colors to match my color scheme
-let g:fzf_colors =
+" Customize colors to match my color scheme
+let g:skim_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
   \ 'hl':      ['fg', 'Comment'],
@@ -33,7 +26,11 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 " Jump to the existing window if possible
-let g:fzf_buffers_jump = 1
+let g:skim_buffers_jump = 1
 
-" Enables fzf to search tags
+" Enables skim to search tags
 set tags+=.tags
+
+let $SKIM_DEFAULT_COMMAND = 'rg --files'
+
+command! -bang -nargs=* Rg call fzf#vim#rg_interactive(<q-args>, fzf#vim#with_preview('right:50%:hidden', 'alt-h'))

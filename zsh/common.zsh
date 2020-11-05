@@ -46,60 +46,50 @@ fi
 # Setup ripgrep
 export RIPGREP_CONFIG_PATH="${DOTFILES_PATH}/.ripgreprc"
 
-# Setup fzf
+# Setup skim
 # ---------
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
-    export PATH="$PATH:/usr/local/opt/fzf/bin"
+  if [[ ! "$PATH" == */usr/local/opt/skim/bin* ]]; then
+    export PATH="$PATH:/usr/local/opt/skim/bin"
   fi
 fi
 
 # Auto-completion
 if [[ $- == *i* ]]; then
   if [[ "$OSTYPE" == "darwin"* ]]; then
-    source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
+    source "/usr/local/opt/skim/shell/completion.zsh" 2> /dev/null
   else
-    source "/usr/share/fzf/completion.zsh" 2> /dev/null
+    source "/usr/share/skim/completion.zsh" 2> /dev/null
   fi
 fi
 
 # Key bindings
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+  source "/usr/local/opt/skim/shell/key-bindings.zsh"
 else
-  source "/usr/share/fzf/key-bindings.zsh"
+  . /usr/share/skim/key-bindings.zsh
 fi
 
-export FZF_DEFAULT_COMMAND='rg --files'
-export FZF_CTRL_T_COMMAND=${FZF_DEFAULT_COMMAND}
+export SKIM_DEFAULT_COMMAND='rg --files'
+export SKIM_CTRL_T_COMMAND=${SKIM_DEFAULT_COMMAND}
 
-_gen_fzf_default_opts() {
-  local base03="234"
+_gen_skim_default_opts() {
   local base02="235"
-  local base01="240"
-  local base00="241"
-  local base0="244"
-  local base1="245"
   local base2="254"
   local base3="230"
   local yellow="136"
-  local orange="166"
-  local red="160"
-  local magenta="125"
-  local violet="61"
   local blue="33"
-  local cyan="37"
-  local green="64"
 
-  # Solarized Dark color scheme for fzf
-  export FZF_DEFAULT_OPTS="
-    --color fg:-1,bg:-1,hl:$blue,fg+:$base2,bg+:$base02,hl+:$blue
-    --color info:$yellow,prompt:$yellow,pointer:$base3,marker:$base3,spinner:$yellow
+  # Solarized Dark color scheme for skim
+  export SKIM_DEFAULT_OPTIONS="
+    --color fg:-1,bg:-1,hl:$blue,fg+:$base2,bg+:$base02,hl+:$blue,info:$yellow,prompt:$yellow,pointer:$base3,marker:$base3,spinner:$yellow
   "
 }
-_gen_fzf_default_opts
+_gen_skim_default_opts
 
-export FZF_CTRL_R_OPTS='--sort'
+export SKIM_CTRL_R_OPTS=''
+# preview syntax highlighting theme
+export BAT_THEME="Solarized (dark)"
 
 # Setup lf
 # ---------

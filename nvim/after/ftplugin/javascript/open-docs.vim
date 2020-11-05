@@ -14,7 +14,7 @@ function! s:OpenDocs()
   let docs_options = keys(s:docs_sources_map)
 
   " fzf#wrap applies user settings defined at vim/plugins/fzf.vim
-  call fzf#run(fzf#wrap({
+  call skim#run(skim#wrap({
    \ 'down': '~40%',
    \ 'options': '--prompt "Docs>"',
    \ 'sink': function('s:OpenDocsBySourceName'),

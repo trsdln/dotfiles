@@ -1,12 +1,12 @@
 #!/usr/bin/env zsh
 
-# fzf-based passmenu analog for MacOS
+# skim-based passmenu analog for MacOS
 prefix=${PASSWORD_STORE_DIR-~/.password-store}
 password_files=( "$prefix"/**/*.gpg )
 password_files=( "${password_files[@]#"$prefix"/}" )
 password_files=( "${password_files[@]%.gpg}" )
 
-password=$(printf '%s\n' "${password_files[@]}" | fzf --layout=reverse --height=30)
+password=$(printf '%s\n' "${password_files[@]}" | sk --layout=reverse --height=30)
 
 [[ -n $password ]] || exit
 

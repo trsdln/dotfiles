@@ -23,8 +23,8 @@ function! PackInit() abort
   call minpac#add('justinmk/vim-dirvish')
 
   " Faster CtrlP alternative
-  call minpac#add('junegunn/fzf')
-  call minpac#add('junegunn/fzf.vim')
+  call minpac#add('lotabout/skim')
+  call minpac#add('lotabout/skim.vim')
 
   " Nice status bar at the bottom
   call minpac#add('itchyny/lightline.vim')

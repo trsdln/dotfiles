@@ -30,7 +30,7 @@ Removes all dot files links
 ```
 brew tap universal-ctags/universal-ctags
 brew install --HEAD universal-ctags
-brew install vim ripgrep fzf lf
+brew install vim ripgrep sk lf
 brew install tmux reattach-to-user-namespace tmux-mem-cpu-load osx-cpu-temp
 brew install gpg pass pinentry-mac
 brew tap mongodb/brew

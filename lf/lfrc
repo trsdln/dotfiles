@@ -4,7 +4,7 @@ set shellopts '-eu:--shwordsplit'
 set ifs "\n"
 set filesep "\n"
 
-cmd mpvsub $setsid nohup mpv --sub-file $(fzf --prompt="Subtitles file>") $fx > /dev/null &
+cmd mpvsub $setsid nohup mpv --sub-file $(sk --prompt="Subtitles file>") $fx > /dev/null &
 
 map a push %mkdir<space>
 
@@ -26,8 +26,8 @@ cmd zip %zip -r "$f" "$f"
 cmd tar %tar cvf "$f.tar" "$f"
 cmd tarbz2 %tar cjvf "$f.tar.bz2" "$f"
 
-cmd fzf_jump ${{
-  res="$(fzf --reverse --header='Jump to location')"
+cmd sk_jump ${{
+  res="$(sk --reverse --header='Jump to location')"
   if [ -f "$res" ]; then
     cmd="select"
   elif [ -d "$res" ]; then
@@ -36,7 +36,7 @@ cmd fzf_jump ${{
   lf -remote "send $id $cmd \"$res\""
 }}
 map f
-map f fzf_jump
+map f sk_jump
 
 map gd cd ~/.dotfiles
 
