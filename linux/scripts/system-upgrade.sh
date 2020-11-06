@@ -2,24 +2,17 @@
 
 upgrade_aur_packages() {
   echo "Updating all AUR packages..."
-  # updates too often so usually just skip:
-  # aur sync google-cloud-sdk
-  aur sync spotify-tui-bin
-  aur sync aic94xx-firmware
-  aur sync wd719x-firmware
-  aur sync mongodb-tools-bin
-  aur sync mongodb-compass
-  aur sync robo3t-bin
-  aur sync slack-desktop
-  # outdated at aur:
-  # aur sync grive
-  aur sync paper-icon-theme-git
-  aur sync mpv-mpris
-  aur sync aurutils
+  aur sync spotify-tui-bin aic94xx-firmware wd719x-firmware \
+    mongodb-tools-bin mongodb-compass robo3t-bin \
+    slack-desktop paper-icon-theme-git mpv-mpris \
+    aurutils lf-bin
   # bspwm related:
   aur sync xtitle
   aur sync libxft-bgra
-  aur sync lf-bin
+  # outdated at aur:
+  # aur sync grive
+  # updates too often so usually just skip:
+  # aur sync google-cloud-sdk
 }
 
 pull_and_notify() {
@@ -102,6 +95,22 @@ clean_custompkgs_obsolete_files() {
   fi
 }
 
+check_service_statuses() {
+  echo "Checking service statuses...."
+  local down_services=""
+  for sv_name in $(ls -1 /run/runit/service); do
+    local sv_status=$(sudo sv status $sv_name | cut -d ":" -f 1)
+    if [ "${sv_status}" != "run" ]; then
+      local down_services="${down_services} ${sv_name}"
+    fi
+  done
+  if [ "${down_services}" = "" ]; then
+    echo "OK: All services are up!"
+  else
+    echo "FAIL. Services down:${down_services}"
+  fi
+}
+
 # Prevent auto suspend and disable screensaver
 xset -dpms
 xset s off
@@ -158,6 +167,8 @@ clean_custompkgs_obsolete_files
 
 echo "Checking locally managed AUR packages:"
 check_manual_aur_upgrades
+
+check_service_statuses
 
 # Restore screen saver and auto suspend
 xset +dpms
