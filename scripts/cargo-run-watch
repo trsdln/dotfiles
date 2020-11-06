@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# rerun app on every change
+find src | entr -s -c 'cargo run'
+#vim:ft=sh
