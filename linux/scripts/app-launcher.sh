@@ -31,6 +31,7 @@ Gimp:gimp
 Hubstaff:hubstaff
 Toggle Redshift:pkill -USR1 redshift
 PassMenu:passmenu
+Copy Bookmark:$DOTFILES_PATH/scripts/copy-bookmark.sh
 Firefox:firefox
 Tor Browser:torbrowser-launcher
 Play Watch Later:watch-later.sh play
