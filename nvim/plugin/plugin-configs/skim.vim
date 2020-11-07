@@ -1,3 +1,5 @@
+command! -bang -nargs=* Rg call fzf#vim#rg_interactive(<q-args>, fzf#vim#with_preview('right:40%'))
+
 " Search files
 nnoremap <C-P> :Files<CR>
 
@@ -32,5 +34,3 @@ let g:skim_buffers_jump = 1
 set tags+=.tags
 
 let $SKIM_DEFAULT_COMMAND = 'rg --files'
-
-command! -bang -nargs=* Rg call fzf#vim#rg_interactive(<q-args>, fzf#vim#with_preview('right:50%:hidden', 'alt-h'))
