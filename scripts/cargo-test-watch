@@ -1,13 +1,16 @@
 #!/bin/bash
 
+# remove cargo command name argument if present
+all_args="$@"
+if [ "$all_args" = "test-watch" ]; then
+  # running as cargo command
+  rest_args=""
+elif [ "$1" = "test-watch" ]; then
+  rest_args="${all_args#test-watch }"
+else
+  # keep all arguments
+  rest_args="${all_args}"
+fi
+
 # super useful for TDD
-while true; do
-  rg --files src | entr -c -d cargo test $@
-
-  # allows break infinite loop
-  if [ "$?" = 130 ]; then
-    echo "Interrupted by user (C-c or q)"
-    exit 0
-  fi
-done
-
+rg --files src | entr -c cargo test $rest_args
