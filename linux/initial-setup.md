@@ -190,11 +190,16 @@ Enable cronie service:
 sudo ln -s /etc/runit/sv/cronie /run/runit/service
 ```
 
-Add root cron job `sudo EDITOR=nvim crontab -e -u root`:
+Add weekly job at `/etc/cron.weekly/fstrim`
 
 ```
-0 12 * * 1 /usr/sbin/fstrim --fstab --verbose
+#!/bin/sh
+
+/usr/sbin/fstrim --fstab --verbose
+#vim:ft=sh
 ```
+
+Make job executable: `chmod +x /etc/cron.weekly/fstrim`.
 
 ## Install all packages
 

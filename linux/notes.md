@@ -1,3 +1,12 @@
+# runit
+
+Prevent service from starting while user isn't logged in:
+
+```
+TARGET_USER=someuser
+loginctl list-users | grep -i $TARGET_USER || exit 1
+```
+
 # NetworkManager
 
 Connect to WiFi:
