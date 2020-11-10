@@ -179,3 +179,7 @@ augroup delimMate
   " Prevent from conflicting with vim-closetag at HTML
   autocmd FileType html let b:delimitMate_matchpairs = "(:),[:],{:}"
 augroup END
+
+
+" Configure vim-javascript-sql
+let g:javascript_sql_tags = ['sql', 'tsql']
