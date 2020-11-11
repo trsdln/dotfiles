@@ -182,4 +182,4 @@ augroup END
 
 
 " Configure vim-javascript-sql
-let g:javascript_sql_tags = ['sql', 'tsql']
+let g:javascript_sql_tags = ['sql', 'sqlF']
