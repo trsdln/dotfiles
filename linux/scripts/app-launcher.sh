@@ -30,7 +30,8 @@ Android File Transfer:android-file-transfer
 Gimp:gimp
 Hubstaff:hubstaff
 Toggle Redshift:pkill -USR1 redshift
-PassMenu:passmenu
+PassMenu:passmenu --type
+PassMenu Copy:passmenu
 Copy Bookmark:$DOTFILES_PATH/scripts/copy-bookmark.sh
 Firefox:firefox
 Tor Browser:torbrowser-launcher
