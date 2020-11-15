@@ -30,7 +30,7 @@ Android File Transfer:android-file-transfer
 Gimp:gimp
 Hubstaff:hubstaff
 Toggle Redshift:pkill -USR1 redshift
-PassMenu:passmenu --type
+PassMenu Type:passmenu --type
 PassMenu Copy:passmenu
 Copy Bookmark:$DOTFILES_PATH/scripts/copy-bookmark.sh
 Firefox:firefox
@@ -53,6 +53,7 @@ prompt_app_and_run () {
 
   if [ "${selected_option}" != "" ]; then
     local run_cmd="$(print_app_options | grep "${selected_option}" | cut -d ':' -f2)"
+    echo "selected cmd ${run_cmd}"
 
     ${run_cmd} &
   fi
