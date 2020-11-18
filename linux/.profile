@@ -8,6 +8,7 @@ export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_DATA_HOME="${HOME}/.local/share"
 export XAUTHORITY="${XDG_DATA_HOME}/.Xauthority"
 export PASSWORD_STORE_DIR="${XDG_DATA_HOME}/password-store"
+export PSQL_HISTORY="${HOME}/.cache/.psql_history"
 
 . "${DOTFILES_PATH}/zsh/envs.sh"
 
