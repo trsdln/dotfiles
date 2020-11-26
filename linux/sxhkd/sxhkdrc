@@ -81,10 +81,14 @@ alt + y
 
 # swap the current node and the biggest node
 alt + g
-	bspc node -s biggest
+	bspc node -s biggest.local
 
 alt + {_,shift + }r
 	bspc node @/ --rotate {90,-90}
+
+# equlize area windows occupy
+alt + e
+	bspc node @/ -B
 
 #
 # state/flags
