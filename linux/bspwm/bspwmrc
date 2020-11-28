@@ -13,6 +13,8 @@ bspc config gapless_monocle             true
 bspc config remove_disabled_monitors    true
 bspc config remove_unplugged_monitors   true
 bspc config pointer_follows_monitor     true
+# allows to focus on floating windows easier
+bspc config directional_focus_tightness low
 
 # use Alt for moving (left mouse button)
 # and resizing (right mouse button)
