@@ -75,9 +75,9 @@ alt + {_,shift + }w
 alt + m
 	bspc desktop -l next
 
-# send the newest marked node to the newest preselected node
+# send focused node to the newest preselected node
 alt + y
-	bspc node newest.marked.local -n newest.!automatic.local
+	bspc node focused.local -n newest.!automatic.local
 
 # swap the current node and the biggest node
 alt + g
