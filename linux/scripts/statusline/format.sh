@@ -1,15 +1,18 @@
 #!/bin/sh
 
+# No need to update count of monitors
+# dynamically because panel is restarted
+# anyway after monitor configuration changes
+num_mon=$(bspc query -M | wc -l)
+
 format_wm_info() {
-  num_mon=$(bspc query -M | wc -l)
   wm=""
-  tiling=""
-  flags=""
   IFS=':'
   set -- ${line#?}
   while [ $# -gt 0 ] ; do
     item=$1
     name=${item#?}
+
     case $item in
       [mM]*)
         [ $num_mon -lt 2 ] && shift && continue
@@ -62,17 +65,38 @@ format_wm_info() {
         esac
         wm="${wm}%{F${FG}}%{B${BG}}%{A:bspc desktop -f ${name}:}  ${name}  %{A}%{B-}%{F-}"
         ;;
-      [T]*)
-        [ "$name" = "T" ] && tiling="*" || tiling="${name}"
-        ;;
-      [G]*)
-        flags="${name}"
+      L*)
+        [ "$name" != "T" ] && monocle="$name" || monocle=""
+        shift # skip layout
+        item=$1
+        name=${item#?}
+
+        case $item in
+          T*)
+            # both tiling and flags should be present
+            [ "$name" != "T" ] && tiling="$name" || tiling=""
+
+            shift # skip tiling
+            item=$1
+            flags=${item#?}
+            ;;
+          *)
+            tiling="*"
+            flags="*"
+            no_shift=1
+            ;;
+        esac
+
+        win_state="${monocle}${tiling}"
+        wm="${wm}%{F$COLOR_STATE_FG}%{B$COLOR_STATE_BG} ${win_state:-*}  ${flags:-*}  %{B-}%{F-}"
+
+        # We may hit monitor in multi monitor setup, so
+        # preventing shift call at the end of loop's body
+        [ "$no_shift" = "1" ] && continue
         ;;
     esac
     shift
   done
-  # ensures tilling and flags are present at empty desktops
-  wm="${wm}%{F$COLOR_STATE_FG}%{B$COLOR_STATE_BG} ${tiling:-*}  ${flags:-*} %{B-}%{F-}"
 }
 
 format_panel_info() {
