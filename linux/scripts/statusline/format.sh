@@ -3,6 +3,8 @@
 format_wm_info() {
   num_mon=$(bspc query -M | wc -l)
   wm=""
+  tiling=""
+  flags=""
   IFS=':'
   set -- ${line#?}
   while [ $# -gt 0 ] ; do
@@ -60,13 +62,17 @@ format_wm_info() {
         esac
         wm="${wm}%{F${FG}}%{B${BG}}%{A:bspc desktop -f ${name}:}  ${name}  %{A}%{B-}%{F-}"
         ;;
-      [TG]*)
-        # layout, state and flags
-        wm="${wm}%{F$COLOR_STATE_FG}%{B$COLOR_STATE_BG} ${name} %{B-}%{F-}"
+      [T]*)
+        [ "$name" = "T" ] && tiling="*" || tiling="${name}"
+        ;;
+      [G]*)
+        flags="${name}"
         ;;
     esac
     shift
   done
+  # ensures tilling and flags are present at empty desktops
+  wm="${wm}%{F$COLOR_STATE_FG}%{B$COLOR_STATE_BG} ${tiling:-*}  ${flags:-*} %{B-}%{F-}"
 }
 
 format_panel_info() {
