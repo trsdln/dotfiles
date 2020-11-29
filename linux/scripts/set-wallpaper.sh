@@ -9,5 +9,5 @@ if [ -n "$1" ]; then
 fi
 
 if [ -f "$WALLPAPER_CONFIG" ]; then
-  xwallpaper --zoom $(cat "$WALLPAPER_CONFIG")
+  xwallpaper --zoom "$(cat "$WALLPAPER_CONFIG")"
 fi
