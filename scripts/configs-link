@@ -23,6 +23,7 @@ LINK_MAP_LINUX=(
 
   ".xinitrc:./${DOTFILES_DIR_NAME}/linux/.xinitrc"
   ".config/tmux.conf:../${DOTFILES_DIR_NAME}/tmux/linux-gnu.conf"
+  ".config/picom.conf:../${DOTFILES_DIR_NAME}/linux/picom.conf"
   ".config/dunst:../${DOTFILES_DIR_NAME}/linux/dunst"
   ".config/sxiv:../${DOTFILES_DIR_NAME}/linux/sxiv"
   ".config/pulse/default.pa:../../${DOTFILES_DIR_NAME}/linux/pulse/default.pa"

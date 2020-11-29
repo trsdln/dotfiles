@@ -7,8 +7,8 @@ PANEL_WM_NAME=bspwm_lemonbar
 
 SEP="  " # widgets separator
 
-# ALPHA_BG="E6"
-ALPHA_BG="EA"
+# ALPHA_BG="EA"
+ALPHA_BG="FF" # handled by picom rules now
 
 apply_alpha(){
   echo "#${ALPHA_BG}${1#?}"
