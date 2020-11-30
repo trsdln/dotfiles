@@ -1,3 +1,5 @@
+export SSH_ASKPASS_REQUIRE='prefer'
+
 # SSH Agent management
 # source https://blog.tinned-software.net/manage-ssh-keys-with-the-ssh-agent/
 # Check if the ssh-agent is already running

@@ -1,17 +1,19 @@
 #!/bin/sh
 
-userresources=$HOME/.config/.Xresources
 sysresources=/etc/X11/xinit/.Xresources
+userresources=$DOTFILES_PATH/linux/misc.ad
+askpassresources=$DOTFILES_PATH/linux/x11-askpass.ad
 
 # merge in defaults and keymaps
-if [ -f $sysresources ]; then
-  xrdb -merge $sysresources
-fi
+[ -f "$sysresources" ] && xrdb -merge "$sysresources"
+unset sysresources
 
-if [ -f "$userresources" ]; then
-  # loads terminal color scheme
-  xrdb -merge "$userresources"
-fi
+# loads terminal color scheme
+[ -f "$userresources" ] && xrdb -merge "$userresources"
+unset userresources
+
+[ -f "$askpassresources" ] && xrdb -merge "$askpassresources"
+unset askpassresources
 
 # start some nice programs
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then

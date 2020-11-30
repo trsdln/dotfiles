@@ -39,7 +39,6 @@ LINK_MAP_LINUX=(
   ".gtkrc-2.0:./${DOTFILES_DIR_NAME}/linux/.gtkrc-2.0"
 
   ".config/fontconfig:../${DOTFILES_DIR_NAME}/linux/fontconfig"
-  ".config/.Xresources:../${DOTFILES_DIR_NAME}/linux/.Xresources"
   ".gnupg/gpg-agent.conf:../${DOTFILES_DIR_NAME}/gnupg/gpg-agent.linux.conf"
   ".local/share/applications/lf.desktop:../../../${DOTFILES_DIR_NAME}/linux/applications/lf.desktop"
   ".local/share/applications/sxiv.desktop:../../../${DOTFILES_DIR_NAME}/linux/applications/sxiv.desktop"
