@@ -81,8 +81,8 @@ format_wm_info() {
             flags=${item#?}
             ;;
           *)
-            tiling="*"
-            flags="*"
+            tiling=""
+            flags=""
             no_shift=1
             ;;
         esac
