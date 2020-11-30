@@ -1,5 +1,7 @@
 #!/bin/sh
 
+killall picom
+
 if [ "$1" = "clipboard" ]; then
   maim -s | xclip -selection clipboard -t image/png
 else
@@ -9,3 +11,5 @@ else
 
   maim -s > $HOME/$screenshot_file
 fi
+
+picom -b

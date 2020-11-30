@@ -33,7 +33,7 @@ killall picom
 ffmpeg -f x11grab -s "$W"x"$H" -i :0.0+$X,$Y -codec:v huffyuv -framerate 15 -y "${TMP_AVI}"
 
 # start compositor after recording is done
-setsid picom &
+picom -b &
 
 send_notification "Stopped. Converting to GIF"
 
