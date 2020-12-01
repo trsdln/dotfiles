@@ -16,5 +16,5 @@ export STATUSLINE_LOG="${HOME}/.cache/statusline.log"
 
 # Automatic startx on login at TTY1
 if [ "${DISPLAY}" = "" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-  exec startx
+  exec startx $XDG_CONFIG_HOME/X11/xinitrc
 fi

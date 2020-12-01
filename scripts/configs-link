@@ -21,7 +21,7 @@ LINK_MAP_COMMON=(
 LINK_MAP_LINUX=(
   ".profile:./${DOTFILES_DIR_NAME}/linux/.profile"
 
-  ".xinitrc:./${DOTFILES_DIR_NAME}/linux/.xinitrc"
+  ".config/X11:../${DOTFILES_DIR_NAME}/linux/X11"
   ".config/tmux.conf:../${DOTFILES_DIR_NAME}/tmux/linux-gnu.conf"
   ".config/picom.conf:../${DOTFILES_DIR_NAME}/linux/picom.conf"
   ".config/dunst:../${DOTFILES_DIR_NAME}/linux/dunst"
