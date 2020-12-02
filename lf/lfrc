@@ -18,6 +18,7 @@ cmd unarchive ${{
       *.tar.bz2) tar -xjvf "$f" ;;
       *.tar) tar -xvf "$f" ;;
       *.rar) unrar "$f" ;;
+      *.gz) gzip -dk "$f" ;;
       *) echo "Unsupported format" ;;
   esac
 }}
