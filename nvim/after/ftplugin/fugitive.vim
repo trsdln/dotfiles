@@ -1,7 +1,7 @@
-nnoremap <buffer> cc :Gcommit --no-verify<cr>
-nnoremap <buffer> ca :Gcommit --no-verify --amend<cr>
-nnoremap <buffer> ce :Gcommit --no-verify --amend --reuse-message=HEAD<cr>
-nnoremap <buffer> cvc :tab Gcommit --no-verify --verbose<cr>
+nnoremap <buffer> cc :Git commit --no-verify<cr>
+nnoremap <buffer> ca :Git commit --no-verify --amend<cr>
+nnoremap <buffer> ce :Git commit --no-verify --amend --reuse-message=HEAD<cr>
+nnoremap <buffer> cvc :tab Git commit --no-verify --verbose<cr>
 
 " Consistent with Dirvish/Quickfix mappings
 " Open at vsplit
