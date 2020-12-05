@@ -34,13 +34,11 @@ else
   alias ls='ls --color=auto -h'
 fi
 
-# Add common scripts
-export PATH="${DOTFILES_PATH}/scripts:$PATH"
-
 # Ensure apps installed by brew are resolved first
 # (before system default) e.g. vim
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  export PATH="usr/local/bin:${DOTFILES_PATH}/darwin/scripts:$PATH"
+  # Add common scripts (managed at .profile for linux)
+  export PATH="usr/local/bin:${DOTFILES_PATH}/scripts:${DOTFILES_PATH}/darwin/scripts:$PATH"
 fi
 
 # Setup ripgrep

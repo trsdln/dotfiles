@@ -12,7 +12,7 @@ tmux_attach () {
 }
 
 print_app_options () {
-echo "Google Chrome:chromium
+echo "Chrome:chromium
 Chrome Incognito:chromium --incognito
 TMUX New:tmux_new
 TMUX Attach:tmux_attach
@@ -32,7 +32,10 @@ Hubstaff:hubstaff
 Toggle Redshift:pkill -USR1 redshift
 PassMenu Type:passmenu --type
 PassMenu Copy:passmenu
-Copy Bookmark:$DOTFILES_PATH/scripts/copy-bookmark.sh
+Bookmark Open:bm open-ui
+Bookmark Copy:bm copy-ui
+Bookmark Edit:bm edit-ui
+Bookmark Add:bm add-ui
 Firefox:firefox
 Tor Browser:torbrowser-launcher
 Play Watch Later:watch-later.sh play
@@ -52,7 +55,7 @@ prompt_app_and_run () {
   local selected_option="$(print_app_options | cut -d ':' -f1 | dmenu -i -p 'Launch App')"
 
   if [ "${selected_option}" != "" ]; then
-    local run_cmd="$(print_app_options | grep "${selected_option}" | cut -d ':' -f2)"
+    local run_cmd="$(print_app_options | grep -F "${selected_option}:" | cut -d ':' -f2)"
     echo "selected cmd ${run_cmd}"
 
     ${run_cmd} &

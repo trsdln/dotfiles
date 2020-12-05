@@ -1,0 +1,196 @@
+#!/bin/sh
+
+# bm - simple bookmark manager
+# deps: gpg, grep, cut, xclip, dmenu/skim
+
+# BOOKMARKS_FILE_BASE=$DOTFILES_PATH/private/test-bookmarks
+BOOKMARKS_FILE_BASE=$DOTFILES_PATH/private/bookmarks
+ENCRYPTED_FILE="${BOOKMARKS_FILE_BASE}.gpg"
+BOOKMARKS_FILE="${BOOKMARKS_FILE_BASE}.tmp"
+
+CURRENT_KERNEL=$(uname -s)
+URL_SEPARATOR="*"
+GPG_OPTIONS="--quiet --yes --compress-algo=none --no-encrypt-to"
+
+echoerr() { echo "$@" 1>&2; }
+
+_bm_decrypt() {
+  if [ ! -f "$ENCRYPTED_FILE" ]; then
+    touch "${BOOKMARKS_FILE}"
+  else
+    gpg ${GPG_OPTIONS} --decrypt --output $BOOKMARKS_FILE $ENCRYPTED_FILE || exit $?
+  fi
+}
+
+_bm_encrypt() {
+  gpg ${GPG_OPTIONS} --recipient=$(cat "${BOOKMARKS_FILE_BASE}.gpg-id") \
+    --encrypt --output $ENCRYPTED_FILE $BOOKMARKS_FILE \
+    && rm -f $BOOKMARKS_FILE || exit $?
+}
+
+_bm_add() {
+  local name=$1
+  local url=${2:-}
+  # take url from clipboard if not specified
+  [ "$url" = "" ] && {
+    local url=$(xclip -out -selection clipboard)
+    echoerr "Warning: url was taken from clipboard"
+  }
+
+  _bm_decrypt || exit $?
+  echo "$name$URL_SEPARATOR$url" >> "${BOOKMARKS_FILE}"
+  _bm_encrypt || exit $?
+}
+
+_bm_add_interactive() {
+  echo "Adding new bookmark"
+
+  printf "Name: "
+  read -r bookmark_name
+  if [ "$bookmark_name" = "" ]; then
+    echoerr "Error: empty name"
+    exit 1
+  fi
+
+  local clipboard_url=$(xclip -out -selection clipboard)
+  printf "URL: (${clipboard_url}) "
+  read -r bookmark_url
+  local bookmark_url=${bookmark_url:-clipboard_url}
+  if [ "$bookmark_url" = "" ]; then
+    echoerr "Error: empty url"
+    exit 1
+  fi
+
+  _bm_add "$bookmark_name" "$bookmark_url"
+  echo "Done!" && sleep 3
+}
+
+_bm_add_ui() {
+  setsid $TERMINAL -e bm add-intr &
+}
+
+_bm_list() {
+  _bm_decrypt || exit $?
+  cat $BOOKMARKS_FILE | cut -d "${URL_SEPARATOR}" -f 1
+  _bm_encrypt || exit $?
+}
+
+# gets bookmark by name
+_bm_get_base() {
+  local name="$1"
+
+  [ "${CURRENT_KERNEL}" != "Linux" ] && {
+    # fixme: implement portable grep call for darwin
+    echoerr "Warning: potentially incompatible grep usage"
+  }
+
+  _bm_decrypt || exit $?
+
+  # Note: cannot catch exit code if local variable
+  grep_bookmark=$(grep --fixed-strings "${name}${URL_SEPARATOR}" "${BOOKMARKS_FILE}")
+  local grep_res="$?"
+
+  _bm_encrypt || exit $?
+
+  if [ "$grep_res" != "0" ]; then
+    echoerr "Error: bookmark '$name' not found"
+    exit 1
+  fi
+
+  __grep_url=$(echo "$grep_bookmark" | cut -d "*" -f 2)
+}
+
+_bm_get() {
+  _bm_get_base "$1" || exit $?
+  echo "${__grep_url}"
+}
+
+_bm_open() {
+  _bm_get_base "$1" || exit $?
+  if [ "${CURRENT_KERNEL}" = "Linux" ]; then
+    xdg-open "${__grep_url}" > /dev/null
+  else
+    open "${__grep_url}"
+  fi
+}
+
+_bm_get_fuzzy_finder() {
+  [ "$CURRENT_KERNEL" = "Linux" ] && echo 'dmenu -i -p "Bookmark>"' || echo 'sk'
+}
+
+_bm_open_ui() {
+  local fuzzy_finder=$(_bm_get_fuzzy_finder)
+  local selected_option=$(_bm_list | ${fuzzy_finder})
+  if [ "${selected_option}" != "" ]; then
+    _bm_open "${selected_option}" || exit $?
+  fi
+}
+
+_bm_copy() {
+  _bm_get_base "$1" || exit $?
+  if [ "${CURRENT_KERNEL}" = "Linux" ]; then
+    echo "${__grep_url}" | xclip -selection clipboard
+  else
+    echo "${selected}" | pbcopy
+  fi
+}
+
+_bm_copy_ui() {
+  local fuzzy_finder=$(_bm_get_fuzzy_finder)
+  local selected_option=$(_bm_list | ${fuzzy_finder})
+  if [ "${selected_option}" != "" ]; then
+    _bm_copy "${selected_option}" || exit $?
+  fi
+}
+
+_bm_edit() {
+  _bm_decrypt && $EDITOR $BOOKMARKS_FILE && _bm_encrypt || exit $?
+}
+
+
+cmd=$1
+shift
+
+case $cmd in
+  add) # bm add test/bookmark [https://test.com] -- add to bookmark file
+    _bm_add "$@" || exit $?
+    ;;
+  add-intr)
+    _bm_add_interactive "$@" || exit $?
+    ;;
+  add-ui) # bm add-ui -- allows to enter name/url via terminal window (linux specific)
+    _bm_add_ui "$@" || exit $?
+    ;;
+  list) # bm list -- lists all bookmarks
+    _bm_list "$@" || exit $?
+    ;;
+  open) # bm open test/bookmark -- open at default browser
+    _bm_open "$@" || exit $?
+    ;;
+  open-ui) # bm open-ui -- select bookmark with dmenu and open (linux specific)
+    _bm_open_ui "$@" || exit $?
+    ;;
+  get) # bm get test/bookmark -- get single url by name
+    _bm_get "$@" || exit $?
+    ;;
+  copy) # bm copy test/bookmark -- copy into clipboard
+    _bm_copy "$@" || exit $?
+    ;;
+  copy-ui)
+    _bm_copy_ui "$@" || exit $?
+    ;;
+  edit) # bm edit -- edit bookmark file
+     _bm_edit "$@" || exit $?
+    ;;
+  edit-ui) # bm edit-ui -- open terminal with editor
+    setsid $TERMINAL -e bm edit &
+    ;;
+  version)
+    echo "bm\nSimple Bookmark Manager\nVersion: 0.0.1"
+    exit 0
+    ;;
+  *)
+    echoerr "Error: Unknown command '$cmd'"
+    exit 1
+    ;;
+esac

@@ -1,7 +1,7 @@
 export DOTFILES_PATH="${HOME}/.dotfiles"
 
-# Add linux specific scripts and apps
-export PATH="${DOTFILES_PATH}/linux/scripts:$PATH"
+# Add scripts from dotfiles
+export PATH="${DOTFILES_PATH}/scripts:${DOTFILES_PATH}/linux/scripts:$PATH"
 
 export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_CACHE_HOME="${HOME}/.cache"
