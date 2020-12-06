@@ -15,21 +15,18 @@ GPG_OPTIONS="--quiet --yes --compress-algo=none --no-encrypt-to"
 echoerr() { echo "$@" 1>&2; }
 
 _bm_decrypt() {
-  if [ ! -f "$ENCRYPTED_FILE" ]; then
-    touch "${BOOKMARKS_FILE}"
-  else
-    gpg ${GPG_OPTIONS} --decrypt --output $BOOKMARKS_FILE $ENCRYPTED_FILE || exit $?
+  if [ ! -f "$BOOKMARKS_FILE" ]; then
+    if [ ! -f "$ENCRYPTED_FILE" ]; then
+      touch "${BOOKMARKS_FILE}"
+    else
+      gpg ${GPG_OPTIONS} --decrypt --output $BOOKMARKS_FILE $ENCRYPTED_FILE || exit $?
+    fi
   fi
-}
-
-_bm_decrypt_remove() {
-  rm -f $BOOKMARKS_FILE || exit $?
 }
 
 _bm_encrypt() {
   gpg ${GPG_OPTIONS} --recipient=$(cat "${BOOKMARKS_FILE_BASE}.gpg-id") \
-    --encrypt --output $ENCRYPTED_FILE $BOOKMARKS_FILE \
-    && _bm_decrypt_remove || exit $?
+    --encrypt --output $ENCRYPTED_FILE $BOOKMARKS_FILE || exit $?
 }
 
 _bm_add() {
@@ -76,7 +73,6 @@ _bm_add_ui() {
 _bm_list() {
   _bm_decrypt || exit $?
   cat $BOOKMARKS_FILE | cut -d "${URL_SEPARATOR}" -f 1
-  _bm_decrypt_remove || exit $?
 }
 
 # gets bookmark by name
@@ -93,8 +89,6 @@ _bm_get_base() {
   # Note: cannot catch exit code if local variable
   grep_bookmark=$(grep --fixed-strings "${name}${URL_SEPARATOR}" "${BOOKMARKS_FILE}")
   local grep_res="$?"
-
-  _bm_decrypt_remove || exit $?
 
   if [ "$grep_res" != "0" ]; then
     echoerr "Error: bookmark '$name' not found"
