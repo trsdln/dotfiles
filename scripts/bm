@@ -115,7 +115,7 @@ _bm_open() {
 }
 
 _bm_get_fuzzy_finder() {
-  [ "$CURRENT_KERNEL" = "Linux" ] && echo 'dmenu -i -p "Bookmark>"' || echo 'sk'
+  [ "$CURRENT_KERNEL" = "Linux" ] && echo 'dmenu -i -p Bookmark>' || echo 'sk'
 }
 
 _bm_open_ui() {
