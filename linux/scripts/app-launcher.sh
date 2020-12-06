@@ -32,10 +32,11 @@ Hubstaff:hubstaff
 Toggle Redshift:pkill -USR1 redshift
 PassMenu Type:passmenu --type
 PassMenu Copy:passmenu
-Bookmark Open:bm open-ui
-Bookmark Copy:bm copy-ui
-Bookmark Edit:bm edit-ui
-Bookmark Add:bm add-ui
+bm-open:bm open-ui
+bm-copy:bm copy-ui
+bm-type:bm type-ui
+bm-edit:bm edit-ui
+bm-add:bm add-ui
 Firefox:firefox
 Tor Browser:torbrowser-launcher
 Play Watch Later:watch-later.sh play

@@ -151,11 +151,23 @@ _bm_edit() {
   _bm_decrypt && $EDITOR $BOOKMARKS_FILE && _bm_encrypt || exit $?
 }
 
+_bm_type_ui() {
+  local fuzzy_finder=$(_bm_get_fuzzy_finder)
+  local selected_option=$(_bm_list | ${fuzzy_finder})
+  _bm_get_base "$selected_option" || exit $?
+
+  printf %s "$__grep_url"  \
+    | xdotool type --clearmodifiers --file - || exit $?
+}
+
 
 cmd=$1
 shift
 
 case $cmd in
+  type-ui) # bm type-ui -- type url (linux specific)
+    _bm_type_ui "$@" || exit $?
+    ;;
   add) # bm add test/bookmark [https://test.com] -- add to bookmark file
     _bm_add "$@" || exit $?
     ;;
