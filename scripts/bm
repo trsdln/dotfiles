@@ -22,10 +22,14 @@ _bm_decrypt() {
   fi
 }
 
+_bm_decrypt_remove() {
+  rm -f $BOOKMARKS_FILE || exit $?
+}
+
 _bm_encrypt() {
   gpg ${GPG_OPTIONS} --recipient=$(cat "${BOOKMARKS_FILE_BASE}.gpg-id") \
     --encrypt --output $ENCRYPTED_FILE $BOOKMARKS_FILE \
-    && rm -f $BOOKMARKS_FILE || exit $?
+    && _bm_decrypt_remove || exit $?
 }
 
 _bm_add() {
@@ -72,7 +76,7 @@ _bm_add_ui() {
 _bm_list() {
   _bm_decrypt || exit $?
   cat $BOOKMARKS_FILE | cut -d "${URL_SEPARATOR}" -f 1
-  _bm_encrypt || exit $?
+  _bm_decrypt_remove || exit $?
 }
 
 # gets bookmark by name
@@ -90,7 +94,7 @@ _bm_get_base() {
   grep_bookmark=$(grep --fixed-strings "${name}${URL_SEPARATOR}" "${BOOKMARKS_FILE}")
   local grep_res="$?"
 
-  _bm_encrypt || exit $?
+  _bm_decrypt_remove || exit $?
 
   if [ "$grep_res" != "0" ]; then
     echoerr "Error: bookmark '$name' not found"
