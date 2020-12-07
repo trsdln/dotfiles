@@ -32,7 +32,6 @@ Hubstaff:hubstaff
 Toggle Redshift:pkill -USR1 redshift
 PassMenu Type:passmenu --type
 PassMenu Copy:passmenu
-bm-open:bm open-ui
 bm-copy:bm copy-ui
 bm-type:bm type-ui
 bm-edit:bm edit-ui
@@ -53,13 +52,20 @@ Logout:power-manager.sh logout
 }
 
 prompt_app_and_run () {
-  local selected_option="$(print_app_options | cut -d ':' -f1 | dmenu -i -p 'Launch App')"
+  local app_options=$(print_app_options | cut -d ':' -f1)
+  local bookmark_options=$(bm list)
+  local selected_option="$(printf "%s\n%s" "$app_options" "$bookmark_options" | dmenu -i -p 'Launch App')"
 
   if [ "${selected_option}" != "" ]; then
     local run_cmd="$(print_app_options | grep -F "${selected_option}:" | cut -d ':' -f2)"
-    echo "selected cmd ${run_cmd}"
 
-    ${run_cmd} &
+    if [ "$run_cmd" = "" ]; then
+      # probably bookmark was selected
+      bm open "${selected_option}"
+    else
+      # execute command
+      ${run_cmd} &
+    fi
   fi
 }
 
