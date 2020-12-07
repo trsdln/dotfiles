@@ -56,7 +56,7 @@ _bm_add_interactive() {
   local clipboard_url=$(xclip -out -selection clipboard)
   printf "URL: (${clipboard_url}) "
   read -r bookmark_url
-  local bookmark_url=${bookmark_url:-clipboard_url}
+  local bookmark_url=${bookmark_url:-$clipboard_url}
   if [ "$bookmark_url" = "" ]; then
     echoerr "Error: empty url"
     exit 1
