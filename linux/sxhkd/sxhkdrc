@@ -26,13 +26,10 @@ XF86WLAN
 	toggle-wifi.sh
 
 Print
-	take-screenshot.sh clipboard
-
-super + Print
-	take-screenshot.sh desktop
+	screen-capture.sh screenshot clipboard
 
 ctrl + Print
-	toggle-gif-screencast.sh
+	screen-capture.sh stop
 
 # Increase backlight
 {_, shift +} XF86MonBrightnessUp

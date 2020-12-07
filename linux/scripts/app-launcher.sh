@@ -36,6 +36,7 @@ bm-copy:bm copy-ui
 bm-type:bm type-ui
 bm-edit:bm edit-ui
 bm-add:bm add-ui
+Screen Capture:screen-capture.sh menu
 Firefox:firefox
 Tor Browser:torbrowser-launcher
 Play Watch Later:watch-later.sh play
