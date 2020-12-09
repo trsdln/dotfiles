@@ -1,11 +1,7 @@
 #!/bin/sh
 
-thumbnail_url=$(youtube-dl --get-thumbnail "${1}")
-thumbnail_name="${thumbnail_url##*/}"
-thumbnail_name="${thumbnail_name%%\?*}"
-temp_thumbnail_file=$(mktemp /tmp/yt_preview_XXXXXXXXXX_${thumbnail_name})
-
-curl -o $temp_thumbnail_file "${thumbnail_url}"
+youtube_dl_res=$(youtube-dl "${1}" --write-thumbnail --skip-download --output '/tmp/yt-thumbnail-%(id)s' | tail -n 1)
+temp_thumbnail_file=${youtube_dl_res##* }
 
 sxiv $temp_thumbnail_file &
 
