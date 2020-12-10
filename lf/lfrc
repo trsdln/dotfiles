@@ -4,7 +4,7 @@ set shellopts '-eu:--shwordsplit'
 set ifs "\n"
 set filesep "\n"
 
-cmd mpvsub $setsid nohup mpv --sub-file $(sk --prompt="Subtitles file>") $fx > /dev/null &
+cmd mpvsub $mpv --sub-file="$(sk --prompt='Subtitles file>')" "$f"
 
 map a push %mkdir<space>
 
