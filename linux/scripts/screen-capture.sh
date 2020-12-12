@@ -26,6 +26,7 @@ on_cancel_recording () {
 GIF_SPECIFIC_FFMPEG_FLAGS="-codec:v huffyuv -framerate 15"
 record_video() {
   local mode=$1 # gif | mp4
+  local audio=$2 # record audio if equals "audio"
 
   local output_file="Desktop/screencast_$(file_timestamp).${mode}"
   local output_file_full=$HOME/$output_file
@@ -43,8 +44,10 @@ record_video() {
 
   local extra_flags=$([ "${mode}" = "gif" ] && echo "$GIF_SPECIFIC_FFMPEG_FLAGS" || echo "")
   local ffmpeg_output=$([ "${mode}" = "gif" ] && mktemp /tmp/screencast_XXXXXXXXXX.avi || echo "$output_file_full")
+  # hw:0 means first device at `arecord -l` list
+  local audio_flags=$([ "${audio}" = "audio" ] && echo "-f alsa -i hw:0" || echo "")
 
-  ffmpeg -f x11grab -s "$W"x"$H" -i :0.0+$X,$Y ${extra_flags} -y "${ffmpeg_output}"
+  ffmpeg -f x11grab -s "$W"x"$H" -i :0.0+$X,$Y ${extra_flags} ${audio_flags} -y "${ffmpeg_output}"
 
   start_compositor
 
@@ -90,6 +93,7 @@ take_screenshot() {
 print_menu_options() {
   echo "Record mp4
 Record GIF
+Record mp4+audio
 Screenshot File
 Screenshot Clipboard
 "
@@ -100,6 +104,7 @@ capture_menu() {
 
   case "${selected}" in
     Record\ mp4) record_video mp4 ;;
+    Record\ mp4+audio) record_video mp4 audio;;
     Record\ GIF) record_video gif ;;
     Screenshot\ File) take_screenshot file ;;
     Screenshot\ Clipboard) take_screenshot clipboard ;;
@@ -111,7 +116,7 @@ cmd=$1
 shift
 
 case $cmd in
-  record) record_video $1 ;;
+  record) record_video $1 $2 ;;
   stop) stop_recording ;;
   screenshot) take_screenshot $1 ;;
   menu) capture_menu ;;
