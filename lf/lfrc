@@ -8,6 +8,13 @@ cmd mpvsub $mpv --sub-file="$(sk --prompt='Subtitles file>')" "$f"
 
 map a push %mkdir<space>
 
+cmd open ${{
+    case $(file --mime-type "$f" -bL) in
+        text/*|application/json) $EDITOR "$f";;
+        *) setsid nohup xdg-open "$f" > /dev/null & ;;
+    esac
+}}
+
 # Archive bindings
 cmd unarchive ${{
 # source: https://github.com/BrodieRobertson/dotfiles/blob/master/config/lf/lfrc
