@@ -9,10 +9,14 @@ cmd mpvsub $mpv --sub-file="$(sk --prompt='Subtitles file>')" "$f"
 map a push %mkdir<space>
 
 cmd open ${{
-    case $(file --mime-type "$f" -bL) in
-        text/*|application/json) $EDITOR "$f";;
-        *) setsid nohup xdg-open "$f" > /dev/null & ;;
-    esac
+    if [ "${f##*.}" = "m3u" ]; then
+      setsid nohup xdg-open "$f" > /dev/null &
+    else
+      case $(file --mime-type "$f" -bL | head) in
+          text/*|application/json) $EDITOR "$f";;
+          *) setsid nohup xdg-open "$f" > /dev/null & ;;
+      esac
+    fi
 }}
 
 # Archive bindings
