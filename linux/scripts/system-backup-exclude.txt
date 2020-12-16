@@ -17,6 +17,7 @@
 /home/taras/.cargo/*
 /home/taras/.config/Slack/*
 /home/taras/.config/chromium/*
+/home/taras/.config/BraveSoftware/*
 /home/taras/.config/yarn/*
 /home/taras/.config/gcloud/logs/*
 /home/taras/.config/MongoDB Compass/*
