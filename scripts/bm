@@ -63,6 +63,17 @@ _bm_add_interactive() {
   fi
 
   _bm_add "$bookmark_name" "$bookmark_url"
+
+  # todo: add this to bm-edit too
+  printf "Commit changes? [Y/n] "
+  read -r commit_ans
+  if [ "$commit_ans" != "n" ]; then
+    cd $(dirname "${ENCRYPTED_FILE}")
+    git add "${ENCRYPTED_FILE##*/}"
+    git commit -m "bm: Add bookmark"
+    git push
+  fi
+
   echo "Done!" && sleep 3
 }
 
