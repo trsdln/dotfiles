@@ -17,6 +17,7 @@ Brave Incognito:brave --incognito
 TMUX New:tmux_new
 TMUX Attach:tmux_attach
 PulseMixer:$TERMINAL -e pulsemixer
+Easy Mount:$TERMINAL -e easy-mount.sh lf
 Bluetoothctl:$TERMINAL -e bluetoothctl
 Alacritty Terminal:$TERMINAL
 Telegram:telegram-desktop
