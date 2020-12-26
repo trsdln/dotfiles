@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# ensure that all launched apps will use Zsh by default
+export SHELL='/bin/zsh'
+
 tmux_new () {
   $TERMINAL -e tmux -f $HOME/.config/tmux.conf &
 }
