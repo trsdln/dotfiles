@@ -47,6 +47,7 @@ Play Watch Later:watch-later.sh play
 Clear Watch Later:watch-later.sh clear
 Edit Watch Later:watch-later.sh edit
 Steam:steam
+Session:session
 Lock:power-manager.sh lock
 Sleep:power-manager.sh sleep
 Hibernate:power-manager.sh hibernate
