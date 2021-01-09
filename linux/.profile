@@ -1,7 +1,9 @@
 export DOTFILES_PATH="${HOME}/.dotfiles"
 
-# Add scripts from dotfiles
-export PATH="${DOTFILES_PATH}/scripts:${DOTFILES_PATH}/linux/scripts:$PATH"
+# Add linux specific scripts and apps
+# Add scripts from .dotfiles and .local
+export PATH="${DOTFILES_PATH}/scripts:${DOTFILES_PATH}/linux/scripts:${HOME}/.local/bin:${HOME}/.local/share/yarn/bin:${PATH}"
+export PATH="${HOME}/apps/elasticsearch-7.8.0/bin:$PATH"
 
 export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_CACHE_HOME="${HOME}/.cache"

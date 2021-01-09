@@ -19,7 +19,3 @@ export OPEN='xdg-open'
 export AUR_PAGER='nvim'
 
 export JAVA_HOME="/usr/lib/jvm/default"
-
-# Add linux specific scripts and apps
-export PATH="${DOTFILES_PATH}/linux/scripts:${HOME}/.local/bin:$HOME/.local/share/yarn/bin:$PATH"
-export PATH="${HOME}/apps/elasticsearch-7.8.0/bin:$PATH"
