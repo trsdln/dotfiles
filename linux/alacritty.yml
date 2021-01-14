@@ -492,6 +492,8 @@ key_bindings:
   #- { key: Q,      mods: Command,         action: Quit             }
   #- { key: W,      mods: Command,         action: Quit             }
   #- { key: F,      mods: Command|Control, action: ToggleFullscreen }
+  #
+  #- { key: Space,  mods: Shift|Control,   action: ToggleViMode     }
 
   # Compatibility layer with macOS
   - { key: V,        mods: Alt,     action: Paste                            }
