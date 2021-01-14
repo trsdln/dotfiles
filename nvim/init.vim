@@ -55,7 +55,7 @@ function! PackInit() abort
   " Shell commands shortcuts for Vim
   call minpac#add('tpope/vim-eunuch')
   " Linguistically correct substitution
-  " call minpac#add('tpope/vim-abolish')
+  call minpac#add('tpope/vim-abolish', {'type': 'opt'})
   " Session management
   call minpac#add('tpope/vim-obsession')
 
