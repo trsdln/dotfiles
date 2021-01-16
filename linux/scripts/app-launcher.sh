@@ -16,37 +16,34 @@ tmux_attach () {
 
 print_app_options () {
 echo "Brave:brave
-Brave Incognito:brave --incognito
-TMUX New:tmux_new
-TMUX Attach:tmux_attach
+BraveIncog:brave --incognito
+TMUXNew:tmux_new
+TMUXAttach:tmux_attach
 PulseMixer:$TERMINAL -e pulsemixer
-Easy Mount:$TERMINAL -e easy-mount.sh lf
-Bluetoothctl:$TERMINAL -e bluetoothctl
-Alacritty Terminal:$TERMINAL
+EasyMount:$TERMINAL -e easy-mount.sh lf
+Bluetooth:$TERMINAL -e bluetoothctl
+Alacritty:$TERMINAL
 Telegram:telegram-desktop
 Slack:slack
 Htop:$TERMINAL -e htop
 Newsboat:$TERMINAL -e newsboat
-MongoDB Compass:mongodb-compass
+Compass:mongodb-compass
 Robo3T:robo3t
-Transmission Torrent:transmission-gtk
-Android File Transfer:android-file-transfer
+Transmission:transmission-gtk
 Gimp:gimp
 Hubstaff:hubstaff
-Toggle Redshift:pkill -USR1 redshift
-PassMenu Type:passmenu --type
-PassMenu Copy:passmenu
-bm-copy:bm copy-ui
-bm-type:bm type-ui
-bm-edit:bm edit-ui
-bm-add:bm add-ui
-Screen Capture:screen-capture.sh menu
+Pass Type:passmenu --type
+Pass Copy:passmenu
+BM Copy:bm copy-ui
+BM Type:bm type-ui
+BM Edit:bm edit-ui
+BM Add:bm add-ui
+ScreenCapture:screen-capture.sh menu
 Firefox:firefox
 Tor Browser:torbrowser-launcher
-Play Watch Later:watch-later.sh play
-Clear Watch Later:watch-later.sh clear
-Edit Watch Later:watch-later.sh edit
-Steam:steam
+Play WatchL:watch-later.sh play
+Clear WatchL:watch-later.sh clear
+Edit WatchL:watch-later.sh edit
 Session:session
 Lock:power-manager.sh lock
 Sleep:power-manager.sh sleep
