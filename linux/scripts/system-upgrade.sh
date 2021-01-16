@@ -31,13 +31,7 @@ pull_and_notify() {
 }
 
 check_manual_aur_upgrades() {
-  # instead of aur sync mongodb-bin:
   pull_and_notify ~/projects/mongodb-bin
-
-  # instead of aur sync spotifyd:
-  # requires manual reconfiguration before build (pulseaudio + mpris)
-  pull_and_notify ~/projects/spotifyd
-
   pull_and_notify ~/projects/grive2
 }
 
