@@ -129,3 +129,9 @@ at `/etc/pacman.d/mirrorlist`. Better backup it before replacing
 lsof +f -- /dev/sda2
 ```
 
+# List Network Services
+
+```
+sudo ss -atpu
+```
+
