@@ -9,12 +9,14 @@ CONFIGS_BIN_DIR=$(dirname "$0")
 # Will initialize VIM_SESSION_EXISTS
 source ${CONFIGS_BIN_DIR}/common/dev-env-open-base.sh
 
+RELINK_FLAG="$1"
+
 # Update only on first run
 if [ "${VIM_SESSION_EXISTS}" -eq 1 ]; then
   if [ "${CONFIGS_DEBUG}" == "true" ]; then
     echo "Skipping update because CONFIGS_DEBUG is set."
   else
-    ${CONFIGS_BIN_DIR}/configs-sync --relink
+    ${CONFIGS_BIN_DIR}/configs-sync "${RELINK_FLAG}"
   fi
 fi
 
