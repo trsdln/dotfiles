@@ -135,3 +135,8 @@ lsof +f -- /dev/sda2
 sudo ss -atpu
 ```
 
+# Change default web browser
+
+```
+xdg-settings set default-web-browser librewolf.desktop
+```

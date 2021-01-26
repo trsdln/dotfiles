@@ -15,8 +15,8 @@ tmux_attach () {
 }
 
 print_app_options () {
-echo "Brave:brave
-BraveIncog:brave --incognito
+echo "Browser:librewolf
+Incognito:librewolf --private-window
 TMUXNew:tmux_new
 TMUXAttach:tmux_attach
 PulseMixer:$TERMINAL -e pulsemixer
@@ -40,7 +40,7 @@ BM Edit:bm edit-ui
 BM Add:bm add-ui
 ScreenCapture:screen-capture.sh menu
 Firefox:firefox
-Tor Browser:torbrowser-launcher
+Tor:torbrowser-launcher
 Play WatchL:watch-later.sh play
 Clear WatchL:watch-later.sh clear
 Edit WatchL:watch-later.sh edit

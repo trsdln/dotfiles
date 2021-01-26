@@ -5,7 +5,7 @@ upgrade_aur_packages() {
   aur sync spotify-tui-bin aic94xx-firmware wd719x-firmware \
     mongodb-tools-bin mongodb-compass robo3t-bin \
     slack-desktop paper-icon-theme-git mpv-mpris \
-    aurutils lf-bin brave-bin
+    aurutils lf-bin brave-bin librewolf-bin
   # bspwm related:
   aur sync xtitle
   aur sync libxft-bgra
