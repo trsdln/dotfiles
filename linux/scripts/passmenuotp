@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+shopt -s nullglob globstar
+
+action=${1-show}
+
+typeit=0
+if [[ $2 == "--type" ]]; then
+        typeit=1
+        shift
+fi
+
+prefix=${PASSWORD_STORE_DIR-~/.password-store}
+
+echo "action $action"
+if [ "${action}" = "show" ]; then
+  echo "c1"
+  password_files=( "$prefix"/**/*.gpg )
+else
+  echo "c2"
+  password_files=( "$prefix"/otp/**/*.gpg )
+fi
+
+
+password_files=( "${password_files[@]#"$prefix"/}" )
+password_files=( "${password_files[@]%.gpg}" )
+
+echo "files $password_files"
+
+password=$(printf '%s\n' "${password_files[@]}" | dmenu)
+
+[[ -n $password ]] || exit
+
+if [[ $typeit -eq 0 ]]; then
+        pass $action -c "$password" 2>/dev/null
+else
+        pass $action "$password" | { IFS= read -r pass; printf %s "$pass"; } |
+                xdotool type --clearmodifiers --file -
+fi

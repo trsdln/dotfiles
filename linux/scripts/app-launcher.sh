@@ -33,8 +33,10 @@ Robo3T:robo3t
 Transmission:transmission-gtk
 Gimp:gimp
 Hubstaff:hubstaff
-Pass Type:passmenu --type
-Pass Copy:passmenu
+Pass Type:passmenuotp show --type
+Pass Copy:passmenuotp
+Otp Type:passmenuotp otp --type
+Otp Copy:passmenuotp otp
 BM Copy:bm copy-ui
 BM Type:bm type-ui
 BM Edit:bm edit-ui
