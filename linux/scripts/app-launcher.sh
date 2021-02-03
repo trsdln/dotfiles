@@ -15,9 +15,8 @@ tmux_attach () {
 }
 
 print_app_options () {
-echo "Browser:librewolf
-Incognito:librewolf --private-window
-Brave:brave
+echo "Browser:brave
+Incognito:brave --incognito
 TMUXNew:tmux_new
 TMUXAttach:tmux_attach
 PulseMixer:$TERMINAL -e pulsemixer
