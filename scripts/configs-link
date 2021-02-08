@@ -35,6 +35,7 @@ LINK_MAP_LINUX=(
   ".config/mimeapps.list:../${DOTFILES_DIR_NAME}/linux/mimeapps.list"
   ".config/sxhkd:../${DOTFILES_DIR_NAME}/linux/sxhkd"
   ".config/bspwm:../${DOTFILES_DIR_NAME}/linux/bspwm"
+  ".config/paru:../${DOTFILES_DIR_NAME}/linux/paru"
   ".config/gtk-3.0:../${DOTFILES_DIR_NAME}/linux/gtk-3.0"
   ".gtkrc-2.0:./${DOTFILES_DIR_NAME}/linux/.gtkrc-2.0"
 
