@@ -24,7 +24,7 @@ function! s:StartJestWithFlags(flags)
   let l:noExtPath = matchstr(l:testPath, '\v\zs.+\ze\.js$')
 
   let l:runJestCommand = l:commandEnv . 'yarn jest ' . a:flags . '--watch ' . l:noExtPath
-  call g:TmuxRunShellCommandAtMainPane(l:runJestCommand)
+  execute 'VtrSendCommandToRunner ' . l:runJestCommand
 endfunction
 
 
