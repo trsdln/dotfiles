@@ -1,10 +1,11 @@
 " Based on https://github.com/christoomey/vim-tmux-runner/blob/master/plugin/vim-tmux-runner.vim
-let s:runner_pane = 'servers:1.1'
+let s:runner_pane = 'servers:1.0'
+let s:test_pane = 'servers:1.1'
 
 let s:ctrl_c_sequence = ''
 
-function! s:TargetedTmuxCommand(command)
-  return a:command . " -t " . s:runner_pane
+function! s:TargetedTmuxCommand(pane, command)
+  return a:command . " -t " . a:pane
 endfunction
 
 function! s:JoinTmuxCommands(commands)
@@ -20,59 +21,59 @@ function! s:SendTmuxCommand(command)
   return s:Strip(system(prefixed_command))
 endfunction
 
-function! s:_SendKeys(keys)
-  let targeted_cmd = s:TargetedTmuxCommand("send-keys")
+function! s:_SendKeys(pane, keys)
+  let targeted_cmd = s:TargetedTmuxCommand(a:pane, "send-keys")
   let full_command = join([targeted_cmd, a:keys])
   call s:SendTmuxCommand(full_command)
 endfunction
 
-function! s:SendTmuxCopyModeExit()
-  if s:SendTmuxCommand("display-message -p -F '#{pane_in_mode}' -t " . s:runner_pane)
-    call s:_SendKeys("q")
+function! s:SendTmuxCopyModeExit(pane)
+  if s:SendTmuxCommand("display-message -p -F '#{pane_in_mode}' -t " . a:pane)
+    call s:_SendKeys(a:pane, "q")
   endif
 endfunction
 
-function! s:SendTextToRunner(lines)
-  let send_keys_cmd = s:TargetedTmuxCommand("send-keys")
+function! s:SendTextToRunner(pane, lines)
+  let send_keys_cmd = s:TargetedTmuxCommand(a:pane, "send-keys")
   for line in a:lines
     let targeted_cmd = send_keys_cmd . ' ' . shellescape(line . "\r")
     call s:SendTmuxCommand(targeted_cmd)
   endfor
 endfunction
 
-function! s:FocusRunnerPane()
+function! s:FocusRunnerPane(pane)
   let command_arr = [
-        \ s:TargetedTmuxCommand("select-window"),
-        \ s:TargetedTmuxCommand("select-pane")
+        \ s:TargetedTmuxCommand(a:pane, "select-window"),
+        \ s:TargetedTmuxCommand(a:pane, "select-pane")
         \ ]
 
   let targeted_cmd = s:JoinTmuxCommands(l:command_arr)
   call s:SendTmuxCommand(targeted_cmd)
 endfunction
 
-function! s:SendLinesToRunner() range
-  call s:SendTmuxCopyModeExit()
-  call s:SendTextToRunner(getline(a:firstline, a:lastline))
+function! s:SendLinesToRunner(pane) range
+  call s:SendTmuxCopyModeExit(a:pane)
+  call s:SendTextToRunner(a:pane, getline(a:firstline, a:lastline))
 endfunction
 
-function! s:SendCommandToRunner(...)
-  call s:FocusRunnerPane()
-  call s:SendTmuxCopyModeExit()
+function! s:SendCommandToRunner(pane, ...)
+  call s:FocusRunnerPane(a:pane)
+  call s:SendTmuxCopyModeExit(a:pane)
   let user_command = shellescape(a:1)
-  call s:_SendKeys(s:ctrl_c_sequence)
-  call s:_SendKeys(user_command)
-  call s:_SendKeys("Enter")
+  call s:_SendKeys(a:pane, s:ctrl_c_sequence)
+  call s:_SendKeys(a:pane, user_command)
+  call s:_SendKeys(a:pane, "Enter")
 endfunction
 
-function! s:VtrScrollUp()
-  call s:FocusRunnerPane()
-  let scroll_cmd = s:TargetedTmuxCommand('copy-mode -u')
+function! s:VtrScrollUp(pane)
+  call s:FocusRunnerPane(a:pane)
+  let scroll_cmd = s:TargetedTmuxCommand(a:pane, 'copy-mode -u')
   call s:SendTmuxCommand(scroll_cmd)
 endfunction
 
-command! -range VtrSendLinesToRunner <line1>,<line2>call s:SendLinesToRunner()
-command! -nargs=? VtrSendCommandToRunner call s:SendCommandToRunner(<f-args>)
-command! VtrScrollUp call s:VtrScrollUp()
+command! -range VtrSendLinesToRunner <line1>,<line2>call s:SendLinesToRunner(s:runner_pane)
+command! -nargs=? VtrSendCommandToRunner call s:SendCommandToRunner(s:test_pane, <f-args>)
+command! VtrScrollUp call s:VtrScrollUp(s:test_pane)
 
 nnoremap <leader>sl :VtrSendLinesToRunner<cr>
 vnoremap <leader>sl :VtrSendLinesToRunner<cr>
