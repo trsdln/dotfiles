@@ -1,20 +1,5 @@
 #!/bin/sh
 
-upgrade_aur_packages() {
-  echo "Updating all AUR packages..."
-  aur sync spotify-tui-bin aic94xx-firmware wd719x-firmware \
-    mongodb-tools-bin mongodb-compass robo3t-bin \
-    slack-desktop paper-icon-theme-git mpv-mpris \
-    aurutils lf-bin brave-bin
-  # bspwm related:
-  aur sync xtitle
-  aur sync libxft-bgra
-  # outdated at aur:
-  # aur sync grive
-  # updates too often so usually just skip:
-  # aur sync google-cloud-sdk
-}
-
 pull_and_notify() {
   local path=$1
   local old_path=$(pwd)
@@ -128,7 +113,7 @@ sudo paccache --remove
 sudo paccache -ruk0
 
 # Update all official packages
-sudo pacman -Suy
+paru -Suy
 
 # from https://gitlab.com/mgdobachesky/ArchSystemMaintenance/blob/master/src/maint/logic.sh
 echo "Checking for upgrade warnings..."
@@ -138,8 +123,6 @@ if [ -n "$last_upgrade" ]; then
   paclog --after="$last_upgrade" | paclog --warnings
   echo "================================"
 fi
-
-upgrade_aur_packages
 
 upgrade_pip_packages
 

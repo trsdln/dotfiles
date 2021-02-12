@@ -24,6 +24,7 @@ EasyMount:$TERMINAL -e easy-mount.sh lf
 Bluetooth:$TERMINAL -e bluetoothctl
 Alacritty:$TERMINAL
 Telegram:telegram-desktop
+Signal:signal-desktop
 Slack:slack
 Htop:$TERMINAL -e htop
 Newsboat:$TERMINAL -e newsboat
