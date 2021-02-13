@@ -8,19 +8,12 @@ format_player_wrapper() {
 }
 
 format_player_info() {
-  local mpris_status=${1%\%\%*}
+  local mpris_status=${1}
 
   local player=""
   if [ "${mpris_status}" = "Playing" ]; then
-    local mpris_title="${1#*%%}" # get rid of status here
-
-    # take first 4 words of title
-    local short_title=$(echo "${mpris_title}" | cut -d' ' -f 1-4 | cut -c 1-36)
-
-    local player=$(format_player_wrapper "▶ ${short_title}")
-  fi
-
-  if [ "${mpris_status}" = "Paused" ]; then
+    local player=$(format_player_wrapper "▶")
+  elif [ "${mpris_status}" = "Paused" ]; then
     local player=$(format_player_wrapper "⏸")
   fi
 

@@ -24,7 +24,7 @@ bspc subscribe report > "$PANEL_FIFO" &
 xtitle -sf 'T%s\n' > "$PANEL_FIFO" &
 
 # MPRIS info
-playerctl -F -f '{{status}}%%{{title}}' metadata \
+playerctl -F -f '{{status}}' metadata \
   | $WIDGETS_DIR/player.sh > "$PANEL_FIFO" &
 
 # those are updated manually when needed:
