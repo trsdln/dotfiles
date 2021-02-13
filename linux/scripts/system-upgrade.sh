@@ -16,7 +16,9 @@ pull_and_notify() {
 }
 
 check_manual_aur_upgrades() {
-  ~/projects/youtube-dl-pkg/gen-pkg.sh
+  cd ~/projects/youtube-dl-pkg
+  ./gen-pkg.sh
+  cd -
   pull_and_notify ~/projects/mongodb-bin
   pull_and_notify ~/projects/grive2
 }
@@ -40,39 +42,6 @@ fix_bin_sh_link() {
     fi
   fi
   echo "dash -> /bin/sh symlink: $SH_STATUS"
-}
-
-clean_custompkgs_obsolete_files() {
-  local repo_path="/home/custompkgs"
-
-  echo "\nChecking ${repo_path} for obsolete files..."
-
-  local existing_files="$(ls "${repo_path}" | grep -v 'custom.db' | grep -v 'custom.files')"
-
-  for installed_pack in $(pacman -Sl custom | cut -d " " -f 2)
-  do
-    # remove registered package from the list
-    existing_files=$(printf "%s\n" "${existing_files}" | grep -v "${installed_pack}")
-  done
-
-  printf "Obsolete package files:\n%s\n" "${existing_files}"
-
-  if [ "${existing_files}" != "" ]; then
-    printf "Remove obsolete files? [y/n] (y) "
-    read -r ans
-    if [ "$ans" = "y" ] || [ "$ans" = "" ]; then
-      for file_name in $(printf "%s" "${existing_files}"); do
-        file_path="${repo_path}/${file_name}"
-        echo "Removing ${file_path}"
-        rm -f ${file_path}
-      done
-      echo "Obsolete files cleaned."
-    else
-      echo "Cleaning skipped."
-    fi
-  else
-    echo "Nothing to clean."
-  fi
 }
 
 check_service_statuses() {
@@ -136,12 +105,7 @@ pacman -Qdt
 echo "Potentially removed packages (or installed from AUR):"
 pacman -Qm
 
-echo "Unused packages at 'custom' repo:"
-pacman -Sl custom | grep -v installed | cut -d " " -f 2
-
 fix_bin_sh_link
-
-clean_custompkgs_obsolete_files
 
 echo "Checking locally managed AUR packages:"
 check_manual_aur_upgrades
