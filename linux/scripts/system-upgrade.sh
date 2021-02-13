@@ -16,6 +16,7 @@ pull_and_notify() {
 }
 
 check_manual_aur_upgrades() {
+  ~/projects/youtube-dl-pkg/gen-pkg.sh
   pull_and_notify ~/projects/mongodb-bin
   pull_and_notify ~/projects/grive2
 }
