@@ -99,7 +99,8 @@ passwd
 pacman -S grub efibootmgr
 
 # adjust grub config /etc/default/grub:
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet resume=UUID=`blkid -s UUID -o value /dev/lvmSystem/volSwap`"
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet resume=UUID=`blkid -s UUID -o value /dev/lvmSystem/volSwap` msr.allow_writes=on"
+# msr.allow_writes ensures that workaround from throttled/lenovo_fix.py works fine
 GRUB_CMDLINE_LINUX="cryptdevice=UUID=`blkid -s UUID -o value /dev/sdX2`:lvm-system:allow-discards root=/dev/lvmSystem/volRoot"
 GRUB_ENABLE_CRYPTODISK=y
 
