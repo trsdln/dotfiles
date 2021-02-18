@@ -47,6 +47,7 @@ LINK_MAP_LINUX=(
   ".config/newsboat/urls:../../${DOTFILES_DIR_NAME}/private/newsboat/urls"
   ".config/spotifyd:../${DOTFILES_DIR_NAME}/private/spotifyd"
   ".config/spotify-tui:../${DOTFILES_DIR_NAME}/private/spotify-tui"
+  ".config/youtube-dl:../${DOTFILES_DIR_NAME}/private/youtube-dl"
 )
 
 LINK_MAP_DARWIN=(
