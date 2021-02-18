@@ -39,7 +39,7 @@ macro t set browser "setsid nohup yt-thumbnail-preview.sh %u > /dev/null &" ; op
 
 macro c set browser "printf %u | xsel -i -b" ; open-in-browser ; set browser brave ; redraw
 
-macro w set browser "setsid nohup watch-later.sh add %u > /dev/null &" ; open-in-browser ; set browser brave ; redraw
+macro w set browser "setsid nohup watch-later.sh add-yt %u > /dev/null &" ; open-in-browser ; set browser brave ; redraw
 
 # Podcasts configuration
 player "mpv"

@@ -43,9 +43,10 @@ BM Edit:bm edit-ui
 BM Add:bm add-ui
 ScreenCapture:screen-capture.sh menu
 Firefox:firefox
-Tor:torbrowser-launcher
+TorBrowser:torbrowser-launcher
 Play WatchL:watch-later.sh play
 Clear WatchL:watch-later.sh clear
+Add WatchL:watch-later.sh add-xclip
 Edit WatchL:watch-later.sh edit
 Session:session
 Lock:power-manager.sh lock

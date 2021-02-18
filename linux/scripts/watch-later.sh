@@ -13,7 +13,14 @@ update_watch_later_widget() {
 }
 
 case $cmd in
-  add)
+  add-xclip)
+    echo "#EXTINF:," >> $watch_later_file
+    url="$(xclip -out -selection clipboard)"
+    echo "${url}" >> $watch_later_file
+    update_watch_later_widget
+    notify-send --hint $notification_hint "$notification_title" "'${url}' added"
+    ;;
+  add-yt)
     title=$(youtube-dl --skip-download --get-title --no-warnings "$2")
     echo "#EXTINF:, ${title}" >> $watch_later_file
     echo $2 >> $watch_later_file
