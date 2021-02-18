@@ -6,7 +6,7 @@ noremap <leader>gb :MerginalToggle<cr>
 call g:SetupCommandAlias("gpu","Git push --no-verify")
 
 " Code review mappings
-command! GitCodeReview :Git fetch --prune | Git difftool origin/develop | wincmd o | Gvdiffsplit origin/develop:%
+command! GitCodeReview :Git difftool --name-only origin/develop | wincmd o | Gvdiffsplit origin/develop:%
 command! GitCodeReviewPrevDiff :wincmd o | cpfile | Gvdiffsplit origin/develop:%
 command! GitCodeReviewNextDiff :wincmd o | cnfile | Gvdiffsplit origin/develop:%
 noremap [d :GitCodeReviewPrevDiff<cr>
