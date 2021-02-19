@@ -77,4 +77,5 @@ command! VtrScrollUp call s:VtrScrollUp(s:test_pane)
 
 nnoremap <leader>sl :VtrSendLinesToRunner<cr>
 vnoremap <leader>sl :VtrSendLinesToRunner<cr>
+nnoremap <leader>sf :%VtrSendLinesToRunner<cr>
 nnoremap <leader>jj :VtrScrollUp<CR>
