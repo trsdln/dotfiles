@@ -13,20 +13,26 @@ nnoremap <leader>r :vsplit \| Dirvish %<cr>
 
 " Set Solarized theme
 let g:solarized_term_italics = 1
+let g:solarized_enable_extra_hi_groups = 1
+let g:solarized_termtrans = 1
+let g:solarized_statusline = "flat"
 
 " set Vim-specific sequences for RGB colors
 set termguicolors
 
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-let g:solarized_diffmode = 'low'
 
 set background=dark
 silent! colorscheme solarized8
-" Fixes terminal window transparency for linux-gnu
-if !has('macunix')
-  hi Normal ctermbg=NONE guibg=NONE
-endif
+
+" keep syntax highlighting at diffs:
+" colors taken from https://github.com/jez/vim-colors-solarized/commit/bca72cc
+hi DiffAdd guifg=NONE guibg=#143c2e guisp=#859900 gui=NONE cterm=NONE
+hi DiffChange guifg=NONE guibg=#2d4229 guisp=#b58900 gui=NONE cterm=NONE
+hi DiffDelete guifg=NONE guibg=#2c2c34 gui=bold cterm=bold
+hi DiffText guifg=NONE guibg=#073e55 guisp=#268bd2 gui=NONE cterm=NONE
+
 
 " Setup vim-javascript
 let g:javascript_plugin_jsdoc = 1
