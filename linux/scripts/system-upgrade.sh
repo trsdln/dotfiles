@@ -16,6 +16,7 @@ pull_and_notify() {
 }
 
 check_manual_aur_upgrades() {
+  echo "Checking locally managed AUR packages:"
   cd ~/projects/youtube-dl-pkg
   ./gen-pkg.sh
   cd -
@@ -81,17 +82,8 @@ sudo paccache --remove
 # remove uninstalled cached packages
 sudo paccache -ruk0
 
-# Update all official packages
+# Update all packages (including AUR)
 paru -Suy
-
-# from https://gitlab.com/mgdobachesky/ArchSystemMaintenance/blob/master/src/maint/logic.sh
-echo "Checking for upgrade warnings..."
-last_upgrade="$(sed -n '/pacman -Syu/h; ${x;s/.\([0-9-]*\).*/\1/p;}' /var/log/pacman.log)"
-if [ -n "$last_upgrade" ]; then
-  echo "================================"
-  paclog --after="$last_upgrade" | paclog --warnings
-  echo "================================"
-fi
 
 upgrade_pip_packages
 
@@ -106,7 +98,6 @@ pacman -Qm
 
 fix_bin_sh_link
 
-echo "Checking locally managed AUR packages:"
 check_manual_aur_upgrades
 
 check_service_statuses
