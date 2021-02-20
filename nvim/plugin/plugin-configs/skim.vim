@@ -32,5 +32,3 @@ let g:skim_buffers_jump = 1
 
 " Enables skim to search tags
 set tags+=.tags
-
-let $SKIM_DEFAULT_COMMAND = 'rg --files'

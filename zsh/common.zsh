@@ -68,7 +68,7 @@ else
   . /usr/share/skim/key-bindings.zsh
 fi
 
-export SKIM_DEFAULT_COMMAND='rg --files'
+export SKIM_DEFAULT_COMMAND='rg --files --sort path'
 export SKIM_CTRL_T_COMMAND=${SKIM_DEFAULT_COMMAND}
 
 _gen_skim_default_opts() {
