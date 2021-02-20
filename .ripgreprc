@@ -1,6 +1,11 @@
 # Search at hidden files
 --hidden
 
+# Group matches by file/path
+--sort=path
+
+--smart-case
+
 # Ignore .gitignore
 --no-ignore-vcs
 

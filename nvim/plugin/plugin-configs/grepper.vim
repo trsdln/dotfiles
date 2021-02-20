@@ -4,8 +4,6 @@ endif
 
 runtime plugin/grepper.vim  " initialize g:grepper with default values
 let g:grepper.tools = ['rg']
-" Group matches by file/path
-let g:grepper.rg.grepprg .= ' --sort path -S'
 
 call g:SetupCommandAlias("G", "Grepper")
 
