@@ -2,6 +2,19 @@
 " https://github.com/itchyny/lightline.vim/issues/220
 let g:lightline = {
       \ 'colorscheme': 'solarized',
+      \ 'mode_map': {
+      \ 'n' : 'N',
+      \ 'i' : 'I',
+      \ 'R' : 'R',
+      \ 'v' : 'V',
+      \ 'V' : 'VL',
+      \ "\<C-v>": 'VB',
+      \ 'c' : 'C',
+      \ 's' : 'S',
+      \ 'S' : 'SL',
+      \ "\<C-s>": 'SB',
+      \ 't': 'T',
+      \ },
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
       \   'right': [ [ 'lineinfo' ], ['percent'], [ 'gutentags' ] ]
@@ -25,18 +38,16 @@ endfunction
 
 function! LightlineFilename()
   let fname = expand('%:t')
-  return fname =~ 'NERD_tree' ? '' :
-        \ ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
+  return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
         \ ('' != fname ? fname : '[No Name]') .
         \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
 endfunction
 
 function! LightlineFugitive()
   try
-    if expand('%:t') !~? 'NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
-      let mark = ''  " edit here for cool mark
+    if &ft !~? 'vimfiler' && exists('*fugitive#head')
       let branch = fugitive#head()
-      return branch !=# '' ? mark.branch : ''
+      return branch !=# '' ? '↪' . branch : ''
     endif
   catch
   endtry
@@ -44,9 +55,7 @@ function! LightlineFugitive()
 endfunction
 
 function! LightlineMode()
-  let fname = expand('%:t')
-  return fname =~ 'NERD_tree' ? 'NERDTree' :
-        \ winwidth(0) > 60 ? lightline#mode() : ''
+  return winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
 
 " Hide default status line elements
