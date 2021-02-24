@@ -50,10 +50,4 @@ augroup fugitive_configs
 
   " Auto-cleanup hidden buffers
   autocmd BufReadPost fugitive://* set bufhidden=delete
-
-  " Move to parent commit object
-  autocmd User fugitive
-    \ if get(b:, 'fugitive_type', '') =~# '^\%(tree\|blob\)$' |
-    \   nnoremap <buffer> .. :edit %:h<CR> |
-    \ endif
 augroup END
