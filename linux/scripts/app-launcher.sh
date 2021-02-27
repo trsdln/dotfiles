@@ -14,6 +14,10 @@ tmux_attach () {
   fi
 }
 
+play_xclip() {
+  mpv "$(xclip -out -selection clipboard)"
+}
+
 print_app_options () {
 echo "Browser:brave
 Incognito:brave --incognito
@@ -45,6 +49,7 @@ ScreenCapture:screen-capture.sh menu
 Firefox:firefox
 LaunchTor:torbrowser-launcher
 Play WatchL:watch-later.sh play
+PlayXClip:play_xclip
 Clear WatchL:watch-later.sh clear
 Add WatchL:watch-later.sh add-xclip
 Edit WatchL:watch-later.sh edit
