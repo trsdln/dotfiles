@@ -1,4 +1,4 @@
-ale//76965615558e9398ef4cc79991632a7b68a6c7bc
+ale//826878c41e546a93919aba08e5a134433222b3a5
 delimitMate//537a1da0fa5eeb88640425c37e545af933c56e1b
 fugitive-gitlab.vim//f3e56ff60fe3fb5ebc891cbe5fd12cd8c59ae6ef
 gv.vim//486b5c4e960d5ec9e79888939534b7b2fc7453ad
@@ -18,14 +18,14 @@ vim-dispatch//fe6a34322829e466a7e8ce710a6ac5eabddff9fd
 vim-easymotion//d75d9591e415652b25d9e0a3669355550325263d
 vim-eunuch//4a4bf16b499dcde371c05c77ed4083c4b5228278
 vim-fubitive//5717417ee75c39ea2f8f446a9491cdf99d5965e9
-vim-fugitive//6c4c7c9aebc4c65c13f94597e4c9352dbba21fa5
+vim-fugitive//9cba97f4db4e0af4275f802c2de977f553d26ec6
 vim-graphql//553d125f7b0e56743e80e2439f5cd7f27771a8e3
 vim-grepper//e9004ce564891412cfe433cfbb97295cccd06b39
 vim-gutentags//50705e8ebb7038b31314f416d1bddd9cb9154049
 vim-highlightedyank//931cc6bd53e4a1fdbe592751f0e13c0e401f0a49
 vim-javascript//3c90d0cc37bb8b78422f647e62587f498a5dd7bd
 vim-javascript-sql//698ad18c3aba2dc753b173344340bf63065ffb1e
-vim-js-file-import//5c5b0567e6efaef946ff54606aedcf9dcc059390
+vim-js-file-import//dce66f7742efcaabdb899e002a45c5285f5d6086
 vim-jsx-pretty//6989f1663cc03d7da72b5ef1c03f87e6ddb70b41
 vim-merginal//7e1446614cdfb3a8eca621e5006631af72cda0f8
 vim-obsession//96a3f837c112cb64e0a9857b69f6d6a71041155e
