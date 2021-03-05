@@ -39,10 +39,6 @@ sudo tlp setcharge 40 80 BAT0
 
 set-wallpaper.sh
 
-if [ "$(ps -u $USER | grep 'dunst' | wc -l)" -lt "1" ]; then
-  dunst &
-fi
-
 # load bindings
 sxhkd &
 
