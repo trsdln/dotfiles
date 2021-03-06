@@ -85,6 +85,8 @@ sudo paccache -ruk0
 # Update all packages (including AUR)
 paru -Suy
 
+check_manual_aur_upgrades
+
 upgrade_pip_packages
 
 echo "Checking for system errors:"
@@ -97,8 +99,6 @@ echo "Potentially removed packages (or installed from AUR):"
 pacman -Qm
 
 fix_bin_sh_link
-
-check_manual_aur_upgrades
 
 check_service_statuses
 
