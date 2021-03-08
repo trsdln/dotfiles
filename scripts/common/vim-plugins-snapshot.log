@@ -1,4 +1,4 @@
-ale//8c5081f6316183c97298ec4a819fd94c2a2a9516
+ale//c21d6afd2fb799013e3894d393bf976d9da31e65
 delimitMate//537a1da0fa5eeb88640425c37e545af933c56e1b
 fugitive-gitlab.vim//f3e56ff60fe3fb5ebc891cbe5fd12cd8c59ae6ef
 gv.vim//486b5c4e960d5ec9e79888939534b7b2fc7453ad
@@ -25,7 +25,7 @@ vim-gutentags//50705e8ebb7038b31314f416d1bddd9cb9154049
 vim-highlightedyank//931cc6bd53e4a1fdbe592751f0e13c0e401f0a49
 vim-javascript//3c90d0cc37bb8b78422f647e62587f498a5dd7bd
 vim-javascript-sql//698ad18c3aba2dc753b173344340bf63065ffb1e
-vim-js-file-import//fda47c90c195b4770b45787aa1638af37f0728c1
+vim-js-file-import//e4d8b57907bc76c94c62f6b0b26ba10cd9915ae1
 vim-jsx-pretty//6989f1663cc03d7da72b5ef1c03f87e6ddb70b41
 vim-merginal//7e1446614cdfb3a8eca621e5006631af72cda0f8
 vim-obsession//96a3f837c112cb64e0a9857b69f6d6a71041155e
