@@ -19,8 +19,9 @@ play_xclip() {
 }
 
 print_app_options () {
-echo "Browser:brave
-Incognito:brave --incognito
+echo "Librewolf:librewolf
+Incognito:librewolf --private-window
+Brave:brave
 TMUXNew:tmux_new
 TMUXAttach:tmux_attach
 PulseMixer:$TERMINAL -e pulsemixer
@@ -46,7 +47,6 @@ BM Type:bm type-ui
 BM Edit:bm edit-ui
 BM Add:bm add-ui
 ScreenCapture:screen-capture.sh menu
-Firefox:firefox
 LaunchTor:torbrowser-launcher
 Play WatchL:watch-later.sh play
 PlayXClip:play_xclip

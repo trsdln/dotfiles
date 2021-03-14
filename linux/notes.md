@@ -73,6 +73,12 @@ tar -xvzf <file.name>
 mimeopen -d $file.pdf
 ```
 
+# Change default browser
+
+```
+xdg-settings set default-web-browser firefox.desktop
+```
+
 # unrar usage
 
 ```
