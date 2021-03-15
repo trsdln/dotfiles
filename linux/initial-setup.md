@@ -396,4 +396,21 @@ createdb testdbname
 
 Connect to DB: `psql -d testdbname`
 
+## Librewolf
+
+Scroll speed (`about:config`):
+
+```
+mousewheel.min_line_scroll_amount: 20
+```
+
+Re-enable locale (`/usr/lib/librewolf/librewolf.cfg`):
+
+
+```
+lockPref("javascript.use_us_english_locale", false);
+lockPref("intl.regional_prefs.use_os_locales", true);
+# defaultPref("intl.locale.requested", "en-US");
+```
+
 ## Done!
